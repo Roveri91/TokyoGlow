@@ -1,0 +1,8 @@
+<div class="container">
+  <%= simple_form_for(@post) do |f| %>
+  <%= f.input :title %>
+  <%= f.input :content %>
+  <%= f.input :category, collection: ["General", "Food and Nutrition", "First Child", "Medical", "Event", "Recommendations", "Playdates"] %>
+  <%= f.submit %>
+  <% end %>
+</div>
