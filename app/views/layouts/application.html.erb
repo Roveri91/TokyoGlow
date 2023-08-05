@@ -5,13 +5,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
-
+    <%# 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Lobster&display=swap" rel="stylesheet">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Philosopher:ital,wght@0,400;0,700;1,400;1,700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Philosopher:ital,wght@0,400;0,700;1,400;1,700&display=swap" rel="stylesheet"> %>
     <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
     <%= javascript_tag %>
   </head>
@@ -21,8 +21,8 @@
       <%= render "shared/banner"%>
     </div>
     
-    <%= render "shared/flashes" %>
-    
+    <%# <%= render "shared/flashes" %>
+
     <%= yield %>
 
     <div class="fixed-bottom p-2 banner">
@@ -30,14 +30,7 @@
     </div>
   </body>
   <style>
-    h1,h2,h3,h4,h5 {
-      font-family: 'Lobster', cursive;
-      color:rgb(0, 68, 68);
-    }
-    p {
-      font-family: 'Philosopher', sans-serif;
-      color:rgb(0, 68, 68);
-    }
+    
     @media only screen and (max-width: 600px) {
       body{
       }
