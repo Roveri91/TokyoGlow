@@ -1,12 +1,15 @@
 class HospitalsController < ApplicationController
-  before_action :set_hospital, only: %i[show]
+  #pundit
+  # before_action :set_hospital, only: %i[show]
+
 
   def index
     @hospitals = Hospital.all
   end
 
   def show
-    authorize @hospital
+  #pundit
+    #authorize @hospital
   end
 
   private
