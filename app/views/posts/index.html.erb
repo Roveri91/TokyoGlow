@@ -1,0 +1,18 @@
+<div class="container">
+  <h1>Chatrooms</h1>
+
+  <div>
+    <% @posts.each do |post| %>
+      <div>
+        <small>
+          <strong><%= post.user.username %></strong>
+          <i><%= post.created_at.strftime("%a %b %e at %l:%M %p") %></i>
+        </small>
+        <p><%= post.title %></p>
+        <p><%= post.category %></p>
+
+        <%= link_to "See more", post_path(post), class: "btn btn-primary" %>
+      </div>
+    <% end %>
+  </div>
+</div>
