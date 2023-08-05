@@ -8,4 +8,5 @@ class User < ApplicationRecord
   has_many :events
   has_many :posts
   has_many :replies
+  validates :username, presence: true
 end
