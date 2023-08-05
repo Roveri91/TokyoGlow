@@ -13,18 +13,18 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Philosopher:ital,wght@0,400;0,700;1,400;1,700&display=swap" rel="stylesheet">
     <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
-    <%= javascript_importmap_tags %>
+    <%= javascript_tag %>
   </head>
 
   <body>
-    <div class="fixed-top">
-      <%= render "shared/banner"  %>
+    <div class="fixed-top d-flex justify-content-center p-2 banner">
+      <%= render "shared/banner"%>
     </div>
     
     <%= render "shared/flashes" %>
 
     <%= yield %>
-    <div class="fixed-bottom">
+    <div class="fixed-bottom p-2 banner">
       <%= render "shared/navbar"  %>
     </div>
   </body>
