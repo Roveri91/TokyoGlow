@@ -1,0 +1,13 @@
+<div>
+<h1>List of Hospitals</h1>
+<% @hospitals.each do |hospital| %>
+  <div class="card">
+    <%= image_tag hospital.default_image %>
+    <div class="card-container">
+      <h2>
+        <%= hosptial.name %>
+      </h2>
+    </div>
+  </div>
+<% end %>
+</div>
