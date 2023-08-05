@@ -34,17 +34,18 @@ puts "created user #{user.username}"
 puts "Building new hospitals. This could take a while..."
 
 hospital_image = "default_hospital_image.jpg"
+locations = %w[Tokyo Nakano Nogizaka Harajuku Shinjuku]
 
-hospital = Hospital.create!(name: "Tokyo Hospital", price_range: "10 - 1,000,000", services: "English speaking",
+hospital = Hospital.create!(name: "Tokyo Hospital", address:locations.sample, price_range: "10 - 1,000,000", services: "English speaking",
    description: "This is the hospital for you", average_rating: 3.2, phone_number: "070-0707-0707", default_image: hospital_image )
 puts "created #{hospital.name}"
 
 
-hospital = Hospital.create!(name: "Sanno Hospital", price_range: "20 - 30,000", services: "After child-care",
+hospital = Hospital.create!(name: "Sanno Hospital", address:locations.sample, price_range: "20 - 30,000", services: "After child-care",
     description: "The best hospital in Tokyo", average_rating: 4.5, phone_number: "123-4567-8901", default_image: hospital_image )
 puts "created #{hospital.name}"
 
-hospital = Hospital.create!(name: "Imperial Hospital", price_range: "100 - 10,000,000", services: "Servants on hand 24/7",
+hospital = Hospital.create!(name: "Imperial Hospital", address:locations.sample, price_range: "100 - 10,000,000", services: "Servants on hand 24/7",
       description: "Hospital for Emperors", average_rating: 2.7, phone_number: "432-6534-6534", default_image: hospital_image )
 puts "created #{hospital.name}"
 
