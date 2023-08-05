@@ -1,18 +1,43 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>TokyoGlow2</title>
+    <title>TokyoGlow</title>
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lobster&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Philosopher:ital,wght@0,400;0,700;1,400;1,700&display=swap" rel="stylesheet">
     <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
-    <%= javascript_include_tag "application", "data-turbo-track": "reload", defer: true %>
+    <%= javascript_importmap_tags %>
   </head>
 
-  <body><%= render "shared/navbar" %>
-<%= render "shared/flashes" %>
+  <body>
+    <div class="fixed-top">
+      <%= render "shared/banner"  %>
+    </div>
+    
+    <%= render "shared/flashes" %>
 
     <%= yield %>
+    <div class="fixed-bottom">
+      <%= render "shared/navbar"  %>
+    </div>
   </body>
+  <style>
+    h1,h2,h3,h4,h5 {
+      font-family: 'Lobster', cursive;
+    }
+    p {
+      font-family: 'Philosopher', sans-serif;
+    }
+    @media only screen and (max-width: 600px) {
+      body{
+      }
+    }
+  </style>
 </html>
