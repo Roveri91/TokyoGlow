@@ -1,6 +1,6 @@
 class PostsController < ApplicationController
   def index
-    @posts = Post.all
+    @posts = policy_scope(Post).all
   end
 
   def show
@@ -9,6 +9,7 @@ class PostsController < ApplicationController
 
   def new
     @post = Post.new
+    authorize @post
   end
 
   def create
@@ -16,6 +17,7 @@ class PostsController < ApplicationController
     # @post.user = current_user
     # @post.save!
     @post = current_user.posts.create(post_params)
+    @post.user = current_user
     redirect_to posts_path
   end
 

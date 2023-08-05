@@ -4,6 +4,9 @@ class ApplicationController < ActionController::Base
   
   # include Pundit::Authorization
 
+  include Pundit::Authorization
+  # ccd0eb6f233c4e9708664a7a4bda60f47bf95d2f
+
   # Pundit: allow-list approach
   after_action :verify_authorized, except: :index, unless: :skip_pundit?
   after_action :verify_policy_scoped, only: :index, unless: :skip_pundit?
@@ -17,7 +20,7 @@ class ApplicationController < ActionController::Base
   def configure_permitted_parameters
     devise_parameter_sanitizer.permit(:sign_up, keys: [:username])
   end
-  
+
   private
 
   def skip_pundit?
