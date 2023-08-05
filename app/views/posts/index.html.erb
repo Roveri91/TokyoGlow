@@ -1,5 +1,6 @@
 <div class="container">
   <h1>Chatrooms</h1>
+  <%= link_to "Post Something", new_post_path, class: "btn btn-primary" %>
 
   <div>
     <% @posts.each do |post| %>
