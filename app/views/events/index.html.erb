@@ -1,0 +1,18 @@
+<h1> Events </h1>
+
+<div>
+  <% @events.each do |event| %>
+    <%# <%= render event %>
+    <h3> <%= event.title%> </h3>
+    <p> Description: <%= event.content%> </p>
+    <p> Location: <%= event.location%> </p>
+    <p> Date: <%= event.date%> </p>
+    <p>
+      <%= link_to "More info", event %>
+    </p>
+    <% end %>
+</div>
+
+  <% if policy(Event).new?%>
+    <%= link_to "New event", new_event_path %>
+  <% end %>
