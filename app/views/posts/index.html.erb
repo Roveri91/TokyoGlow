@@ -10,7 +10,7 @@
           <i><%= post.created_at.strftime("%a %b %e at %l:%M %p") %></i>
         </small>
         <p><%= post.title %></p>
-        <p><%= post.category %></p>
+        <p>Category: <%= post.category %></p>
 
         <%= link_to "See more", post_path(post), class: "btn btn-primary" %>
       </div>
