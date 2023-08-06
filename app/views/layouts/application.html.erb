@@ -17,16 +17,17 @@
   </head>
 
   <body>
-    <div class="fixed-top d-flex justify-content-center p-2 banner">
-      <%= render "shared/banner"%>
-    </div>
+    <div class="">
+      <div class="fixed-top d-flex justify-content-center p-2 banner">
+        <%= render "shared/banner"%>
+      </div>
     
-    <%# <%= render "shared/flashes" %>
+      <%# <%= render "shared/flashes" %> 
+      <%= yield %>
 
-    <%= yield %>
-
-    <div class="fixed-bottom p-2 banner">
-      <%= render "shared/navbar"  %>
+      <div class="fixed-bottom p-2 banner">
+        <%= render "shared/navbar"  %>
+      </div>
     </div>
   </body>
   <style>

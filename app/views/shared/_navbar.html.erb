@@ -1,7 +1,7 @@
 <div class="d-flex justify-content-around">
   <% if user_signed_in? %>
-    <%# user/sing out %>
-    <%= link_to destroy_user_session_path, method: :delete do %>
+    <%# Progile %>
+    <%= link_to user_path(:id) do %>
       <div class="icon-border p-4">
         <i class="fa-solid fa-user fa-xl" style="color: #004444;"></i>
       </div>

@@ -1,7 +1,13 @@
 <%# <% hash = {} %>
 <% if request.path == "/" %> 
   <h1>TokyoGlow</h1>
-<% elsif request.path == "/users/sign_in" %> 
-  <h1>Sign in</h1>
+<% elsif request.path.include? "hospital" %>
+  <h1>Hospitals</h1>
+<% elsif request.path.include? "post" %>
+  <h1>Posts</h1>
+<% elsif request.path.include? "calendar" %>
+  <h1>Calendar</h1>  
+<% elsif request.path.include? "user" %> 
+  <h1>Profile</h1>
 <% end %>
 
