@@ -7,7 +7,7 @@ Rails.application.routes.draw do
   # Defines the root path route ("/")
   # root "articles#index"
 
-  get 'users/:id/calendar' => 'users#calendar'
+  get '/users/:id/calendar', to: 'users#calendar', as: 'calendar'
   resources :users, only: [:show]
   resources :hospitals, only: [:index, :show]
   resources :events, only: [:index, :show, :new, :update, :destroy]

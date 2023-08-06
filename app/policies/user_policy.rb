@@ -8,4 +8,8 @@ class UserPolicy < ApplicationPolicy
   def show?
     return record.id == user.id
   end
+
+  def calendar?
+    return record.id == user.id
+  end
 end
