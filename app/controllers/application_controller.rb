@@ -1,8 +1,11 @@
 class ApplicationController < ActionController::Base
   before_action :authenticate_user!
   before_action :configure_permitted_parameters, if: :devise_controller?
+  
+  # include Pundit::Authorization
 
   include Pundit::Authorization
+  # ccd0eb6f233c4e9708664a7a4bda60f47bf95d2f
 
   # Pundit: allow-list approach
   after_action :verify_authorized, except: :index, unless: :skip_pundit?
