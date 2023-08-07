@@ -3,6 +3,9 @@ class EventsController < ApplicationController
 
   def index
     @events = policy_scope(Event).all
+    if params[:query].present?
+      @events = Event.search_by_title_and_content_and_location_and_date(params[:query])
+    end
   end
 
   def show
