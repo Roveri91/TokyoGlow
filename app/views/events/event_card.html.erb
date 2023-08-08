@@ -1,22 +1,17 @@
-<div class="col-lg-3">
-<div class="card-event">
-  <div class = "m-3 p-2">
-    <h2><%= event.title %></h2>
-    <%= event.location%>
-    <div class="img mx-auto">
-      <%# <%= cl_image_tag(booking.job.photo.key, style: 'width:210px;height:150px;', class: 'rounded-4') %> %>
+<div class="py-2 mb-5">
+  <%# <div class="row justify-content-between"> %>
+  <% @events.each do |event| %>
+    <div class="container">
+      <div class="card ">
+        <%= image_tag("yoga_event_sample.jpeg", alt: "Yoga at the park", class: "card-img-top mx-auto py-3", style: "width: 250px; height: auto;") %>
+        <div class="card-container py-3">
+          <h3> <%= event.title%> </h3>
+          <p> <%= event.content%> </p>
+          <p> Location: <%= event.location%> </p>
+          <p> Date: <%= event.date%> </p>
+          <p> <%= link_to "See more", event_path(id: event.id) %> </p>
+        </div>
+      </div>
     </div>
-
-  </div>
-  <div class="card-event-info m-3 p-2">
-    Date: <%= event.date %>
-  </div>
-  <div class="card-event-info m-3 p-2">
-    Description: <%= event.description %>
-  </div>
-  <div class="card-event-info m-3 p-2">
-    Name: <%= %>
-    </div>
-  </div>
-  </div>
+  <% end %>
 </div>
