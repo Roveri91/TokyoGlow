@@ -1,3 +1,42 @@
 <div class="card-container">
-  <h1 style="margin: 70px;">This is the title for testing</h1>
+  <h1 style="margin: 70px;"><%= @hospital.name %></h1>
+  <div class="card">
+    <%# <div class="hospital-show-image"> %>
+      <%# <%= image_tag @hospital.default_image %>
+    <%# </div> %>
+    <div>
+    <%= @hospital.address %>
+    </div>
+    <div>
+    <%= @hospital.price_range %>
+    </div>
+    <div>
+    <%= @hospital.services %>
+    </div>
+    <div>
+    <%= @hospital.description %>
+    </div>
+    <div>
+    <%= @hospital.average_rating %>
+    </div>
+    <div>
+    <%= @hospital.phone_number %>
+    </div>
+    <div>
+    <%= @hospital.webpage %>
+    </div>
+  </div>
 </div>
+
+
+<%# t.string "name"
+    t.string "address"
+    t.string "price_range"
+    t.text "services"
+    t.text "description"
+    t.float "average_rating"
+    t.string "phone_number"
+    t.string "webpage"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.string "default_image" %>
