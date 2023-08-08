@@ -26,6 +26,7 @@ class PostsController < ApplicationController
   def destroy
     @post = Post.find(params[:id])
     @post.destroy
+    authorize @post
     redirect_to posts_path
   end
 
