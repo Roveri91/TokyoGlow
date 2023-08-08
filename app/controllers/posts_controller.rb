@@ -19,6 +19,7 @@ class PostsController < ApplicationController
     # @post.save!
     @post = current_user.posts.create(post_params)
     @post.user = current_user
+    authorize @post
     redirect_to posts_path
   end
 
