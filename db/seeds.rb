@@ -24,7 +24,7 @@ user = User.create!(email: "tennyma@gmail.com", password: "123456", username: "T
 users << user
 puts "created user #{user.username}"
 
-user = User.create!(email: "jonnySùmmith@gmail.com", password: "123456", username: "Jonny", due_date: "2023-12-03")
+user = User.create!(email: "jonnysmith@gmail.com", password: "123456", username: "Jonny", due_date: "2023-12-03")
 users << user
 puts "created user #{user.username}"
 
