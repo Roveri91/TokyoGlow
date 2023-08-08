@@ -2,10 +2,33 @@
 
 <%# <%= render @event %>
 
-</div>
-  <% if policy(@event).edit? %>
-    <%= link_to "Edit this event", edit_event_path(@event) %>
+
+<div class="py-2 mb-5">
+  <%# <div class="row justify-content-between"> %>
+  <% @events.each do |event| %>
+    <div class="container">
+      <div class="card ">
+        <%= image_tag("yoga_event_sample.jpeg", alt: "Yoga at the park", class: "card-img-top mx-auto py-3", style: "width: 250px; height: auto;") %>
+        <div class="card-container py-3">
+          <h3> <%= event.title%> </h3>
+          <p> <%= event.content%> </p>
+          <p> Location: <%= event.location%> </p>
+          <p> Date: <%= event.date%> </p>
+          <p> <%= link_to "See more", event_path(id: event.id) %> </p>
+        </div>
+      </div>
+    </div>
   <% end %>
+</div>
+
+
+
+
+
+<%# </div>
+  <% if policy(@event).edit? %>
+    <%# <%=  link_to "Edit this event", edit_event_path(@event) %>
+  <%# <% end %>
 
   <%= link_to "Back to events", events_path %>
 

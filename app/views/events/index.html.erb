@@ -1,18 +1,40 @@
-<h1> Events </h1>
+  <center> <h1> Upcoming events </h1></center>
 
-<div>
-  <% @events.each do |event| %>
-    <%# <%= render event %>
-    <h3> <%= event.title%> </h3>
-    <p> Description: <%= event.content%> </p>
-    <p> Location: <%= event.location%> </p>
-    <p> Date: <%= event.date%> </p>
-    <p>
-      <%= link_to "More info", event %>
-    </p>
+<div class="row justify-content-center">
+  <div class="col-sm-8 my-3">
+    <%= form_with url: events_path, method: :get, class: "d-flex my-3" do %>
+      <%= text_field_tag :query,
+          params[:query],
+          class: "form-control",
+          placeholder: "park, ice cream, yoga"
+        %>
+      <%= submit_tag "Search", name: "", class: "btn-hire" %>
     <% end %>
+
+    </div>
+  </div>
 </div>
 
+<div class="d-flex justify-content-center">
   <% if policy(Event).new?%>
-    <%= link_to "New event", new_event_path %>
+    <%= link_to "Make an event", new_event_path, class: "btn-submit" %>
   <% end %>
+</div>
+
+<div class="py-2 mb-5">
+  <%# <div class="row justify-content-between"> %>
+  <% @events.each do |event| %>
+    <div class="container">
+      <div class="card ">
+        <%= image_tag("yoga_event_sample.jpeg", alt: "Yoga at the park", class: "card-img-top mx-auto py-3", style: "width: 250px; height: auto;") %>
+        <div class="card-container py-3">
+          <h3> <%= event.title%> </h3>
+          <p> <%= event.content%> </p>
+          <p> Location: <%= event.location%> </p>
+          <p> Date: <%= event.date%> </p>
+          <p> <%= link_to "See more", event_path(id: event.id) %> </p>
+        </div>
+      </div>
+    </div>
+  <% end %>
+</div>
