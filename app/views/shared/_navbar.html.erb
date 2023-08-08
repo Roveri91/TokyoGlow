@@ -1,7 +1,7 @@
 <div class="d-flex justify-content-around">
   <% if user_signed_in? %>
     <%# Progile %>
-    <%= link_to user_path(:id) do %>
+    <%= link_to user_path(current_user) do %>
       <div class="icon-border p-4">
         <i class="fa-solid fa-user fa-xl" style="color: #004444;"></i>
       </div>
@@ -25,7 +25,7 @@
       </div>
     <% end %>
     <%# calendar %>
-    <%= link_to calendar_path(:id) do %>
+     <%= link_to calendar_path(:id) do %> 
       <div class="icon-border p-4">
         <i class="fa-solid fa-calendar-days fa-xl" style="color: #004444;"></i>
       </div>
