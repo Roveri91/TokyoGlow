@@ -7,7 +7,8 @@ class HospitalsController < ApplicationController
   end
 
   def show
-    @post = Post.all
+    @hospital = Hospital.find(params[:id])
+    # @post = Post.all
     authorize @hospital
   end
 
