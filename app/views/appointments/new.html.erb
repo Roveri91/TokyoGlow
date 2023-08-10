@@ -1,0 +1,17 @@
+<div class="my-5 py-5">
+
+  <h1 class="text-center">Add to <%= current_user.username %>`s calendar</h1>
+  
+  <div class="p-5">
+    <%= simple_form_for [@hospital, @appointment] do |f| %>
+      <%= f.input :title, label: 'Title' %>
+      <%= f.input :purpose, label: 'Purpose' %>
+      <%= f.input :notes, label: 'Notes' %>
+      <%= f.input :date, label:'Date', html5: true%>
+      <%= f.input :time, label:'Time'%>
+      <%# t.time %>
+      <%= f.button :submit, class:"btn btn-hire" %>
+    <% end %>
+  </div>
+
+</div>

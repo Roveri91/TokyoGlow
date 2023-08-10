@@ -1,4 +1,4 @@
-<div class="py-5 my-5">
+<div class="container py-5 my-5">
   <div class="container">
     <%= simple_form_for(@post) do |f| %>
     <%= f.input :title %>
@@ -6,5 +6,6 @@
     <%= f.input :category, collection: ["General", "Food and Nutrition", "First Child", "Medical", "Event", "Recommendations", "Playdates"] %>
     <%= f.submit %>
     <% end %>
+    <%= link_to "Return to Posts", posts_path, class: "btn btn-success w-100 rounded my-2" %>
   </div>
 </div>

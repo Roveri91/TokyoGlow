@@ -1,5 +1,19 @@
 <div class="container py-5 my-5">
-  <%= link_to "Post Something", new_post_path, class: "btn btn-primary" %>
+
+<div class="row justify-content-center">
+  <div class="col-sm-8 my-2">
+    <%= form_with url: posts_path, method: :get, class: "d-flex" do %>
+      <%= text_field_tag :query,
+            params[:query],
+            class: "form-control",
+            placeholder: "Search for categories, authors, keywords"
+        %>
+      <%= submit_tag "Search", name: "", class: "btn btn-warning" %>
+    <% end %>
+  </div>
+</div>
+
+  <%= link_to "Post Something!", new_post_path, class: "btn btn-success w-100 rounded" %>
 
   <div>
     <% @posts.each do |post| %>
@@ -11,7 +25,8 @@
         <p><%= post.title %></p>
         <p>Category: <%= post.category %></p>
 
-        <%= link_to "See more", post_path(post), class: "btn btn-primary" %>
+        <%= link_to "See details and replies", post_path(post), class: "btn btn-primary" %>
+        <hr/>
       </div>
     <% end %>
   </div>

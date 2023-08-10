@@ -1,13 +1,21 @@
 class PostsController < ApplicationController
   def index
     @posts = policy_scope(Post).all
+    if params[:query].present?
+      sql_subquery = <<~SQL
+      posts.content ILIKE :query
+      OR posts.title ILIKE :query
+      OR posts.category ILIKE :query
+      OR users.username ILIKE :query
+    SQL
+    @posts = @posts.joins(:user).where(sql_subquery, query: "%#{params[:query]}%")
+    end
   end
 
   def show
     @post = Post.find(params[:id])
     authorize @post
     @reply = Reply.new
-
   end
 
   def new

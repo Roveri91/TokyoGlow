@@ -1,4 +1,10 @@
 class RepliesController < ApplicationController
+
+  def new
+    @reply = Reply.new
+    authorize @reply
+  end
+
   def create
     @post = Post.find(params[:post_id])
     @reply = Reply.new(reply_params)
@@ -10,6 +16,13 @@ class RepliesController < ApplicationController
     else
       render "post/show", status: :unprocessable_entity
     end
+  end
+
+  def destroy
+    @reply = Reply.find(params[:id])
+    @reply.destroy
+    authorize @reply
+    redirect_to post_path(@reply.post)
   end
 
   private
