@@ -6,6 +6,8 @@
 #   movies = Movie.create([{ name: "Star Wars" }, { name: "Lord of the Rings" }])
 #   Character.create(name: "Luke", movie: movies.first)
 
+puts "Destroying all the replies"
+Reply.delete_all
 
 puts "Destroying all the posts"
 Post.delete_all
