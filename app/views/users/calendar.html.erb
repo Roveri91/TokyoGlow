@@ -1,7 +1,8 @@
 <div class="my-5 py-5">
-  <h1>Users#calendar</h1>
-  <p>Find me in app/views/users/calendar.html.erb</p>
+  <h1 class="text-center"><%= current_user.username %>`s calendar</h1>
+
+
   <%= month_calendar do |date| %>
-    <%= date %>
+    <p class="px-2"><%= date.day%></p>
   <% end %>
 </div>
