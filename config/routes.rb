@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
+  get 'reviews/new'
   get 'appointments/new'
+
   devise_for :users
   root to: "pages#home"
 
@@ -10,9 +12,11 @@ Rails.application.routes.draw do
 
   get '/users/:id/calendar', to: 'users#calendar', as: 'calendar'
   resources :users, only: [:show]
-  resources :hospitals, only: [:index, :show] do 
+  resources :hospitals, only: [:index, :show] do
+    resources :reviews, only: [:create]
     resources :appointments, only: [:new, :create]
   end
+  
   resources :events, only: [:index, :show, :new, :update, :destroy]
   resources :posts, only: [:index, :show, :new, :create, :destroy]
   resources :posts, only: [:index, :new, :create, :destroy]

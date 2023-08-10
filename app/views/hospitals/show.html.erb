@@ -1,4 +1,5 @@
 <div class="card-container">
+ 
   <div class= "">                       
   <h1 style="margin-top: 70px;"><%= @hospital.name %></h1>
     <%= link_to "Add Appointment to calendar",  new_hospital_appointment_path(@hospital) %>
@@ -29,13 +30,26 @@
     <p>Website: <%= @hospital.webpage %></p>
     </div>
   </div>
-  <h1>Reviews</h1>
-  <div class="card">
-  <p>reviews go here</p>
-  <p>and here</p>
-  <p>and here</p>
-  <p>and here</p>
-  <p>and here</p>
-  <p>and here</p>
+  
+<h1>Reviews</h1>
+  <% @hospital.reviews.each do |review| %>
+  <div class="card-container">
+   <div class="card">
+      <div>
+        <%= review.title %>
+        <%= review.rating %>
+     </div>
+      <div>
+        <%= review.comment %>
+      </div>
+    </div>
   </div>
-</div>
+  <% end %>
+
+  <%= simple_form_for [@hospital, @review] do |f| %>
+  <%= f.input :title %>
+  <%= f.input :comment %>
+  <%= f.input :rating, as: :numeric %>
+  <%= f.submit "Submit review", class: "btn btn-primary" %>
+  <% end %>
+
