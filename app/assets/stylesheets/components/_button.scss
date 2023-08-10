@@ -38,3 +38,24 @@ button:hover > a {
 #delete-btn {
   color: pink;
 }
+
+.back-button-wrapper {
+  a {
+    color: white;
+    text-decoration: none;
+    border: outset 2px black;
+    background-color: blue;
+    padding: 2px;
+    padding: 8px 24px;
+    border-radius: 4px;
+  }
+}
+
+.delete-button-wrapper {
+  button {
+    color: black;
+    background: red;
+    padding: 8px 24px;
+    border-radius: 4px;
+  }
+}

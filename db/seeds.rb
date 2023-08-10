@@ -24,7 +24,7 @@ user = User.create!(email: "tennyma@gmail.com", password: "123456", username: "T
 users << user
 puts "created user #{user.username}"
 
-user = User.create!(email: "jonnySùmmith@gmail.com", password: "123456", username: "Jonny", due_date: "2023-12-03")
+user = User.create!(email: "jonnysmith@gmail.com", password: "123456", username: "Jonny", due_date: "2023-12-03")
 users << user
 puts "created user #{user.username}"
 
@@ -55,7 +55,7 @@ puts "created #{hospital.name}"
 
 
 hospital = Hospital.create!(name: "Sanno Hospital", address:locations.sample, price_range: "20 - 30,000", services: "After child-care",
-    description: "The best hospital in Tokyo", average_rating: 4.5, phone_number: "123-4567-8901", default_image: hospital_image )
+    description: "The best hospital in Tokyo with a really long description so I can see how long it looks on the index page. But actually it needs to be a little bit longer so it goes beyond the card", average_rating: 4.5, phone_number: "123-4567-8901", default_image: hospital_image )
 puts "created #{hospital.name}"
 
 hospital = Hospital.create!(name: "Imperial Hospital", address:locations.sample, price_range: "100 - 10,000,000", services: "Servants on hand 24/7",

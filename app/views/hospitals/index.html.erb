@@ -22,14 +22,16 @@
             <h2><%= hospital.name %></h2>
             <span><%= hospital.average_rating %><i class="fa-solid fa-star" style="color: gold;"></i></span>
           </div>
-          <h3><%=hospital.address %></h3>
+          <div class="hospital-header">
+            <h3><%=hospital.address %></h3>
+            <%= link_to "View hospital", hospital_path(hospital), class: "btn btn-hire" %>
+          </div>
           <%#h5>
             <%= hospital.services %>
           <%# </h5> %>
           <div class="card-border">
             <p class="<%= hospital.description.length > 100 ? 'hospital-description' : '' %>"><%= hospital.description %></p>
           </div>
->>>>>>> master
         </div>
       </div>
     </div>
