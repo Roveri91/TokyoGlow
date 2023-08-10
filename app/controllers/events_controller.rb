@@ -24,18 +24,21 @@ class EventsController < ApplicationController
     authorize @event
 
     if @event.save
-      redirect_to @event, notice: 'Event was successfully created.'
+      redirect_to event_path(@event), notice: 'Event was successfully created.'
     # else
-    # render
+    #   render :new
     end
   end
 
   def update
     @event = Event.find(params[:id])
-    if @event.update(event_params)
-      redirect_to @event, notice: 'Event was successfully updated.'
+    if params[:event][:status] == 'accepted' && @event.update(status: 1)
+      redirect_to @event
+    elsif params[:event][:status] == 'rejected' && @event.update(status: 2)
+      redirect_to @event
     # else
-    # render
+    # render notice: 'Event was successfully updated.'
+        # if @event.update(event_params)
     end
   end
 
@@ -44,8 +47,9 @@ class EventsController < ApplicationController
   end
 
   def destroy
+    @event = Event.find(params[:id])
     @event.destroy
-    redirect_to @events_url, notice: "Event was succesfully deleted."
+    redirect_to events_path, notice: "Event was succesfully deleted."
   end
 
   def pending?
@@ -59,6 +63,6 @@ class EventsController < ApplicationController
   end
 
   def event_params
-    params.require(:event).permit(:status, :title, :content, :date, :location, :time)
+    params.require(:event).permit(:status, :title, :content, :date, :location, :time, :photo)
   end
 end

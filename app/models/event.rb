@@ -2,7 +2,7 @@ class Event < ApplicationRecord
   belongs_to :user
   has_many :attendants
 
-  enum :status, { pending: 0, confirmed: 1, rejected: 2 }
+  enum :status, { pending: 0, attending: 1, declined: 2 }, _default: 0
 
   include PgSearch::Model
   pg_search_scope :search_by_title_and_content_and_location_and_date,
