@@ -5,7 +5,7 @@
 #
 #   movies = Movie.create([{ name: "Star Wars" }, { name: "Lord of the Rings" }])
 #   Character.create(name: "Luke", movie: movies.first)
-require 'faker'
+# require 'faker'
 
 puts "Destroying all the posts"
 Post.delete_all
@@ -64,20 +64,20 @@ puts "created #{hospital.name}"
 
 puts "Done! Thank you for your patience."
 
-puts 'Creating 20 fake events...'
-20.times do
-  event = Event.new(
-    title: Faker::Hobby.activity,
-    content: Faker::Quote.most_interesting_man_in_the_world,
-    date: Faker::Date.forward(days: 23),
-    time: Faker::Time.between(from: DateTime.now - 1, to: DateTime.now, format: :short),
-    location: "#{Faker::Address.street_address}, #{Faker::Address.city}"
-    # photo:
-  )
-  image_url = Faker::LoremPixel.image(size: "300x200")
-  event.image.attach(io: URI.open(image_url), filename: 'image.jpg')  # Attach the image to the event
+# puts 'Creating 20 fake events...'
+# 20.times do
+#   event = Event.new(
+#     title: Faker::Hobby.activity,
+#     content: Faker::Quote.most_interesting_man_in_the_world,
+#     date: Faker::Date.forward(days: 23),
+#     time: Faker::Time.between(from: DateTime.now - 1, to: DateTime.now, format: :short),
+#     location: "#{Faker::Address.street_address}, #{Faker::Address.city}"
+#     # photo:
+#   )
+#   photo = Faker::LoremPixel.image(size: "300x200")
+#   event.image.attach(io: URI.open(photo), filename: 'image.jpg')  # Attach the image to the event
 
-  event.save!
-end
+#   event.save!
+# end
 
-puts 'Finished!'
+# puts 'Finished!'
