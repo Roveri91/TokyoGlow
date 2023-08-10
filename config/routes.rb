@@ -12,13 +12,11 @@ Rails.application.routes.draw do
 
   get '/users/:id/calendar', to: 'users#calendar', as: 'calendar'
   resources :users, only: [:show]
+  resources :events, only: [:index, :show, :new, :create, :update, :destroy]
   resources :hospitals, only: [:index, :show] do
     resources :reviews, only: [:create]
     resources :appointments, only: [:new, :create]
   end
-  
-  resources :events, only: [:index, :show, :new, :update, :destroy]
-  resources :posts, only: [:index, :show, :new, :create, :destroy]
   resources :posts, only: [:index, :new, :create, :destroy]
   resources :replies, only: :destroy
   resources :posts, only: :show do

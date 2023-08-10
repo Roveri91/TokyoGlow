@@ -1,7 +1,9 @@
-  <center> <h1> Upcoming events </h1></center>
+<div class="py-4 mb-2">
+ <center> <h1 > Upcoming events </h1></center>
+</div>
 
 <div class="row justify-content-center">
-  <div class="col-sm-8 my-3">
+   <div class="col-sm-8 my-3">
     <%= form_with url: events_path, method: :get, class: "d-flex my-3" do %>
       <%= text_field_tag :query,
           params[:query],
@@ -28,13 +30,15 @@
       <div class="card ">
         <%= image_tag("yoga_event_sample.jpeg", alt: "Yoga at the park", class: "card-img-top mx-auto py-3", style: "width: 250px; height: auto;") %>
         <div class="card-container py-3">
-          <h3> <%= event.title%> </h3>
-          <p> <%= event.content%> </p>
-          <p> Location: <%= event.location%> </p>
-          <p> Date: <%= event.date%> </p>
+          <h3> <%= event.title%>: <%= event.content%> </h3>
+          <p> Hosted by: <%= event.user.username %>
+          <%# <p> <i class="fa-regular fa-location-dot"></i>: <%= event.location%> </p>
+          <p> <i class="fa-solid fa-calendar-days"></i> <%= event.date.strftime('%B %d')%> at <%= event.time.strftime('%H:%M') %> JST </p>
+          <p> <i class="fa-regular fa-circle-check"></i> 9 going&nbsp;&nbsp; <i class="fa-regular fa-ticket"></i>Free</p>
           <p> <%= link_to "See more", event_path(id: event.id) %> </p>
         </div>
       </div>
     </div>
   <% end %>
+
 </div>
