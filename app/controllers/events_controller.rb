@@ -21,7 +21,6 @@ class EventsController < ApplicationController
   def create
     @event = Event.new(event_params)
     @event.user = current_user
-
     authorize @event
 
     if @event.save
@@ -32,6 +31,7 @@ class EventsController < ApplicationController
   end
 
   def update
+    @event = Event.find(params[:id])
     if @event.update(event_params)
       redirect_to @event, notice: 'Event was successfully updated.'
     # else
@@ -48,6 +48,9 @@ class EventsController < ApplicationController
     redirect_to @events_url, notice: "Event was succesfully deleted."
   end
 
+  def pending?
+    status == 'pending'
+  end
   private
 
   def set_event
@@ -56,6 +59,6 @@ class EventsController < ApplicationController
   end
 
   def event_params
-    params.require(:event).permit(:title, :content, :date, :location, :time)
+    params.require(:event).permit(:status, :title, :content, :date, :location, :time)
   end
 end

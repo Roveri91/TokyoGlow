@@ -2,33 +2,47 @@
 
 <%# <%= render @event %>
 
+<h1 style="font-family: Allan; font-style: italic"> <%= @event.title %>  </h1>
+<div class="d-flex flex-row justify-content-center">
+  <div class="form-background col-8 border border-5 rounded-4 p-5 ">
+    <div class="d-flex">
+      <div class="col-8">
+        <div class="icon-container">
+          <%= image_tag("yoga_event_sample.jpeg", alt: "Yoga at the park", class: "card-img-top mx-auto", style: "width: 250px; height: auto;") %>
 
-<div class="py-2 mb-5">
-  <%# <div class="row justify-content-between"> %>
-  <% @events.each do |event| %>
-    <div class="container">
-      <div class="card ">
-        <%= image_tag("yoga_event_sample.jpeg", alt: "Yoga at the park", class: "card-img-top mx-auto py-3", style: "width: 250px; height: auto;") %>
-        <div class="card-container py-3">
-          <h3> <%= event.title%> </h3>
-          <p> <%= event.content%> </p>
-          <p> Location: <%= event.location%> </p>
-          <p> Date: <%= event.date%> </p>
-          <p> <%= link_to "See more", event_path(id: event.id) %> </p>
+          <h5> <i class="fa-solid fa-location-dot"></i> <%= @event.location %> </h5>
+            <p> <i class="fa-regular fa-clock"></i> <%= @event.date.strftime('%B %d, %Y') %> </p>
+            <h3>
+              <%# <%= @event.title %>
+              <%= @event.content %>
+            </h3>
+            <p> Hosted by <%= @event.user.username %>
+            <p> Attendees: 15 </p>
+                  </div>
+      </div>
+
         </div>
+        <% if @event.user != current_user %>
+          <div class="border border-2 p-4 rounded-4">
+              <%# <%= render "shared/form" %>
+          </div>
+        <% end %>
+  <div class="d-flex">
+    <%= simple_form_for @event do |f| %>
+      <%= f.input :status, as: :hidden, input_html: { value: 'accepted'} %>
+      <%= f.submit 'Attending', class: 'btn btn-submit' %>
+      <% end %>
+  </div>
       </div>
     </div>
-  <% end %>
+  </div>
 </div>
-
-
-
-
 
 <%# </div>
   <% if policy(@event).edit? %>
     <%# <%=  link_to "Edit this event", edit_event_path(@event) %>
   <%# <% end %>
+
 
   <%= link_to "Back to events", events_path %>
 
