@@ -1,5 +1,8 @@
 <div class="card-container">
+  <div class= "">                       
   <h1 style="margin-top: 70px;"><%= @hospital.name %></h1>
+    <%= link_to "Add Appointment to calendar",  new_hospital_appointment_path(@hospital) %>
+  </div>
     <div >
       <%= image_tag @hospital.default_image, class:"hospital-show-image" %>
     </div>
@@ -36,16 +39,3 @@
   <p>and here</p>
   </div>
 </div>
-
-
-<%# t.string "name"
-    t.string "address"
-    t.string "price_range"
-    t.text "services"
-    t.text "description"
-    t.float "average_rating"
-    t.string "phone_number"
-    t.string "webpage"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.string "default_image" %>

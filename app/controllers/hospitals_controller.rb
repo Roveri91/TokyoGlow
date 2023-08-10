@@ -4,11 +4,13 @@ class HospitalsController < ApplicationController
 
   def index
     @hospitals = policy_scope(Hospital).all
+    if params[:query].present?
+      @events = Event.search_by_name_and_address_and_price_range_and_description(params[:query])
+    end
   end
 
   def show
     @hospital = Hospital.find(params[:id])
-    # @post = Post.all
     authorize @hospital
   end
 

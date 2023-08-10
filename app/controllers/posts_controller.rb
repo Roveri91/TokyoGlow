@@ -5,6 +5,9 @@ class PostsController < ApplicationController
 
   def show
     @post = Post.find(params[:id])
+    authorize @post
+    @reply = Reply.new
+
   end
 
   def new
@@ -18,12 +21,14 @@ class PostsController < ApplicationController
     # @post.save!
     @post = current_user.posts.create(post_params)
     @post.user = current_user
+    authorize @post
     redirect_to posts_path
   end
 
   def destroy
     @post = Post.find(params[:id])
     @post.destroy
+    authorize @post
     redirect_to posts_path
   end
 
