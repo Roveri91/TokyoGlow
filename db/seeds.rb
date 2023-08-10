@@ -55,7 +55,6 @@ hospital = Hospital.create!(name: "Tokyo Hospital", address:locations.sample, pr
    description: "This is the hospital for you", average_rating: 3.2, phone_number: "070-0707-0707", default_image: hospital_image )
 puts "created #{hospital.name}"
 
-
 hospital = Hospital.create!(name: "Sanno Hospital", address:locations.sample, price_range: "20 - 30,000", services: "After child-care",
     description: "The best hospital in Tokyo with a really long description so I can see how long it looks on the index page. But actually it needs to be a little bit longer so it goes beyond the card", average_rating: 4.5, phone_number: "123-4567-8901", default_image: hospital_image )
 puts "created #{hospital.name}"

@@ -1,4 +1,10 @@
 class RepliesController < ApplicationController
+
+  def new
+    @reply = Reply.new
+    authorize @reply
+  end
+
   def create
     @post = Post.find(params[:post_id])
     @reply = Reply.new(reply_params)
