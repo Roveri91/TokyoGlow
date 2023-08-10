@@ -32,6 +32,7 @@
               <i><%= reply.created_at.strftime("%a %b %e at %l:%M %p") %></i>
             </small>
             <p><%= reply.content %></p>
+          <div class="delete-button-wrapper mt-3"> <%= button_to "Destroy this reply", reply, method: :delete if policy(reply).destroy? %></div>
         <% end %>
       </div>
   </div>

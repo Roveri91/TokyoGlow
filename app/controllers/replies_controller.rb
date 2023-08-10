@@ -18,6 +18,13 @@ class RepliesController < ApplicationController
     end
   end
 
+  def destroy
+    @reply = Reply.find(params[:id])
+    @reply.destroy
+    authorize @reply
+    redirect_to post_path(@reply.post)
+  end
+
   private
 
   def reply_params
