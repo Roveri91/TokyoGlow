@@ -7,6 +7,7 @@ class UsersController < ApplicationController
 
   def calendar
     authorize @profile
+    @appointments = Appointment.all
   end
 
   private

@@ -4,5 +4,17 @@
 
   <%= month_calendar do |date| %>
     <p class="px-2"><%= date.day%></p>
+    <% @appointments.each do |appointment| %>
+      <% if appointment.date == date %>
+        <i class="fa-solid fa-circle fa-2xs" style="color: #dd3647;"></i>
+      <% end %>
+    <% end %>
+  <% end %>
+</div>
+
+<div>
+  <% @appointments.each do |appointment| %>
+    <%= appointment.title %>
+    <p><%= appointment.date %></p>
   <% end %>
 </div>
