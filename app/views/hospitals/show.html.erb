@@ -1,35 +1,55 @@
 <div class="card-container">
-  <h1 style="margin: 70px;">This is the title for testing</h1>
-</div>
-
-
-
-
-
-
-
-
-
-
-
+ 
+  <div class= "">                       
+  <h1 style="margin-top: 70px;"><%= @hospital.name %></h1>
+    <%= link_to "Add Appointment to calendar",  new_hospital_appointment_path(@hospital) %>
+  </div>
+    <div >
+      <%= image_tag @hospital.default_image, class:"hospital-show-image" %>
+    </div>
+  <div class="card">
+    <div>
+    <p>Address: <%= @hospital.address %></p>
+    </div>
+    <div>
+    <p>Price Range: <%= @hospital.price_range %></p>
+    </div>
+    <div>
+    <p>Services: <%= @hospital.services %></p>
+    </div>
+    <div>
+    <p>Description: <%= @hospital.description %></p>
+    </div>
+    <div>
+    <p>Average Rating: <%= @hospital.average_rating %><i class="fa-solid fa-star" style="color: gold;"></i></p>
+    </div>
+    <div>
+    <p>Phone number: <%= @hospital.phone_number %></p>
+    </div>
+    <div>
+    <p>Website: <%= @hospital.webpage %></p>
+    </div>
+  </div>
+  
 <h1>Reviews</h1>
-<% @hospital.reviews.each do |review| %>
+  <% @hospital.reviews.each do |review| %>
   <div class="card-container">
-    <div class="card">
+   <div class="card">
       <div>
         <%= review.title %>
         <%= review.rating %>
-      </div>
+     </div>
       <div>
         <%= review.comment %>
       </div>
     </div>
   </div>
-<% end %>
+  <% end %>
 
-<%= simple_form_for [@hospital, @review] do |f| %>
+  <%= simple_form_for [@hospital, @review] do |f| %>
   <%= f.input :title %>
   <%= f.input :comment %>
   <%= f.input :rating, as: :numeric %>
   <%= f.submit "Submit review", class: "btn btn-primary" %>
-<% end %>
+  <% end %>
+
