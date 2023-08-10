@@ -7,7 +7,7 @@ class UsersController < ApplicationController
 
   def calendar
     authorize @profile
-    @appointments = Appointment.all
+    @appointments = Appointment.where(user: current_user)
   end
 
   private
