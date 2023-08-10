@@ -1,30 +1,39 @@
 <div class="card-container">
-  <h1 style="margin: 70px;"><%= @hospital.name %></h1>
+  <h1 style="margin-top: 70px;"><%= @hospital.name %></h1>
+    <div >
+      <%= image_tag @hospital.default_image, class:"hospital-show-image" %>
+    </div>
   <div class="card">
-    <%# <div class="hospital-show-image"> %>
-      <%# <%= image_tag @hospital.default_image %>
-    <%# </div> %>
     <div>
-    <%= @hospital.address %>
+    <p>Address: <%= @hospital.address %></p>
     </div>
     <div>
-    <%= @hospital.price_range %>
+    <p>Price Range: <%= @hospital.price_range %></p>
     </div>
     <div>
-    <%= @hospital.services %>
+    <p>Services: <%= @hospital.services %></p>
     </div>
     <div>
-    <%= @hospital.description %>
+    <p>Description: <%= @hospital.description %></p>
     </div>
     <div>
-    <%= @hospital.average_rating %>
+    <p>Average Rating: <%= @hospital.average_rating %><i class="fa-solid fa-star" style="color: gold;"></i></p>
     </div>
     <div>
-    <%= @hospital.phone_number %>
+    <p>Phone number: <%= @hospital.phone_number %></p>
     </div>
     <div>
-    <%= @hospital.webpage %>
+    <p>Website: <%= @hospital.webpage %></p>
     </div>
+  </div>
+  <h1>Reviews</h1>
+  <div class="card">
+  <p>reviews go here</p>
+  <p>and here</p>
+  <p>and here</p>
+  <p>and here</p>
+  <p>and here</p>
+  <p>and here</p>
   </div>
 </div>
 
