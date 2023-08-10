@@ -12,6 +12,7 @@ class HospitalsController < ApplicationController
   def show
     @hospital = Hospital.find(params[:id])
     authorize @hospital
+    @review = Review.new
   end
 
   private

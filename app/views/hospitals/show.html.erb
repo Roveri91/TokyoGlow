@@ -1,3 +1,35 @@
 <div class="card-container">
   <h1 style="margin: 70px;">This is the title for testing</h1>
 </div>
+
+
+
+
+
+
+
+
+
+
+
+<h1>Reviews</h1>
+<% @hospital.reviews.each do |review| %>
+  <div class="card-container">
+    <div class="card">
+      <div>
+        <%= review.title %>
+        <%= review.rating %>
+      </div>
+      <div>
+        <%= review.comment %>
+      </div>
+    </div>
+  </div>
+<% end %>
+
+<%= simple_form_for [@hospital, @review] do |f| %>
+  <%= f.input :title %>
+  <%= f.input :comment %>
+  <%= f.input :rating, as: :numeric %>
+  <%= f.submit "Submit review", class: "btn btn-primary" %>
+<% end %>
