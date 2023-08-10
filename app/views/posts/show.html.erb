@@ -23,5 +23,16 @@
         %>
         <%= f.submit "Send", class: "btn btn-primary mb-3" %>
       <% end %>
+
+
+      <div>
+        <% @post.replies.each do |reply| %>
+            <small>
+              <strong><%= reply.user.username %></strong>
+              <i><%= reply.created_at.strftime("%a %b %e at %l:%M %p") %></i>
+            </small>
+            <p><%= reply.content %></p>
+        <% end %>
+      </div>
   </div>
 </div>
