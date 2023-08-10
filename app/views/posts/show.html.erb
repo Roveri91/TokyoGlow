@@ -1,27 +1,41 @@
 <div class="container my-5 py-5">
-  <h1><%= @post.title %></h1>
-  <div>
-      <div>
-        <small>
-          <strong><%= @post.user.username %></strong>
-          <i><%= @post.created_at.strftime("%a %b %e at %l:%M %p") %></i>
-        </small>
-        <p><%= @post.content %></p>
-        <p><%= @post.category %></p>
 
-        <div class="back-button-wrapper mt-3"> <%= link_to "Back", posts_path %></div>
-        <div class="delete-button-wrapper mt-3"> <%= button_to "Destroy this post", @post, method: :delete if policy(@post).destroy? %></div>
+  <div>
+    <h1 class= "text-center"><%= @post.title %></h1>
+      <div class= "text-center">
+          <small>
+            <strong><%= @post.user.username %></strong>
+            <i><%= @post.created_at.strftime("%a %b %e") %></i>
+          </small>
+          <p><%= @post.content %></p>
+
+          <div class="delete-button-wrapper mt-3"> <%= button_to "Want to delete this post?", @post, method: :delete if policy(@post).destroy? %></div>
+        <hr/>
       </div>
 
-      <%= simple_form_for [@post, @reply],
+      <div class= "my-4" >
+        <%= simple_form_for [@post, @reply],
         html: {class: "d-flex"} do |f|
-      %>
-        <%= f.input :content,
-          label: false,
-          placeholder: "Message ##{@post.user.username}",
-          wrapper_html: {class: "flex-grow-1"}
         %>
-        <%= f.submit "Send", class: "btn btn-primary mb-3" %>
-      <% end %>
+          <%= f.input :content,
+            label: false,
+            placeholder: "Reply ##{@post.user.username}'s Post",
+            wrapper_html: {class: "flex-grow-1"}
+          %>
+          <%= f.submit "Send", class: "btn btn-primary mb-3" %>
+        <% end %>
+      </div>
+
+      <div>
+        <% @post.replies.each do |reply| %>
+            <small>
+              <strong><%= reply.user.username %></strong>
+              <i><%= reply.created_at.strftime("%a %b %e at %l:%M %p") %></i>
+            </small>
+            <p><%= reply.content %></p>
+          <div class="delete-button-wrapper mt-3"> <%= button_to "Want to delete your comment?", reply, method: :delete if policy(reply).destroy? %></div>
+        <% end %>
+      </div>
   </div>
+  <%= link_to "Return to Posts", posts_path, class: "btn btn-success w-100 rounded my-2" %>
 </div>

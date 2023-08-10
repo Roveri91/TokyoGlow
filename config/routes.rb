@@ -20,8 +20,8 @@ Rails.application.routes.draw do
   resources :events, only: [:index, :show, :new, :update, :destroy]
   resources :posts, only: [:index, :show, :new, :create, :destroy]
   resources :posts, only: [:index, :new, :create, :destroy]
+  resources :replies, only: :destroy
   resources :posts, only: :show do
     resources :replies, only: :create
   end
-
 end

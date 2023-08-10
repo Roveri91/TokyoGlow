@@ -4,13 +4,17 @@ class ReplyPolicy < ApplicationPolicy
     # def resolve
     #   scope.all
     # end
+  end
 
-    def new?
-      create?
-    end
+  def new?
+    create?
+  end
 
-    def create?
-      true
-    end
+  def create?
+    true
+  end
+
+  def destroy?
+    record.user == user
   end
 end
