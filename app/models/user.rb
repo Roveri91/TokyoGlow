@@ -9,4 +9,5 @@ class User < ApplicationRecord
   has_many :posts
   has_many :replies
   validates :username, presence: true
+  has_one_attached :image
 end
