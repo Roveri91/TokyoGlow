@@ -3,9 +3,14 @@ class HospitalsController < ApplicationController
   before_action :set_hospital, only: %i[ show ]
 
   def index
-    @hospitals = policy_scope(Hospital).all
+  @hospitals = policy_scope(Hospital).all
+
     if params[:query].present?
-      @events = Event.search_by_name_and_address_and_price_range_and_description(params[:query])
+      query = params[:query].strip.downcase
+      @hospitals = @hospitals.where(
+        "lower(name) LIKE :query OR lower(address) LIKE :query OR lower(services) LIKE :query OR lower(description) LIKE :query",
+        query: "%#{query}%"
+      )
     end
   end
 
