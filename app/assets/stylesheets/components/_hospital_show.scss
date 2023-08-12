@@ -3,3 +3,11 @@
   object-fit: contain;
   margin-top: 10px;
 }
+
+.back-btn{
+  display: flex;
+  justify-content: right;
+  a{
+    background-color:  rgb(255,196,12)
+  }
+}

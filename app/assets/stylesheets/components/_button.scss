@@ -53,12 +53,32 @@ button:hover > a {
 
 .delete-button-wrapper {
   button {
-    color: black;
-    background: red;
+    color: white;
+    background: pink;
     padding: 8px 24px;
     border-radius: 4px;
   }
 }
+
 .button-margin {
   margin-bottom: 50px; /* Add space at the bottom of the content */
+}
+.post-btn {
+  color: black;
+  background: #cdb4db;
+}
+
+.btn-primary {
+  background-color: #8064A2 !important;
+  border: #8064A2 !important;
+}
+
+.btn-success {
+  background-color: #004444 !important;
+  border: #004444 !important;
+  color: white !important;
+}
+
+.rounded {
+  border-radius: 4px;
 }

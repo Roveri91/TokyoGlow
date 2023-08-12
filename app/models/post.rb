@@ -3,4 +3,15 @@ class Post < ApplicationRecord
   has_many :replies
 
   validates :title, :category, :content, presence: true
+
+  include PgSearch::Model
+
+  pg_search_scope :general_search,
+    against: [ :content, :title, :category ],
+    associated_against: {
+      user: [ :username ]
+    },
+    using: {
+      tsearch: { prefix: true }
+  }
 end
