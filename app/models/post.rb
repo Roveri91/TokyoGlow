@@ -6,8 +6,11 @@ class Post < ApplicationRecord
 
   include PgSearch::Model
 
-  pg_search_scope :search_by_content_title_category,
+  pg_search_scope :general_search,
     against: [ :content, :title, :category ],
+    associated_against: {
+      user: [ :username ]
+    },
     using: {
       tsearch: { prefix: true }
   }
