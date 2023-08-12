@@ -18,7 +18,10 @@
       <p>Price Range: <%= @hospital.price_range %></p>
       </div>
       <div>
-      <p>Services: <%= @hospital.services %></p>
+      <p>Services: <%= @hospital.services each do |service| %></p>
+          <small>
+          <strong><%= service %></strong>
+          </small>
       </div>
       <div>
       <p>Description: <%= @hospital.description %></p>
