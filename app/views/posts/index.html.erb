@@ -8,12 +8,15 @@
             class: "form-control",
             placeholder: "Search for categories, authors, keywords"
         %>
-      <%= submit_tag "Search", name: "", class: "btn btn-warning" %>
+      <%= submit_tag "Search", name: "", class: "btn btn-success" %>
     <% end %>
   </div>
 </div>
 
-  <%= link_to "Post Something!", new_post_path, class: "btn btn-success w-100 rounded" %>
+  <div class = "post-btn rounded">
+    <%= link_to "Add a new post!", new_post_path, class: "btn w-100" %>
+  </div>
+  <hr/>
 
   <div>
     <% @posts.each do |post| %>
