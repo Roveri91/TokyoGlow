@@ -7,6 +7,7 @@
 #   Character.create(name: "Luke", movie: movies.first)
 
 # require 'faker'
+# require "open-uri"
 
 puts "Destroying all the replies"
 Reply.delete_all
@@ -67,20 +68,37 @@ puts "created #{hospital.name}"
 
 puts "Done! Thank you for your patience."
 
-# puts 'Creating 20 fake events...'
+
+# file = URI.open("https://upload.wikimedia.org/wikipedia/commons/thumb/8/82/NES-Console-Set.jpg/1200px-NES-Console-Set.jpg")
+
+# seed_hospital = Hospital.new(
+#   name: 'Tokyo Hospital',
+#   address: locations.sample,
+#   price_range: '10 - 1,000,000',
+#   services: 'English speaking',
+#   description: 'This is the hospital for you',
+#   average_rating: 3.2,
+#   phone_number: "070-0707-0707"
+# )
+# seed_hospital.photo.attach(io: file, filename: "nes.png", content_type: "image/png")
+# seed_hospital.save
+
+# puts 'Creating 20 fake hospitals...'
 # 20.times do
-#   event = Event.new(
-#     title: Faker::Hobby.activity,
-#     content: Faker::Quote.most_interesting_man_in_the_world,
-#     date: Faker::Date.forward(days: 23),
-#     time: Faker::Time.between(from: DateTime.now - 1, to: DateTime.now, format: :short),
-#     location: "#{Faker::Address.street_address}, #{Faker::Address.city}"
+#   hospital = Hospital.new(
+#     name: Faker::Company.name,
+#     address: "#{Faker::Address.street_address}, #{Faker::Address.city}",
+#     price: Faker::Commerce.price(range: 10..1000, as_string: true)
+#     services: Faker::Quote.most_interesting_man_in_the_world,
+#     description: Faker::Date.forward(days: 23),
+#     average_rating:  Faker::Number.between(from: 1, to: 5),
+#     phone_number: Faker::PhoneNumber,
 #     # photo:
 #   )
 #   photo = Faker::LoremPixel.image(size: "300x200")
 #   event.image.attach(io: URI.open(photo), filename: 'image.jpg')  # Attach the image to the event
 
-#   event.save!
+#   hospital.save!
 # end
 
 # puts 'Finished!'
