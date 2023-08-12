@@ -57,6 +57,7 @@ hospital = Hospital.create!(name: "Tokyo Hospital", address:locations.sample, pr
    description: "This is the hospital for you", average_rating: 3.2, phone_number: "070-0707-0707", default_image: hospital_image )
 puts "created #{hospital.name}"
 
+
 hospital = Hospital.create!(name: "Sanno Hospital", address:locations.sample, price_range: "20 - 30,000", services: "After child-care",
     description: "The best hospital in Tokyo with a really long description so I can see how long it looks on the index page. But actually it needs to be a little bit longer so it goes beyond the card", average_rating: 4.5, phone_number: "123-4567-8901", default_image: hospital_image )
 puts "created #{hospital.name}"
@@ -66,21 +67,3 @@ hospital = Hospital.create!(name: "Imperial Hospital", address:locations.sample,
 puts "created #{hospital.name}"
 
 puts "Done! Thank you for your patience."
-
-# puts 'Creating 20 fake events...'
-# 20.times do
-#   event = Event.new(
-#     title: Faker::Hobby.activity,
-#     content: Faker::Quote.most_interesting_man_in_the_world,
-#     date: Faker::Date.forward(days: 23),
-#     time: Faker::Time.between(from: DateTime.now - 1, to: DateTime.now, format: :short),
-#     location: "#{Faker::Address.street_address}, #{Faker::Address.city}"
-#     # photo:
-#   )
-#   photo = Faker::LoremPixel.image(size: "300x200")
-#   event.image.attach(io: URI.open(photo), filename: 'image.jpg')  # Attach the image to the event
-
-#   event.save!
-# end
-
-# puts 'Finished!'
