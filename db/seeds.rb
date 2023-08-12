@@ -14,6 +14,12 @@ Reply.delete_all
 puts "Destroying all the posts"
 Post.delete_all
 
+puts "Destroying all the appointments"
+Appointment.delete_all
+
+puts "Destroying all the reviews"
+Review.delete_all
+
 puts "Destroying all the users"
 User.delete_all
 
