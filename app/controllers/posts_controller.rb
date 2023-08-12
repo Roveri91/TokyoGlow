@@ -2,13 +2,7 @@ class PostsController < ApplicationController
   def index
     @posts = policy_scope(Post).all
     if params[:query].present?
-      sql_subquery = <<~SQL
-      posts.content ILIKE :query
-      OR posts.title ILIKE :query
-      OR posts.category ILIKE :query
-      OR users.username ILIKE :query
-    SQL
-    @posts = @posts.joins(:user).where(sql_subquery, query: "%#{params[:query]}%")
+      @posts = Post.search_by_content_title_category(params[:query])
     end
   end
 
