@@ -5,7 +5,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
-
     <%#
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -16,26 +15,26 @@
     <%= javascript_include_tag "application", "data-turbo-track": "reload", defer: true %>
     <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
   </head>
-
   <body>
-    <div class="content">
-      <div class="fixed-top d-flex justify-content-center p-2 banner">
-        <%= render "shared/banner"%>
+      <div class="page-frame-content">
+        <div class="page-frame-header d-flex justify-content-center p-2 banner">
+          <%= render "shared/banner"%>
+        </div>
+        <div class="page-frame-body">
+          <%= render "shared/flashes" %>
+          <%= yield %>
+        </div>
+
+        <div class="page-frame-footer p-2 footer">
+           <%= render "shared/navbar"  %>
+        </div>
+
       </div>
-
-      <%# <%= render "shared/flashes" %>
-      <%= yield %>
-    </div>
-      <div class="fixed-bottom p-2 footer">
-        <%= render "shared/navbar"  %>
-      </div>
-
-  </body>
-  <style>
-
-    @media only screen and (max-width: 600px) {
-      body{
+    </body>
+    <%# <style>
+      @media only screen and (max-width: 600px) {
+        body{
+        }
       }
-    }
-  </style>
-</html>
+    </style> %>
+  </html>

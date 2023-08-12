@@ -7,6 +7,7 @@
 #   Character.create(name: "Luke", movie: movies.first)
 
 # require 'faker'
+# require "open-uri"
 
 puts "Destroying all the replies"
 Reply.delete_all
@@ -90,6 +91,41 @@ puts "created #{hospital.name}"
 hospital = Hospital.create!(name: "Jikei Hospital, Women's and Children's Center", address:locations.sample, price_range: price_range.sample, services: services.sample(4).join(", "),
   description: " Midwives and nurses promote breastfeeding and will help you after delivery. Breastfeeding room with pumps also available.", average_rating: 4.7, phone_number: "03-1123-6688", default_image: "jikei_hospital")
 puts "created #{hospital.name}"
+
+
+# file = URI.open("https://upload.wikimedia.org/wikipedia/commons/thumb/8/82/NES-Console-Set.jpg/1200px-NES-Console-Set.jpg")
+
+# seed_hospital = Hospital.new(
+#   name: 'Tokyo Hospital',
+#   address: locations.sample,
+#   price_range: '10 - 1,000,000',
+#   services: 'English speaking',
+#   description: 'This is the hospital for you',
+#   average_rating: 3.2,
+#   phone_number: "070-0707-0707"
+# )
+# seed_hospital.photo.attach(io: file, filename: "nes.png", content_type: "image/png")
+# seed_hospital.save
+
+# puts 'Creating 20 fake hospitals...'
+# 20.times do
+#   hospital = Hospital.new(
+#     name: Faker::Company.name,
+#     address: "#{Faker::Address.street_address}, #{Faker::Address.city}",
+#     price: Faker::Commerce.price(range: 10..1000, as_string: true)
+#     services: Faker::Quote.most_interesting_man_in_the_world,
+#     description: Faker::Date.forward(days: 23),
+#     average_rating:  Faker::Number.between(from: 1, to: 5),
+#     phone_number: Faker::PhoneNumber,
+#     # photo:
+#   )
+#   photo = Faker::LoremPixel.image(size: "300x200")
+#   event.image.attach(io: URI.open(photo), filename: 'image.jpg')  # Attach the image to the event
+
+#   hospital.save!
+# end
+
+# puts 'Finished!'
 
 hospital = Hospital.create!(name: "Seibo Catholic Hospital", address:locations.sample, price_range: price_range.sample, services: services.sample(4).join(", "),
   description: "Allow for freedom to labor in different positions if no epidural. Birth partner can be in the room with you (but only husband, not other family members). Epidural available during certain hours and on week days.", average_rating: 1.7, phone_number: "03-6890-2200", default_image: "seibo_hospital")
