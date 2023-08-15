@@ -28,13 +28,14 @@
   <% @events.each do |event| %>
     <div class="container">
       <div class="card ">
-        <%= image_tag("yoga_event_sample.jpeg", alt: "Yoga at the park", class: "card-img-top mx-auto py-3", style: "width: 250px; height: auto;") %>
+        <%= cl_image_tag event.photo.key, height: 300, width: 400, crop: :fill %>
+          <!-- for face detection -->
         <div class="card-container py-3">
           <h3> <%= event.title%>: <%= event.content%> </h3>
           <p> Hosted by: <%= event.user.username %>
           <%# <p> <i class="fa-regular fa-location-dot"></i>: <%= event.location%> </p>
           <p> <i class="fa-solid fa-calendar-days"></i> <%= event.date.strftime('%B %d')%> at <%= event.time.strftime('%H:%M') %> JST </p>
-          <p> <i class="fa-regular fa-circle-check"></i> 9 going&nbsp;&nbsp; <i class="fa-regular fa-ticket"></i>Free</p>
+          <%# <p> <i class="fa-regular fa-circle-check"></i> 9 going&nbsp;&nbsp; <i class="fa-regular fa-ticket"></i>Free</p> %>
           <p> <%= link_to "See more", event_path(id: event.id) %> </p>
         </div>
       </div>
