@@ -6,8 +6,8 @@
 #   movies = Movie.create([{ name: "Star Wars" }, { name: "Lord of the Rings" }])
 #   Character.create(name: "Luke", movie: movies.first)
 
-# require 'faker'
-# require "open-uri"
+require 'faker'
+require "open-uri"
 
 puts "Destroying all the replies"
 Reply.delete_all
