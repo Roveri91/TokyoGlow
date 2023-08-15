@@ -23,7 +23,7 @@
 <div>
   <h2>Schedule for <%= params[:date] %></h2>
 </div>
-<% if @current_day_appointments.length == 0 || @current_day_events.length == 0%>
+<% if @current_day_appointments.length == 0 && @current_day_events.length == 0%>
   <h4>Nothing going on today!</h4>
 <% else %>
   <div>
