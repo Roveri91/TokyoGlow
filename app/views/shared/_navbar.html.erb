@@ -6,7 +6,7 @@
           <i class="fa-solid fa-cake-candles fa-xl" style="color: #004444;"></i>
         </div>
     <% end %>
-    <%# chat %>
+    <%# chat/posts %>
     <%= link_to posts_path do %>
       <div class="icon-border p-4">
         <i class="fa-solid fa-comment fa-xl" style="color: #004444;"></i>
@@ -32,13 +32,7 @@
     <% end %>
 
   <% else %>
-    <%# user/login %>
-    <%= link_to new_user_session_path do %>
-      <div class="icon-border p-4">
-        <i class="fa-solid fa-user fa-xl" style="color: #004444;"></i>
-      </div>
-    <% end %>
-    <%# chat %>
+    <%# chat/posts %>
     <%= link_to posts_path do %>
       <div class="icon-border p-4">
         <i class="fa-solid fa-comment fa-xl" style="color: #004444;"></i>
