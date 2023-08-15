@@ -7,7 +7,7 @@
 #   Character.create(name: "Luke", movie: movies.first)
 
 # require 'faker'
-require "open-uri"
+# require "open-uri"
 
 Reply.delete_all
 puts "Destroyed all the replies"
@@ -95,41 +95,6 @@ hospital = Hospital.create!(name: "Jikei Hospital, Women's and Children's Center
   description: " Midwives and nurses promote breastfeeding and will help you after delivery. Breastfeeding room with pumps also available.", average_rating: 4.7, phone_number: "03-1123-6688", default_image: "jikei_hospital.png")
 puts "created #{hospital.name}"
 
-
-# file = URI.open("https://upload.wikimedia.org/wikipedia/commons/thumb/8/82/NES-Console-Set.jpg/1200px-NES-Console-Set.jpg")
-
-# seed_hospital = Hospital.new(
-#   name: 'Tokyo Hospital',
-#   address: locations.sample,
-#   price_range: '10 - 1,000,000',
-#   services: 'English speaking',
-#   description: 'This is the hospital for you',
-#   average_rating: 3.2,
-#   phone_number: "070-0707-0707"
-# )
-# seed_hospital.photo.attach(io: file, filename: "nes.png", content_type: "image/png")
-# seed_hospital.save
-
-# puts 'Creating 20 fake hospitals...'
-# 20.times do
-#   hospital = Hospital.new(
-#     name: Faker::Company.name,
-#     address: "#{Faker::Address.street_address}, #{Faker::Address.city}",
-#     price: Faker::Commerce.price(range: 10..1000, as_string: true)
-#     services: Faker::Quote.most_interesting_man_in_the_world,
-#     description: Faker::Date.forward(days: 23),
-#     average_rating:  Faker::Number.between(from: 1, to: 5),
-#     phone_number: Faker::PhoneNumber,
-#     # photo:
-#   )
-#   photo = Faker::LoremPixel.image(size: "300x200")
-#   event.image.attach(io: URI.open(photo), filename: 'image.jpg')  # Attach the image to the event
-
-#   hospital.save!
-# end
-
-# puts 'Finished!'
-
 hospital = Hospital.create!(name: "Seibo Catholic Hospital", address:locations.sample, price_range: price_range.sample, services: services.sample(4).join(", "),
   description: "Allow for freedom to labor in different positions if no epidural. Birth partner can be in the room with you (but only husband, not other family members). Epidural available during certain hours and on week days.", average_rating: 1.7, phone_number: "03-6890-2200", default_image: "seibo_hospital.jpg")
 puts "created #{hospital.name}"
@@ -146,18 +111,81 @@ hospital = Hospital.create!(name: "Kanto Rozai Hospital", address:locations.samp
   description: "We encourage kangaroo care after birth and breastfeeding. English support may not be available – please enquire about availability in advance. We accept all major credit cards.", average_rating: 2.9, phone_number: "03-3456-9723", default_image: "kanto_hospital.jpg")
 puts "created #{hospital.name}"
 
-book_image = URI.open("https://res.cloudinary.com/dsfih62k7/image/upload/v1692098565/ice_cream_amdk0l.webp")
+# ice_cream_image = URI.open("https://res.cloudinary.com/dsfih62k7/image/upload/v1692098565/ice_cream_amdk0l.webp")
 
-book = Event.new(status: 0, title: 'Free books!', content: "grab a book", date: 'Tue, 15 Sept 2023', location: 'Yoyogi Park', time:'Sat, 01 Jan 2000 11:30:00.000000000 UTC +00:00')
+# ice_cream = Event.new(status: 0, title: 'Free ice cream!', content: "grab a book", date: 'Tue, 15 Sept 2023', location: 'Yoyogi Park', time:'Sat, 01 Jan 2000 11:30:00.000000000 UTC +00:00', user: users.sample)
 
-book.photo.attach(io: book_image, filename: "book.webp", content_type: "image/webp")
-book.save
+# ice_cream.photo.attach(io: ice_cream_image, filename: "ice_cream.webp", content_type: "image/webp")
+# ice_cream.save!
 
-puts 'Event created'
+yoga_image = Rails.root.join('app', 'assets', 'images', 'yoga.jpg')
+book_image = Rails.root.join('app', 'assets', 'images', 'book.jpg')
+diapers_image = Rails.root.join('app', 'assets', 'images', 'diapers.jpg')
+ice_cream_image = Rails.root.join('app', 'assets', 'images', 'ice_cream.jpg')
+
+giulia = User.find_by(username: 'Giulia')
+jonny = User.find_by(username: 'Jonny')
+simone = User.find_by(username: 'Simone')
+tenny = User.find_by(username: 'Tenny')
+
+yoga = Event.new(
+  status: 0,
+  title: 'Come enjoy yoga together!',
+  content: 'Yoga instructor of the day: Millie',
+  date: Date.today,
+  location: 'Yoyogi Park',
+  time: Time.now,
+  user: giulia,
+)
+yoga.save!
+yoga.photo.attach(io: File.open(yoga_image), filename: 'yoga.jpg', content_type: 'image/jpg')
+
+book = Event.new(
+  status: 0,
+  title: "Free children's books!",
+  content: 'Grab a copy or two today',
+  date: Date.today,
+  location: 'Yoyogi Park',
+  time: Time.now,
+  user: jonny,
+)
+book.save!
+book.photo.attach(io: File.open(book_image), filename: 'book.jpg', content_type: 'image/jpg')
+
+
+diapers = Event.new(
+  status: 0,
+  title: "Diapers Giveaway!",
+  content: 'All sizes available!',
+  date: Date.today,
+  location: 'Yoyogi Park',
+  time: Time.now,
+  user: simone,
+
+)
+diapers.save!
+diapers.photo.attach(io: File.open(diapers_image), filename: 'diapers.jpg', content_type: 'image/jpg')
+
+ice_cream = Event.new(
+  status: 0,
+  title: 'Free ice cream!',
+  content: 'Try 3 new flavors today: mango, cookies & cream, pistachio',
+  date: Date.today,
+  location: 'Yoyogi Park',
+  time: Time.now,
+  user: tenny,
+)
+ice_cream.save!
+ice_cream.photo.attach(io: File.open(ice_cream_image), filename: 'ice_cream.jpg', content_type: 'image/jpg')
+
+
+puts "created 4 events"
+
+
 
 # ice_cream = Event.create!(status: 0, title: "Free ice cream!", content: "grab a book", date: 'Tue, 15 Oct 2023', location: Yoyogi, time: 'Sat, 01 Jan 2000 05:30:00.000000000 UTC +00:00', photo: )
 
-# walk = Event.create!(status: 0, title: "Walk!", content: "grab a book", date: 'Tue, 15 Aug 2023', location: Yoyogi, time: 'Sat, 01 Jan 2000 10:30:00.000000000 UTC +00:00',:photo)
+# diapers = Event.create!(status: 0, title: "Walk!", content: "grab a book", date: 'Tue, 15 Aug 2023', location: Yoyogi, time: 'Sat, 01 Jan 2000 10:30:00.000000000 UTC +00:00',:photo)
 
 # diapers = Event.create!(status: 0, title: "Free diapers!", content: "grab a book", date: , location: Yoyogi, time: 'Sat, 01 Jan 2000 12:30:00.000000000 UTC +00:00', photo)
 
