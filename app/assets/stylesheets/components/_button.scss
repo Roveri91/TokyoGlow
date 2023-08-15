@@ -1,5 +1,5 @@
 .btn-submit {
-  color: pink;
+  color: $navbar-pink;
   padding: 8px 24px;
   border-radius: 4px;
   border: outset 2px black;
@@ -10,19 +10,19 @@
 
 .btn-hire:hover {
   color: black;
-  border: outset 2px pink;
-  background-color: pink;
+  border: outset 2px $navbar-pink;
+  background-color: $navbar-pink;
 }
 
 .btn-hire:active, button:active {
-  border: inset 2px pink ;
+  border: inset 2px $navbar-pink;
   color: black;
-  background-color: pink !important;
+  background-color: $navbar-pink !important;
 }
 
 button > a {
   text-decoration: none;
-  color: pink;
+  color: $navbar-pink;
 }
 
 button:hover > a {
@@ -36,7 +36,7 @@ button:hover > a {
 }
 
 #delete-btn {
-  color: pink;
+  color: $navbar-pink;
 }
 
 .back-button-wrapper {
@@ -54,7 +54,7 @@ button:hover > a {
 .delete-button-wrapper {
   button {
     color: white;
-    background: pink;
+    background: $navbar-pink;
     padding: 8px 24px;
     border-radius: 4px;
   }
@@ -65,7 +65,7 @@ button:hover > a {
 }
 .post-btn {
   color: black;
-  background: #cdb4db;
+  background: $navbar-pink;
 }
 
 .btn-primary {
@@ -74,11 +74,23 @@ button:hover > a {
 }
 
 .btn-success {
-  background-color: #004444 !important;
-  border: #004444 !important;
+  background-color: $lettering-blue !important;
+  border: $lettering-blue !important;
   color: white !important;
 }
 
 .rounded {
   border-radius: 4px;
+}
+
+.btn-login {
+  color: $lettering-blue;
+  padding: 8px 24px;
+  border-radius: 4px;
+  border: outset 2px $lettering-blue;
+  background: $navbar-pink;
+  text-decoration: none;
+  font-family: 'Philosopher', sans-serif;
+  font-weight: 400;
+  transition: background 0.3s ease;
 }
