@@ -7,22 +7,25 @@
 #   Character.create(name: "Luke", movie: movies.first)
 
 # require 'faker'
-# require "open-uri"
+require "open-uri"
 
-puts "Destroying all the replies"
 Reply.delete_all
+puts "Destroyed all the replies"
 
-puts "Destroying all the posts"
 Post.delete_all
+puts "Destroyed all the posts"
 
-puts "Destroying all the appointments"
 Appointment.delete_all
+puts "Destroyed all the appointments"
 
-puts "Destroying all the reviews"
 Review.delete_all
+puts "Destroyed all the reviews"
 
-puts "Destroying all the users"
+Event.delete_all
+puts "Destroyed all the events"
+
 User.delete_all
+puts "Destroyed all the users"
 
 users = []
 puts "Creating new users"
@@ -142,5 +145,22 @@ puts "created #{hospital.name}"
 hospital = Hospital.create!(name: "Kanto Rozai Hospital", address:locations.sample, price_range: price_range.sample, services: services.sample(4).join(", "),
   description: "We encourage kangaroo care after birth and breastfeeding. English support may not be available – please enquire about availability in advance. We accept all major credit cards.", average_rating: 2.9, phone_number: "03-3456-9723", default_image: "kanto_hospital")
 puts "created #{hospital.name}"
+
+book_image = URI.open("https://res.cloudinary.com/dsfih62k7/image/upload/v1692098565/ice_cream_amdk0l.webp")
+
+book = Event.new(status: 0, title: 'Free books!', content: "grab a book", date: 'Tue, 15 Sept 2023', location: 'Yoyogi Park', time:'Sat, 01 Jan 2000 11:30:00.000000000 UTC +00:00')
+
+book.photo.attach(io: book_image, filename: "book.webp", content_type: "image/webp")
+book.save
+
+puts 'Event created'
+
+# ice_cream = Event.create!(status: 0, title: "Free ice cream!", content: "grab a book", date: 'Tue, 15 Oct 2023', location: Yoyogi, time: 'Sat, 01 Jan 2000 05:30:00.000000000 UTC +00:00', photo: )
+
+# walk = Event.create!(status: 0, title: "Walk!", content: "grab a book", date: 'Tue, 15 Aug 2023', location: Yoyogi, time: 'Sat, 01 Jan 2000 10:30:00.000000000 UTC +00:00',:photo)
+
+# diapers = Event.create!(status: 0, title: "Free diapers!", content: "grab a book", date: , location: Yoyogi, time: 'Sat, 01 Jan 2000 12:30:00.000000000 UTC +00:00', photo)
+
+
 
 puts "Done! Thank you for your patience."
