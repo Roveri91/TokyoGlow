@@ -15,7 +15,6 @@ class UsersController < ApplicationController
     end
     @current_day_appointments = Appointment.where(user: current_user, date: date)
     @appointments = Appointment.where(user: current_user)
-
     # year = Date.parse(date).year       WILL NEED THIS FOR EVENTS
     # month = Date.parse(date).month
   end
