@@ -78,21 +78,21 @@ hospital = Hospital.create!(name: "Aiiku Hospital", address:locations.sample, pr
 puts "created #{hospital.name}"
 
 hospital = Hospital.create!(name: "Tokyo Takanawa Hospital", address:locations.sample, price_range: price_range.sample, services: services.sample(4).join(", "),
-  description: "The Department of Obstetrics and Gynecology provides medical care for all phases of a woman’s life from puberty to pregnancy, child birth, and menopause, with a main focus on reproduction. ", average_rating: 3.7, phone_number: "03-3324-1123", default_image: "takanawa_hospital")
+  description: "The Department of Obstetrics and Gynecology provides medical care for all phases of a woman’s life from puberty to pregnancy, child birth, and menopause, with a main focus on reproduction. ", average_rating: 3.7, phone_number: "03-3324-1123", default_image: "takanawa_hospital.jpg")
 puts "created #{hospital.name}"
 
 hospital = Hospital.create!(name: "Tokyo Midtown Clinic", address:locations.sample, price_range: price_range.sample, services: services.sample(4).join(", "),
-  description: "In addition to a wide range of medical practices, the Tokyo Midtown Clinic boasts a special outpatient center, next-generation Health Screening Center and more. We provide total health support for our patients. ", average_rating: 2.9, phone_number: "03-5477-3426", default_image: "midtown_hospital")
+  description: "In addition to a wide range of medical practices, the Tokyo Midtown Clinic boasts a special outpatient center, next-generation Health Screening Center and more. We provide total health support for our patients. ", average_rating: 2.9, phone_number: "03-5477-3426", default_image: "midtown_hospital.jpg")
 puts "created #{hospital.name}"
 
 hospital = Hospital.create!(name: "Japan Red Cross Medical Center", address:locations.sample, price_range: price_range.sample, services: services.sample(4).join(", "),
   description: " The baby and parents play a very important role of childbirth. As a baby- and mother-friendly hospital,
 we attach great importance to perinatal safety, and we draw out maternal instinct at childbirth and
-during childcare in order to help the baby live and grow healthily", average_rating: 3.7, phone_number: "03-6667-2243", default_image: "red_cross_hospital")
+during childcare in order to help the baby live and grow healthily", average_rating: 3.7, phone_number: "03-6667-2243", default_image: "red_cross_hospital.jpg")
 puts "created #{hospital.name}"
 
 hospital = Hospital.create!(name: "Jikei Hospital, Women's and Children's Center", address:locations.sample, price_range: price_range.sample, services: services.sample(4).join(", "),
-  description: " Midwives and nurses promote breastfeeding and will help you after delivery. Breastfeeding room with pumps also available.", average_rating: 4.7, phone_number: "03-1123-6688", default_image: "jikei_hospital")
+  description: " Midwives and nurses promote breastfeeding and will help you after delivery. Breastfeeding room with pumps also available.", average_rating: 4.7, phone_number: "03-1123-6688", default_image: "jikei_hospital.png")
 puts "created #{hospital.name}"
 
 
@@ -131,19 +131,19 @@ puts "created #{hospital.name}"
 # puts 'Finished!'
 
 hospital = Hospital.create!(name: "Seibo Catholic Hospital", address:locations.sample, price_range: price_range.sample, services: services.sample(4).join(", "),
-  description: "Allow for freedom to labor in different positions if no epidural. Birth partner can be in the room with you (but only husband, not other family members). Epidural available during certain hours and on week days.", average_rating: 1.7, phone_number: "03-6890-2200", default_image: "seibo_hospital")
+  description: "Allow for freedom to labor in different positions if no epidural. Birth partner can be in the room with you (but only husband, not other family members). Epidural available during certain hours and on week days.", average_rating: 1.7, phone_number: "03-6890-2200", default_image: "seibo_hospital.jpg")
 puts "created #{hospital.name}"
 
 hospital = Hospital.create!(name: "Seijo Kinoshita Hospital", address:locations.sample, price_range: price_range.sample, services: services.sample(4).join(", "),
-  description: " Dr. Kinoshita is known for being quite flexible with laboring positions. Modern, updated facility. Smaller hospital with a focus on maternal and pediatric care, among other things.", average_rating: 4.0, phone_number: "03-8899-4598", default_image: "seijo_hospital")
+  description: " Dr. Kinoshita is known for being quite flexible with laboring positions. Modern, updated facility. Smaller hospital with a focus on maternal and pediatric care, among other things.", average_rating: 4.0, phone_number: "03-8899-4598", default_image: "seijo_hospital.jpg")
 puts "created #{hospital.name}"
 
 hospital = Hospital.create!(name: "Nagai Mother's Hospital", address:locations.sample, price_range: price_range.sample, services: services.sample(4).join(", "),
-  description: "We give the option to voluntarily induce labor. On demand epidural, no reservation needed. Also same cost with or without the epidural. One person is allowed in the room with you during labor.", average_rating: 3.9, phone_number: "03-4422-5557", default_image: "nagai_hospital")
+  description: "We give the option to voluntarily induce labor. On demand epidural, no reservation needed. Also same cost with or without the epidural. One person is allowed in the room with you during labor.", average_rating: 3.9, phone_number: "03-4422-5557", default_image: "nagai_hospital.jpg")
 puts "created #{hospital.name}"
 
 hospital = Hospital.create!(name: "Kanto Rozai Hospital", address:locations.sample, price_range: price_range.sample, services: services.sample(4).join(", "),
-  description: "We encourage kangaroo care after birth and breastfeeding. English support may not be available – please enquire about availability in advance. We accept all major credit cards.", average_rating: 2.9, phone_number: "03-3456-9723", default_image: "kanto_hospital")
+  description: "We encourage kangaroo care after birth and breastfeeding. English support may not be available – please enquire about availability in advance. We accept all major credit cards.", average_rating: 2.9, phone_number: "03-3456-9723", default_image: "kanto_hospital.jpg")
 puts "created #{hospital.name}"
 
 book_image = URI.open("https://res.cloudinary.com/dsfih62k7/image/upload/v1692098565/ice_cream_amdk0l.webp")

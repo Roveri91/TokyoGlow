@@ -8,13 +8,14 @@
       <div class="col-8">
         <div class="icon-container">
           <h1 style="font-family: Allan; font-style: italic"> <%= @event.title %>  </h1>
-            <%= image_tag("yoga_event_sample.jpeg", alt: "Yoga at the park", class: "card-img-top mx-auto", style: "width: 250px; height: auto;") %>
+            <%= cl_image_tag @event.photo.key, height: 300, width: 400, crop: :fill %>
+            <%# <%= image_tag("yoga_event_sample.jpeg", alt: "Yoga at the park", class: "card-img-top mx-auto", style: "width: 250px; height: auto;") %>
 
             <h3> <%= @event.content %> </h3>
           <h5> <i class="fa-solid fa-location-dot"></i> <%= @event.location %> </h5>
             <p> <i class="fa-regular fa-clock"></i> <%= @event.date.strftime('%B %d')%> at <%= @event.time.strftime('%H:%M') %> JST </p>
             <p> Hosted by <%= @event.user.username %>
-            <p> Attendees: 9 </p>
+            <%# <p> Attendees: 9 </p> %>
         </div>
         <%# if @event.photo.attached? %>
           <%#= image_tag @event.photo, class: "event-photo" %>
