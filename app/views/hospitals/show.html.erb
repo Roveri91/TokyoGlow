@@ -1,4 +1,4 @@
-<div class="card-container">
+<div class="card-container px-3">
 
   <div class= "">
     <div style="margin: top 70px;" class="back-btn">
@@ -35,25 +35,29 @@
     </div>
   </div>
 
-
-<h1>Reviews</h1>
-  <% @hospital.reviews.each do |review| %>
-  <div class="card-container">
-   <div class="card">
-      <div>
-        <%= review.title %>
-        <%= review.rating %>
-     </div>
-      <div>
-        <%= review.comment %>
+  <div class="px-3">
+    <h1>Reviews</h1>
+    <% @hospital.reviews.each do |review| %>
+    <div class="card-container">
+      <div class="card">
+        <div>
+          <%= review.title %>
+          <%= review.rating %>
+        </div>
+        <div>
+          <%= review.comment %>
+        </div>
       </div>
     </div>
+    <% end %>
   </div>
-  <% end %>
 
-  <%= simple_form_for [@hospital, @review] do |f| %>
-  <%= f.input :title %>
-  <%= f.input :comment %>
-  <%= f.input :rating, as: :numeric %>
-  <%= f.submit "Submit review", class: "btn btn-primary" %>
-  <% end %>
+  <div class="px-3">
+    <%= simple_form_for [@hospital, @review] do |f| %>
+    <%= f.input :title %>
+    <%= f.input :comment %>
+    <%= f.input :rating, as: :numeric %>
+    <%= f.submit "Submit review", class: "btn btn-primary" %>
+    <% end %>
+  </div>
+</div>
