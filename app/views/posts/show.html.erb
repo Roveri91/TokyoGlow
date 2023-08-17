@@ -22,7 +22,7 @@
             placeholder: "Reply ##{@post.user.username}'s Post",
             wrapper_html: {class: "flex-grow-1"}
           %>
-          <%= f.submit "Send", class: "btn btn-primary mb-3" %>
+          <%= f.submit "Send", class: "btn btn-success mb-3" %>
         <% end %>
       </div>
 
@@ -37,5 +37,7 @@
         <% end %>
       </div>
   </div>
-    <%= link_to "Return to Posts", posts_path, class: "btn btn-success w-100 rounded my-2" %>
+    <div class = "d-flex justify-content-center">
+    <%= link_to "Back", posts_path, class: "btn btn-primary" %>
+    </div>
 </div>

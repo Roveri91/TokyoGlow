@@ -1,11 +1,10 @@
 <div class="card-container">
 
   <div class= "">
-    <div style="margin-top:70px;" class="back-btn">
+    <div class = "d-flex justify-content-center py-3">
       <%= link_to "Back", hospitals_path, class: "btn btn-primary" %>
     </div>
     <h1 style="margin-top: 5px;"><%= @hospital.name %></h1>
-      <%= link_to "Add Appointment to calendar",  new_hospital_appointment_path(@hospital) %>
     </div>
     <div >
       <%= image_tag @hospital.default_image, class:"hospital-show-image" %>
@@ -33,6 +32,9 @@
       <p>Website: <%= @hospital.webpage %></p>
       </div>
     </div>
+    <div class= "d-flex justify-content-center py-3">
+      <%= link_to "Add Appointment to your calendar",  new_hospital_appointment_path(@hospital), class: "btn-submit" %>
+    </div>
   </div>
 
 
@@ -50,10 +52,15 @@
     </div>
   </div>
   <% end %>
+  <hr/>
 
+  <div class="container">
   <%= simple_form_for [@hospital, @review] do |f| %>
   <%= f.input :title %>
   <%= f.input :comment %>
   <%= f.input :rating, as: :numeric %>
-  <%= f.submit "Submit review", class: "btn btn-primary" %>
+    <div class= "d-flex justify-content-center py-3">
+      <%= f.submit "Submit your review", class: "btn-submit" %>
+    </div>
   <% end %>
+  </div>
