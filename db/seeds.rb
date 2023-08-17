@@ -6,26 +6,27 @@
 #   movies = Movie.create([{ name: "Star Wars" }, { name: "Lord of the Rings" }])
 #   Character.create(name: "Luke", movie: movies.first)
 
-require 'faker'
-require "open-uri"
+# require 'faker'
+# require "open-uri"
 
-puts "Destroying all the replies"
 Reply.delete_all
+puts "Destroyed all the replies"
 
-puts "Destroying all the posts"
 Post.delete_all
+puts "Destroyed all the posts"
 
-puts "Destroying all the appointments"
 Appointment.delete_all
+puts "Destroyed all the appointments"
 
-puts "Destroying all the reviews"
 Review.delete_all
+puts "Destroyed all the reviews"
 
-puts "Destroying all the events"
 Event.delete_all
+puts "Destroyed all the events"
 
 puts "Destroying all the users"
 User.delete_all
+puts "Destroyed all the users"
 
 users = []
 puts "Creating new users"
@@ -95,7 +96,6 @@ hospital = Hospital.create!(name: "Jikei Hospital, Women's and Children's Center
   description: " Midwives and nurses promote breastfeeding and will help you after delivery. Breastfeeding room with pumps also available.", average_rating: 4.7, phone_number: "03-1123-6688", default_image: "jikei_hospital.png")
 puts "created #{hospital.name}"
 
-
 # file = URI.open("https://upload.wikimedia.org/wikipedia/commons/thumb/8/82/NES-Console-Set.jpg/1200px-NES-Console-Set.jpg")
 
 # seed_hospital = Hospital.new(
@@ -145,5 +145,85 @@ puts "created #{hospital.name}"
 hospital = Hospital.create!(name: "Kanto Rozai Hospital", address:locations.sample, price_range: price_range.sample, services: services.sample(4).join(", "), webpage: "https://tokyoh.johas.go.jp/en/",
   description: "We encourage kangaroo care after birth and breastfeeding. English support may not be available – please enquire about availability in advance. We accept all major credit cards.", average_rating: 2.9, phone_number: "03-3456-9723", default_image: "kanto_hospital.jpg")
 puts "created #{hospital.name}"
+
+# ice_cream_image = URI.open("https://res.cloudinary.com/dsfih62k7/image/upload/v1692098565/ice_cream_amdk0l.webp")
+
+# ice_cream = Event.new(status: 0, title: 'Free ice cream!', content: "grab a book", date: 'Tue, 15 Sept 2023', location: 'Yoyogi Park', time:'Sat, 01 Jan 2000 11:30:00.000000000 UTC +00:00', user: users.sample)
+
+# ice_cream.photo.attach(io: ice_cream_image, filename: "ice_cream.webp", content_type: "image/webp")
+# ice_cream.save!
+
+yoga_image = Rails.root.join('app', 'assets', 'images', 'yoga.jpg')
+book_image = Rails.root.join('app', 'assets', 'images', 'book.jpg')
+diapers_image = Rails.root.join('app', 'assets', 'images', 'diapers.jpg')
+ice_cream_image = Rails.root.join('app', 'assets', 'images', 'ice_cream.jpg')
+
+giulia = User.find_by(username: 'Giulia')
+jonny = User.find_by(username: 'Jonny')
+simone = User.find_by(username: 'Simone')
+tenny = User.find_by(username: 'Tenny')
+
+yoga = Event.new(
+  status: 0,
+  title: 'Come enjoy yoga together!',
+  content: 'Yoga instructor of the day: Millie',
+  date: Date.today,
+  location: 'Yoyogi Park',
+  time: Time.now,
+  user: giulia,
+)
+yoga.save!
+yoga.photo.attach(io: File.open(yoga_image), filename: 'yoga.jpg', content_type: 'image/jpg')
+
+book = Event.new(
+  status: 0,
+  title: "Free children's books!",
+  content: 'Grab a copy or two today',
+  date: Date.today,
+  location: 'Yoyogi Park',
+  time: Time.now,
+  user: jonny,
+)
+book.save!
+book.photo.attach(io: File.open(book_image), filename: 'book.jpg', content_type: 'image/jpg')
+
+
+diapers = Event.new(
+  status: 0,
+  title: "Diapers Giveaway!",
+  content: 'All sizes available!',
+  date: Date.today,
+  location: 'Yoyogi Park',
+  time: Time.now,
+  user: simone,
+
+)
+diapers.save!
+diapers.photo.attach(io: File.open(diapers_image), filename: 'diapers.jpg', content_type: 'image/jpg')
+
+ice_cream = Event.new(
+  status: 0,
+  title: 'Free ice cream!',
+  content: 'Try 3 new flavors today: mango, cookies & cream, pistachio',
+  date: Date.today,
+  location: 'Yoyogi Park',
+  time: Time.now,
+  user: tenny,
+)
+ice_cream.save!
+ice_cream.photo.attach(io: File.open(ice_cream_image), filename: 'ice_cream.jpg', content_type: 'image/jpg')
+
+
+puts "created 4 events"
+
+
+
+# ice_cream = Event.create!(status: 0, title: "Free ice cream!", content: "grab a book", date: 'Tue, 15 Oct 2023', location: Yoyogi, time: 'Sat, 01 Jan 2000 05:30:00.000000000 UTC +00:00', photo: )
+
+# diapers = Event.create!(status: 0, title: "Walk!", content: "grab a book", date: 'Tue, 15 Aug 2023', location: Yoyogi, time: 'Sat, 01 Jan 2000 10:30:00.000000000 UTC +00:00',:photo)
+
+# diapers = Event.create!(status: 0, title: "Free diapers!", content: "grab a book", date: , location: Yoyogi, time: 'Sat, 01 Jan 2000 12:30:00.000000000 UTC +00:00', photo)
+
+
 
 puts "Done! Thank you for your patience."
