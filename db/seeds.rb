@@ -187,7 +187,6 @@ book = Event.new(
 book.save!
 book.photo.attach(io: File.open(book_image), filename: 'book.jpg', content_type: 'image/jpg')
 
-
 diapers = Event.new(
   status: 0,
   title: "Diapers Giveaway!",
@@ -213,17 +212,6 @@ ice_cream = Event.new(
 ice_cream.save!
 ice_cream.photo.attach(io: File.open(ice_cream_image), filename: 'ice_cream.jpg', content_type: 'image/jpg')
 
-
 puts "created 4 events"
-
-
-
-# ice_cream = Event.create!(status: 0, title: "Free ice cream!", content: "grab a book", date: 'Tue, 15 Oct 2023', location: Yoyogi, time: 'Sat, 01 Jan 2000 05:30:00.000000000 UTC +00:00', photo: )
-
-# diapers = Event.create!(status: 0, title: "Walk!", content: "grab a book", date: 'Tue, 15 Aug 2023', location: Yoyogi, time: 'Sat, 01 Jan 2000 10:30:00.000000000 UTC +00:00',:photo)
-
-# diapers = Event.create!(status: 0, title: "Free diapers!", content: "grab a book", date: , location: Yoyogi, time: 'Sat, 01 Jan 2000 12:30:00.000000000 UTC +00:00', photo)
-
-
 
 puts "Done! Thank you for your patience."
