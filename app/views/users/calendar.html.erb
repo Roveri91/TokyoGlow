@@ -2,29 +2,30 @@
   <h1 class="text-center"><%= current_user.username %>`s calendar</h1>
 
   <%= month_calendar do |date| %>
-    <%=date.class%>
-    <div type="button" class="btn btn-primary myBtn" data-bs-toggle="modal" data-bs-target="#exampleModal">
+    <div type="button" class="myBtn" data-bs-toggle="modal" data-bs-target="#exampleModal<%=date%>">
+
       <%#= link_to calendar_path(current_user, date: date) do %>
 
       <!-- Modal -->
-      <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+      <div class="modal fade" id="exampleModal<%=date%>" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
         <div class="modal-dialog">
           <div class="modal-content">
             <div class="modal-header">
-              <h1 class="modal-title fs-5" id="exampleModalLabel">Modal title</h1>
+              <h1 class="modal-title fs-5" id="exampleModalLabel">Appointments and Events</h1>
               <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body">
-              <% @current_day_appointments = @appointments.where(date: date) %>
-              <%# <%= raise if date == Date.new(2023, 8, 24)%> %>
-              <% if @current_day_appointments.length == 0 %>
+              <% @current_day_appointments = @appointments.where(date: date).to_a %>
+              <%# <%= raise if date == Date.new(2023, 8, 24)%>
+              <% if @current_day_appointments.empty? %>
                 <div>
                 <h2>Private Appointments</h2>
                 </div>
                 <h4>No appointments to display!</h4>
               <% else %>
                 <div>
-                <h2>Private Appointments for <%= date %></h2>
+                <h2>Private Appointments for: </h2>
+                <h2><%= date %></h2>
                 </div>
                 <div>
                   <% @current_day_appointments.each do |appointment| %>
@@ -52,9 +53,9 @@
                 </div>
               <% end %>
             </div>
-            <div class="modal-footer">
+            <%# <div class="modal-footer">
               <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-            </div>
+            </div> %>
           </div>
         </div>
       </div>
@@ -70,39 +71,3 @@
     </div>
   <% end %>
 </div>
-
-
-    <% if @current_day_appointments.length == 0 %>
-      <div>
-      <h2>Private Appointments</h2>
-      </div>
-      <h4>No appointments to display!</h4>
-    <% else %>
-      <div>
-      <h2>Private Appointments for <%= params[:date] %></h2>
-      </div>
-      <div>
-        <% @current_day_appointments.each do |appointment| %>
-          <div class="card-container">
-            <div class="card">
-              <div>
-                <h3><%= appointment.title %></h3>
-              </div>
-              <div>
-                <h5>Purpose: <%= appointment.purpose %></h5>
-              </div>
-              <div>
-                <p>Date: <%= appointment.date %> Time: <%= appointment.time %></p>
-              </div>
-              <% if appointment.notes != "" %>
-                <div class="card-container">
-                    <%= appointment.notes %>
-                </div>
-              <% else %>
-                <div> </div>
-              <% end %>
-            </div>
-          </div>
-        <% end %>
-      </div>
-    <% end %>
