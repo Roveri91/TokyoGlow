@@ -2,8 +2,10 @@
   <div class="homepage-wrapper">
     <h3 class="text-center"> Connecting People...</h3>
     <p class="text-center"> Expect your pregnancy to be simpler </p>
-    <div>
-      <%= link_to "LogIn", new_user_session_path, class: "btn btn-login mt-4" %>
-    </div>
+    <% if !user_signed_in? %>
+      <div>
+        <%= link_to "LogIn", new_user_session_path, class: "btn btn-login mt-4" %>
+      </div>
+    <% end %>
   </div>
 <%# <div> %>
