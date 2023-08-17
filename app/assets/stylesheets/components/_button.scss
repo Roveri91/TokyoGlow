@@ -84,13 +84,18 @@ button:hover > a {
 }
 
 .btn-login {
-  color: $lettering-blue;
+  color: $navbar-pink;
   padding: 8px 24px;
-  border-radius: 10px;
-  border: ridge 3px $navbar-pink;
-  background: $navbar-pink;
+  border-radius: 20px;
+  border: solid 3px $icon-blue-border;
+  background-color: $lettering-blue;
   text-decoration: none;
   font-family: 'Philosopher', sans-serif;
   font-weight: 400;
-  transition: background 0.3s ease;
+  transition: background-color 0.3s ease;
+}
+
+.btn-login:active {
+  background: $navbar-pink;
+  color: $lettering-blue;
 }
