@@ -2,8 +2,8 @@ class EventPolicy < ApplicationPolicy
   class Scope < Scope
   # NOTE: Be explicit about which records you allow access to!
     def resolve
-      # scope.all # same as saying Event.all
-      scope.where(user: user) # get only events made by user
+      scope.all # same as saying Event.all
+      # scope.where(user: user) # get only events made by user
     end
   end
 
@@ -28,7 +28,8 @@ class EventPolicy < ApplicationPolicy
   end
 
   def update?
-    record.user == user # record - the event instance
+    true
+    # record.user == user # record - the event instance
   end
 
   def destroy?

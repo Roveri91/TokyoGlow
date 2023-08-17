@@ -13,9 +13,10 @@ class UsersController < ApplicationController
     else
       date = Date.today.strftime("%Y-%m-%d")
     end
-    @current_day_appointments = Appointment.where(user: current_user, date: date)
+    # @current_day_appointments = Appointment.where(user: current_user, date: date)
     @appointments = Appointment.where(user: current_user)
-
+    @current_day_events = Event.where(user: current_user, date: date)
+    @events = Event.where(user: current_user)
     # year = Date.parse(date).year       WILL NEED THIS FOR EVENTS
     # month = Date.parse(date).month
   end
