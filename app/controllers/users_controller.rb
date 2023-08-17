@@ -20,6 +20,10 @@ class UsersController < ApplicationController
     # month = Date.parse(date).month
   end
 
+  def weeks_until_birth
+    @weeks = ((@profile.due_date - Date.today) / 7).to_i
+  end
+
   private
 
   def set_profile
