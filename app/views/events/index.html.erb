@@ -1,27 +1,26 @@
-<div class="py-3 my-3">
-  <center>
-    <h1>Upcoming events</h1>
-  </center>
-</div>
 
-<div class="row justify-content-center">
-  <div class="col-sm-8 my-3">
-    <%= form_with url: events_path, method: :get, class: "d-flex m-1 p-2" do %>
-      <%= text_field_tag :query,
-        params[:query],
-        class: "form-control",
-        placeholder: "Search for location, event, host"
-      %>
-      <%= submit_tag "Search", name: "", class: "btn btn-success" %>
-    <% end %>
-  </div> <!-- This is the correct closing tag for the div -->
+<div class="py-5 mb-5">
+  <div class="py-4 mb-2 text-center">
+    <h1> Upcoming events </h1>
+ </div>
+
+  <div class="row justify-content-center m-2">
+    <div class="col-sm-8 my-3">
+      <%= form_with url: events_path, method: :get, class: "d-flex my-3" do %>
+        <%= text_field_tag :query,
+          params[:query],
+          class: "form-control",
+          placeholder: "park, ice cream, yoga"
+        %>
+        <%= submit_tag "Search", name: "", class: "btn btn-success" %>
+      <% end %>
+    </div>
 
   <div class="d-flex justify-content-center">
-    <% if policy(Event).new? %>
-      <%= link_to "Add an event", new_event_path, class: "btn-submit" %>
+    <% if policy(Event).new?%>
+      <%= link_to "Make an event", new_event_path, class: "btn-submit" %>
     <% end %>
   </div>
-</div>
 
 <div class="py-3 my-3">
   <% @events.each do |event| %>
@@ -46,8 +45,9 @@
           <p class = "d-flex justify-content-center">
             <%= link_to "See more", event_path(id: event.id), class: "btn btn-primary" %>
           </p>
+
         </div>
       </div>
-    </div>
-  <% end %>
+    <% end %>
+  </div>
 </div>

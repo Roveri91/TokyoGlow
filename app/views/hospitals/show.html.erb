@@ -1,4 +1,4 @@
-<div class="card-container">
+<div class="card-container px-3">
 
   <div class= "">
     <div class = "d-flex justify-content-center py-3">
@@ -37,24 +37,25 @@
     </div>
   </div>
 
-
-<h1>Reviews </h1>
-  <% @hospital.reviews.each do |review| %>
-  <div class="card-container">
-   <div class="card">
-      <div>
-        <%= review.title %>
-        <%= review.rating %>
-     </div>
-      <div>
-        <%= review.comment %>
+  <div class="px-3">
+    <h1>Reviews</h1>
+    <% @hospital.reviews.each do |review| %>
+    <div class="card-container">
+      <div class="card">
+        <div>
+          <%= review.title %>
+          <%= review.rating %>
+        </div>
+        <div>
+          <%= review.comment %>
+        </div>
       </div>
     </div>
+    <% end %>
   </div>
-  <% end %>
   <hr/>
 
-  <div class="container">
+  <div class="container px-3">
   <%= simple_form_for [@hospital, @review] do |f| %>
   <%= f.input :title %>
   <%= f.input :comment %>
@@ -64,3 +65,4 @@
     </div>
   <% end %>
   </div>
+
