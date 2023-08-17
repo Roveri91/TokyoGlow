@@ -1,7 +1,6 @@
 <%# <div class="fixed-top d-flex justify-content-center p-2 banner">
   <%= render "shared/banner"%>
 <%# </div> %>
-
 <div class="py-5 mb-5">
   <div class="row justify-content-center mx-2">
     <div class="col-sm-8 my-3">
@@ -11,9 +10,9 @@
           class: "form-control",
           placeholder: "Search for hospitals, services, locations"
         %>
-        <%= submit_tag "Search", name: "", class: "btn-hire" %>
+        <%= submit_tag "Search", name: "", class: "btn btn-success" %>
       <% end %>
-    </div>
+    </div> 
   </div>
 
   <% @hospitals.each do |hospital| %>
@@ -27,7 +26,7 @@
           </div>
           <div class="hospital-header">
             <h3><%=hospital.address %></h3>
-            <%= link_to "View hospital", hospital_path(hospital), class: "btn btn-hire" %>
+            <%= link_to "View hospital", hospital_path(hospital), class: "btn btn-primary py-1 my-1" %>
           </div>
           <%#h5>
             <%= hospital.services %>
