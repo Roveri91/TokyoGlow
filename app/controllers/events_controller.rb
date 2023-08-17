@@ -55,6 +55,13 @@ class EventsController < ApplicationController
   def pending?
     status == 'pending'
   end
+
+  def attend_event
+    event = Event.find(params[:id])
+    event.increment!(:attendees_count)
+    redirect_to event_path(@event)
+  end
+
   private
 
   def set_event
