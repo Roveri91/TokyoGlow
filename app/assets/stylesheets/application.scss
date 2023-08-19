@@ -29,3 +29,16 @@ body {
   width: 100%;
   height: 150px;
 }
+
+.collapse-p {
+  margin: 0;
+  position: relative;
+}
+
+.collapse-p::after {
+  font-family: "Font Awesome 6 Free";
+  content: "\f078";
+  font-weight:900;
+  position: absolute;
+  right: 18px;
+}

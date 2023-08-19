@@ -4,13 +4,13 @@
     <h1><%= current_user.username %></h1>
     <%= link_to "LOG OUT",  destroy_user_session_path, data: {turbo_method: :delete} %>
   </div>
-  <div class="border rounded-4 px-4">
-    <p>recommended article for you</p>
-    <div class="d-none">
+  <div class="border rounded-4">
+    <p class="collapse-p px-4 py-2" data-bs-toggle="collapse" href="#collapse" role="button">recommended article for you</p>
+    <div class="collapse multi-collapse px-3 pb-3" id="collapse">
       <div class="my-3">
        <img id="article-img" class="rounded-4" src="<%= @article.image%>" alt="Article Picture"> 
       </div>
-      <div>
+      <div class="px-3">
         <h3><%= @article.title %></h3>
         <p><%= @article.content %></p>
         <a target="_blank" href="<%= @article.link %>">Read more</a>
