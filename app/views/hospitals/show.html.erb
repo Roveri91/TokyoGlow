@@ -43,13 +43,16 @@
     <div class="card-container">
       <div class="card">
         <div>
-        <h3><%= review.title  %></h3>
+        <h3><%= review.user.username %> said:</h3>
+        </div>
+        <div>
+        <h3><%= review.title %></h3>
         </div>
         <div>
         <p>Rating: <%= review.rating.to_i %></p>
         </div>
         <div>
-        <p>Comment: <%= review.comment %></p>
+        <p><%= review.comment %></p>
         </div>
       </div>
     </div>
