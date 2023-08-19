@@ -1,280 +1,280 @@
 1:
-  length:
-  weight:
-  size:
-  image:
-  symptoms:
-  baby_info:
+  length: tiny
+  weight: tiny
+  size: a tiny speck!
+  image: 👶
+  symptoms: Nothing to show yet!
+  baby_info: Too small to know!
 2:
-  length:
-  weight:
-  size:
-  image:
-  symptoms:
-  baby_info:
+  length: tiny
+  weight: tiny
+  size: a tiny speck!
+  image: 👶
+  symptoms: Nothing to show yet!
+  baby_info: Too small to know!
 3:
-  length:
-  weight:
-  size:
-  image:
-  symptoms:
-  baby_info:
+  length: tiny
+  weight: tiny
+  size: a tiny speck!
+  image: 👶
+  symptoms: Nothing to show yet!
+  baby_info: Too small to know!
 4:
-  length: 2mm
-  weight: Too small to calculate
-  size: poppy seed
-  image:
-  symptoms: Nausea, Bloating, Tender Breasts
-  baby_info:
+  length: tiny
+  weight: tiny
+  size: a Poppy Seed
+  image: poppy_seed.jpg
+  symptoms: [fatigue, nausea, bloating]
+  baby_info: Officially an embryo!
 5:
-  length:
-  weight:
-  size:
-  image:
-  symptoms:
-  baby_info:
+  length: tiny
+  weight: tiny
+  size: a Sesame Seed
+  image: sesame_seed.jpg
+  symptoms: [fatigue, headaches, cravings]
+  baby_info: Starting to have a heart beat!
 6:
-  length:
-  weight:
-  size:
-  image:
-  symptoms:
-  baby_info:
+  length: tiny
+  weight: tiny
+  size: a Lentil
+  image: lentil.jpg
+  symptoms: [headache, acne, tender breasts]
+  baby_info: Forming it's nose mouth and ears!
 7:
-  length:
-  weight:
-  size:
-  image:
-  symptoms:
-  baby_info:
+  length: tiny
+  weight: tiny
+  size: a Blueberry
+  image: blueberry.jpg
+  symptoms: [insomnia, bloating, acne]
+  baby_info: Doubling in size!
 8:
-  length:
-  weight:
-  size:
-  image:
-  symptoms:
-  baby_info:
+  length: 1.57cm
+  weight: 20 grams
+  size: a Kidney Bean
+  image: kidney_bean.jpg
+  symptoms: [nausea, fatigue, cravings]
+  baby_info: Starting to move around!
 9:
-  length:
-  weight:
-  size:
-  image:
-  symptoms:
-  baby_info:
+  length: 2.30cm
+  weight: 27 grams
+  size: a Grape
+  image: grape.jpg
+  symptoms: [mood swings, nausea, insomnia]
+  baby_info: Developing their basic anatomy!
 10:
-  length:
-  weight:
-  size:
-  image:
-  symptoms:
-  baby_info:
+  length: 3.1cm
+  weight: 35 grams
+  size: a Kumquat
+  image: kumquat.jpg
+  symptoms: [cravings, headachem insomnia]
+  baby_info: Starting to bend their limbs!
 11:
-  length:
-  weight:
-  size:
-  image:
-  symptoms:
-  baby_info:
+  length: 4.1cm
+  weight: 45 grams
+  size: a Fig
+  image: fig.jpg
+  symptoms: [bloating, headache, nausea]
+  baby_info: Almost fully formed!
 12:
-  length:
-  weight:
-  size:
-  image:
-  symptoms:
-  baby_info:
+  length: 5.4cm
+  weight: 58 grams
+  size: a Lime
+  image: fig.jpg
+  symptoms: [fatigue, tender breasts, bloating]
+  baby_info: Testing their reflexes!
 13:
-  length:
-  weight:
-  size:
-  image:
-  symptoms:
-  baby_info:
+  length: 6.7cm
+  weight: 73 grams
+  size: a Peapod
+  image: peapod.jpg
+  symptoms: [nausea, headahce, bloating]
+  baby_info: Forming their fingerprints!
 14:
-  length:
-  weight:
-  size:
-  image:
-  symptoms:
-  baby_info:
+  length: 14.7cm
+  weight: 93 grams
+  size: a Lemon
+  image: lemo.jpg
+  symptoms: [irritated, nausea, backache]
+  baby_info: Starting to use their facial muscles!
 15:
-  length: 16.7cm
-  weight: 117 grams
-  size: Apple
+  length: 33.7 cm
+  weight: 785 grams
+  size: an Apple
   image: apple.jpg
-  symptoms: Headaches, Tender Breasts, High Sex Drive
-  baby_info: Your baby is starting to sense light!
+  symptoms: [headahce, tender breasts, high sex drive]
+  baby_info: Showing their gender from this week!
 16:
-  length:
-  weight:
-  size:
-  image:
-  symptoms:
-  baby_info:
-17:
-  length:
-  weight:
-  size:
-  image:
-  symptoms:
-  baby_info:
-18:
-  length:
-  weight:
-  size:
-  image:
-  symptoms:
-  baby_info:
-19:
-  length:
-  weight:
-  size:
-  image:
-  symptoms:
-  baby_info:
-20:
-  length:
-  weight:
-  size:
-  image:
-  symptoms:
-  baby_info:
-21:
-  length:
-  weight:
-  size:
-  image:
-  symptoms:
-  baby_info:
-22:
-  length:
-  weight:
-  size:
-  image:
-  symptoms:
-  baby_info:
-23:
-  length:
-  weight:
-  size:
-  image:
-  symptoms:
-  baby_info:
-24:
-  length:
-  weight:
-  size:
-  image:
-  symptoms:
-  baby_info:
-25:
   length: 16.7cm
-  weight: 117 grams
-  size: Apple
-  image: apple.jpg
-  symptoms: Headaches, Tender Breasts, High Sex Drive
-  baby_info: Your baby is starting to sense light!
+  weight: 146 grams
+  size: an Avocado
+  image: avocado.jpg
+  symptoms: [nausea, cravings, irritated]
+  baby_info: Developing their head!
+17:
+  length: 20.4cm
+  weight: 181 grams
+  size: a Turnip
+  image: turnip.jpg
+  symptoms: [calm, sad, backache]
+  baby_info: Moving their joints!
+18:
+  length: 22.2cm
+  weight: 223 grams
+  size: a Bell Pepper
+  image: bell_pepper.jpg
+  symptoms: [calm, headache, tender breasts]
+  baby_info: Moving so much you could feel it!
+19:
+  length: 24.0cm
+  weight: 273 grams
+  size: a Heirloom Tomato
+  image: heirloom_tomato.jpg
+  symptoms: [backache, sad, calm]
+  baby_info: Able to hear your voice!
+20:
+  length: 25.7cm
+  weight: 331 grams
+  size: a Banana
+  image: banana.jpg
+  symptoms: [calm, backache, energetic]
+  baby_info: Learning how to swallow!
+21:
+  length: 27.4cm
+  weight: 399 grams
+  size: a Carrot
+  image: carrot.jpg
+  symptoms: [calm, cravings, tender breasts]
+  baby_info: Kicking a lot more from this week!
+22:
+  length: 29.0cm
+  weight: 478 grams
+  size: a Spaghetti Squash
+  image: spaghetti_squash.jpg
+  symptoms: [sad, constipation, tender breasts]
+  baby_info: Starting to look like a miniature newborn!
+23:
+  length: 30.6cm
+  weight: 568 grams
+  size: a Mango
+  image: mango.jpg
+  symptoms: [calm, tender breasts, happy]
+  baby_info: Able to hear sounds more easily!
+24:
+  length: 32.2cm
+  weight: 670 grams
+  size: a Corn
+  image: corn.jpg
+  symptoms: [sad, calm, tender breasts]
+  baby_info: Starting to develop baby fat!
+25:
+  length: 33.7 cm
+  weight: 785 grams
+  size: a Rutabaga
+  image: rutabaga.jpg
+  symptoms: [fatigue, nausea, sad]
+  baby_info: Starting to grow hair!
 26:
-  length:
-  weight:
-  size:
-  image:
-  symptoms:
-  baby_info:
+  length: 35.1cm
+  weight: 913 grams
+  size: a Scallion
+  image: scallion.jpg
+  symptoms: [fatigue, tender breasts, sad]
+  baby_info: Starting to inhale and exhale!
 27:
-  length:
-  weight:
-  size:
-  image:
-  symptoms:
-  baby_info:
+  length: 36.6cm
+  weight: 1055 grams
+  size: a Cauliflower
+  image: cauliflower.jpg
+  symptoms: [backache, constipation, irritated]
+  baby_info: Developing a very active brain!
 28:
-  length:
-  weight:
-  size:
-  image:
-  symptoms:
-  baby_info:
+  length: 37.6cm
+  weight: 1210 grams
+  size: an Eggplant
+  image: eggplant.jpg
+  symptoms: [calm, backache, acne]
+  baby_info: Developing their eyesight!
 29:
-  length:
-  weight:
-  size:
-  image:
-  symptoms:
-  baby_info:
+  length: 39.3cm
+  weight: 1379 grams
+  size: a Butternut Squash
+  image: butternut_squash.jpg
+  symptoms: [calm, constipation, irritated]
+  baby_info: Developing their lungs and muscles!
 30:
-  length:
-  weight:
-  size:
-  image:
-  symptoms:
-  baby_info:
+  length: 40.5cm
+  weight: 1559 grams
+  size: a Cabbage
+  image: cabbage.jpg
+  symptoms: [fatigue, tender breasts, energetic]
+  baby_info: Growing very quickly!
 31:
-  length:
-  weight:
-  size:
-  image:
-  symptoms:
-  baby_info:
+  length: 41.8cm
+  weight: 1751 grams
+  size: a Coconut
+  image: coconut.jpg
+  symptoms: [fatigue, backache, cravings]
+  baby_info: Turning their head side to side!
 32:
-  length:
-  weight:
-  size:
-  image:
-  symptoms:
-  baby_info:
+  length: 43.0cm
+  weight: 1953 grams
+  size: a Jicama
+  image: jicama.jpg
+  symptoms: [calm, backache, tender breasts]
+  baby_info: Gaining weight quickly!
 33:
-  length:
-  weight:
-  size:
-  image:
-  symptoms:
-  baby_info:
+  length: 44.1cm
+  weight: 2162 grams
+  size: a Pineapple
+  image: pineapple.jpg
+  symptoms: [calm, energetic, energetic]
+  baby_info: Developing their skull!
 34:
-  length:
-  weight:
-  size:
-  image:
-  symptoms:
-  baby_info:
+  length: 45.3cm
+  weight: 2377 grams
+  size: a Cantaloupe
+  image: cantaloupe.jpg
+  symptoms: [fatigue, bloating, sad]
+  baby_info: Developing their central nervouse system!
 35:
-  length:
-  weight:
-  size:
-  image:
-  symptoms:
-  baby_info:
+  length: 46.3cm
+  weight: 2595 grams
+  size: a Honeydew Melon
+  image: honeydew_melon.jpg
+  symptoms: [calm, backache, acne]
+  baby_info: Moving a lot more!
 36:
-  length:
-  weight:
-  size:
-  image:
-  symptoms:
-  baby_info:
+  length: 47.3cm
+  weight: 2813 grams
+  size: a Romaine Lettuce
+  image: romaine_lettuce.jpg
+  symptoms: [fatigue, headache, high sex drive]
+  baby_info: Gaining an ounce a day!
 37:
-  length:
-  weight:
-  size:
-  image:
-  symptoms:
-  baby_info:
+  length: 48.3cm
+  weight: 3028 grams
+  size: a Swiss Chard
+  image: swiss_chard.jpg
+  symptoms: [calm, acne, high sex drive]
+  baby_info: Developing their lungs and brains!
 38:
-  length:
-  weight:
-  size:
-  image:
-  symptoms:
-  baby_info:
+  length: 49.3cm
+  weight: 3236 grams
+  size: a Leek
+  image: leek.jpg
+  symptoms: [calm, happy, energetic]
+  baby_info: Growing quickly!
 39:
-  length:
-  weight:
-  size:
-  image:
-  symptoms:
-  baby_info:
+  length: 50.1cm
+  weight: 3435 grams
+  size: a Mini Watermelon
+  image: watermelon.jpg
+  symptoms: [calm, backache, irritated]
+  baby_info: Considered full term!
 40:
-  length:
-  weight:
-  size:
-  image:
-  symptoms:
-  baby_info:
+  length: 51.0cm
+  weight: 3619 grams
+  size: a Small Pumpkin
+  image: pumpkin.jpg
+  symptoms: [fatigue, backache, constipation]
+  baby_info: Considered fully developed!

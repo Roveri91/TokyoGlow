@@ -5,10 +5,35 @@
   </div>
   <div class="my-3 d-flex flex-column align-items-center">
     <h1><%= current_user.username %></h1>
-    <p>Weeks left:</p>
-    <p><%= @weeks %>!</p>
-    <%= image_tag @image, alt: 'current_photo' %>
-    <%= @image %>
-    <p>Baby's current size: <%= @size %></p>
+    <div class="container ">
+      <div class="card align-items-center bg-cards">
+        <h4>You are on week: <span style="color:#301934;"><%= @current_week %>!</span></h4>
+        <% @weeks == 1 ? week_display = "#{@weeks} week" : week_display = "#{@weeks} weeks" %>
+        <h4>Only <%= week_display %> left!</h4>
+      </div>
+    </div>
+    <div class="container">
+      <div class="card align-items-center">
+        <h3>This week your baby is:</h3>
+        <h4><%= @baby_info %></h4>
+        <h4> The size of <%= @size %>!</h4>
+        <%= image_tag @image, class: "card rounded-circle shadow", height: 200, width: 200 %>
+      </div>
+    </div>
+     <div class="container">
+      <div class="card align-items-center">
+        <h3>A little more information!</h3>
+        <h4>Baby's current length is <%= @length %></h4>
+        <h4>Baby's current weight is <%= @weight %></h4>
+        <h4><span style="color:#000000;">This week you may feel:</span></h4>
+        <div class="align-items-left">
+          <ul>
+            <% @symptoms.each do |symptom| %>
+              <li style="list-style-type: none;"><h4>❤️<%=symptom%></h4></li>
+            <% end %>
+          </ul>
+        </div>
+      </div>
+    </div>
   </div>
 </div>

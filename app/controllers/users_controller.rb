@@ -4,9 +4,10 @@ class UsersController < ApplicationController
   def show
     authorize @profile
     weeks_until_birth
+    current_week
     week_info = YAML.load_file(Rails.root.join('config', 'week_info.yml'))
-    if week_info.key?(@weeks)
-      info = week_info[@weeks]
+    if week_info.key?(@current_week)
+      info = week_info[@current_week]
       @size = info['size']
       @length = info['length']
       @weight = info['weight']
@@ -36,6 +37,10 @@ class UsersController < ApplicationController
 
   def weeks_until_birth
     @weeks = ((@profile.due_date - Date.today) / 7).to_i
+  end
+
+  def current_week
+    @current_week = (40 - (weeks_until_birth))
   end
 
   private
