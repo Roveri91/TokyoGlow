@@ -43,11 +43,13 @@
     <div class="card-container">
       <div class="card">
         <div>
-          <%= review.title %>
-          <%= review.rating %>
+        <h3><%= review.title  %></h3>
         </div>
         <div>
-          <%= review.comment %>
+        <p>Rating: <%= review.rating.to_i %></p>
+        </div>
+        <div>
+        <p>Comment: <%= review.comment %></p>
         </div>
       </div>
     </div>
@@ -56,12 +58,13 @@
   <hr/>
 
   <div class="container px-3">
-  <%= simple_form_for [@hospital, @review] do |f| %>
-  <%= f.input :title %>
-  <%= f.input :comment %>
-  <%= f.input :rating, as: :numeric, input_html: { min: '1', max: '5', step: '1' }, placeholder: "Enter a number from 1 (bad) to 5 (excellent)" %>
-    <div class= "d-flex justify-content-center py-3">
-      <%= f.submit "Submit your review", class: "btn-submit" %>
-    </div>
-  <% end %>
+    <h1>Leave your review</h1>
+    <%= simple_form_for [@hospital, @review] do |f| %>
+    <%= f.input :title %>
+    <%= f.input :comment %>
+    <%= f.input :rating, as: :numeric, input_html: { min: '1', max: '5', step: '1' }, placeholder: "Enter a number from 1 to 5" %>
+      <div class= "d-flex justify-content-center py-3">
+        <%= f.submit "Submit your review", class: "btn-submit" %>
+      </div>
+    <% end %>
   </div>
