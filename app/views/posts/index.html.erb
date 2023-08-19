@@ -22,7 +22,13 @@
     <% @posts.each do |post| %>
       <div>
         <div>
+          <% if post.user.avatar_cl.attached? %>
+            <%= cl_image_tag(post.user.avatar_cl.key, width: "50", height: "50") %>
+            <% elsif post.user.avatar %>
             <%= image_tag(post.user.avatar, width: "50", height: "50") %>
+            <% else %>
+            <%= image_tag("userF1.png", width: "50", height: "50") %>
+          <% end %>
             <strong><%= post.user.username %></strong>
             <i><%= post.created_at.strftime("%a %b %e at %l:%M %p") %></i>
         </div>

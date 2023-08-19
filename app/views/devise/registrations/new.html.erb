@@ -16,8 +16,14 @@
                 required: true,
                 input_html: { autocomplete: "new-password" } %>
     <%= f.input :username,
-                required: false,
+                required: true,
                 input_html: { autocomplete: "username" } %>
+    <%= f.input :avatar_cl, as: :file,
+                required: true,
+                input_html: { multiple: false } %>
+    <div class= "d-flex justify-content-center py-3">
+      <%= f.submit "Create profile", class: "btn-submit" %>
+    </div>
   </div>
 
   <div class="form-actions">

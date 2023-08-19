@@ -7,7 +7,13 @@
     <h1 class= "text-center"><%= @post.title %></h1>
       <div class= "text-center">
         <div>
+          <% if @post.user.avatar_cl.attached? %>
+            <%= cl_image_tag(@post.user.avatar_cl.key, width: "50", height: "50") %>
+            <% elsif @post.user.avatar %>
             <%= image_tag(@post.user.avatar, width: "50", height: "50") %>
+            <% else %>
+            <%= image_tag("userF1.png", width: "50", height: "50") %>
+          <% end %>
             <strong><%= @post.user.username %></strong>
             <i><%= @post.created_at.strftime("%a %b %e at %l:%M %p") %></i>
         </div>
@@ -37,7 +43,13 @@
       <div>
         <% @post.replies.each do |reply| %>
           <div>
+          <% if reply.user.avatar_cl.attached? %>
+            <%= cl_image_tag(reply.user.avatar_cl.key, width: "50", height: "50") %>
+            <% elsif reply.user.avatar %>
             <%= image_tag(reply.user.avatar, width: "50", height: "50") %>
+            <% else %>
+            <%= image_tag("userF1.png", width: "50", height: "50") %>
+          <% end %>
             <strong><%= reply.user.username %></strong>
             <i><%= reply.created_at.strftime("%a %b %e at %l:%M %p") %></i>
           </div>
