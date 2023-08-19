@@ -1,5 +1,4 @@
 <div class="my-5 py-5">
-  <h1 class="text-center"><%= current_user.username %>`s calendar</h1>
   <%= month_calendar do |date| %>
     <div type="button" class="myBtn" data-bs-toggle="modal" data-bs-target="#exampleModal<%=date%>">
       <%#= link_to calendar_path(current_user, date: date) do %>

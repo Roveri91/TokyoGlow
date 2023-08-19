@@ -6,7 +6,7 @@
 <% elsif request.path.include? "post" %>
   <h1>Posts</h1>
 <% elsif request.path.include? "calendar" %>
-  <h1>Calendar</h1>  
+  <h1><%= current_user.username %>`s calendar</h1> 
 <% elsif request.path.include? "user" %> 
   <h1>Profile</h1>
 <% elsif request.path.include? "event" %> 
