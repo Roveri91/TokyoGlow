@@ -5,9 +5,10 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable
   has_many :appointments
   has_many :attendants
-  has_many :events
+  has_many :events, through: :attendants
   has_many :posts
   has_many :replies
   validates :username, presence: true
   has_one_attached :image
+
 end

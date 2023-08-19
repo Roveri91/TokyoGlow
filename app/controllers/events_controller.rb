@@ -10,7 +10,10 @@ class EventsController < ApplicationController
 
   def show
     @event = Event.find(params[:id])
+    # @attendant = Attendant.new
     authorize @event
+    @attendants = @event.attendants
+    @is_attending = @attendants.where(status: 1).exists?(user_id: current_user.id)
   end
 
   def new
@@ -30,18 +33,6 @@ class EventsController < ApplicationController
     end
   end
 
-  def update
-    @event = Event.find(params[:id])
-    if params[:event][:status] == 'accepted' && @event.update(status: 1)
-      redirect_to @event
-    elsif params[:event][:status] == 'rejected' && @event.update(status: 2)
-      redirect_to @event
-    # else
-    # render notice: 'Event was successfully updated.'
-        # if @event.update(event_params)
-    end
-  end
-
   def edit
     authorize @event
   end
@@ -49,17 +40,23 @@ class EventsController < ApplicationController
   def destroy
     @event = Event.find(params[:id])
     @event.destroy
-    redirect_to events_path, notice: "Event was succesfully deleted."
+    redirect_to events_path, notice: 'Event was succesfully deleted.'
   end
 
-  def pending?
-    status == 'pending'
-  end
+  def status_change
+    @event = Event.find(params[:event])
+    @attendee = Attendant.find_by user_id: current_user.id, event_id: @event
 
-  def attend_event
-    event = Event.find(params[:id])
-    event.increment!(:attendees_count)
-    redirect_to event_path(@event)
+    if @attendee.nil?
+      @attendee = Attendant.create(user_id: current_user.id, event_id: @event, status: params[:status].to_i)
+
+    else
+      @attendee.status = params[:status].to_i
+      @attendee.save
+    end
+    authorize @event
+    authorize @attendee unless @attending.nil?
+    redirect_to event_path(@event), notice: 'Your attendance has been updated.'
   end
 
   private
@@ -70,6 +67,6 @@ class EventsController < ApplicationController
   end
 
   def event_params
-    params.require(:event).permit(:status, :title, :content, :date, :location, :time, :photo)
+    params.require(:event).permit(:title, :content, :date, :location, :time, :photo)
   end
 end

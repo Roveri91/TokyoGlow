@@ -164,7 +164,6 @@ simone = User.find_by(username: 'Simone')
 tenny = User.find_by(username: 'Tenny')
 
 yoga = Event.new(
-  status: 0,
   title: 'Come enjoy yoga together!',
   content: 'Yoga instructor of the day: Millie',
   date: Date.today,
@@ -174,9 +173,9 @@ yoga = Event.new(
 )
 yoga.save!
 yoga.photo.attach(io: File.open(yoga_image), filename: 'yoga.jpg', content_type: 'image/jpg')
+puts 'Created Yoga Event'
 
 book = Event.new(
-  status: 0,
   title: "Free children's books!",
   content: 'Grab a copy or two today',
   date: Date.today,
@@ -186,10 +185,10 @@ book = Event.new(
 )
 book.save!
 book.photo.attach(io: File.open(book_image), filename: 'book.jpg', content_type: 'image/jpg')
+puts 'Created Book event'
 
 
 diapers = Event.new(
-  status: 0,
   title: "Diapers Giveaway!",
   content: 'All sizes available!',
   date: Date.today,
@@ -200,9 +199,9 @@ diapers = Event.new(
 )
 diapers.save!
 diapers.photo.attach(io: File.open(diapers_image), filename: 'diapers.jpg', content_type: 'image/jpg')
+puts 'Created Diapers Event'
 
 ice_cream = Event.new(
-  status: 0,
   title: 'Free ice cream!',
   content: 'Try 3 new flavors today: mango, cookies & cream, pistachio',
   date: Date.today,
@@ -212,18 +211,9 @@ ice_cream = Event.new(
 )
 ice_cream.save!
 ice_cream.photo.attach(io: File.open(ice_cream_image), filename: 'ice_cream.jpg', content_type: 'image/jpg')
+puts 'Created Ice Cream Event'
 
 
-puts "created 4 events"
-
-
-
-# ice_cream = Event.create!(status: 0, title: "Free ice cream!", content: "grab a book", date: 'Tue, 15 Oct 2023', location: Yoyogi, time: 'Sat, 01 Jan 2000 05:30:00.000000000 UTC +00:00', photo: )
-
-# diapers = Event.create!(status: 0, title: "Walk!", content: "grab a book", date: 'Tue, 15 Aug 2023', location: Yoyogi, time: 'Sat, 01 Jan 2000 10:30:00.000000000 UTC +00:00',:photo)
-
-# diapers = Event.create!(status: 0, title: "Free diapers!", content: "grab a book", date: , location: Yoyogi, time: 'Sat, 01 Jan 2000 12:30:00.000000000 UTC +00:00', photo)
-
-
+puts 'created 4 events'
 
 puts "Done! Thank you for your patience."
