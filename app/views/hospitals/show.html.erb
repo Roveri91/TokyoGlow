@@ -4,7 +4,7 @@
     <div class = "d-flex justify-content-center py-3">
       <%= link_to "Back", hospitals_path, class: "btn btn-primary" %>
     </div>
-    <h1 style="margin-top: 5px;"><%= @hospital.name %></h1>
+    <h1 style="margin-top: 5px"><%= @hospital.name %></h1>
     </div>
     <div >
       <%= image_tag @hospital.default_image, class:"hospital-show-image" %>
@@ -42,8 +42,9 @@
     <% @hospital.reviews.each do |review| %>
     <div class="card-container">
       <div class="card">
-        <div>
-        <h3><%= review.user.username %> said:</h3>
+        <div class= "d-flex py-2">
+          <%= image_tag(review.user.avatar, width: "50", height: "50") %>
+          <h3 class="p-2"><%= review.user.username %></h3>
         </div>
         <div>
         <h3><%= review.title %></h3>
