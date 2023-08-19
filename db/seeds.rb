@@ -24,6 +24,9 @@ puts "Destroyed all the reviews"
 Event.delete_all
 puts "Destroyed all the events"
 
+Article.delete_all
+puts "Destroyed all the articles"
+
 puts "Destroying all the users"
 User.delete_all
 puts "Destroyed all the users"
@@ -213,5 +216,23 @@ ice_cream.save!
 ice_cream.photo.attach(io: File.open(ice_cream_image), filename: 'ice_cream.jpg', content_type: 'image/jpg')
 
 puts "created 4 events"
+
+puts "Creating 4 Articles"
+
+article = Article.create!( title: "How to stay healthy during pregnancy", content: "A healthy pregnancy is one of the best ways to promote a healthy birth. Early and regular prenatal care can help prevent complications and educate women about things they can do to have a healthy pregnancy. Here are a few areas to consider:", image: "https://magazine.medlineplus.gov/images/uploads/main_images/healthy-pregnancy.jpg", link:"https://magazine.medlineplus.gov/article/how-to-stay-healthy-during-pregnancy/")
+
+puts "create #{article.title}"
+
+article = Article.create!( title: "Regular Consumption of Low Levels of Caffeine During Pregnancy Linked to Slightly Shorter Children", content: "Exposure to caffeine in the womb, even low amounts, may lead to shorter height in childhood, suggests a new study from the National Institutes of Health (NIH). Children of women with low caffeine intake (including below the current recommendation of 200 milligrams [mg] per day) during pregnancy were slightly shorter than children born to women who consumed no caffeine while pregnant, and the gaps in height widened to 2 centimeters (cm) between ages 4 and 8 years old. ", image: "https://images.everydayhealth.com/images/consuming-caffeine-during-pregnancy-may-affect-childs-growth-1440x810.jpg?w=1110", link:"https://www.everydayhealth.com/pregnancy/consuming-caffeine-during-pregnancy-linked-to-shorter-children/")
+
+puts "create #{article.title}"
+
+article = Article.create!( title: "Is it Safe to Exercise During Pregnancy?", content: "Exercise is often viewed with a doubtful eye during pregnancy, but all the data available so far shows that it has a beneficial effect on a woman with a low-risk pregnancy.", image: "https://d2jx2rerrg6sh3.cloudfront.net/image-handler/ts/20200216115819/ri/673/picture/2020/2/%40shutterstock_115832737.jpg", link:"https://www.news-medical.net/health/Is-it-Safe-to-Exercise-During-Pregnancy.aspx")
+
+puts "create #{article.title}"
+
+article = Article.create!( title: "Pregnant women living in walkable communities more likely to experience favorable birth outcomes", content: "Pregnant women that live in walkable communities-;with more sidewalks, parks and walking paths-;not only engage in more physical activity but are also more likely to experience favorable birth outcomes, according to research from the University of New Hampshire.", image: "https://www.annandaleobgyn.com/wp-content/uploads/2019/11/shutterstock_290863655-768x512.jpg", link:"https://www.news-medical.net/news/20230817/Pregnant-women-living-in-walkable-communities-more-likely-to-experience-favorable-birth-outcomes.aspx")
+
+puts "create #{article.title}"
 
 puts "Done! Thank you for your patience."

@@ -56,6 +56,15 @@ ActiveRecord::Schema[7.0].define(version: 2023_08_19_054729) do
     t.index ["user_id"], name: "index_appointments_on_user_id"
   end
 
+  create_table "articles", force: :cascade do |t|
+    t.string "title"
+    t.text "content"
+    t.string "image"
+    t.string "link"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "attendants", force: :cascade do |t|
     t.bigint "user_id", null: false
     t.bigint "event_id", null: false
