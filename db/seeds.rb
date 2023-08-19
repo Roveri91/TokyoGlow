@@ -31,19 +31,19 @@ puts "Destroyed all the users"
 users = []
 puts "Creating new users"
 
-user = User.create!(email: "giuliamenin@gmail.com", password: "123456", username: "Giulia", due_date: "2023-12-01", avatar: "userF.png")
+user = User.create!(email: "giuliamenin@gmail.com", password: "123456", username: "Giulia", due_date: "2023-12-01", avatar: "userF2.png")
 users << user
 puts "created user #{user.username}"
 
-user = User.create!(email: "tennyma@gmail.com", password: "123456", username: "Tenny", due_date: "2023-12-02", avatar: "userF.png")
+user = User.create!(email: "tennyma@gmail.com", password: "123456", username: "Tenny", due_date: "2023-12-02", avatar: "userF1.png")
 users << user
 puts "created user #{user.username}"
 
-user = User.create!(email: "jonnysmith@gmail.com", password: "123456", username: "Jonny", due_date: "2023-12-03", avatar: "userM.png")
+user = User.create!(email: "jonnysmith@gmail.com", password: "123456", username: "Jonny", due_date: "2023-12-03", avatar: "userM1.png")
 users << user
 puts "created user #{user.username}"
 
-user = User.create!(email: "simoneroveri@gmail.com", password: "123456", username: "Simone", due_date: "2023-12-04", avatar: "userM.png")
+user = User.create!(email: "simoneroveri@gmail.com", password: "123456", username: "Simone", due_date: "2023-12-04", avatar: "userM2.png")
 users << user
 puts "created user #{user.username}"
 
