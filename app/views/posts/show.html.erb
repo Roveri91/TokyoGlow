@@ -6,11 +6,12 @@
   <div class= "py-3">
     <h1 class= "text-center"><%= @post.title %></h1>
       <div class= "text-center">
-          <small>
+        <div>
+            <%= image_tag(@post.user.avatar, width: "50", height: "50") %>
             <strong><%= @post.user.username %></strong>
-            <i><%= @post.created_at.strftime("%a %b %e") %></i>
-          </small>
-          <p><%= @post.content %></p>
+            <i><%= @post.created_at.strftime("%a %b %e at %l:%M %p") %></i>
+        </div>
+        <strong class = "py-2"><%= @post.content %></strong>
 
           <div class="delete-button-wrapper mt-3"> <%= button_to "Want to delete this post?", @post, form: { data: { turbo_confirm: 'Are you sure?' } }, method: :delete if policy(@post).destroy? %></div>
         <hr/>
@@ -35,10 +36,11 @@
 
       <div>
         <% @post.replies.each do |reply| %>
-            <small>
-              <strong><%= reply.user.username %></strong>
-              <i><%= reply.created_at.strftime("%a %b %e at %l:%M %p") %></i>
-            </small>
+          <div>
+            <%= image_tag(reply.user.avatar, width: "50", height: "50") %>
+            <strong><%= reply.user.username %></strong>
+            <i><%= reply.created_at.strftime("%a %b %e at %l:%M %p") %></i>
+          </div>
             <p><%= reply.content %></p>
           <div class="delete-button-wrapper mt-3"> <%= button_to "Delete your comment", reply, form: { data: { turbo_confirm: 'Are you sure?' } } , method: :delete if policy(reply).destroy? %></div>
         <% end %>

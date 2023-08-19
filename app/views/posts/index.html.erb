@@ -21,11 +21,12 @@
   <div>
     <% @posts.each do |post| %>
       <div>
-        <small>
-          <strong><%= post.user.username %></strong>
-          <i><%= post.created_at.strftime("%a %b %e at %l:%M %p") %></i>
-        </small>
-        <h3><%= post.title %></h3>
+        <div>
+            <%= image_tag(post.user.avatar, width: "50", height: "50") %>
+            <strong><%= post.user.username %></strong>
+            <i><%= post.created_at.strftime("%a %b %e at %l:%M %p") %></i>
+        </div>
+        <h3 class = "py-1"><%= post.title %></h3>
         <p>Category: <%= post.category %></p>
 
         <div class = "d-flex justify-content-center">
