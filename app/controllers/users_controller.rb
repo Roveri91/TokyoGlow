@@ -17,6 +17,8 @@ class UsersController < ApplicationController
     else
       # Week number not found in week_info hash
     end
+    @articles = Article.all
+    @article = @articles.sample
   end
 
   def calendar

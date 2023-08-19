@@ -1,6 +1,8 @@
 class PostsController < ApplicationController
+  skip_before_action :authenticate_user!, only: :index
+
   def index
-    @posts = policy_scope(Post).all
+    @posts = policy_scope(Post).all.order(created_at: :desc)
     if params[:query].present?
       @posts = Post.general_search(params[:query])
     end

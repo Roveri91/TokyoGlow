@@ -1,11 +1,10 @@
-<div class="card-container">
+<div class="card-container px-3">
 
   <div class= "">
-    <div style="margin-top:70px;" class="back-btn">
+    <div class = "d-flex justify-content-center py-3">
       <%= link_to "Back", hospitals_path, class: "btn btn-primary" %>
     </div>
-    <h1 style="margin-top: 5px;"><%= @hospital.name %></h1>
-      <%= link_to "Add Appointment to calendar",  new_hospital_appointment_path(@hospital) %>
+    <h1 style="margin-top: 5px"><%= @hospital.name %></h1>
     </div>
     <div >
       <%= image_tag @hospital.default_image, class:"hospital-show-image" %>
@@ -33,27 +32,49 @@
       <p>Website: <%= @hospital.webpage %></p>
       </div>
     </div>
-  </div>
-
-
-<h1>Reviews</h1>
-  <% @hospital.reviews.each do |review| %>
-  <div class="card-container">
-   <div class="card">
-      <div>
-        <%= review.title %>
-        <%= review.rating %>
-     </div>
-      <div>
-        <%= review.comment %>
-      </div>
+    <div class= "d-flex justify-content-center py-3">
+      <%= link_to "Add Appointment to your calendar",  new_hospital_appointment_path(@hospital), class: "btn-submit" %>
     </div>
   </div>
-  <% end %>
 
-  <%= simple_form_for [@hospital, @review] do |f| %>
-  <%= f.input :title %>
-  <%= f.input :comment %>
-  <%= f.input :rating, as: :numeric %>
-  <%= f.submit "Submit review", class: "btn btn-primary" %>
-  <% end %>
+  <div class="px-3">
+    <h1>Reviews</h1>
+    <% @hospital.reviews.each do |review| %>
+    <div class="card-container">
+      <div class="card">
+        <div class= "d-flex py-2">
+        <% if review.user.avatar_cl.attached? %>
+          <%= cl_image_tag(review.user.avatar_cl.key, width: "50", height: "50") %>
+          <% elsif review.user.avatar %>
+          <%= image_tag(review.user.avatar, width: "50", height: "50") %>
+          <% else %>
+          <%= image_tag("userF1.png", width: "50", height: "50") %>
+          <% end %>
+          <h3 class="p-2"><%= review.user.username %></h3>
+        </div>
+        <div>
+        <h3><%= review.title %></h3>
+        </div>
+        <div>
+        <p>Rating: <%= review.rating.to_i %></p>
+        </div>
+        <div>
+        <p><%= review.comment %></p>
+        </div>
+      </div>
+    </div>
+    <% end %>
+  </div>
+  <hr/>
+
+  <div class="container px-3">
+    <h1>Leave your review</h1>
+    <%= simple_form_for [@hospital, @review] do |f| %>
+    <%= f.input :title %>
+    <%= f.input :comment %>
+    <%= f.input :rating, as: :numeric, input_html: { min: '1', max: '5', step: '1' }, placeholder: "Enter a number from 1 to 5" %>
+      <div class= "d-flex justify-content-center py-3">
+        <%= f.submit "Submit your review", class: "btn-submit" %>
+      </div>
+    <% end %>
+  </div>

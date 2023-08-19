@@ -1,41 +1,61 @@
-<div class="container my-5 py-5">
+<div class="container my-3 py-2">
+    <div class = "d-flex justify-content-center py-2">
+      <%= link_to "Back", posts_path, class: "btn btn-primary" %>
+    </div>
 
-  <div>
+  <div class= "py-3">
     <h1 class= "text-center"><%= @post.title %></h1>
       <div class= "text-center">
-          <small>
+        <div>
+          <% if @post.user.avatar_cl.attached? %>
+            <%= cl_image_tag(@post.user.avatar_cl.key, width: "50", height: "50") %>
+            <% elsif @post.user.avatar %>
+            <%= image_tag(@post.user.avatar, width: "50", height: "50") %>
+            <% else %>
+            <%= image_tag("userF1.png", width: "50", height: "50") %>
+          <% end %>
             <strong><%= @post.user.username %></strong>
-            <i><%= @post.created_at.strftime("%a %b %e") %></i>
-          </small>
-          <p><%= @post.content %></p>
+            <i><%= @post.created_at.strftime("%a %b %e at %l:%M %p") %></i>
+        </div>
+        <strong class = "py-2"><%= @post.content %></strong>
 
-          <div class="delete-button-wrapper mt-3"> <%= button_to "Want to delete this post?", @post, method: :delete if policy(@post).destroy? %></div>
+          <div class="delete-button-wrapper mt-3"> <%= button_to "Want to delete this post?", @post, form: { data: { turbo_confirm: 'Are you sure?' } }, method: :delete if policy(@post).destroy? %></div>
         <hr/>
       </div>
 
       <div class= "my-4" >
-        <%= simple_form_for [@post, @reply],
-        html: {class: "d-flex"} do |f|
-        %>
-          <%= f.input :content,
-            label: false,
-            placeholder: "Reply ##{@post.user.username}'s Post",
-            wrapper_html: {class: "flex-grow-1"}
+        <div class= container>
+          <%= simple_form_for [@post, @reply],
+          html: {class: ""} do |f|
           %>
-          <%= f.submit "Send", class: "btn btn-primary mb-3" %>
-        <% end %>
+            <%= f.input :content,
+              label: false,
+              placeholder: "Reply ##{@post.user.username}'s Post",
+              wrapper_html: {class: "flex-grow-1"}
+            %>
+            <div class= "d-flex justify-content-center">
+              <%= f.submit "Send", class: "btn-submit" %>
+            </div>
+          <% end %>
+        </div>
       </div>
 
       <div>
         <% @post.replies.each do |reply| %>
-            <small>
-              <strong><%= reply.user.username %></strong>
-              <i><%= reply.created_at.strftime("%a %b %e at %l:%M %p") %></i>
-            </small>
+          <div>
+          <% if reply.user.avatar_cl.attached? %>
+            <%= cl_image_tag(reply.user.avatar_cl.key, width: "50", height: "50") %>
+            <% elsif reply.user.avatar %>
+            <%= image_tag(reply.user.avatar, width: "50", height: "50") %>
+            <% else %>
+            <%= image_tag("userF1.png", width: "50", height: "50") %>
+          <% end %>
+            <strong><%= reply.user.username %></strong>
+            <i><%= reply.created_at.strftime("%a %b %e at %l:%M %p") %></i>
+          </div>
             <p><%= reply.content %></p>
-          <div class="delete-button-wrapper mt-3"> <%= button_to "Want to delete your comment?", reply, method: :delete if policy(reply).destroy? %></div>
+          <div class="delete-button-wrapper mt-3"> <%= button_to "Delete your comment", reply, form: { data: { turbo_confirm: 'Are you sure?' } } , method: :delete if policy(reply).destroy? %></div>
         <% end %>
       </div>
   </div>
-    <%= link_to "Return to Posts", posts_path, class: "btn btn-success w-100 rounded my-2" %>
 </div>
