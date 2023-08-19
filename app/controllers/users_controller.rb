@@ -3,6 +3,8 @@ class UsersController < ApplicationController
 
   def show
     authorize @profile
+    @articles = Article.all
+    @article = @articles.sample
   end
 
   def calendar
