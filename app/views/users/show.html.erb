@@ -1,29 +1,59 @@
 <%# destroy_user_session_path, method: :delete %>
-<div class="my-5 p-5">
+<div style="margin:10px">
+  <div class="d-flex flex-row-reverse">
+    <%= link_to "LOG OUT",  destroy_user_session_path, data: {turbo_method: :delete}, class: "btn btn-primary" %>
+  </div>
   <div class="my-3 d-flex flex-column align-items-center">
     <h1><%= current_user.username %></h1>
-    <%= link_to "LOG OUT",  destroy_user_session_path, data: {turbo_method: :delete} %>
-  </div>
-
-  <div class="accordion" id="accordionExample">
-    <div class="rounded-3 accordion-item">
-      <h2 class="accordion-header" id="headingOne">
-        <button class=" rounded-3 collapsed accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="false" aria-controls="collapseOne">
-        Recommende article for you
-        </button>
-      </h2>
-      <div id="collapseOne" class="accordion-collapse collapse " aria-labelledby="headingOne" data-bs-parent="#accordionExample">
-        <div class="accordion-body">
-          <div class="my-3">
-            <img id="article-img" class="rounded-3" src=<%= @article.image %> alt="Article Picture"> 
-          </div>
-          <div class="px-3">
-            <h3><%= @article.title %></h3>
-            <p><%= @article.content %></p>
-            <a target="_blank" href="<% @article.link %>">Read more</a>
+    <div class="container ">
+      <div class="card align-items-center bg-cards">
+        <h4>You are on week: <span style="color:#301934;"><%= @current_week %>!</span></h4>
+        <% @weeks == 1 ? week_display = "#{@weeks} week" : week_display = "#{@weeks} weeks" %>
+        <h4>Only <%= week_display %> left!</h4>
+      </div>
+    </div>
+    <div class="container">
+      <div class="card align-items-center">
+        <h3>This week your baby is:</h3>
+        <h4><%= @baby_info %></h4>
+        <h4> The size of <%= @size %>!</h4>
+        <%= image_tag @image, class: "card rounded-circle shadow", height: 200, width: 200 %>
+      </div>
+    </div>
+    <div class="container">
+      <div class="card align-items-center">
+        <h3>A little more information!</h3>
+        <h4>Baby's current length is <%= @length %></h4>
+        <h4>Baby's current weight is <%= @weight %></h4>
+        <h4><span style="color:#000000;">This week you may feel:</span></h4>
+        <div class="align-items-left">
+          <ul>
+            <% @symptoms.each do |symptom| %>
+              <li style="list-style-type: none;"><h4>❤️<%=symptom%></h4></li>
+            <% end %>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <div class="accordion" id="accordionExample">
+      <div class="rounded-3 accordion-item">
+        <h2 class="accordion-header" id="headingOne">
+          <button class=" rounded-3 collapsed accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="false" aria-controls="collapseOne">
+          Recommende article for you
+         </button>
+        </h2>
+        <div id="collapseOne" class="accordion-collapse collapse " aria-labelledby="headingOne" data-bs-parent="#accordionExample">
+          <div class="accordion-body">
+            <div class="my-3">
+              <img id="article-img" class="rounded-3" src=<%= @article.image %> alt="Article Picture"> 
+            </div>
+            <div class="px-3">
+              <h3><%= @article.title %></h3>
+              <p><%= @article.content %></p>
+              <a target="_blank" href="<% @article.link %>">Read more</a>
+            </div>
           </div>
         </div>
       </div>
     </div>
-  </div>
 </div>

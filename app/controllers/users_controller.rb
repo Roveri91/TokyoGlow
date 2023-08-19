@@ -3,6 +3,20 @@ class UsersController < ApplicationController
 
   def show
     authorize @profile
+    weeks_until_birth
+    current_week
+    week_info = YAML.load_file(Rails.root.join('config', 'week_info.yml'))
+    if week_info.key?(@current_week)
+      info = week_info[@current_week]
+      @size = info['size']
+      @length = info['length']
+      @weight = info['weight']
+      @image = info['image']
+      @symptoms = info['symptoms']
+      @baby_info = info['baby_info']
+    else
+      # Week number not found in week_info hash
+    end
     @articles = Article.all
     @article = @articles.sample
   end
@@ -23,13 +37,22 @@ class UsersController < ApplicationController
     # month = Date.parse(date).month
   end
 
+  def weeks_until_birth
+    @weeks = ((@profile.due_date - Date.today) / 7).to_i
+  end
+
+  def current_week
+    @current_week = (40 - (weeks_until_birth))
+  end
+
   private
 
   def set_profile
      @profile = current_user
   end
 end
-
+# if week_info.key == @weeks
+  #
 
 # NEED LATER
 # link for the google calendar
