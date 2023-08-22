@@ -32,13 +32,19 @@ img {
   width: 100%;
 }
 
-.hospital-description {
-  color: gray;
-  overflow: hidden;
-  height: 50px;
-  line-height: 16px;
-  position: relative;
-  word-wrap: break-word;
-}
+// .hospital-description {
+//   overflow: hidden;
+//   height: 50px;
+//   line-height: 16px;
+//   position: relative;
+//   word-wrap: break-word;
+// }
 
-.hospital-description:after { content: "..."; background: darkgrey; color: black; position :absolute; right: 0; bottom: 2px;}
+// .hospital-description:after { 
+//   content: "...";
+//   // background: darkgrey; 
+//   // color: black; 
+//   position :absolute;
+//   right: 0;
+//   bottom: 2px;
+// }
