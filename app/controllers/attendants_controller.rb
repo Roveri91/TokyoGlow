@@ -3,9 +3,9 @@ class AttendantsController < ApplicationController
     @attendants = Attendant.all
   end
 
-  def attending?(user, event)
-    event.attendants.exists?(user_id: user.id, status: 'attending')
-  end
+  # def attending?(user, event)
+  #   event.attendants.exists?(user_id: user.id, status: 'attending')
+  # end
 
   def update
     @event = Event.find(params[:id])
@@ -17,8 +17,6 @@ class AttendantsController < ApplicationController
     end
     redirect_to @event
   end
-
-
 
   def num_attendees(event)
     event.increment!(:attendees_count)

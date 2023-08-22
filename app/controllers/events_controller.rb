@@ -45,10 +45,10 @@ class EventsController < ApplicationController
 
   def status_change
     @event = Event.find(params[:event])
-    @attendee = Attendant.find_by user_id: current_user.id, event_id: @event
+    @attendee = Attendant.find_by user_id: current_user.id, event_id: @event.id
 
     if @attendee.nil?
-      @attendee = Attendant.create(user_id: current_user.id, event_id: @event, status: params[:status].to_i)
+      @attendee = Attendant.create(user_id: current_user.id, event_id: @event.id, status: params[:status].to_i)
       # @attendee.save
 
     else
@@ -59,6 +59,18 @@ class EventsController < ApplicationController
     authorize @attendee unless @attendee.nil? # attending.nil?
     redirect_to event_path(@event), notice: 'Your attendance has been updated.'
   end
+
+  def attending_users
+    users.where(attendants: { status: 1 })
+  end
+
+  def attending?
+    @event.attendants.exists?(user_id: user.id, status: 1)
+  end
+
+  # def num_attendees
+  #   @event.increment!(:attendees_count)
+  # end
 
   private
 
