@@ -1,7 +1,7 @@
 class ApplicationController < ActionController::Base
   before_action :authenticate_user!
   before_action :configure_permitted_parameters, if: :devise_controller?
-  
+
   # include Pundit::Authorization
 
   include Pundit::Authorization
@@ -18,8 +18,8 @@ class ApplicationController < ActionController::Base
   # redirect_to(root_path)
   # end
   def configure_permitted_parameters
-    devise_parameter_sanitizer.permit(:sign_up, keys: [:username, :due_date])
-    devise_parameter_sanitizer.permit(:account_update, keys: [:username, :due_date])
+    devise_parameter_sanitizer.permit(:sign_up, keys: [:username, :due_date, :avatar_cl])
+    devise_parameter_sanitizer.permit(:account_update, keys: [:username, :due_date, :avatar_cl])
   end
 
   private

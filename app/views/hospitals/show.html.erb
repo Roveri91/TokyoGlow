@@ -4,7 +4,7 @@
     <div class = "d-flex justify-content-center py-3">
       <%= link_to "Back", hospitals_path, class: "btn btn-primary" %>
     </div>
-    <h1 style="margin-top: 5px;"><%= @hospital.name %></h1>
+    <h1 style="margin-top: 5px"><%= @hospital.name %></h1>
     </div>
     <div >
       <%= image_tag @hospital.default_image, class:"hospital-show-image" %>
@@ -42,12 +42,24 @@
     <% @hospital.reviews.each do |review| %>
     <div class="card-container">
       <div class="card">
-        <div>
-          <%= review.title %>
-          <%= review.rating %>
+        <div class= "d-flex py-2">
+        <% if review.user.avatar_cl.attached? %>
+          <%= cl_image_tag(review.user.avatar_cl.key, width: "50", height: "50") %>
+          <% elsif review.user.avatar %>
+          <%= image_tag(review.user.avatar, width: "50", height: "50") %>
+          <% else %>
+          <%= image_tag("userF1.png", width: "50", height: "50") %>
+          <% end %>
+          <h3 class="p-2"><%= review.user.username %></h3>
         </div>
         <div>
-          <%= review.comment %>
+        <h3><%= review.title %></h3>
+        </div>
+        <div>
+        <p>Rating: <%= review.rating.to_i %></p>
+        </div>
+        <div>
+        <p><%= review.comment %></p>
         </div>
       </div>
     </div>
@@ -56,13 +68,13 @@
   <hr/>
 
   <div class="container px-3">
-  <%= simple_form_for [@hospital, @review] do |f| %>
-  <%= f.input :title %>
-  <%= f.input :comment %>
-  <%= f.input :rating, as: :numeric %>
-    <div class= "d-flex justify-content-center py-3">
-      <%= f.submit "Submit your review", class: "btn-submit" %>
-    </div>
-  <% end %>
+    <h1>Leave your review</h1>
+    <%= simple_form_for [@hospital, @review] do |f| %>
+    <%= f.input :title %>
+    <%= f.input :comment %>
+    <%= f.input :rating, as: :numeric, input_html: { min: '1', max: '5', step: '1' }, placeholder: "Enter a number from 1 to 5" %>
+      <div class= "d-flex justify-content-center py-3">
+        <%= f.submit "Submit your review", class: "btn-submit" %>
+      </div>
+    <% end %>
   </div>
-
