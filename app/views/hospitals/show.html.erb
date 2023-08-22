@@ -1,77 +1,78 @@
 <div class="card-container px-3">
 
-  <div class= "">
+  <div class="text-center p-3">
     <h1 style="margin-top: 5px"><%= @hospital.name %></h1>
-    </div>
+  </div>
+  <div class="card rounded-3 p-3">
     <div >
       <%= image_tag @hospital.default_image, class:"hospital-show-image rounded-3" %>
     </div>
-    <div class="card">
+    <div class="">
       <div>
-      <p>Address: <%= @hospital.address %></p>
+        <p>Address: <%= @hospital.address %></p>
       </div>
       <div>
-      <p>Price Range: <%= @hospital.price_range %></p>
+        <p>Price Range: <%= @hospital.price_range %></p>
       </div>
       <div>
-      <p>Services: <%= @hospital.services %></p>
+        <p>Services: <%= @hospital.services %></p>
       </div>
       <div>
-      <p>Description: <%= @hospital.description %></p>
+        <p>Description: <%= @hospital.description %></p>
       </div>
       <div>
-      <p>Average Rating: <%= @hospital.average_rating %><i class="fa-solid fa-star" style="color: #a8a424;"></i></p>
+        <p>Average Rating: <%= @hospital.average_rating %><i class="fa-solid fa-star" style="color: #a8a424;"></i></p>
       </div>
       <div>
-      <p>Phone number: <%= @hospital.phone_number %></p>
+        <p>Phone number: <%= @hospital.phone_number %></p>
       </div>
       <div>
-      <p>Website: <%= @hospital.webpage %></p>
+        <p>Website: <%= @hospital.webpage %></p>
       </div>
     </div>
     <div class= "d-flex justify-content-center py-3">
-      <%= link_to "Add Appointment to your calendar",  new_hospital_appointment_path(@hospital), class: "btn-submit" %>
+      <%= link_to "Add Appointment to your calendar",  new_hospital_appointment_path(@hospital), class: "btn-main" %>
     </div>
   </div>
+  
 
-  <div class="px-3">
-    <h1>Reviews</h1>
-    <% @hospital.reviews.each do |review| %>
-    <div class="card-container">
-      <div class="card">
-        <div class= "d-flex py-2">
-        <% if review.user.avatar_cl.attached? %>
-          <%= cl_image_tag(review.user.avatar_cl.key, width: "50", height: "50") %>
-          <% elsif review.user.avatar %>
-          <%= image_tag(review.user.avatar, width: "50", height: "50") %>
-          <% else %>
-          <%= image_tag("userF1.png", width: "50", height: "50") %>
-          <% end %>
-          <h3 class="p-2"><%= review.user.username %></h3>
+  <% if !@hospital.reviews.empty? %>
+    <div class="card rounded-3 p-3">
+      <h1>Reviews</h1>
+      <% @hospital.reviews.each do |review| %>
+        <hr/>
+        <div class="container">
+          <div class= "d-flex py-2">
+            <% if review.user.avatar_cl.attached? %>
+              <%= cl_image_tag(review.user.avatar_cl.key, width: "50", height: "50") %>
+            <% elsif review.user.avatar %>
+              <%= image_tag(review.user.avatar, width: "50", height: "50") %>
+            <% else %>
+              <%= image_tag("userF1.png", width: "50", height: "50") %>
+            <% end %>
+            <h3 class="p-2 align-middle"><%= review.user.username %></h3>
+          </div>
+        
+          <h3><%= review.title %></h3>
+          <div>
+            <p>Rating: <%= review.rating.to_i %></p>
+          </div>
+          <div>
+            <p><%= review.comment %></p>
+          </div>
         </div>
-        <div>
-        <h3><%= review.title %></h3>
-        </div>
-        <div>
-        <p>Rating: <%= review.rating.to_i %></p>
-        </div>
-        <div>
-        <p><%= review.comment %></p>
-        </div>
-      </div>
+      <% end %>
     </div>
-    <% end %>
-  </div>
-  <hr/>
+  <% end %>
 
-  <div class="container px-3">
+  <div class="card rounded-3 p-3">
     <h1>Leave your review</h1>
     <%= simple_form_for [@hospital, @review] do |f| %>
     <%= f.input :title %>
     <%= f.input :comment %>
     <%= f.input :rating, as: :numeric, input_html: { min: '1', max: '5', step: '1' }, placeholder: "Enter a number from 1 to 5" %>
       <div class= "d-flex justify-content-center py-3">
-        <%= f.submit "Submit your review", class: "btn-submit" %>
+        <%= f.submit "Submit your review", class: "btn-main" %>
       </div>
     <% end %>
   </div>
