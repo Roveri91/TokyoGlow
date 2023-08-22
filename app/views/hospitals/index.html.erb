@@ -19,7 +19,7 @@
     <%= link_to hospital_path(hospital) do %>
       <div class="container">
         <div class="card ">
-          <%= image_tag hospital.default_image %>
+          <%= image_tag hospital.default_image, class: "rounded-3" %>
           <div class="card-container">
             <div class="hospital-header">
               <h2><%= hospital.name %></h2>
