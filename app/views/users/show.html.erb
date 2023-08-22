@@ -35,25 +35,28 @@
         </div>
       </div>
     </div>
-    <div class="accordion" id="accordionExample">
-      <div class="rounded-3 accordion-item">
-        <h2 class="accordion-header" id="headingOne">
-          <button class=" rounded-3 collapsed accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="false" aria-controls="collapseOne">
-          Recommende article for you
-         </button>
-        </h2>
-        <div id="collapseOne" class="accordion-collapse collapse " aria-labelledby="headingOne" data-bs-parent="#accordionExample">
-          <div class="accordion-body">
-            <div class="my-3">
-              <img id="article-img" class="rounded-3" src=<%= @article.image %> alt="Article Picture"> 
-            </div>
-            <div class="px-3">
-              <h3><%= @article.title %></h3>
-              <p><%= @article.content %></p>
-              <a target="_blank" href="<% @article.link %>">Read more</a>
+    <%# <div class="container"> %>
+      <div class="accordion container" id="accordionExample">
+        <div class="rounded shadow accordion-item">
+          <h2 class="accordion-header" id="headingOne">
+            <button class="collapsed accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="false" aria-controls="collapseOne">
+            Recommende article for you
+            </button>
+          </h2>
+          <div id="collapseOne" class="accordion-collapse collapse " aria-labelledby="headingOne" data-bs-parent="#accordionExample">
+            <div class="accordion-body">
+              <div class="my-3 px-2">
+                <img id="article-img" class="rounded-3" src=<%= @article.image %> alt="Article Picture"> 
+              </div>
+              <div class="px-3">
+                <h3><%= @article.title %></h3>
+                <p><%= @article.content %></p>
+                <a target="_blank" href="<%= @article.link %>">Read more</a>
+              </div>
             </div>
           </div>
         </div>
-      </div>
+      <%# </div> %>
     </div>
+  </div>
 </div>

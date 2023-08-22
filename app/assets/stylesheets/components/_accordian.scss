@@ -1,24 +1,27 @@
 .accordion-button {
-  background-color: rgb(255, 227, 231) !important;
-  color: rgb(0, 68, 68) !important;
+  background-color: $navbar-pink !important;
+  color: $lettering-blue !important;
   box-shadow: 0 0 0 !important;
 }
 
 .accordion-button::after {
-  color: rgb(0, 68, 68) !important;
+  color: $lettering-blue !important;
 }
 
 .collapsed {
-  background-color: white !important;
-  color: rgb(0, 68, 68) !important;
+  background-color: $navbar-pink !important;
+  color: $lettering-blue !important;
 }
 
 .collapsed::after {
-  color: rgb(0, 68, 68) !important;
+  color: $lettering-blue !important;
 }
 
 #article-img {
     width: 100%;
-    height: 150px;
+    height: 200px;
 }
 
+.shadow {
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+}
