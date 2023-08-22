@@ -23,7 +23,7 @@
       <div>
         <div>
           <% if post.user.avatar_cl.attached? %>
-            <%= cl_image_tag(post.user.avatar_cl.key, width: "50", height: "50") %>
+            <%= cl_image_tag(post.user.avatar_cl.key, width: "50", height: "50", radius: "max", background: "white") %>
             <% elsif post.user.avatar %>
             <%= image_tag(post.user.avatar, width: "50", height: "50") %>
             <% else %>

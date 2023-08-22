@@ -8,7 +8,7 @@
       <div class= "text-center">
         <div>
           <% if @post.user.avatar_cl.attached? %>
-            <%= cl_image_tag(@post.user.avatar_cl.key, width: "50", height: "50") %>
+            <%= cl_image_tag(@post.user.avatar_cl.key, width: "50", height: "50", radius: "max", background: "#EAD6DE") %>
             <% elsif @post.user.avatar %>
             <%= image_tag(@post.user.avatar, width: "50", height: "50") %>
             <% else %>
@@ -44,7 +44,7 @@
         <% @post.replies.each do |reply| %>
           <div>
           <% if reply.user.avatar_cl.attached? %>
-            <%= cl_image_tag(reply.user.avatar_cl.key, width: "50", height: "50") %>
+            <%= cl_image_tag(reply.user.avatar_cl.key, width: "50", height: "50", radius: "max", background: "white") %>
             <% elsif reply.user.avatar %>
             <%= image_tag(reply.user.avatar, width: "50", height: "50") %>
             <% else %>
