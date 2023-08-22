@@ -14,7 +14,7 @@ class ReviewsController < ApplicationController
       redirect_to hospital_path(@hospital)
     else
       # redirect_to hospital_path(@hospital)
-      render :new, status: :unprocessable_entity
+      render "hospitals/show", status: :unprocessable_entity
     end
   end
 
