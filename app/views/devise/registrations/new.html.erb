@@ -18,6 +18,9 @@
     <%= f.input :username,
                 required: true,
                 input_html: { autocomplete: "username" } %>
+    <%= f.input :due_date,
+                required: true,
+                input_html: { autocomplete: "due_date" } %>
     <%= f.input :avatar_cl, as: :file,
                 required: true,
                 input_html: { multiple: false } %>

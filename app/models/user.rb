@@ -10,5 +10,6 @@ class User < ApplicationRecord
   has_many :replies
   has_many :reviews
   validates :username, presence: true
+  validates :due_date, presence: true
   has_one_attached :avatar_cl
 end
