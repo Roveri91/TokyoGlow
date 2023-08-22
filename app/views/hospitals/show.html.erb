@@ -69,6 +69,14 @@
 
   <div class="container px-3">
     <h1>Leave your review</h1>
+
+    <% if @review.errors.any? %>
+      <% @review.errors.full_messages.each do |message|%>\
+      <h3><%= message %> </h3>
+      <% raise %>
+      <%end%>
+    <%end%>
+
     <%= simple_form_for [@hospital, @review] do |f| %>
     <%= f.input :title %>
     <%= f.input :comment %>
