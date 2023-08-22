@@ -21,30 +21,31 @@
 
   <div class="py-3 my-3">
     <% @events.each do |event| %>
-      <div class="container">
-        <div class="card">
-          <%= cl_image_tag event.photo.key %>
-          <div class="card-container">
-            <h3><%= event.title %>: <%= event.content %></h3>
-            <p>Hosted by: <%= event.user.username %></p>
-            <p>
-              <i class="fa-solid fa-calendar-days"></i>
-              <%= event.date.strftime('%B %d') %> at <%= event.time.strftime('%H:%M') %> JST
-            </p>
-            <p>
-              <i class="fa-solid fa-circle-check"></i>
-              <%# <% attendees = event.attendees_count %>
-
-              <%# if attendees > 0%>
-              <%#= attendees %>
-              <%# end %>
-            </p>
-            <p class = "d-flex justify-content-center">
-              <%= link_to "See more", event_path(id: event.id), class: "btn btn-primary" %>
-            </p>
+      <%= link_to event_path(id: event.id) do %>
+        <div class="container">
+          <div class="card">
+            <%= cl_image_tag event.photo.key %>
+            <div class="card-container">
+              <h3><%= event.title %>: <%= event.content %></h3>
+              <p>Hosted by: <%= event.user.username %></p>
+              <p>
+                <i class="fa-solid fa-calendar-days"></i>
+                <%= event.date.strftime('%B %d') %> at <%= event.time.strftime('%H:%M') %> JST
+              </p>
+              <p>
+                <i class="fa-solid fa-circle-check"></i>
+                <%# <% attendees = event.attendees_count %>
+                <%# if attendees > 0%>
+                <%#= attendees %>
+                <%# end %>
+              </p>
+              <p class = "d-flex justify-content-center">
+                <%= link_to "See more", event_path(id: event.id), class: "btn btn-primary" %>
+              </p>
+            </div>
           </div>
         </div>
-      </div>
+      <% end %>
     <% end %>
   </div>
 </div>
