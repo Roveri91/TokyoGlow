@@ -96,40 +96,6 @@ hospital = Hospital.create!(name: "Jikei Hospital, Women's and Children's Center
   description: " Midwives and nurses promote breastfeeding and will help you after delivery. Breastfeeding room with pumps also available.", average_rating: 4.7, phone_number: "03-1123-6688", default_image: "jikei_hospital.png")
 puts "created #{hospital.name}"
 
-# file = URI.open("https://upload.wikimedia.org/wikipedia/commons/thumb/8/82/NES-Console-Set.jpg/1200px-NES-Console-Set.jpg")
-
-# seed_hospital = Hospital.new(
-#   name: 'Tokyo Hospital',
-#   address: locations.sample,
-#   price_range: '10 - 1,000,000',
-#   services: 'English speaking',
-#   description: 'This is the hospital for you',
-#   average_rating: 3.2,
-#   phone_number: "070-0707-0707"
-# )
-# seed_hospital.photo.attach(io: file, filename: "nes.png", content_type: "image/png")
-# seed_hospital.save
-
-# puts 'Creating 20 fake hospitals...'
-# 20.times do
-#   hospital = Hospital.new(
-#     name: Faker::Company.name,
-#     address: "#{Faker::Address.street_address}, #{Faker::Address.city}",
-#     price: Faker::Commerce.price(range: 10..1000, as_string: true)
-#     services: Faker::Quote.most_interesting_man_in_the_world,
-#     description: Faker::Date.forward(days: 23),
-#     average_rating:  Faker::Number.between(from: 1, to: 5),
-#     phone_number: Faker::PhoneNumber,
-#     # photo:
-#   )
-#   photo = Faker::LoremPixel.image(size: "300x200")
-#   event.image.attach(io: URI.open(photo), filename: 'image.jpg')  # Attach the image to the event
-
-#   hospital.save!
-# end
-
-# puts 'Finished!'
-
 hospital = Hospital.create!(name: "Seibo Catholic Hospital", address:locations.sample, price_range: price_range.sample, services: services.sample(4).join(", "), webpage: "https://www.seibokai.or.jp/",
   description: "Allow for freedom to labor in different positions if no epidural. Birth partner can be in the room with you (but only husband, not other family members). Epidural available during certain hours and on week days.", average_rating: 1.7, phone_number: "03-6890-2200", default_image: "seibo_hospital.jpg")
 puts "created #{hospital.name}"
@@ -169,7 +135,7 @@ yoga = Event.new(
   date: Date.today,
   location: 'Yoyogi Park',
   time: Time.now,
-  user: giulia,
+  user: giulia
 )
 yoga.save!
 yoga.photo.attach(io: File.open(yoga_image), filename: 'yoga.jpg', content_type: 'image/jpg')
@@ -179,9 +145,9 @@ book = Event.new(
   title: "Free children's books!",
   content: 'Grab a copy or two today',
   date: Date.today,
-  location: 'Yoyogi Park',
+  location: '123 Park St.',
   time: Time.now,
-  user: jonny,
+  user: jonny
 )
 book.save!
 book.photo.attach(io: File.open(book_image), filename: 'book.jpg', content_type: 'image/jpg')
@@ -189,13 +155,12 @@ puts 'Created Book event'
 
 
 diapers = Event.new(
-  title: "Diapers Giveaway!",
+  title: 'Diapers Giveaway!',
   content: 'All sizes available!',
   date: Date.today,
   location: 'Yoyogi Park',
   time: Time.now,
-  user: simone,
-
+  user: simone
 )
 diapers.save!
 diapers.photo.attach(io: File.open(diapers_image), filename: 'diapers.jpg', content_type: 'image/jpg')
@@ -207,7 +172,7 @@ ice_cream = Event.new(
   date: Date.today,
   location: 'Yoyogi Park',
   time: Time.now,
-  user: tenny,
+  user: tenny
 )
 ice_cream.save!
 ice_cream.photo.attach(io: File.open(ice_cream_image), filename: 'ice_cream.jpg', content_type: 'image/jpg')
@@ -216,4 +181,4 @@ puts 'Created Ice Cream Event'
 
 puts 'created 4 events'
 
-puts "Done! Thank you for your patience."
+puts 'Done! Thank you for your patience.'

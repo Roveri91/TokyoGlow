@@ -18,6 +18,8 @@ class AttendantsController < ApplicationController
     redirect_to @event
   end
 
+
+
   def num_attendees(event)
     event.increment!(:attendees_count)
   end

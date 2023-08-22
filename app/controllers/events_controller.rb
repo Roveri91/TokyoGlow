@@ -49,13 +49,14 @@ class EventsController < ApplicationController
 
     if @attendee.nil?
       @attendee = Attendant.create(user_id: current_user.id, event_id: @event, status: params[:status].to_i)
+      # @attendee.save
 
     else
       @attendee.status = params[:status].to_i
       @attendee.save
     end
     authorize @event
-    authorize @attendee unless @attending.nil?
+    authorize @attendee unless @attendee.nil? # attending.nil?
     redirect_to event_path(@event), notice: 'Your attendance has been updated.'
   end
 
