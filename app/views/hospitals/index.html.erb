@@ -2,29 +2,29 @@
   <%= render "shared/banner"%>
 <%# </div> %>
 
-<div class="py-5 mb-5">
-  <div class="row justify-content-center mx-2">
+<div class="container py-5 mb-5">
+  <div class="row justify-content-center">
+    <div class="col-sm-8 mx-2">
 
-    <ul class="nav nav-pills nav-fill">
-      <li class="nav-item">
-        <%= link_to "Hospitals", hospitals_path, class:"nav-link active" %>
-        <%# <a class="nav-link active" aria-current="page" href="#">Hospitals</a> %>
-      </li>
-      <li class="nav-item">
-        <%= link_to "Articles", posts_path, class:"nav-link" %>
-        <%# <a class="nav-link" href="#">Articles</a> %>
-      </li>
-    </ul>
+      <ul class="nav nav-pills nav-fill">
+        <li class="nav-item">
+          <%= link_to "Hospitals", hospitals_path, class:"nav-link active btn btn-primary", style:"background-color:;" %>
+        </li>
+        <li class="nav-item">
+          <%= link_to "Articles", posts_path, class:"nav-link", style:"color:#8064A2;" %>
+        </li>
+      </ul>
 
-    <div class="col-sm-8 my-3">
-      <%= form_with url: hospitals_path, method: :get, class: "d-flex my-3" do %>
-        <%= text_field_tag :query,
-          params[:query],
-          class: "form-control",
-          placeholder: "Search for hospitals, services, locations"
-        %>
-        <%= submit_tag "Search", name: "", class: "btn btn-success" %>
-      <% end %>
+      <div class="col-sm-8 my-3">
+        <%= form_with url: hospitals_path, method: :get, class: "d-flex my-3" do %>
+          <%= text_field_tag :query,
+            params[:query],
+            class: "form-control",
+            placeholder: "Search for hospitals, services, locations"
+          %>
+          <%= submit_tag "Search", name: "", class: "btn btn-success" %>
+        <% end %>
+      </div>
     </div>
   </div>
 
