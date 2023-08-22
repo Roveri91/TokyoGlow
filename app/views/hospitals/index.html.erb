@@ -18,12 +18,12 @@
   <% @hospitals.each do |hospital| %>
     <%= link_to hospital_path(hospital) do %>
       <div class="container">
-        <div class="card ">
+        <div class="card rounded-3 p-3">
           <%= image_tag hospital.default_image, class: "rounded-3" %>
-          <div class="card-container">
+          <div class="card-container p-3">
             <div class="hospital-header">
               <h2><%= hospital.name %></h2>
-              <span style="color:  rgb(0, 68, 68);"><%= hospital.average_rating %><i class="fa-solid fa-star" style="color: gold;"></i></span>
+              <span style="color:  rgb(0, 68, 68);"><h5><%= hospital.average_rating %><i class="fa-solid fa-star" style="color: #a8a424;"></i></h5></span>
             </div>
             <div class="hospital-header">
               <h3><%=hospital.address %></h3>

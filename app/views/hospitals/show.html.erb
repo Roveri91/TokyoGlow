@@ -4,7 +4,7 @@
     <h1 style="margin-top: 5px"><%= @hospital.name %></h1>
     </div>
     <div >
-      <%= image_tag @hospital.default_image, class:"hospital-show-image" %>
+      <%= image_tag @hospital.default_image, class:"hospital-show-image rounded-3" %>
     </div>
     <div class="card">
       <div>
@@ -20,7 +20,7 @@
       <p>Description: <%= @hospital.description %></p>
       </div>
       <div>
-      <p>Average Rating: <%= @hospital.average_rating %><i class="fa-solid fa-star" style="color: gold;"></i></p>
+      <p>Average Rating: <%= @hospital.average_rating %><i class="fa-solid fa-star" style="color: #a8a424;"></i></p>
       </div>
       <div>
       <p>Phone number: <%= @hospital.phone_number %></p>

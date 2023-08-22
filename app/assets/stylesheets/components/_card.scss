@@ -8,7 +8,7 @@
   border-radius: 5px;
   margin: 15px;
   padding: 5px;
-  background: #EAD6DE!important;
+  background: $navbar-pink !important;
   h4 {
     color: #716893;
   }
@@ -30,6 +30,11 @@ img {
   display: flex;
   justify-content: space-between;
   width: 100%;
+}
+
+.img-container {
+  width: 100%;
+  height: 20rem;
 }
 
 // .hospital-description {
