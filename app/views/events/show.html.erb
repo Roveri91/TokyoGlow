@@ -18,32 +18,6 @@
     </div>
   </div>
 
-<<<<<<< HEAD
-<% if @event.user != current_user %>
-  <div class="d-flex justify-content-center mt-3">
-    <% if @is_attending %>
-      <h3> Status: Attending </h3>
-      <%= link_to 'Decline', status_change_path({event: @event, status: 2}), method: "post"%>
-    <% else %>
-      <h3> Status: Not attending </h3>
-      <%= link_to 'Accept', status_change_path({event: @event, status: 1}), method: "post" %>
-    <% end %>
-  </div>
-<% end %>
-
-
-
-  <%# <div class="pt-2">
-    Attendees: <%= @event.num_attendees.to_i%>
-  <%# </div> %>
-
-<% if policy(@event).destroy? %>
-  <div class="d-flex justify-content-center mt-3">
-    <%= link_to "Delete this event", event_path(@event), class: "btn btn-submit btn-sm",
-          data: { turbo_method: :delete, turbo_confirm: "Are you sure?" } %>
-  </div>
-<% end %>
-=======
   <div class="d-flex justify-content-center mt-3">
     <% if @event.pending? %>
       <%= simple_form_for @event do |f| %>
@@ -69,4 +43,3 @@
 </div>
 
 <%# if @event.user != current_user %>
->>>>>>> master

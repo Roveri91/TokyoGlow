@@ -180,12 +180,10 @@ ice_cream.save!
 ice_cream.photo.attach(io: File.open(ice_cream_image), filename: 'ice_cream.jpg', content_type: 'image/jpg')
 puts 'Created Ice Cream Event'
 
-<<<<<<< HEAD
 
 puts 'created 4 events'
 
 puts 'Done! Thank you for your patience.'
-=======
 puts "created 4 events"
 
 puts "Creating 4 Articles"
@@ -207,4 +205,3 @@ article = Article.create!( title: "Pregnant women living in walkable communities
 puts "create #{article.title}"
 
 puts "Done! Thank you for your patience."
->>>>>>> master
