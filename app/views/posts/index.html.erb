@@ -1,7 +1,7 @@
-<div class="container py-5 my-5">
+<div class="container my-3">
 
 <div class="row justify-content-center">
-  <div class="col-sm-8 my-2">
+  <div class="col-sm-8 my-3">
     <%= form_with url: posts_path, method: :get, class: "d-flex" do %>
       <%= text_field_tag :query,
             params[:query],
@@ -13,22 +13,31 @@
   </div>
 </div>
 
-  <div class = "post-btn rounded">
-    <%= link_to "Add a new post!", new_post_path, class: "btn w-100" %>
+  <div class = "d-flex justify-content-center py-3">
+    <%= link_to "Add a new post", new_post_path, class: "btn-submit" %>
   </div>
   <hr/>
 
   <div>
     <% @posts.each do |post| %>
       <div>
-        <small>
-          <strong><%= post.user.username %></strong>
-          <i><%= post.created_at.strftime("%a %b %e at %l:%M %p") %></i>
-        </small>
-        <p><%= post.title %></p>
+        <div>
+          <% if post.user.avatar_cl.attached? %>
+            <%= cl_image_tag(post.user.avatar_cl.key, width: "50", height: "50") %>
+            <% elsif post.user.avatar %>
+            <%= image_tag(post.user.avatar, width: "50", height: "50") %>
+            <% else %>
+            <%= image_tag("userF1.png", width: "50", height: "50") %>
+          <% end %>
+            <strong><%= post.user.username %></strong>
+            <i><%= post.created_at.strftime("%a %b %e at %l:%M %p") %></i>
+        </div>
+        <h3 class = "py-1"><%= post.title %></h3>
         <p>Category: <%= post.category %></p>
 
+        <div class = "d-flex justify-content-center">
         <%= link_to "See details and replies", post_path(post), class: "btn btn-primary" %>
+        </div>
         <hr/>
       </div>
     <% end %>

@@ -1,21 +1,21 @@
 <div class="d-flex justify-content-around">
   <% if user_signed_in? %>
-    <%# Progile %>
-    <%= link_to user_path(current_user) do %>
-      <div class="icon-border p-4">
-        <i class="fa-solid fa-user fa-xl" style="color: #004444;"></i>
-      </div>
+    <%# event %>
+    <%= link_to events_path do %>
+        <div class="icon-border p-4">
+          <i class="fa-solid fa-cake-candles fa-xl" style="color: #004444;"></i>
+        </div>
     <% end %>
-    <%# chat %>
+    <%# chat/posts %>
     <%= link_to posts_path do %>
       <div class="icon-border p-4">
         <i class="fa-solid fa-comment fa-xl" style="color: #004444;"></i>
       </div>
     <% end %>
-    <%# home/post %>
-    <%= link_to root_path do %>
-        <div class="icon-border p-4">
-          <i class="fa-solid fa-house fa-xl" style="color: #004444;"></i>
+    <%# Profile %>
+    <%= link_to user_path(:id) do %>
+      <div class="icon-border p-4">
+        <i class="fa-solid fa-user fa-xl" style="color: #004444;"></i>
       </div>
     <% end %>
     <%# hospitals %>
@@ -25,21 +25,21 @@
       </div>
     <% end %>
     <%# calendar %>
-     <%= link_to calendar_path(:id) do %>
+    <%= link_to calendar_path(:id) do %>
       <div class="icon-border p-4">
         <i class="fa-solid fa-calendar-days fa-xl" style="color: #004444;"></i>
       </div>
     <% end %>
 
   <% else %>
-    <%# user/login %>
-    <%= link_to new_user_session_path do %>
+    <%# chat/posts %>
+    <%= link_to posts_path do %>
       <div class="icon-border p-4">
-        <i class="fa-solid fa-user fa-xl" style="color: #004444;"></i>
+        <i class="fa-solid fa-comment fa-xl" style="color: #004444;"></i>
       </div>
     <% end %>
-    <%# home/post %>
-    <%= link_to posts_path do %>
+    <%# home %>
+    <%= link_to root_path do %>
       <div class="icon-border p-4">
         <i class="fa-solid fa-house fa-xl" style="color: #004444;"></i>
       </div>

@@ -1,10 +1,12 @@
 class HospitalsController < ApplicationController
   #pundit
   before_action :set_hospital, only: %i[ show ]
+  skip_before_action :authenticate_user!, only: :index
+  # skip_after_action :verify_authorized, only: :index
 
   def index
-  @hospitals = policy_scope(Hospital).all
-
+    @user = current_user
+    @hospitals = policy_scope(Hospital).all
     if params[:query].present?
       query = params[:query].strip.downcase
       @hospitals = @hospitals.where(

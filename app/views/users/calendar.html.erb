@@ -1,56 +1,76 @@
 <div class="my-5 py-5">
-  <h1 class="text-center"><%= current_user.username %>`s calendar</h1>
-
   <%= month_calendar do |date| %>
     <div type="button" class="myBtn" data-bs-toggle="modal" data-bs-target="#exampleModal<%=date%>">
-
       <%#= link_to calendar_path(current_user, date: date) do %>
-
       <!-- Modal -->
       <div class="modal fade" id="exampleModal<%=date%>" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
         <div class="modal-dialog">
           <div class="modal-content">
-            <div class="modal-header">
+            <div class="modal-header" style="background-color:#EAD6DE;">
               <h1 class="modal-title fs-5" id="exampleModalLabel">Appointments and Events</h1>
               <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body">
               <% @current_day_appointments = @appointments.where(date: date).to_a %>
-              <%# <%= raise if date == Date.new(2023, 8, 24)%>
-              <% if @current_day_appointments.empty? %>
-                <div>
-                <h2>Private Appointments</h2>
-                </div>
-                <h4>No appointments to display!</h4>
+              <% @current_day_events = @events.where(date: date).to_a %>
+              <h2><%= date %>:</h2>
+              <% if @current_day_appointments.empty? && @current_day_events.empty? %>
+                <h4>No appointments or events to display!</h4>
               <% else %>
-                <div>
-                <h2>Private Appointments for: </h2>
-                <h2><%= date %></h2>
-                </div>
-                <div>
-                  <% @current_day_appointments.each do |appointment| %>
-                    <div class="card-container">
-                      <div class="card">
-                        <div>
-                          <h3><%= appointment.title %></h3>
-                        </div>
-                        <div>
-                          <h5>Purpose: <%= appointment.purpose %></h5>
-                        </div>
-                        <div>
-                          <p>Date: <%= appointment.date %> Time: <%= appointment.time %></p>
-                        </div>
-                        <% if appointment.notes != "" %>
-                          <div class="card-container">
-                              <%= appointment.notes %>
+                <% if !@current_day_appointments.empty? %>
+                  <div>
+                    <h2>Private Appointments: </h2>
+                  </div>
+                  <div>
+                    <% @current_day_appointments.each do |appointment| %>
+                      <div class="card-container">
+                        <div class="card">
+                          <div>
+                            <h3><%= appointment.title %></h3>
                           </div>
-                        <% else %>
-                          <div> </div>
-                        <% end %>
+                          <div>
+                            <h5>Purpose: <%= appointment.purpose %></h5>
+                          </div>
+                          <div>
+                            <p>Date: <%= appointment.date %> Time: <%= appointment.time.strftime("%k:%M") %></p>
+                          </div>
+                          <% if appointment.notes != "" %>
+                            <div class="card-container">
+                                <%= appointment.notes %>
+                            </div>
+                          <% else %>
+                            <div> </div>
+                          <% end %>
+                        </div>
                       </div>
-                    </div>
-                  <% end %>
-                </div>
+                    <% end %>
+                  </div>
+                <% end %>
+                <% if !@current_day_events.empty? %>
+                  <div>
+                    <h2>Events:</h2>
+                  </div>
+                  <div>
+                    <% @current_day_events.each do |event| %>
+                      <div class="card-container">
+                        <div class="card">
+                          <div>
+                            <h3><%= event.title %></h3>
+                          </div>
+                          <div>
+                            <h5>Description: <%= event.content %></h5>
+                          </div>
+                          <div>
+                            <p>Location: <%= event.location %></p>
+                          </div>
+                          <div>
+                            <p>Date: <%= event.date %> Time: <%= event.time.strftime("%k:%M") %></p>
+                          </div>
+                        </div>
+                      </div>
+                    <% end %>
+                  </div>
+                <% end %>
               <% end %>
             </div>
             <%# <div class="modal-footer">
@@ -60,27 +80,20 @@
         </div>
       </div>
 
-
       <p class="px-2" id="date"><%= date.day%></p>
       <% @appointments.each do |appointment| %>
         <% if appointment.date == date %>
           <i class="fa-solid fa-circle fa-2xs" style="color: #dd3647;"></i>
         <% end %>
       <% end %>
-    # <%# end %>
-    # </div>
-  # <% end %>
-# </div>
-
       <% @events.each do |event| %>
         <% if event.date == date %>
           <i class="fa-solid fa-circle fa-2xs" style="color: #33BBC5;"></i>
         <% end %>
       <% end %>
-    <% end %>
-
   <% end %>
 </div>
+<<<<<<< HEAD
 
 <div>
   <h2>Schedule for <%= params[:date] %></h2>
@@ -132,3 +145,5 @@
     </div>
   </div>
 <% end %>
+=======
+>>>>>>> master

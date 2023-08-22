@@ -2,7 +2,7 @@ class EventsController < ApplicationController
   before_action :set_event, only: %i[ show edit update destroy ]
 
   def index
-    @events = policy_scope(Event).all
+    @events = policy_scope(Event).all.order(created_at: :desc)
     if params[:query].present?
       @events = Event.search_by_title_and_content_and_location_and_date(params[:query])
     end

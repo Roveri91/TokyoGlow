@@ -56,6 +56,15 @@ ActiveRecord::Schema[7.0].define(version: 2023_08_19_065713) do
     t.index ["user_id"], name: "index_appointments_on_user_id"
   end
 
+  create_table "articles", force: :cascade do |t|
+    t.string "title"
+    t.text "content"
+    t.string "image"
+    t.string "link"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "attendants", force: :cascade do |t|
     t.bigint "user_id", null: false
     t.bigint "event_id", null: false
@@ -121,7 +130,9 @@ ActiveRecord::Schema[7.0].define(version: 2023_08_19_065713) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "title"
+    t.bigint "user_id", null: false
     t.index ["hospital_id"], name: "index_reviews_on_hospital_id"
+    t.index ["user_id"], name: "index_reviews_on_user_id"
   end
 
   create_table "users", force: :cascade do |t|
@@ -135,6 +146,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_08_19_065713) do
     t.string "username"
     t.date "due_date"
     t.integer "status"
+    t.string "avatar"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
@@ -150,4 +162,5 @@ ActiveRecord::Schema[7.0].define(version: 2023_08_19_065713) do
   add_foreign_key "replies", "posts"
   add_foreign_key "replies", "users"
   add_foreign_key "reviews", "hospitals"
+  add_foreign_key "reviews", "users"
 end
