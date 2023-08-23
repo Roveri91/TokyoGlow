@@ -9,9 +9,9 @@
   margin: 15px;
   padding: 5px;
   background: $navbar-pink !important;
-  h4 {
-    color: #716893;
-  }
+  // h4 {
+    // color: #716893;
+  // }
 }
 
 .text-bg-purple {
@@ -35,6 +35,12 @@ img {
 .img-container {
   width: 100%;
   height: 20rem;
+}
+
+.rating {
+  position: absolute;
+  top: 2.5rem;
+  left: 2rem;
 }
 
 // .hospital-description {

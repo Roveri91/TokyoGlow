@@ -3,31 +3,46 @@
   <div class="text-center p-3">
     <h1 style="margin-top: 5px"><%= @hospital.name %></h1>
   </div>
-  <div class="card rounded-3 p-3">
+  <div class="card rounded-3 p-3 position-relative">
+    <div class="d-flex">
+      <%  @hospital.average_rating.to_i.times do  %>
+        <i class="fa-solid fa-star" style="color: #a8a424;"></i>
+      <% end %>
+      <%  (5-@hospital.average_rating.to_i).times do  %>
+        <i class="fa-regular fa-star" style="color: #a8a424;"></i>
+      <% end %>
+    </div>
     <div >
       <%= image_tag @hospital.default_image, class:"hospital-show-image rounded-3" %>
     </div>
-    <div class="">
-      <div>
-        <p>Address: <%= @hospital.address %></p>
+    <div class="d-flex flex-column mb-3">
+      <div class="pt-2">
+        <h3>Address:</h3>
+        <p class="fs-4"><%= @hospital.address %></p>
+      </div>
+      <div class="d-flex justify-content-start gap-3">
+        <h4>Price Range:</h4>
+        <p  class="fs-5"><%= @hospital.price_range %></p>
+      </div>
+      <div class="d-flex justify-content-start gap-3">
+        <h5>Average Rating:</h5> 
+        <p><%= @hospital.average_rating %><i class="fa-solid fa-star" style="color: #a8a424;"></i></p>
       </div>
       <div>
-        <p>Price Range: <%= @hospital.price_range %></p>
+        <h3>Services:</h3> 
+        <p><%= @hospital.services %></p>
       </div>
       <div>
-        <p>Services: <%= @hospital.services %></p>
+        <h4>Description:</h4>
+        <p><%= @hospital.description %></p>
       </div>
-      <div>
-        <p>Description: <%= @hospital.description %></p>
+      <div class="d-flex justify-content-start gap-3">
+        <h4>Phone number:</h4>
+        <p><%= @hospital.phone_number %></p>
       </div>
-      <div>
-        <p>Average Rating: <%= @hospital.average_rating %><i class="fa-solid fa-star" style="color: #a8a424;"></i></p>
-      </div>
-      <div>
-        <p>Phone number: <%= @hospital.phone_number %></p>
-      </div>
-      <div>
-        <p>Website: <%= @hospital.webpage %></p>
+      <div class="d-flex justify-content-start gap-3">
+        <h4>Website:</h4> 
+        <p><%= @hospital.webpage %></p>
       </div>
     </div>
     <div class= "d-flex justify-content-center py-3">

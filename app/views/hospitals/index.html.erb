@@ -22,11 +22,12 @@
           <%= image_tag hospital.default_image, class: "rounded-3" %>
           <div class="card-container p-3">
             <div class="hospital-header">
-              <h2><%= hospital.name %></h2>
+              <h1><%= hospital.name %></h1>
               <span style="color:  rgb(0, 68, 68);"><h5><%= hospital.average_rating %><i class="fa-solid fa-star" style="color: #a8a424;"></i></h5></span>
             </div>
-            <div class="hospital-header">
-              <h3><%=hospital.address %></h3>
+            <div class="d-flex justify-content-start pt-1 gap-3">
+              <i class="fa-solid fa-location-dot fa-xl mt-2" style="color: #004444;"></i>
+              <h4><%=hospital.address %></h4>
               <%#= link_to "View hospital", hospital_path(hospital), class: "btn btn-primary py-1 my-1" %>
             </div>
             <%#h5>
