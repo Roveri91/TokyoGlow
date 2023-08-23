@@ -3,16 +3,9 @@
   <div class="text-center p-3">
     <h1 style="margin-top: 5px"><%= @hospital.name %></h1>
   </div>
-  <div class="card rounded-3 p-3 position-relative">
-    <div class="d-flex">
-      <%  @hospital.average_rating.to_i.times do  %>
-        <i class="fa-solid fa-star" style="color: #a8a424;"></i>
-      <% end %>
-      <%  (5-@hospital.average_rating.to_i).times do  %>
-        <i class="fa-regular fa-star" style="color: #a8a424;"></i>
-      <% end %>
-    </div>
-    <div >
+  <div class="card rounded-3 p-3">
+    
+    <div>
       <%= image_tag @hospital.default_image, class:"hospital-show-image rounded-3" %>
     </div>
     <div class="d-flex flex-column mb-3">
@@ -25,8 +18,25 @@
         <p  class="fs-5"><%= @hospital.price_range %></p>
       </div>
       <div class="d-flex justify-content-start gap-3">
-        <h5>Average Rating:</h5> 
-        <p><%= @hospital.average_rating %><i class="fa-solid fa-star" style="color: #a8a424;"></i></p>
+        <h5>Rating:</h5> 
+        <%# stars review ***** %>
+        <div class="d-flex gap-2">
+          <h4><%= @hospital.average_rating %></h4>
+          <p>
+          <% for i in 1..5 do %>
+            <% if (@hospital.average_rating < i) %>
+              <% if (@hospital.average_rating.class == Float)  && (@hospital.average_rating.round == i) %>
+                <i class="fa-solid fa-star-half-stroke fa-xl" style="color: #a8a424;"></i>
+              <% else %>
+                <i class="fa-regular fa-star fa-xl" style="color: #a8a424;"></i>
+              <% end %>
+            <% else %>
+              <i class="fa-solid fa-star fa-xl" style="color: #a8a424;"></i>
+            <% end %>
+          <% end %>
+          </p>
+        </div>
+        <%# *****  %>
       </div>
       <div>
         <h3>Services:</h3> 

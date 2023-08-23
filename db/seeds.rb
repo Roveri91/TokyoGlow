@@ -78,7 +78,7 @@ hospital = Hospital.create!(name: "Sanno Hospital", address:locations.sample, pr
 puts "created #{hospital.name}"
 
 hospital = Hospital.create!(name: "Aiiku Hospital", address:locations.sample, price_range: price_range.sample, services: services.sample(4).join(", "), webpage: "https://www.aiiku.net/international/",
-    description: "In order to ensure the happiness and healthy growth of all mothers and babies, Aiiku Hospital provides high-quality medical care and supports a safe and comfortable pregnancy, labor/delivery, and child-rearing. ", average_rating: 2.7, phone_number: "03-4642-8846", default_image: "aiiku_hospital.jpg")
+    description: "In order to ensure the happiness and healthy growth of all mothers and babies, Aiiku Hospital provides high-quality medical care and supports a safe and comfortable pregnancy, labor/delivery, and child-rearing. ", average_rating: 2.5, phone_number: "03-4642-8846", default_image: "aiiku_hospital.jpg")
 puts "created #{hospital.name}"
 
 hospital = Hospital.create!(name: "Tokyo Takanawa Hospital", address:locations.sample, price_range: price_range.sample, services: services.sample(4).join(", "), webpage: "https://takanawa.jcho.go.jp/",
@@ -86,7 +86,7 @@ hospital = Hospital.create!(name: "Tokyo Takanawa Hospital", address:locations.s
 puts "created #{hospital.name}"
 
 hospital = Hospital.create!(name: "Tokyo Midtown Clinic", address:locations.sample, price_range: price_range.sample, services: services.sample(4).join(", "), webpage: "https://www.tokyomidtown-mc.jp/en/",
-  description: "In addition to a wide range of medical practices, the Tokyo Midtown Clinic boasts a special outpatient center, next-generation Health Screening Center and more. We provide total health support for our patients. ", average_rating: 2.9, phone_number: "03-5477-3426", default_image: "midtown_hospital.jpg")
+  description: "In addition to a wide range of medical practices, the Tokyo Midtown Clinic boasts a special outpatient center, next-generation Health Screening Center and more. We provide total health support for our patients. ", average_rating: 2.5, phone_number: "03-5477-3426", default_image: "midtown_hospital.jpg")
 puts "created #{hospital.name}"
 
 hospital = Hospital.create!(name: "Japan Red Cross Medical Center", address:locations.sample, price_range: price_range.sample, services: services.sample(4).join(", "), webpage: "https://www.med.jrc.or.jp/en/tabid/393/Default.aspx",
