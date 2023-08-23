@@ -101,3 +101,22 @@ button:hover > a {
   background: $navbar-pink;
   color: $lettering-blue;
 }
+
+.delete-icon button {
+  border: none;
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  background-color: $navbar-pink;
+  font-family: 'Philosopher', sans-serif;
+  color: $lettering-blue;
+}
+
+.delete-icon button:before {
+  content: "\f1f8";
+  display: inline-block;
+  font-style: normal;
+  font-variant: normal;
+  font-family: "Font Awesome 5 Free";
+  font-weight: 900;
+}

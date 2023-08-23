@@ -30,7 +30,7 @@
               wrapper_html: {class: "flex-grow-1"}
             %>
             <div class= "d-flex justify-content-center">
-              <%= f.submit "Send", class: "btn-submit" %>
+              <%= f.submit "Send", class: "btn-main" %>
             </div>
           <% end %>
         </div>
@@ -38,19 +38,27 @@
 
       <div>
         <% @post.replies.each do |reply| %>
-          <div>
-          <% if reply.user.avatar_cl.attached? %>
-            <%= cl_image_tag(reply.user.avatar_cl.key, width: "50", height: "50") %>
-            <% elsif reply.user.avatar %>
-            <%= image_tag(reply.user.avatar, width: "50", height: "50") %>
-            <% else %>
-            <%= image_tag("userF1.png", width: "50", height: "50") %>
-          <% end %>
-            <strong><%= reply.user.username %></strong>
-            <i><%= reply.created_at.strftime("%a %b %e at %l:%M %p") %></i>
-          </div>
+          <div class="card rounded-3 p-2">
+            <div class="d-flex gap-3 position-relative">
+              <% if reply.user.avatar_cl.attached? %>
+                <%= cl_image_tag(reply.user.avatar_cl.key, width: "50", height: "50") %>
+              <% elsif reply.user.avatar %>
+                <%= image_tag(reply.user.avatar, width: "50", height: "50") %>
+              <% else %>
+                <%= image_tag("userF1.png", width: "50", height: "50") %>
+              <% end %>
+              <div class="d-flex flex-column justify-content-center">
+                <h3><strong><%= reply.user.username %></strong></h3>
+                <p><i><%= reply.created_at.strftime("%a %b %e at %l:%M %p") %></i></p>
+              </div>
+              <div class="delete-icon fa-solid fa-trash">
+                <p class="fa-solid fa-trash"><%= button_to "Delete", reply, form: { data: { turbo_confirm: 'Are you sure?' } } , method: :delete if policy(reply).destroy? %></p>
+              </div>
+            </div>
+            <hr/>
             <p><%= reply.content %></p>
-          <div class="delete-button-wrapper mt-3"> <%= button_to "Delete your comment", reply, form: { data: { turbo_confirm: 'Are you sure?' } } , method: :delete if policy(reply).destroy? %></div>
+            <div class=" mt-3 fa-solid fa-trash"> <%= button_to "Delete your comment", reply, form: { data: { turbo_confirm: 'Are you sure?' } } , method: :delete if policy(reply).destroy? %></div>
+          </div>  
         <% end %>
       </div>
   </div>
