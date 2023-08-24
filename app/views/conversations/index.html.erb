@@ -1,0 +1,15 @@
+<div class="container">
+  <h1>Here you have your private conversations</h1>
+
+  <div class="">
+    <% @conversations.each do |conversation| %>
+        <small>
+          <strong>Your conversation with <%= conversation.user_to.username %></strong>
+          <i><%= conversation.created_at.strftime("%a %b %e at %l:%M %p") %></i>
+        </small>
+        <p><%= conversation.title %></p>
+      </div>
+      <hr/>
+    <% end %>
+  </div>
+</div>

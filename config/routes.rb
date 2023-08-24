@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  get 'conversations/index'
   get 'reviews/new'
   get 'appointments/new'
 
@@ -11,6 +12,8 @@ Rails.application.routes.draw do
   # root "articles#index"
 
   get '/users/:id/calendar', to: 'users#calendar', as: 'calendar'
+  get '/users/:id/conversations', to: 'conversations#index', as: 'conversations'
+
   resources :users, only: [:show]
   resources :events, only: [:index, :show, :new, :create, :update, :destroy]
   resources :hospitals, only: [:index, :show] do
