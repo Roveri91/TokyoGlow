@@ -29,7 +29,7 @@
         </div>
       </div>
 
-     <%# REPLY %>
+     <%# REPLIES %>
 
       <div>
         <% @post.replies.each do |reply| %>
@@ -63,7 +63,7 @@
       <%# MESSAGE FORM %>
 
       <div class= "my-4" >
-        <div class= "container">
+        <div class= "container position-relative">
           <%= simple_form_for [@post, @reply],
           html: {class: ""} do |f|
           %>
@@ -72,9 +72,7 @@
               placeholder: "Reply to #{@post.user == current_user ? "your" : "#{@post.user.username}'s"} post",
               wrapper_html: {class: "flex-grow-1"}
             %>
-            <div class= "d-flex justify-content-center">
-              <%= f.submit "Send", class: "btn-main" %>
-            </div>
+            <button type="submit" class="send-icon"><i class="fa-solid fa-paper-plane fa-2xl" style="color: #004444;"></i></button>            
           <% end %>
         </div>
       </div>
