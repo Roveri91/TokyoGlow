@@ -18,24 +18,34 @@
   </div>
   <hr/>
 
+  
   <div>
     <% @posts.each do |post| %>
-      <div>
-        <% if post.user.avatar_cl.attached? %>
-          <%= cl_image_tag(post.user.avatar_cl.key, width: "50", height: "50") %>
-        <% elsif post.user.avatar %>
-          <%= image_tag(post.user.avatar, width: "50", height: "50") %>
-        <% else %>
-          <%= image_tag("userF1.png", width: "50", height: "50") %>
+      <div class= "card rounded-3 p-2">
+        <div class="d-flex gap-3 position-relative">
+          <% if post.user.avatar_cl.attached? %>
+            <%= cl_image_tag(post.user.avatar_cl.key, width: "50", height: "50") %>
+          <% elsif post.user.avatar %>
+            <%= image_tag(post.user.avatar, width: "50", height: "50") %>
+          <% else %>
+            <%= image_tag("userF1.png", width: "50", height: "50") %>
+          <% end %>
+          <div class="d-flex flex-column justify-content-center">
+            <h3><strong><%= post.user == current_user ? "You" : post.user.username %></strong></h3>
+            <p><i><%= post.created_at.strftime("%a %b %e at %l:%M %p") %></i></p>
+          </div>
+          <% if policy(post).destroy? %>
+            <%= button_to post, form: { data: { turbo_confirm: 'Are you sure?' } } , method: :delete, class: "delete-icon" do %>
+              <i class="fa-solid fa-trash fa-xl" style="color: #004444;"></i>
+            <% end %>
+          <% end %>
+        </div>
+        <%= link_to post_path(post) do %>
+          <h3 class = "py-1"><%= post.title %></h3>
+          <hr/>
+          <p>Category: <%= post.category %></p>
         <% end %>
-        <strong><%= post.user.username %></strong>
-        <i><%= post.created_at.strftime("%a %b %e at %l:%M %p") %></i>
       </div>
-      <%= link_to post_path(post) do %>
-        <h3 class = "py-1"><%= post.title %></h3>
-        <p>Category: <%= post.category %></p>
-      <% end %>
-      <hr/>
     <% end %>
   </div>
 </div>
