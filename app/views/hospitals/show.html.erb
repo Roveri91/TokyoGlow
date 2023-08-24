@@ -56,7 +56,7 @@
       </div>
     </div>
     <div class= "d-flex justify-content-center py-3">
-      <%= link_to "Add Appointment to your calendar",  new_hospital_appointment_path(@hospital), class: "btn-main" %>
+      <%= link_to "Add Appointment",  new_hospital_appointment_path(@hospital), class: "btn-main" %>
     </div>
   </div>
   
@@ -113,7 +113,7 @@
     <%= f.input :comment %>
     <%= f.input :rating, as: :numeric, input_html: { min: '1', max: '5', step: '1' }, placeholder: "Enter a number from 1 to 5" %>
       <div class= "d-flex justify-content-center py-3">
-        <%= f.submit "Submit your review", class: "btn-main" %>
+        <%= f.submit "Submit", class: "btn-main" %>
       </div>
     <% end %>
   </div>
