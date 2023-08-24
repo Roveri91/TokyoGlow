@@ -52,7 +52,7 @@
   size: a Blueberry
   image: blueberry.jpg
   symptoms: [insomnia, bloating, acne]
-  next_appointment:
+  next_appointment: First Ultrasound and risk assessment
   baby_info: Doubling in size!
 8:
   length: 1.57cm
@@ -60,7 +60,7 @@
   size: a Kidney Bean
   image: kidney_bean.jpg
   symptoms: [nausea, fatigue, cravings]
-  next_appointment:
+  next_appointment: First Ultrasound and risk assessment
   baby_info: Starting to move around!
 9:
   length: 2.30cm
@@ -68,7 +68,7 @@
   size: a Grape
   image: grape.jpg
   symptoms: [mood swings, nausea, insomnia]
-  next_appointment:
+  next_appointment: First Ultrasound and risk assessment
   baby_info: Developing their basic anatomy!
 10:
   length: 3.1cm
@@ -76,7 +76,7 @@
   size: a Kumquat
   image: kumquat.jpg
   symptoms: [cravings, headachem insomnia]
-  next_appointment:
+  next_appointment: First Ultrasound and risk assessment
   baby_info: Starting to bend their limbs!
 11:
   length: 4.1cm
@@ -108,7 +108,7 @@
   size: a Lemon
   image: lemo.jpg
   symptoms: [irritated, nausea, backache]
-  next_appointment:
+  next_appointment: Your next prenatal visit!
   baby_info: Starting to use their facial muscles!
 15:
   length: 33.7 cm
@@ -124,7 +124,7 @@
   size: an Avocado
   image: avocado.jpg
   symptoms: [nausea, cravings, irritated]
-  next_appointment:
+  next_appointment: Your next screening exam!
   baby_info: Developing their head!
 17:
   length: 20.4cm
@@ -140,7 +140,7 @@
   size: a Bell Pepper
   image: bell_pepper.jpg
   symptoms: [calm, headache, tender breasts]
-  next_appointment:
+  next_appointment: Ultrasound checkup!
   baby_info: Moving so much you could feel it!
 19:
   length: 24.0cm
@@ -148,7 +148,7 @@
   size: a Heirloom Tomato
   image: heirloom_tomato.jpg
   symptoms: [backache, sad, calm]
-  next_appointment:
+  next_appointment: Ultrasound checkup if you haven't already!
   baby_info: Able to hear your voice!
 20:
   length: 25.7cm
@@ -156,7 +156,7 @@
   size: a Banana
   image: banana.jpg
   symptoms: [calm, backache, energetic]
-  next_appointment:
+  next_appointment: Ultrasound checkup if you haven't already!
   baby_info: Learning how to swallow!
 21:
   length: 27.4cm
@@ -164,7 +164,7 @@
   size: a Carrot
   image: carrot.jpg
   symptoms: [calm, cravings, tender breasts]
-  next_appointment:
+  next_appointment: Ultrasound checkup if you haven't already!
   baby_info: Kicking a lot more from this week!
 22:
   length: 29.0cm
@@ -172,7 +172,7 @@
   size: a Spaghetti Squash
   image: spaghetti_squash.jpg
   symptoms: [sad, constipation, tender breasts]
-  next_appointment:
+  next_appointment: Ultrasound checkup if you haven't already!
   baby_info: Starting to look like a miniature newborn!
 23:
   length: 30.6cm
@@ -188,7 +188,7 @@
   size: a Corn
   image: corn.jpg
   symptoms: [sad, calm, tender breasts]
-  next_appointment:
+  next_appointment: The glucose test!
   baby_info: Starting to develop baby fat!
 25:
   length: 33.7 cm
@@ -196,7 +196,7 @@
   size: a Rutabaga
   image: rutabaga.jpg
   symptoms: [fatigue, nausea, sad]
-  next_appointment:
+  next_appointment: the glucose test if you haven't already!
   baby_info: Starting to grow hair!
 26:
   length: 35.1cm
@@ -204,7 +204,7 @@
   size: a Scallion
   image: scallion.jpg
   symptoms: [fatigue, tender breasts, sad]
-  next_appointment: testing
+  next_appointment: Your next prenatal visit!
   baby_info: Starting to inhale and exhale!
 27:
   length: 36.6cm
@@ -212,7 +212,7 @@
   size: a Cauliflower
   image: cauliflower.jpg
   symptoms: [backache, constipation, irritated]
-  next_appointment:
+  next_appointment: the glucose test if you haven't already!
   baby_info: Developing a very active brain!
 28:
   length: 37.6cm
@@ -220,7 +220,7 @@
   size: an Eggplant
   image: eggplant.jpg
   symptoms: [calm, backache, acne]
-  next_appointment:
+  next_appointment: A checkup every 2 weeks!
   baby_info: Developing their eyesight!
 29:
   length: 39.3cm
@@ -228,7 +228,7 @@
   size: a Butternut Squash
   image: butternut_squash.jpg
   symptoms: [calm, constipation, irritated]
-  next_appointment:
+  next_appointment: A checkup every 2 weeks!
   baby_info: Developing their lungs and muscles!
 30:
   length: 40.5cm
@@ -236,7 +236,7 @@
   size: a Cabbage
   image: cabbage.jpg
   symptoms: [fatigue, tender breasts, energetic]
-  next_appointment:
+  next_appointment: A checkup every 2 weeks!
   baby_info: Growing very quickly!
 31:
   length: 41.8cm
@@ -244,7 +244,7 @@
   size: a Coconut
   image: coconut.jpg
   symptoms: [fatigue, backache, cravings]
-  next_appointment:
+  next_appointment: A checkup every 2 weeks!
   baby_info: Turning their head side to side!
 32:
   length: 43.0cm
@@ -252,7 +252,7 @@
   size: a Jicama
   image: jicama.jpg
   symptoms: [calm, backache, tender breasts]
-  next_appointment:
+  next_appointment: A checkup every 2 weeks!
   baby_info: Gaining weight quickly!
 33:
   length: 44.1cm
@@ -260,7 +260,7 @@
   size: a Pineapple
   image: pineapple.jpg
   symptoms: [calm, energetic, energetic]
-  next_appointment:
+  next_appointment: A checkup every 2 weeks!
   baby_info: Developing their skull!
 34:
   length: 45.3cm
@@ -268,7 +268,7 @@
   size: a Cantaloupe
   image: cantaloupe.jpg
   symptoms: [fatigue, bloating, sad]
-  next_appointment:
+  next_appointment: A checkup every 2 weeks!
   baby_info: Developing their central nervouse system!
 35:
   length: 46.3cm
@@ -276,7 +276,7 @@
   size: a Honeydew Melon
   image: honeydew_melon.jpg
   symptoms: [calm, backache, acne]
-  next_appointment:
+  next_appointment: A checkup every 2 weeks!
   baby_info: Moving a lot more!
 36:
   length: 47.3cm
@@ -284,7 +284,7 @@
   size: a Romaine Lettuce
   image: romaine_lettuce.jpg
   symptoms: [fatigue, headache, high sex drive]
-  next_appointment:
+  next_appointment: A checkup every 2 weeks!
   baby_info: Gaining an ounce a day!
 37:
   length: 48.3cm
@@ -292,7 +292,7 @@
   size: a Swiss Chard
   image: swiss_chard.jpg
   symptoms: [calm, acne, high sex drive]
-  next_appointment:
+  next_appointment: A checkup every week!
   baby_info: Developing their lungs and brains!
 38:
   length: 49.3cm
@@ -300,7 +300,7 @@
   size: a Leek
   image: leek.jpg
   symptoms: [calm, happy, energetic]
-  next_appointment:
+  next_appointment: A checkup every week!
   baby_info: Growing quickly!
 39:
   length: 50.1cm
@@ -308,7 +308,7 @@
   size: a Mini Watermelon
   image: watermelon.jpg
   symptoms: [calm, backache, irritated]
-  next_appointment:
+  next_appointment: A checkup every week!
   baby_info: Considered full term!
 40:
   length: 51.0cm
@@ -316,5 +316,5 @@
   size: a Small Pumpkin
   image: pumpkin.jpg
   symptoms: [fatigue, backache, constipation]
-  next_appointment:
+  next_appointment: A checkup every week!
   baby_info: Considered fully developed!
