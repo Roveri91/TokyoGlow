@@ -1,0 +1,15 @@
+<div class="">
+  <h1>#<%= @conversation.title %></h1>
+
+  <div class="">
+    <% @conversation.messages.each do |message| %>
+      <div id="message-<%= message.id %>">
+        <small>
+          <strong><%= message.user.username %></strong>
+          <i><%= message.created_at.strftime("%a %b %e at %l:%M %p") %></i>
+        </small>
+        <p><%= message.content %></p>
+      </div>
+    <% end %>
+  </div>
+</div>
