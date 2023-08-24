@@ -35,7 +35,7 @@
   <% end %>
   <% if user_signed_in? %>
       <div class="log-out">
-        <%= button_to destroy_user_session_path, data: {turbo_confirm: "Are you sure?"}, method: :delete  do %>
+        <%= button_to destroy_user_session_path, data: {turbo_confirm: "Are you sure?"}, method: :delete, class: "logout-icon"  do %>
           <i class="fa-solid fa-right-from-bracket fa-2xl" style="color: #004444;"></i>
         <% end %>
       </div>
