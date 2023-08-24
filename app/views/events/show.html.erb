@@ -9,34 +9,33 @@
 
     <div class="card text-center"> <!-- Center the card content -->
       <h3><%= @event.content %></h3>
-      <h5><i class="fa-solid fa-location-dot"></i> <%= @event.location %></h5>
+      <p><i class="fa-solid fa-location-dot"></i> <%= @event.location %></p>
       <p><i class="fa-regular fa-clock"></i> <%= @event.date.strftime('%B %d') %> at <%= @event.time.strftime('%H:%M') %> JST</p>
       <p>Hosted by <%= @event.user.username %></p>
     </div>
   </div>
 
+<% if @event.user != current_user %>
   <div class="d-flex justify-content-center mt-3">
-    <% if @event.pending? %>
-      <%= simple_form_for @event do |f| %>
-        <%= f.input :status, as: :hidden, input_html: { value: 'accepted' } %>
-        <%= f.submit 'Attending', class: 'btn btn-submit' %>
-      <% end %>
-
-      <%= simple_form_for @event do |f| %>
-        <%= f.input :status, as: :hidden, input_html: { value: 'rejected' } %>
-        <%= f.submit 'Not attending', class: 'btn btn-submit' %>
-      <% end %>
+    <% if @is_attending %>
+      <h3> Status: Attending </h3>
+      <%= link_to 'Decline', status_change_path({event: @event, status: 2}), method: "post"%>
     <% else %>
-      <h3> Status: <%= @event.status %></h3>
+      <h3> Status: Not attending </h3>
+      <%= link_to 'Accept', status_change_path({event: @event, status: 1}), method: "post" %>
     <% end %>
   </div>
+<% end %>
 
-  <% if policy(@event).destroy? %>
-    <div class="d-flex justify-content-center mt-3">
-      <%= link_to "Delete this event", event_path(@event), class: "btn btn-submit btn-sm",
-        data: { turbo_method: :delete, turbo_confirm: "Are you sure?" } %>
-    </div>
-  <% end %>
-</div>
 
-<%# if @event.user != current_user %>
+
+  <%# <div class="pt-2">
+    Attendees: <%= @event.num_attendees.to_i%>
+  <%# </div> %>
+
+<% if policy(@event).destroy? %>
+  <div class="d-flex justify-content-center mt-3">
+    <%= link_to "Delete this event", event_path(@event), class: "btn btn-submit btn-sm",
+          data: { turbo_method: :delete, turbo_confirm: "Are you sure?" } %>
+  </div>
+<% end %>
