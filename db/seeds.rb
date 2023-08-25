@@ -64,11 +64,11 @@ user = User.create!(email: "mario@gmail.com", password: "123456", username: "Mar
 
 puts "created user #{user.username}"
 
-user = User.create!(email: "charlotte@gmail.com", password: "123456", username: "Charlotte", due_date: "2024-2-28", avatar: "userF3.png")
+user = User.create!(email: "diana@gmail.com", password: "123456", username: "Diana", due_date: "2024-2-28", avatar: "userF3.png")
 
 puts "created user #{user.username}"
 
-user = User.create!(email: "Clementine@gmail.com", password: "123456", username: "Clementint", due_date: "2024-4-5", avatar: "userF4.png")
+user = User.create!(email: "Clementine@gmail.com", password: "123456", username: "Clementine", due_date: "2024-4-5", avatar: "userF4.png")
 
 puts "created user #{user.username}"
 
@@ -80,6 +80,17 @@ user = User.create!(email: "Jason@gmail.com", password: "123456", username: "Jas
 
 puts "created user #{user.username}"
 
+user = User.create!(email: "jack@gmail.com", password: "123456", username: "Jack", due_date: "2024-1-16", avatar: "userM2.png")
+
+puts "created user #{user.username}"
+
+user = User.create!(email: "lola@gmail.com", password: "123456", username: "Lola", due_date: "2024-1-16", avatar: "userF6.png")
+
+user = User.create!(email: "peach@gmail.com", password: "123456", username: "Peach", due_date: "2024-1-16", avatar: "userF7.png")
+
+puts "created user #{user.username}"
+
+puts "created user #{user.username}"
 
 users = User.all
 # ------POSTS------
@@ -154,23 +165,59 @@ hospitals = Hospital.all
 
 # ------REVIEWS------
 
-5.times do
-  review = Review.create(title: "Best hospital ever", comment: "The staff is really friendly and i felt like at home since day one", rating: rand(4.0...5.0).round(1), hospital: hospitals.sample, user: users.sample)
+7.times do
+  #  --- should avoid the same user write a review on the same hospital 
+  hospital = hospitals.sample
+  user = users.sample 
+  hospital_reviews = hospital.reviews.all
+    
+  while hospital_reviews.any? { |review| review.user === user } do 
+    user = users.sample
+  end
+  # ----
+  review = Review.create!(title: "Best hospital ever", comment: "The staff is really friendly and i felt like at home since day one", rating: rand(4...5), hospital: hospital, user: user)
   puts "create review for #{review.hospital.name} by #{review.user.username}"
 end
 
-5.times do
-  review = Review.create(title: "Worst hospital ever", comment: "Facilities very dirty and long waiting time", rating: rand(1.0...2.5).round(1), hospital: hospitals.sample, user: users.sample)
+4.times do
+  #  --- should avoid the same user write a review on the same hospital 
+  hospital = hospitals.sample
+  user = users.sample 
+  hospital_reviews = hospital.reviews.all
+    
+  while hospital_reviews.any? { |review| review.user === user } do 
+    user = users.sample
+  end
+  # ----
+  review = Review.create!(title: "Worst hospital ever", comment: "Facilities very dirty and long waiting time", rating: rand(1...2), hospital: hospital, user: user)
   puts "create review for #{review.hospital.name} by #{review.user.username}"
 end
 
-5.times do
-  review = Review.create(title: "Good Cospa", comment: "I tried many hospitals around this area and this is so far the best!", rating: rand(3.5...4.5).round(1), hospital: hospitals.sample, user: users.sample)
+7.times do
+  #  --- should avoid the same user write a review on the same hospital 
+  hospital = hospitals.sample
+  user = users.sample 
+  hospital_reviews = hospital.reviews.all
+    
+  while hospital_reviews.any? { |review| review.user === user } do 
+    user = users.sample
+  end
+  # ----
+  review = Review.create!(title: "Good Cospa", comment: "I tried many hospitals around this area and this is so far the best!", rating: rand(3...5), hospital: hospital, user: user)
   puts "create review for #{review.hospital.name} by #{review.user.username}"
 end
 
-5.times do
-  review = Review.create(title: "Nice facilities", comment: "Facilities is nice and relatively new, however the waiting time is pretty long", rating: rand(3.0...4.0).round(1), hospital: hospitals.sample, user: users.sample)
+8.times do
+  #  --- should avoid the same user write a review on the same hospital 
+  hospital = hospitals.sample
+  user = users.sample 
+  hospital_reviews = hospital.reviews.all
+    
+  while hospital_reviews.any? { |review| review.user === user } do 
+    user = users.sample
+  end
+  # ----
+  review = Review.create!(title: "Nice facilities", comment: "Facilities is nice and relatively new, however the waiting time is pretty long", rating: rand(3...4), hospital: hospital, user: user)
   puts "create review for #{review.hospital.name} by #{review.user.username}"
 end
 
