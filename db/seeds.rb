@@ -84,7 +84,7 @@ user = User.create!(email: "jack@gmail.com", password: "123456", username: "Jack
 
 puts "created user #{user.username}"
 
-user = User.create!(email: "lola@gmail.com", password: "123456", username: "Lola", due_date: "2024-1-16", avatar: "userFv6.png")
+user = User.create!(email: "lola@gmail.com", password: "123456", username: "Lola", due_date: "2024-1-16", avatar: "userF6.png")
 
 user = User.create!(email: "peach@gmail.com", password: "123456", username: "Peach", due_date: "2024-1-16", avatar: "userF7.png")
 

@@ -67,7 +67,7 @@
       <% @hospital.reviews.each do |review| %>
         <hr/>
         <div class="container">
-          <div class= "d-flex py-2">
+          <div class= "d-flex py-2 gap-3 ">
             <% if review.user.avatar_cl.attached? %>
               <%= cl_image_tag(review.user.avatar_cl.key, width: "50", height: "50") %>
             <% elsif review.user.avatar %>
@@ -75,7 +75,10 @@
             <% else %>
               <%= image_tag("userF1.png", width: "50", height: "50") %>
             <% end %>
-            <h3 class="p-2 align-middle"><%= review.user.username %></h3>
+            <div class="d-flex flex-column justify-content-center">
+              <h3><strong><%= review.user == current_user ? "You" : review.user.username %></strong></h3>
+              <p><i><%= review.created_at.strftime("%a %b %e at %l:%M %p") %></i></p>
+            </div>
           </div>
         
           <h3><%= review.title %></h3>
