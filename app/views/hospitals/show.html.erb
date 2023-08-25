@@ -86,13 +86,12 @@
     </div>
   <% end %>
   <div class="card-container px-3">
-    <!-- Existing code for hospital information, reviews, and the "Leave your review" form -->
     <div class="card rounded-3 p-3">
       <h1>Leave your review</h1>
       <%= simple_form_for [@hospital, @review], html: { novalidate: true }  do |f| %>
         <div class="star-rating">
           <% 5.times do |i| %>
-            <input type="radio" name="review[rating]" value="<%= i + 1 %>" <%= "checked" if i == 2 %> />
+            <input type="radio" id="star<%= i + 1 %>" name="review[rating]" value="<%= i + 1 %>" <%= "checked" if i == 2 %> />
           <% end %>
           <%= f.input :title %>
           <%= f.input :comment %>
@@ -103,5 +102,4 @@
       <% end %>
     </div>
   </div>
-</div>
 </div>
