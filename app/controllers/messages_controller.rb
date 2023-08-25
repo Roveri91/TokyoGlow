@@ -4,6 +4,7 @@ class MessagesController < ApplicationController
     @message = Message.new(message_params)
     @message.conversation = @conversation
     @message.user = current_user
+    authorize @message
     if @message.save
       redirect_to user_conversation_messages_path(@conversation)
     end
