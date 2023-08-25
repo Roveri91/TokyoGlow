@@ -34,10 +34,9 @@
               </p>
               <p>
                 <i class="fa-solid fa-circle-check"></i>
-                <%# <% attendees = event.attendees_count %>
-                <%# if attendees > 0%>
-                <%#= attendees %>
-                <%# end %>
+                <% attending = event.attendants %>
+                <% all = attending.count + 1 %>
+                <%= all %> going
               </p>
             </div>
           </div>

@@ -11,6 +11,12 @@
       <p><i class="fa-solid fa-location-dot"></i> <%= @event.location %></p>
       <p><i class="fa-regular fa-clock"></i> <%= @event.date.strftime('%B %d') %> at <%= @event.time.strftime('%H:%M') %> JST</p>
       <p>Hosted by <%= @event.user.username %></p>
+      <p>
+        <i class="fa-solid fa-circle-check"></i>
+        <% attending = @event.attendants %>
+        <% all = attending.count + 1 %>
+        <%= all %> going
+      </p>
     </div>
   </div>
   <% if @event.user != current_user %>
@@ -25,7 +31,7 @@
   <% end %>
   <% if policy(@event).destroy? %>
     <div class="d-flex justify-content-center mt-3">
-      <%= link_to "Delete this event", event_path(@event), class: "btn btn-submit btn-sm",
+      <%= link_to "Delete this event", event_path(@event), class: "btn btn-danger mt-2",
         data: { turbo_method: :delete, turbo_confirm: "Are you sure?" } %>
     </div>
   <% end %>
