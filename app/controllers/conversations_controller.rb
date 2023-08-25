@@ -9,4 +9,9 @@ class ConversationsController < ApplicationController
     authorize @conversation
     @message = Message.new
   end
+
+  def new
+    @conversation = Conversation.new
+    authorize @conversation
+  end
 end

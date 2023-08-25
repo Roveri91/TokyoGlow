@@ -12,4 +12,21 @@
       </div>
     <% end %>
   </div>
+
+  <div class= "my-4" >
+    <div class= container>
+        <%= simple_form_for [current_user, @conversation, @message],
+        html: {class: ""} do |f|
+        %>
+          <%= f.input :content,
+            label: false,
+            placeholder: "Enter your message here",
+            wrapper_html: {class: "flex-grow-1"}
+          %>
+          <div class= "d-flex justify-content-center">
+            <%= f.submit "Send", class: "btn-submit" %>
+          </div>
+        <% end %>
+    </div>
+  </div>
 </div>
