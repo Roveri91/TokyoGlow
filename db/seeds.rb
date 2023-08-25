@@ -37,45 +37,51 @@ puts "Creating new users"
 # ------USERS------
 
 user = User.create!(email: "giuliamenin@gmail.com", password: "123456", username: "Giulia", due_date: "2023-12-01", avatar: "userF2.png")
-users << user
+
 puts "created user #{user.username}"
 
 user = User.create!(email: "tennyma@gmail.com", password: "123456", username: "Tenny", due_date: "2023-12-02", avatar: "userF1.png")
-users << user
+
 puts "created user #{user.username}"
 
 user = User.create!(email: "jonnysmith@gmail.com", password: "123456", username: "Jonny", due_date: "2023-12-03", avatar: "userM1.png")
-users << user
+
 puts "created user #{user.username}"
 
 user = User.create!(email: "simoneroveri@gmail.com", password: "123456", username: "Simone", due_date: "2023-12-04", avatar: "userM2.png")
-users << user
+
 puts "created user #{user.username}"
 
 user = User.create!(email: "bob@gmail.com", password: "123456", username: "Bob", due_date: "2024-1-02", avatar: "userM1.png")
-users << user
+
 puts "created user #{user.username}"
 
 user = User.create!(email: "jessy@gmail.com", password: "123456", username: "Jessy", due_date: "2022-11-12", avatar: "userF1.png")
-users << user
+
 puts "created user #{user.username}"
 
 user = User.create!(email: "mario@gmail.com", password: "123456", username: "Mario", due_date: "2022-10-24", avatar: "userM4.png")
-users << user
+
 puts "created user #{user.username}"
 
-user = User.create!(email: "charlotte@gmail.com", password: "123456", username: "Charlotte", due_date: "2024-2-28", avatar: "userF2.png")
-users << user
+user = User.create!(email: "charlotte@gmail.com", password: "123456", username: "Charlotte", due_date: "2024-2-28", avatar: "userF3.png")
+
 puts "created user #{user.username}"
 
-user = User.create!(email: "Clementine@gmail.com", password: "123456", username: "Clementint", due_date: "2024-4-5", avatar: "userF1.png")
-users << user
+user = User.create!(email: "Clementine@gmail.com", password: "123456", username: "Clementint", due_date: "2024-4-5", avatar: "userF4.png")
+
+puts "created user #{user.username}"
+
+user = User.create!(email: "cleo@gmail.com", password: "123456", username: "Cleo", due_date: "2023-11-15", avatar: "userF5.png")
+
 puts "created user #{user.username}"
 
 user = User.create!(email: "Jason@gmail.com", password: "123456", username: "Jason", due_date: "2024-1-16", avatar: "userM3.png")
-users << user
+
 puts "created user #{user.username}"
 
+
+users = User.all
 # ------POSTS------
 
 puts "Creating 4 Posts in Chatroom"
@@ -159,7 +165,12 @@ end
 end
 
 5.times do
-  review = Review.create(title: "Good ", comment: "The staff is really friendly and i felt like at home since day one", rating: rand(4.0...5.0), hospital: hospitals.sample, user: users.sample)
+  review = Review.create(title: "Good Cospa", comment: "I tried many hospitals around this area and this is so far the best!", rating: rand(3.5...4.5), hospital: hospitals.sample, user: users.sample)
+  puts "create review for #{review.hospital.name} by #{review.user.username}"
+end
+
+5.times do
+  review = Review.create(title: "Nice facilities", comment: "Facilities is nice and relatively new, however the waiting time is pretty long", rating: rand(3.0...4.0), hospital: hospitals.sample, user: users.sample)
   puts "create review for #{review.hospital.name} by #{review.user.username}"
 end
 
