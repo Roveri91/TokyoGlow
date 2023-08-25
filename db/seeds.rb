@@ -155,22 +155,22 @@ hospitals = Hospital.all
 # ------REVIEWS------
 
 5.times do
-  review = Review.create(title: "Best hospital ever", comment: "The staff is really friendly and i felt like at home since day one", rating: rand(4.0...5.0), hospital: hospitals.sample, user: users.sample)
+  review = Review.create(title: "Best hospital ever", comment: "The staff is really friendly and i felt like at home since day one", rating: rand(4.0...5.0).round(1), hospital: hospitals.sample, user: users.sample)
   puts "create review for #{review.hospital.name} by #{review.user.username}"
 end
 
 5.times do
-  review = Review.create(title: "Worst hospital ever", comment: "Facilities very dirty and long waiting time", rating: rand(1.0...2.5), hospital: hospitals.sample, user: users.sample)
+  review = Review.create(title: "Worst hospital ever", comment: "Facilities very dirty and long waiting time", rating: rand(1.0...2.5).round(1), hospital: hospitals.sample, user: users.sample)
   puts "create review for #{review.hospital.name} by #{review.user.username}"
 end
 
 5.times do
-  review = Review.create(title: "Good Cospa", comment: "I tried many hospitals around this area and this is so far the best!", rating: rand(3.5...4.5), hospital: hospitals.sample, user: users.sample)
+  review = Review.create(title: "Good Cospa", comment: "I tried many hospitals around this area and this is so far the best!", rating: rand(3.5...4.5).round(1), hospital: hospitals.sample, user: users.sample)
   puts "create review for #{review.hospital.name} by #{review.user.username}"
 end
 
 5.times do
-  review = Review.create(title: "Nice facilities", comment: "Facilities is nice and relatively new, however the waiting time is pretty long", rating: rand(3.0...4.0), hospital: hospitals.sample, user: users.sample)
+  review = Review.create(title: "Nice facilities", comment: "Facilities is nice and relatively new, however the waiting time is pretty long", rating: rand(3.0...4.0).round(1), hospital: hospitals.sample, user: users.sample)
   puts "create review for #{review.hospital.name} by #{review.user.username}"
 end
 
