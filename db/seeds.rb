@@ -34,6 +34,8 @@ puts "Destroyed all the users"
 users = []
 puts "Creating new users"
 
+# ------USERS------
+
 user = User.create!(email: "giuliamenin@gmail.com", password: "123456", username: "Giulia", due_date: "2023-12-01", avatar: "userF2.png")
 users << user
 puts "created user #{user.username}"
@@ -50,6 +52,31 @@ user = User.create!(email: "simoneroveri@gmail.com", password: "123456", usernam
 users << user
 puts "created user #{user.username}"
 
+user = User.create!(email: "bob@gmail.com", password: "123456", username: "Bob", due_date: "2024-1-02", avatar: "userM1.png")
+users << user
+puts "created user #{user.username}"
+
+user = User.create!(email: "jessy@gmail.com", password: "123456", username: "Jessy", due_date: "2022-11-12", avatar: "userF1.png")
+users << user
+puts "created user #{user.username}"
+
+user = User.create!(email: "mario@gmail.com", password: "123456", username: "Mario", due_date: "2022-10-24", avatar: "userM4.png")
+users << user
+puts "created user #{user.username}"
+
+user = User.create!(email: "charlotte@gmail.com", password: "123456", username: "Charlotte", due_date: "2024-2-28", avatar: "userF2.png")
+users << user
+puts "created user #{user.username}"
+
+user = User.create!(email: "Clementine@gmail.com", password: "123456", username: "Clementint", due_date: "2024-4-5", avatar: "userF1.png")
+users << user
+puts "created user #{user.username}"
+
+user = User.create!(email: "Jason@gmail.com", password: "123456", username: "Jason", due_date: "2024-1-16", avatar: "userM3.png")
+users << user
+puts "created user #{user.username}"
+
+# ------POSTS------
 
 puts "Creating 4 Posts in Chatroom"
 Post.create!(title: "Yoga Lesson", content: "Anyone want to join next Tuesday? Yoyogi Park at 10 AM", category: "Event", user: users.sample)
@@ -57,6 +84,8 @@ Post.create!(title: "Need referral at St.Luke", content: "Has anyone here ever b
 Post.create!(title: "Info needed - Help!", content: "Help - I don't know what I am doing and this will be my first child. Need a doula, any good recommendation?", category: "First Child", user: users.sample)
 Post.create!(title: "Cravings - is loving natto normal?", content: "I hated it before and now it's my best friend - am I sick?", category: "Food and Nutrition", user: users.sample)
 puts "Done creating posts"
+
+# ------HOSPITALS------
 
 puts "Heartlessly destroying all the hospitals"
 Hospital.delete_all
@@ -115,12 +144,45 @@ hospital = Hospital.create!(name: "Kanto Rozai Hospital", address:locations.samp
   description: "We encourage kangaroo care after birth and breastfeeding. English support may not be available – please enquire about availability in advance. We accept all major credit cards.", average_rating: 2.5, phone_number: "03-3456-9723", default_image: "kanto_hospital.jpg")
 puts "created #{hospital.name}"
 
+hospitals = Hospital.all
+
+# ------REVIEWS------
+
+5.times do
+  review = Review.create(title: "Best hospital ever", comment: "The staff is really friendly and i felt like at home since day one", rating: rand(4.0...5.0), hospital: hospitals.sample, user: users.sample)
+  puts "create review for #{review.hospital.name} by #{review.user.username}"
+end
+
+5.times do
+  review = Review.create(title: "Worst hospital ever", comment: "Facilities very dirty and long waiting time", rating: rand(1.0...2.5), hospital: hospitals.sample, user: users.sample)
+  puts "create review for #{review.hospital.name} by #{review.user.username}"
+end
+
+5.times do
+  review = Review.create(title: "Good ", comment: "The staff is really friendly and i felt like at home since day one", rating: rand(4.0...5.0), hospital: hospitals.sample, user: users.sample)
+  puts "create review for #{review.hospital.name} by #{review.user.username}"
+end
+
+# create_table "reviews", force: :cascade do |t|
+#   t.text "comment"
+#   t.float "rating"
+#   t.bigint "hospital_id", null: false
+#   t.datetime "created_at", null: false
+#   t.datetime "updated_at", null: false
+#   t.string "title"
+#   t.bigint "user_id", null: false
+#   t.index ["hospital_id"], name: "index_reviews_on_hospital_id"
+#   t.index ["user_id"], name: "index_reviews_on_user_id"
+# end
+
 # ice_cream_image = URI.open("https://res.cloudinary.com/dsfih62k7/image/upload/v1692098565/ice_cream_amdk0l.webp")
 
 # ice_cream = Event.new(status: 0, title: 'Free ice cream!', content: "grab a book", date: 'Tue, 15 Sept 2023', location: 'Yoyogi Park', time:'Sat, 01 Jan 2000 11:30:00.000000000 UTC +00:00', user: users.sample)
 
 # ice_cream.photo.attach(io: ice_cream_image, filename: "ice_cream.webp", content_type: "image/webp")
 # ice_cream.save!
+
+# ------EVENTS------
 
 yoga_image = Rails.root.join('app', 'assets', 'images', 'yoga.jpg')
 book_image = Rails.root.join('app', 'assets', 'images', 'book.jpg')
@@ -178,13 +240,13 @@ ice_cream = Event.new(
 )
 ice_cream.save!
 ice_cream.photo.attach(io: File.open(ice_cream_image), filename: 'ice_cream.jpg', content_type: 'image/jpg')
+
 puts 'Created Ice Cream Event'
-
-
-puts 'created 4 events'
 
 puts 'Done! Thank you for your patience.'
 puts "created 4 events"
+
+# ------ARTICLES------
 
 puts "Creating 4 Articles"
 
