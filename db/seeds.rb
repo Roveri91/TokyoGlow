@@ -84,7 +84,7 @@ user = User.create!(email: "jack@gmail.com", password: "123456", username: "Jack
 
 puts "created user #{user.username}"
 
-user = User.create!(email: "lola@gmail.com", password: "123456", username: "Lola", due_date: "2024-1-16", avatar: "userF6.png")
+user = User.create!(email: "lola@gmail.com", password: "123456", username: "Lola", due_date: "2024-1-16", avatar: "userFv6.png")
 
 user = User.create!(email: "peach@gmail.com", password: "123456", username: "Peach", due_date: "2024-1-16", avatar: "userF7.png")
 
@@ -116,45 +116,45 @@ price_range = %w[$ $$ $$$ $$$$ $$$$$]
 services = ["English Speaking", "Interpretation Services", "Private rooms", "Fertility treatments", "Normal deliveries", "Assistance with breastfeeding", "Epidural anesthesia", "In-vitro fertilization", "Embryo transfers", "After child-care", "Servants on hand 24/7", "Kangaroo care", "Post-partum depression assistance"]
 
 hospital = Hospital.create!(name: "Tokyo JR General Hospital", address:locations.sample, price_range: price_range.sample, services: services.sample(4).join(", "), webpage: "https://www.jreast.co.jp/hospital/index.html/",
-   description: "We provide advanced medical treatment in a variety of fields with warm hospitality.", average_rating: 3.5, phone_number: "03-0707-0707", default_image: hospital_image)
+   description: "We provide advanced medical treatment in a variety of fields with warm hospitality.", average_rating: 0, phone_number: "03-0707-0707", default_image: hospital_image)
 puts "created #{hospital.name}"
 
 hospital = Hospital.create!(name: "Sanno Hospital", address:locations.sample, price_range: price_range.sample, services: services.sample(4).join(", "), webpage: "https://www.sannoclc.or.jp/hospital/english/",
-    description: " A medical check-up center, a clinic for internal medicine, pediatrics, and orthopedics, and a rehabilitation center. We are dedicated to providing assistance to the Residents of Tokyo to live safely in their familiar environment. ", average_rating: 4.5, phone_number: "03-0612-0770", default_image: "sanno_hospital.jpg" )
+    description: " A medical check-up center, a clinic for internal medicine, pediatrics, and orthopedics, and a rehabilitation center. We are dedicated to providing assistance to the Residents of Tokyo to live safely in their familiar environment. ", average_rating: 0, phone_number: "03-0612-0770", default_image: "sanno_hospital.jpg" )
 puts "created #{hospital.name}"
 
 hospital = Hospital.create!(name: "Aiiku Hospital", address:locations.sample, price_range: price_range.sample, services: services.sample(4).join(", "), webpage: "https://www.aiiku.net/international/",
-    description: "In order to ensure the happiness and healthy growth of all mothers and babies, Aiiku Hospital provides high-quality medical care and supports a safe and comfortable pregnancy, labor/delivery, and child-rearing. ", average_rating: 2.5, phone_number: "03-4642-8846", default_image: "aiiku_hospital.jpg")
+    description: "In order to ensure the happiness and healthy growth of all mothers and babies, Aiiku Hospital provides high-quality medical care and supports a safe and comfortable pregnancy, labor/delivery, and child-rearing. ", average_rating: 0, phone_number: "03-4642-8846", default_image: "aiiku_hospital.jpg")
 puts "created #{hospital.name}"
 
 hospital = Hospital.create!(name: "Tokyo Takanawa Hospital", address:locations.sample, price_range: price_range.sample, services: services.sample(4).join(", "), webpage: "https://takanawa.jcho.go.jp/",
-  description: "The Department of Obstetrics and Gynecology provides medical care for all phases of a woman’s life from puberty to pregnancy, child birth, and menopause, with a main focus on reproduction. ", average_rating: 4, phone_number: "03-3324-1123", default_image: "takanawa_hospital.jpg")
+  description: "The Department of Obstetrics and Gynecology provides medical care for all phases of a woman’s life from puberty to pregnancy, child birth, and menopause, with a main focus on reproduction. ", average_rating: 0, phone_number: "03-3324-1123", default_image: "takanawa_hospital.jpg")
 puts "created #{hospital.name}"
 
 hospital = Hospital.create!(name: "Tokyo Midtown Clinic", address:locations.sample, price_range: price_range.sample, services: services.sample(4).join(", "), webpage: "https://www.tokyomidtown-mc.jp/en/",
-  description: "In addition to a wide range of medical practices, the Tokyo Midtown Clinic boasts a special outpatient center, next-generation Health Screening Center and more. We provide total health support for our patients. ", average_rating: 2.5, phone_number: "03-5477-3426", default_image: "midtown_hospital.jpg")
+  description: "In addition to a wide range of medical practices, the Tokyo Midtown Clinic boasts a special outpatient center, next-generation Health Screening Center and more. We provide total health support for our patients. ", average_rating: 0, phone_number: "03-5477-3426", default_image: "midtown_hospital.jpg")
 puts "created #{hospital.name}"
 
 hospital = Hospital.create!(name: "Japan Red Cross Medical Center", address:locations.sample, price_range: price_range.sample, services: services.sample(4).join(", "), webpage: "https://www.med.jrc.or.jp/en/tabid/393/Default.aspx",
   description: " The baby and parents play a very important role of childbirth. As a baby- and mother-friendly hospital,
 we attach great importance to perinatal safety, and we draw out maternal instinct at childbirth and
-during childcare in order to help the baby live and grow healthily", average_rating: 3.5, phone_number: "03-6667-2243", default_image: "red_cross_hospital.jpg")
+during childcare in order to help the baby live and grow healthily", average_rating: 0, phone_number: "03-6667-2243", default_image: "red_cross_hospital.jpg")
 puts "created #{hospital.name}"
 
 hospital = Hospital.create!(name: "Jikei Hospital, Women's and Children's Center", address:locations.sample, price_range: price_range.sample, services: services.sample(4).join(", "), webpage: "https://www.hosp.jikei.ac.jp/boshiiryou/",
-  description: " Midwives and nurses promote breastfeeding and will help you after delivery. Breastfeeding room with pumps also available.", average_rating: 4.5, phone_number: "03-1123-6688", default_image: "jikei_hospital.png")
+  description: " Midwives and nurses promote breastfeeding and will help you after delivery. Breastfeeding room with pumps also available.", average_rating: 0, phone_number: "03-1123-6688", default_image: "jikei_hospital.png")
 puts "created #{hospital.name}"
 
 hospital = Hospital.create!(name: "Seibo Catholic Hospital", address:locations.sample, price_range: price_range.sample, services: services.sample(4).join(", "), webpage: "https://www.seibokai.or.jp/",
-  description: "Allow for freedom to labor in different positions if no epidural. Birth partner can be in the room with you (but only husband, not other family members). Epidural available during certain hours and on week days.", average_rating: 1.5, phone_number: "03-6890-2200", default_image: "seibo_hospital.jpg")
+  description: "Allow for freedom to labor in different positions if no epidural. Birth partner can be in the room with you (but only husband, not other family members). Epidural available during certain hours and on week days.", average_rating: 0, phone_number: "03-6890-2200", default_image: "seibo_hospital.jpg")
 puts "created #{hospital.name}"
 
 hospital = Hospital.create!(name: "Seijo Kinoshita Hospital", address:locations.sample, price_range: price_range.sample, services: services.sample(4).join(", "), webpage: "https://kinohosp.com/en/labor_and_delivery.html",
-  description: " Dr. Kinoshita is known for being quite flexible with laboring positions. Modern, updated facility. Smaller hospital with a focus on maternal and pediatric care, among other things.", average_rating: 4.0, phone_number: "03-8899-4598", default_image: "seijo_hospital.jpg")
+  description: " Dr. Kinoshita is known for being quite flexible with laboring positions. Modern, updated facility. Smaller hospital with a focus on maternal and pediatric care, among other things.", average_rating: 0, phone_number: "03-8899-4598", default_image: "seijo_hospital.jpg")
 puts "created #{hospital.name}"
 
 hospital = Hospital.create!(name: "Nagai Mother's Hospital", address:locations.sample, price_range: price_range.sample, services: services.sample(4).join(", "), webpage: "https://www.nagai-cl.com/",
-  description: "We give the option to voluntarily induce labor. On demand epidural, no reservation needed. Also same cost with or without the epidural. One person is allowed in the room with you during labor.", average_rating: 4, phone_number: "03-4422-5557", default_image: "nagai_hospital.jpg")
+  description: "We give the option to voluntarily induce labor. On demand epidural, no reservation needed. Also same cost with or without the epidural. One person is allowed in the room with you during labor.", average_rating: 0, phone_number: "03-4422-5557", default_image: "nagai_hospital.jpg")
 puts "created #{hospital.name}"
 
 hospital = Hospital.create!(name: "Kanto Rozai Hospital", address:locations.sample, price_range: price_range.sample, services: services.sample(4).join(", "), webpage: "https://tokyoh.johas.go.jp/en/",
@@ -217,9 +217,49 @@ end
     user = users.sample
   end
   # ----
-  review = Review.create!(title: "Nice facilities", comment: "Facilities is nice and relatively new, however the waiting time is pretty long", rating: rand(3...4), hospital: hospital, user: user)
+  review = Review.create!(title: "Nice facilities but ...", comment: "Facilities is nice and relatively new, however the waiting time is pretty long", rating: rand(3...4), hospital: hospital, user: user)
   puts "create review for #{review.hospital.name} by #{review.user.username}"
 end
+
+5.times do
+  #  --- should avoid the same user write a review on the same hospital 
+  hospital = hospitals.sample
+  user = users.sample 
+  hospital_reviews = hospital.reviews.all
+    
+  while hospital_reviews.any? { |review| review.user === user } do 
+    user = users.sample
+  end
+  # ----
+  review = Review.create!(title: "Awesome Doctor", comment: "The Doctor gets it. From his excellent treatment, curiosity, investigative mind and ability to connect, you know where you stand immediately and what next steps look like.", rating: rand(3...4), hospital: hospital, user: user)
+  puts "create review for #{review.hospital.name} by #{review.user.username}"
+end
+
+5.times do
+  #  --- should avoid the same user write a review on the same hospital 
+  hospital = hospitals.sample
+  user = users.sample 
+  hospital_reviews = hospital.reviews.all
+    
+  while hospital_reviews.any? { |review| review.user === user } do 
+    user = users.sample
+  end
+  # ----
+  review = Review.create!(title: "Reliable and friendly staff", comment: "Always on time, compassionate, empathetic, easy to talk to and relates exceptionally well. Hands-down the most effective and efficient doctor visits I’ve had. Friendly, helpful staff as well.", rating: rand(3...5), hospital: hospital, user: user)
+  puts "create review for #{review.hospital.name} by #{review.user.username}"
+end
+
+# ------ CALCULATING AVERAGE RATING ------
+
+hospitals.each do |hospital|
+  puts "calculating average rating for #{hospital.name}" 
+  if hospital.reviews.count > 0
+    total = hospital.reviews.sum {|r| r.rating }
+    hospital.average_rating = (total / hospital.reviews.count).round(1)
+    hospital.save!
+  end
+end
+
 
 # create_table "reviews", force: :cascade do |t|
 #   t.text "comment"
