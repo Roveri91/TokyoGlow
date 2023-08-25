@@ -4,10 +4,20 @@
   <div class="">
     <% @conversations.each do |conversation| %>
         <small>
-          <strong>Your conversation with <%= conversation.user_to.username %></strong>
+          <strong>Your conversation with
+          <% if current_user == conversation.user_to %>
+          <%= conversation.user_from.username %>
+          <% else %>
+          <%= conversation.user_to.username %>
+          <% end %>
+          </strong>
           <i><%= conversation.created_at.strftime("%a %b %e at %l:%M %p") %></i>
         </small>
         <p><%= conversation.title %></p>
+
+        <div class = "d-flex justify-content-center">
+        <%= link_to "See messages", user_conversation_path(current_user, conversation), class: "btn btn-primary" %>
+        </div>
       <hr/>
     <% end %>
   </div>
