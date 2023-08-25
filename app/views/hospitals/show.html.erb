@@ -1,12 +1,10 @@
 <div class="card-container px-3">
-
   <div class="text-center p-3">
     <h1 style="margin-top: 5px"><%= @hospital.name %></h1>
   </div>
   <div class="card rounded-3 p-3">
-    
     <div>
-      <%= image_tag @hospital.default_image, class:"hospital-show-image rounded-3" %>
+      <%= image_tag @hospital.default_image, class: "hospital-show-image rounded-3" %>
     </div>
     <div class="d-flex flex-column mb-3">
       <div class="pt-2 d-flex gap-3">
@@ -14,32 +12,30 @@
         <p class="fs-4"><%= @hospital.address %></p>
       </div>
       <div class="d-flex justify-content-start gap-3">
-        <h4>Rating:</h4> 
-        <%# stars review ***** %>
+        <h4>Rating:</h4>
         <div class="d-flex gap-2">
           <h4><%= @hospital.average_rating %></h4>
           <p>
-          <% for i in 1..5 do %>
-            <% if (@hospital.average_rating < i) %>
-              <% if (@hospital.average_rating.class == Float)  && (@hospital.average_rating.round == i) %>
-                <i class="fa-solid fa-star-half-stroke fa-xl" style="color: #a8a424;"></i>
+            <% for i in 1..5 do %>
+              <% if @hospital.average_rating < i %>
+                <% if @hospital.average_rating.class == Float && @hospital.average_rating.round == i %>
+                  <i class="fa-solid fa-star-half-stroke fa-xl" style="color: #a8a424;"></i>
+                <% else %>
+                  <i class="fa-regular fa-star fa-xl" style="color: #a8a424;"></i>
+                <% end %>
               <% else %>
-                <i class="fa-regular fa-star fa-xl" style="color: #a8a424;"></i>
+                <i class="fa-solid fa-star fa-xl" style="color: #a8a424;"></i>
               <% end %>
-            <% else %>
-              <i class="fa-solid fa-star fa-xl" style="color: #a8a424;"></i>
             <% end %>
-          <% end %>
           </p>
         </div>
-        <%# *****  %>
       </div>
       <div class="d-flex justify-content-start gap-3">
         <h4>Price:</h4>
-        <h3><%= @hospital.price_range %><h3>
+        <h3><%= @hospital.price_range %></h3>
       </div>
       <div>
-        <h4>Services:</h4> 
+        <h4>Services:</h4>
         <p><%= @hospital.services %></p>
       </div>
       <div>
@@ -51,23 +47,21 @@
         <p><%= @hospital.phone_number %></p>
       </div>
       <div class="d-flex justify-content-start gap-3">
-        <h4>Website:</h4> 
+        <h4>Website:</h4>
         <p><%= @hospital.webpage %></p>
       </div>
     </div>
-    <div class= "d-flex justify-content-center py-3">
-      <%= link_to "Add Appointment to your calendar",  new_hospital_appointment_path(@hospital), class: "btn-main" %>
+    <div class="d-flex justify-content-center py-3">
+      <%= link_to "Add Appointment to your calendar", new_hospital_appointment_path(@hospital), class: "btn-main" %>
     </div>
   </div>
-  
-
   <% if !@hospital.reviews.empty? %>
     <div class="card rounded-3 p-3">
       <h1>Reviews</h1>
       <% @hospital.reviews.each do |review| %>
         <hr/>
         <div class="container">
-          <div class= "d-flex py-2">
+          <div class="d-flex py-2">
             <% if review.user.avatar_cl.attached? %>
               <%= cl_image_tag(review.user.avatar_cl.key, width: "50", height: "50") %>
             <% elsif review.user.avatar %>
@@ -77,11 +71,13 @@
             <% end %>
             <h3 class="p-2 align-middle"><%= review.user.username %></h3>
           </div>
-        
           <h3><%= review.title %></h3>
-          <div>
-            <p>Rating: <%= review.rating.to_i %></p>
-          </div>
+          <p>
+            <% review.rating.to_i %>
+            <% review.rating.to_i.times do %>
+              <i class="fa-solid fa-star fa-xl" style="color: #a8a424;"></i>
+            <% end %>
+          </p>
           <div>
             <p><%= review.comment %></p>
           </div>
@@ -89,16 +85,23 @@
       <% end %>
     </div>
   <% end %>
-
-  <div class="card rounded-3 p-3">
-    <h1>Leave your review</h1>
-
-    <%= simple_form_for [@hospital, @review] do |f| %>
-    <%= f.input :title %>
-    <%= f.input :comment %>
-    <%= f.input :rating, as: :numeric, input_html: { min: '1', max: '5', step: '1' }, placeholder: "Enter a number from 1 to 5" %>
-      <div class= "d-flex justify-content-center py-3">
-        <%= f.submit "Submit your review", class: "btn-main" %>
-      </div>
-    <% end %>
+  <div class="card-container px-3">
+    <!-- Existing code for hospital information, reviews, and the "Leave your review" form -->
+    <div class="card rounded-3 p-3">
+      <h1>Leave your review</h1>
+      <%= simple_form_for [@hospital, @review], html: { novalidate: true }  do |f| %>
+        <div class="star-rating">
+          <% 5.times do |i| %>
+            <input type="radio" name="review[rating]" value="<%= i + 1 %>" <%= "checked" if i == 2 %> />
+          <% end %>
+          <%= f.input :title %>
+          <%= f.input :comment %>
+          <div class="d-flex justify-content-center py-3">
+            <%= f.button :submit, "Submit your review", class: "btn-main" %>
+          </div>
+        </div>
+      <% end %>
+    </div>
   </div>
+</div>
+</div>
