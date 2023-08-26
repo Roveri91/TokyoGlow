@@ -20,6 +20,7 @@ class HospitalsController < ApplicationController
     @hospital = Hospital.find(params[:id])
     authorize @hospital
     @review = Review.new
+    @conversation = Conversation.new
   end
 
   private

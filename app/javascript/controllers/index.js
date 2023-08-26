@@ -4,8 +4,12 @@
 
 import { application } from "./application"
 
+import ConversationSubscriptionController from "./conversation_subscription_controller"
+application.register("conversation-subscription", ConversationSubscriptionController)
+
 import FormSubmitController from "./form_submit_controller"
 application.register("form-submit", FormSubmitController)
+
 
 import HelloController from "./hello_controller"
 application.register("hello", HelloController)

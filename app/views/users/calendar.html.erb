@@ -120,4 +120,21 @@
       <% end %>
     </div>
   </div>
+  <% end %>
+
+  <% if @hospitals %>
+    <div>
+      <h4>Add new appointment:</h4>
+      <div class="btn-group">
+        <button type="button" class="btn btn-primary dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
+          Your Hospitals
+        </button>
+        <ul class="dropdown-menu" style="width:190px;">
+          <% @hospitals.each do |hospital| %>
+            <li><%= link_to hospital.name, new_hospital_appointment_path(hospital) %></li>
+          <% end %>
+        </ul>
+      </div>
+    </div>
+  <% end %>
 </div>

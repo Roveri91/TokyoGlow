@@ -10,7 +10,7 @@
           <%= link_to "Hospitals", hospitals_path, class:"nav-link active btn btn-primary", style:"background-color:;" %>
         </li>
         <li class="nav-item">
-          <%= link_to "Articles", posts_path, class:"nav-link", style:"color:#8064A2;" %>
+          <%= link_to "Articles", hospitals_path, class:"nav-link", style:"color:#8064A2;" %>
         </li>
       </ul>
 
@@ -40,11 +40,10 @@
             <%# <div class="d-flex justify-content-between"> %>
               <div class="d-flex justify-content-start pt-1 gap-3">
                 <i class="fa-solid fa-location-dot fa-xl mt-2" style="color: #004444;"></i>
-                <h4><%=hospital.address %></h4>  
+                <h4><%=hospital.address %></h4>
               </div>
               <%# stars review ***** %>
               <div class="d-flex gap-2">
-                <h4><%= hospital.average_rating %></h4>
                 <p>
                   <% for i in 1..5 do %>
                     <% if (hospital.average_rating < i) %>
