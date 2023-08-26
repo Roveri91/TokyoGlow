@@ -24,6 +24,9 @@ puts "Destroyed all the reviews"
 Attendant.delete_all
 puts "Destroyed all the attendants"
 
+Message.delete_all
+puts "Destroyed all the messages"
+
 Event.delete_all
 puts "Destroyed all the events"
 
