@@ -8,7 +8,6 @@ export default class extends Controller {
   }
 
   applyRating(){
-    //send details, which star I am on.
     console.log(this.element)
   }
 }

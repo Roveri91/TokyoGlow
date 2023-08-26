@@ -6,6 +6,7 @@ class EventsController < ApplicationController
     if params[:query].present?
       @events = Event.search_by_title_and_content_and_location_and_date(params[:query])
     end
+    @attending = @events.includes(:attendant).where(attendants: { user: current_user})
   end
 
   def show
@@ -67,10 +68,6 @@ class EventsController < ApplicationController
   def attending?
     @event.attendants.exists?(user_id: user.id, status: 1)
   end
-
-  # def num_attendees
-  #   @event.increment!(:attendees_count)
-  # end
 
   private
 
