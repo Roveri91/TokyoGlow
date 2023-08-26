@@ -1,45 +1,38 @@
 <div class="p-3">
-  <div class = "d-flex justify-content-center py-3">
-    <%= link_to "Back", events_path, class: "btn btn-primary" %>
-  </div>
-
-  <div class="row justify-content-center"> <!-- Center the entire card-container -->
+  <div class="row justify-content-center p-4"> <!-- Center the entire card-container -->
     <div class="card-container">
       <h1 class="pt-4 text-center"><%= @event.title %></h1>
-      <div class="d-flex justify-content-center "> <!-- Center the image -->
-        <%= cl_image_tag @event.photo.key, height: 300, width: 400, crop: :fill, class: "p-4" %>
+      <div class="d-flex justify-content-center"> <!-- Center the image -->
+        <%= cl_image_tag @event.photo.key, :crop => :fill, class: "img-container rounded-3" %>
       </div>
-
+    </div> <!-- Close the card-container div -->
     <div class="card text-center"> <!-- Center the card content -->
       <h3><%= @event.content %></h3>
-      <h5><i class="fa-solid fa-location-dot"></i> <%= @event.location %></h5>
+      <p><i class="fa-solid fa-location-dot"></i> <%= @event.location %></p>
       <p><i class="fa-regular fa-clock"></i> <%= @event.date.strftime('%B %d') %> at <%= @event.time.strftime('%H:%M') %> JST</p>
       <p>Hosted by <%= @event.user.username %></p>
+      <p>
+        <i class="fa-solid fa-circle-check"></i>
+        <% attending = @event.attendants %>
+        <% all = attending.count + 1 %>
+        <%= all %> going
+      </p>
     </div>
   </div>
-
-  <div class="d-flex justify-content-center mt-3">
-    <% if @event.pending? %>
-      <%= simple_form_for @event do |f| %>
-        <%= f.input :status, as: :hidden, input_html: { value: 'accepted' } %>
-        <%= f.submit 'Attending', class: 'btn btn-submit' %>
+  <% if @event.user != current_user %>
+    <div class="d-flex flex-column align-items-center mt-3">
+      <h3>Status: <%= @is_attending ? 'Attending' : 'Not attending' %></h3>
+      <% if @is_attending %>
+        <%= link_to 'Decline', status_change_path({ event: @event, status: 2 }), method: "post", class: "btn btn-danger mt-2" %>
+      <% else %>
+        <%= link_to 'Accept', status_change_path({ event: @event, status: 1 }), method: "post", class: "btn btn-success mt-2" %>
       <% end %>
-
-      <%= simple_form_for @event do |f| %>
-        <%= f.input :status, as: :hidden, input_html: { value: 'rejected' } %>
-        <%= f.submit 'Not attending', class: 'btn btn-submit' %>
-      <% end %>
-    <% else %>
-      <h3> Status: <%= @event.status %></h3>
-    <% end %>
-  </div>
-
+    </div>
+  <% end %>
   <% if policy(@event).destroy? %>
     <div class="d-flex justify-content-center mt-3">
-      <%= link_to "Delete this event", event_path(@event), class: "btn btn-submit btn-sm",
+      <%= link_to "Delete this event", event_path(@event), class: "btn btn-danger mt-2",
         data: { turbo_method: :delete, turbo_confirm: "Are you sure?" } %>
     </div>
   <% end %>
 </div>
-
-<%# if @event.user != current_user %>

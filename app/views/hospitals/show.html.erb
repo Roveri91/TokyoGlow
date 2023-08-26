@@ -1,42 +1,60 @@
 <div class="card-container px-3">
-
-  <div class= "">
-    <div class = "d-flex justify-content-center py-3">
-      <%= link_to "Back", hospitals_path, class: "btn btn-primary" %>
-    </div>
+  <div class="text-center p-3">
     <h1 style="margin-top: 5px"><%= @hospital.name %></h1>
-    </div>
-    <div >
-      <%= image_tag @hospital.default_image, class:"hospital-show-image" %>
-    </div>
-    <div class="card">
-      <div>
-      <p>Address: <%= @hospital.address %></p>
-      </div>
-      <div>
-      <p>Price Range: <%= @hospital.price_range %></p>
-      </div>
-      <div>
-      <p>Services: <%= @hospital.services %></p>
-      </div>
-      <div>
-      <p>Description: <%= @hospital.description %></p>
-      </div>
-      <div>
-      <p>Average Rating: <%= @hospital.average_rating %><i class="fa-solid fa-star" style="color: gold;"></i></p>
-      </div>
-      <div>
-      <p>Phone number: <%= @hospital.phone_number %></p>
-      </div>
-      <div>
-      <p>Website: <%= @hospital.webpage %></p>
-      </div>
-    </div>
-    <div class= "d-flex justify-content-center py-3">
-      <%= link_to "Add Appointment to your calendar",  new_hospital_appointment_path(@hospital), class: "btn-submit" %>
-    </div>
   </div>
+  <div class="card rounded-3 p-3">
+    <div>
+      <%= image_tag @hospital.default_image, class: "hospital-show-image rounded-3" %>
+    </div>
+    <div class="d-flex flex-column mb-3">
+      <div class="pt-2 d-flex gap-3">
+        <h3>Address:</h3>
+        <p class="fs-4"><%= @hospital.address %></p>
+      </div>
+      <div class="d-flex justify-content-start gap-3">
+        <h4>Rating:</h4>
+        <div class="d-flex gap-2">
+          <h4><%= @hospital.average_rating %></h4>
+          <p>
+            <% for i in 1..5 do %>
+              <% if @hospital.average_rating < i %>
+                <% if @hospital.average_rating.class == Float && @hospital.average_rating.round == i %>
+                  <i class="fa-solid fa-star-half-stroke fa-xl" style="color: #a8a424;"></i>
+                <% else %>
+                  <i class="fa-regular fa-star fa-xl" style="color: #a8a424;"></i>
+                <% end %>
+              <% else %>
+                <i class="fa-solid fa-star fa-xl" style="color: #a8a424;"></i>
+              <% end %>
+            <% end %>
+          </p>
+        </div>
+      </div>
+      <div class="d-flex justify-content-start gap-3">
+        <h4>Price:</h4>
+        <h3><%= @hospital.price_range %></h3>
+      </div>
+      <div>
+        <h4>Services:</h4>
+        <p><%= @hospital.services %></p>
+      </div>
+      <div>
+        <h4>Description:</h4>
+        <p><%= @hospital.description %></p>
+      </div>
+      <div class="d-flex justify-content-start gap-3">
+        <h4>Phone number:</h4>
+        <p><%= @hospital.phone_number %></p>
+      </div>
+      <div class="d-flex justify-content-start gap-3">
+        <h4>Website:</h4>
+        <p><%= @hospital.webpage %></p>
+      </div>
+    </div>
 
+    <div class= "d-flex justify-content-center py-3">
+      <%= link_to "Add Appointment",  new_hospital_appointment_path(@hospital), class: "btn-main" %>
+    </div>
   <div class="container px-3">
     <h1>Leave your review</h1>
 
@@ -84,6 +102,5 @@
         </div>
       </div>
     </div>
-    <% end %>
   </div>
-  <hr/>
+

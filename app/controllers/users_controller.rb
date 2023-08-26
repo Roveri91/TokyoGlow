@@ -14,6 +14,7 @@ class UsersController < ApplicationController
       @image = info['image']
       @symptoms = info['symptoms']
       @baby_info = info['baby_info']
+      @next_appointment = info['next_appointment']
     else
       # Week number not found in week_info hash
     end

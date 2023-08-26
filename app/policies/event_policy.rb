@@ -28,11 +28,14 @@ class EventPolicy < ApplicationPolicy
   end
 
   def update?
-    true
-    # record.user == user # record - the event instance
+    record.user == user # record - the event instance
   end
 
   def destroy?
     record.user == user
+  end
+
+  def status_change?
+    true
   end
 end

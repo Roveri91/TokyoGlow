@@ -1,8 +1,5 @@
 <%# destroy_user_session_path, method: :delete %>
 <div style="margin:10px">
-  <div class="d-flex flex-row-reverse">
-    <%= link_to "LOG OUT",  destroy_user_session_path, data: {turbo_method: :delete}, class: "btn btn-primary" %>
-  </div>
   <div class="my-3 d-flex flex-column align-items-center">
     <h1><%= current_user.username %></h1>
     <div class="container ">
@@ -20,6 +17,14 @@
         <%= image_tag @image, class: "card rounded-circle shadow", height: 200, width: 200 %>
       </div>
     </div>
+    <% if !@next_appointment.nil? %>
+      <div class="container">
+        <div class="card align-items-center">
+          <center><h3>Around this time you should be booking:</h3></center>
+          <h4><%= @next_appointment %></h4>
+        </div>
+      </div>
+    <% end %>
     <div class="container">
       <div class="card align-items-center">
         <h3>A little more information!</h3>
@@ -35,7 +40,6 @@
         </div>
       </div>
     </div>
-
     <div class="container">
       <div class="accordion container" id="accordionExample">
         <div class="rounded shadow accordion-item">
