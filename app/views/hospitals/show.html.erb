@@ -37,9 +37,30 @@
     </div>
   </div>
 
+  <div class="container px-3">
+    <h1>Leave your review</h1>
+
+    <% if @review.errors.any? %>
+      <% @review.errors.full_messages.each do |message|%>\
+      <h3><%= message %> </h3>
+      <% raise %>
+      <%end%>
+    <%end%>
+
+    <%= simple_form_for [@hospital, @review] do |f| %>
+    <%= f.input :title %>
+    <%= f.input :comment %>
+    <%= f.input :rating, as: :numeric, input_html: { min: '1', max: '5', step: '1' }, placeholder: "Enter a number from 1 to 5" %>
+      <div class= "d-flex justify-content-center py-3">
+        <%= f.submit "Submit your review", class: "btn-submit" %>
+      </div>
+    <% end %>
+  </div>
+
   <div class="px-3">
     <h1>Reviews</h1>
-    <% @hospital.reviews.each do |review| %>
+    <% reviews =  @hospital.reviews.order(created_at: :desc) %>
+    <% reviews.each do |review| %>
     <div class="card-container">
       <div class="card">
         <div class= "d-flex py-2">
@@ -66,23 +87,3 @@
     <% end %>
   </div>
   <hr/>
-
-  <div class="container px-3">
-    <h1>Leave your review</h1>
-
-    <% if @review.errors.any? %>
-      <% @review.errors.full_messages.each do |message|%>\
-      <h3><%= message %> </h3>
-      <% raise %>
-      <%end%>
-    <%end%>
-
-    <%= simple_form_for [@hospital, @review] do |f| %>
-    <%= f.input :title %>
-    <%= f.input :comment %>
-    <%= f.input :rating, as: :numeric, input_html: { min: '1', max: '5', step: '1' }, placeholder: "Enter a number from 1 to 5" %>
-      <div class= "d-flex justify-content-center py-3">
-        <%= f.submit "Submit your review", class: "btn-submit" %>
-      </div>
-    <% end %>
-  </div>
