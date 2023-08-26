@@ -1,17 +1,17 @@
-<div class="container my-3 py-2">
-  <div class= "py-3">
-    <h1 class= "text-center"><%= @post.title %></h1>
-      
+<div class="container ">
+  <div class= "">  
+    <div class="post-reply-container">
+    
       <%# POST %>
       
-      <div class="card p-3 review-card">
+      <div class="card p-3 ">
         <div class="d-flex gap-3 position-relative">
           <% if @post.user.avatar_cl.attached? %>
-            <%= cl_image_tag(@post.user.avatar_cl.key, width: "50", height: "50") %>
+            <%= cl_image_tag(@post.user.avatar_cl.key, width: "60", height: "60") %>
           <% elsif @post.user.avatar %>
-            <%= image_tag(@post.user.avatar, width: "50", height: "50") %>
+            <%= image_tag(@post.user.avatar, width: "60", height: "60") %>
           <% else %>
-            <%= image_tag("userF1.png", width: "50", height: "50") %>
+            <%= image_tag("userF1.png", width: "60", height: "60") %>
           <% end %>
           <div class="d-flex flex-column justify-content-center">
             <h3><strong><%= @post.user == current_user ? "You" : @post.user.username %></strong></h3>
@@ -24,31 +24,32 @@
           <% end %>
         </div>
         <hr/>
-        <div class="reply">
+        <h1 class= "text-center"><%= @post.title %></h1>
+        <div class="post">
           <p><%= @post.content %></p>
         </div>
       </div>
 
-     <%# REPLIES %>
+      <%# REPLIES %>
 
-      <div>
-        <% @post.replies.each do |reply| %>
-          <div class="card rounded-3 p-2">
+      <div class="mb-5">
+        <% @post.replies.order(created_at: :desc).each do |reply| %>
+          <div class="card rounded-3 p-3 review-card ">
             <div class="d-flex gap-3 position-relative">
               <% if reply.user.avatar_cl.attached? %>
-                <%= cl_image_tag(reply.user.avatar_cl.key, width: "50", height: "50") %>
+                <%= cl_image_tag(reply.user.avatar_cl.key, width: "40", height: "40") %>
               <% elsif reply.user.avatar %>
-                <%= image_tag(reply.user.avatar, width: "50", height: "50") %>
+                <%= image_tag(reply.user.avatar, width: "40", height: "40") %>
               <% else %>
-                <%= image_tag("userF1.png", width: "50", height: "50") %>
+                <%= image_tag("userF1.png", width: "40", height: "40") %>
               <% end %>
               <div class="d-flex flex-column justify-content-center">
-                <h3><strong><%= reply.user == current_user ? "You" : reply.user.username %></strong></h3>
-                <p><i><%= reply.created_at.strftime("%a %b %e at %l:%M %p") %></i></p>
+                <h4><strong><%= reply.user == current_user ? "You" : reply.user.username %></strong></h4>
+                <p><%= reply.created_at.strftime("%a %b %e at %l:%M %p") %></p>
               </div>
               <% if policy(reply).destroy? %>
                 <%= button_to reply, form: { data: { turbo_confirm: 'Are you sure?' } } , method: :delete, class: "delete-icon" do %>
-                  <i class="fa-solid fa-trash fa-xl" style="color: #004444;"></i>
+                  <i class="fa-solid fa-trash fa-lg" style="color: #004444;"></i>
                 <% end %>
               <% end %>
             </div>
@@ -59,22 +60,20 @@
           </div>  
         <% end %>
       </div>
+    </div>
 
-      <%# MESSAGE FORM %>
+    <%# MESSAGE FORM %>
 
-      <div class= "my-4" >
-        <div class= "container position-relative">
-          <%= simple_form_for [@post, @reply],
-          html: {class: ""} do |f|
-          %>
-            <%= f.input :content,
-              label: false,
-              placeholder: "Reply to #{@post.user == current_user ? "your" : "#{@post.user.username}'s"} post",
-              wrapper_html: {class: "flex-grow-1"}
-            %>
-            <button type="submit" class="send-icon"><i class="fa-solid fa-paper-plane fa-2xl" style="color: #004444;"></i></button>            
-          <% end %>
-        </div>
-      </div>
+    <div class= "container position-relative">
+      <%= simple_form_for [@post, @reply], html: {class: ""} do |f| %>
+        <%= f.input :content,
+          label: false,
+         placeholder: "Reply to #{@post.user == current_user ? "your" : "#{@post.user.username}'s"} post",
+          wrapper_html: {class: "flex-grow-1"}
+       %>
+        <button type="submit" class="send-icon"><i class="fa-solid fa-paper-plane fa-2xl" style="color: #004444;"></i></button>            
+      <% end %>
+    </div>
+    
   </div>
 </div>

@@ -117,11 +117,11 @@
           <div class= "d-flex py-2 gap-3 ">
 
             <% if review.user.avatar_cl.attached? %>
-              <%= cl_image_tag(review.user.avatar_cl.key, width: "50", height: "50") %>
+              <%= cl_image_tag(review.user.avatar_cl.key, width: "40", height: "40") %>
             <% elsif review.user.avatar %>
-              <%= image_tag(review.user.avatar, width: "50", height: "50") %>
+              <%= image_tag(review.user.avatar, width: "40", height: "40") %>
             <% else %>
-              <%= image_tag("userF1.png", width: "50", height: "50") %>
+              <%= image_tag("userF1.png", width: "40", height: "40") %>
             <% end %>
             <div class="d-flex flex-column justify-content-center">
               <h3><strong><%= review.user == current_user ? "You" : review.user.username %></strong></h3>
