@@ -1,5 +1,6 @@
 
 <div class="container py-5 mb-5">
+  <%#--- SEARCH BAR --- %>
   <div class="row justify-content-center m-2">
     <div class="col-sm-8 my-3">
       <%= form_with url: events_path, method: :get, class: "d-flex my-3" do %>
@@ -12,7 +13,7 @@
       <% end %>
     </div>
   </div>
-
+  <%# --- MAKE EVENT --- %>
   <div class="d-flex justify-content-center">
     <% if policy(Event).new?%>
       <%= link_to "Make an event", new_event_path, class: "btn-main" %>
@@ -21,20 +22,22 @@
   
   <hr/>
 
-
+  <%# --- DISPLAY ALL EVENTS --- %>
   <div class="py-3 my-3">
     <% @events.each do |event| %>
       <%= link_to event_path(id: event.id) do %>
         <div class="container">
           <div class="card rounded-3 p-3">
-            <%= cl_image_tag event.photo.key, :crop => :fill, class:"img-container rounded-3" %>
+            <%= cl_image_tag event.photo.key, :crop => :fill, :object_fit => :cover, class:"img-container rounded-4" %>
             <div class="card-container p-3">
               <h3><%= event.title %>: <%= event.content %></h3>
-              <p>Hosted by: <%= event.user.username %></p>
+              <hr/>
+              <p><i class="fa-solid fa-location-dot"></i> <%= event.location %></p>
               <p>
                 <i class="fa-solid fa-calendar-days"></i>
                 <%= event.date.strftime('%B %d') %> at <%= event.time.strftime('%H:%M') %> JST
               </p>
+              <p>Hosted by: <%= event.user == current_user ? "You" : event.user.username %></p>
               <p>
                 <i class="fa-solid fa-circle-check"></i>
                 <% attending = event.attendants %>
