@@ -21,7 +21,6 @@ puts "Destroyed all the appointments"
 Review.delete_all
 puts "Destroyed all the reviews"
 
-
 Attendant.delete_all
 puts "Destroyed all the attendants"
 
