@@ -36,6 +36,11 @@ class UsersController < ApplicationController
     @events = Event.where(user: current_user)
     # year = Date.parse(date).year       WILL NEED THIS FOR EVENTS
     # month = Date.parse(date).month
+    unless current_user.appointments.empty?
+      @hospitals = current_user.appointments.map do |appointment|
+        appointment.hospital
+      end.uniq
+    end
   end
 
   def weeks_until_birth
