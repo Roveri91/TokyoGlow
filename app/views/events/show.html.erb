@@ -3,39 +3,36 @@
     <div class="card-container">
       <h1 class="pt-4 text-center"><%= @event.title %></h1>
       <div class="d-flex justify-content-center"> <!-- Center the image -->
-        <%= cl_image_tag @event.photo.key, :crop => :fill, class:"img-container rounded-3" %>
+        <%= cl_image_tag @event.photo.key, :crop => :fill, class: "img-container rounded-3" %>
       </div>
-    </div>
-
+    </div> <!-- Close the card-container div -->
     <div class="card text-center"> <!-- Center the card content -->
       <h3><%= @event.content %></h3>
       <p><i class="fa-solid fa-location-dot"></i> <%= @event.location %></p>
       <p><i class="fa-regular fa-clock"></i> <%= @event.date.strftime('%B %d') %> at <%= @event.time.strftime('%H:%M') %> JST</p>
       <p>Hosted by <%= @event.user.username %></p>
+      <p>
+        <i class="fa-solid fa-circle-check"></i>
+        <% attending = @event.attendants %>
+        <% all = attending.count + 1 %>
+        <%= all %> going
+      </p>
     </div>
   </div>
-
-<% if @event.user != current_user %>
-  <div class="d-flex justify-content-center mt-3">
-    <% if @is_attending %>
-      <h3> Status: Attending </h3>
-      <%= link_to 'Decline', status_change_path({event: @event, status: 2}), method: "post"%>
-    <% else %>
-      <h3> Status: Not attending </h3>
-      <%= link_to 'Accept', status_change_path({event: @event, status: 1}), method: "post" %>
-    <% end %>
-  </div>
-<% end %>
-
-
-
-  <%# <div class="pt-2">
-    Attendees: <%= @event.num_attendees.to_i%>
-  <%# </div> %>
-
-<% if policy(@event).destroy? %>
-  <div class="d-flex justify-content-center mt-3">
-    <%= link_to "Delete this event", event_path(@event), class: "btn btn-submit btn-sm",
-          data: { turbo_method: :delete, turbo_confirm: "Are you sure?" } %>
-  </div>
-<% end %>
+  <% if @event.user != current_user %>
+    <div class="d-flex flex-column align-items-center mt-3">
+      <h3>Status: <%= @is_attending ? 'Attending' : 'Not attending' %></h3>
+      <% if @is_attending %>
+        <%= link_to 'Decline', status_change_path({ event: @event, status: 2 }), method: "post", class: "btn btn-danger mt-2" %>
+      <% else %>
+        <%= link_to 'Accept', status_change_path({ event: @event, status: 1 }), method: "post", class: "btn btn-success mt-2" %>
+      <% end %>
+    </div>
+  <% end %>
+  <% if policy(@event).destroy? %>
+    <div class="d-flex justify-content-center mt-3">
+      <%= link_to "Delete this event", event_path(@event), class: "btn btn-danger mt-2",
+        data: { turbo_method: :delete, turbo_confirm: "Are you sure?" } %>
+    </div>
+  <% end %>
+</div>
