@@ -83,13 +83,14 @@
       <div class="card">
         <div class= "d-flex py-2">
         <% if review.user.avatar_cl.attached? %>
-          <%= cl_image_tag(review.user.avatar_cl.key, width: "50", height: "50") %>
+          <%= cl_image_tag(review.user.avatar_cl.key, width: "50", height: "50", radius: "max", background: "#EAD6DE") %>
           <% elsif review.user.avatar %>
           <%= image_tag(review.user.avatar, width: "50", height: "50") %>
           <% else %>
           <%= image_tag("userF1.png", width: "50", height: "50") %>
           <% end %>
           <h3 class="p-2"><%= review.user.username %></h3>
+          <%=  render "conversations/new", user: review.user, conversation: @conversation %>
         </div>
         <div>
         <h3><%= review.title %></h3>

@@ -1,0 +1,33 @@
+<div class="container conversation"
+  data-controller="conversation-subscription"
+  data-conversation-subscription-conversation-id-value="<%= @conversation.id %>">
+
+  <h1>Your conversation with
+    <% if current_user == @conversation.user_to %>
+      <%= @conversation.user_from.username %>
+      <% else %>
+      <%= @conversation.user_to.username %>
+      <% end %>
+  </h1>
+
+  <div class="messages" data-conversation-subscription-target="messages" style=" height: 50vh; overflow: scroll;">
+    <% @conversation.messages.each do |message| %>
+        <%= render "messages/message", message: message %>
+    <% end %>
+  </div>
+
+  <div class= "my-4" >
+    <div class= container>
+        <%= simple_form_for [@conversation, @message], html: {data: { action: "turbo:submit-end->conversation-subscription#resetForm" }, class: ""} do |f| %>
+          <%= f.input :content,
+            label: false,
+            placeholder: "Enter your message here",
+            wrapper_html: {class: "flex-grow-1"}
+          %>
+          <div class= "d-flex justify-content-center">
+            <%= f.submit "Send", class: "btn-submit" %>
+          </div>
+        <% end %>
+    </div>
+  </div>
+</div>

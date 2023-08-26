@@ -10,7 +10,9 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_08_19_065713) do
+
+ActiveRecord::Schema[7.0].define(version: 2023_08_24_113726) do
+
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -75,6 +77,14 @@ ActiveRecord::Schema[7.0].define(version: 2023_08_19_065713) do
     t.index ["user_id"], name: "index_attendants_on_user_id"
   end
 
+  create_table "conversations", force: :cascade do |t|
+    t.integer "user_from_id"
+    t.integer "user_to_id"
+    t.string "title"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "events", force: :cascade do |t|
     t.string "title"
     t.text "content"
@@ -101,6 +111,16 @@ ActiveRecord::Schema[7.0].define(version: 2023_08_19_065713) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "default_image"
+  end
+
+  create_table "messages", force: :cascade do |t|
+    t.text "content"
+    t.bigint "conversation_id", null: false
+    t.bigint "user_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["conversation_id"], name: "index_messages_on_conversation_id"
+    t.index ["user_id"], name: "index_messages_on_user_id"
   end
 
   create_table "posts", force: :cascade do |t|
@@ -158,6 +178,8 @@ ActiveRecord::Schema[7.0].define(version: 2023_08_19_065713) do
   add_foreign_key "attendants", "events"
   add_foreign_key "attendants", "users"
   add_foreign_key "events", "users"
+  add_foreign_key "messages", "conversations"
+  add_foreign_key "messages", "users"
   add_foreign_key "posts", "users"
   add_foreign_key "replies", "posts"
   add_foreign_key "replies", "users"

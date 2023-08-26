@@ -11,7 +11,15 @@ Rails.application.routes.draw do
   # root "articles#index"
 
   get '/users/:id/calendar', to: 'users#calendar', as: 'calendar'
-  resources :users, only: [:show]
+
+  resources :users, only: [:show] do
+    resources :conversations, only: [:new, :create]
+  end
+
+  resources :conversations, only: [:index, :show] do
+  resources :messages, only: [:create]
+  end
+
   resources :events, only: [:index, :show, :new, :create, :update, :destroy]
   get '/events/:id/status_change', to: 'events#status_change', as: 'status_change'
 
