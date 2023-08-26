@@ -6,7 +6,17 @@ class UsersController < ApplicationController
     weeks_until_birth
     current_week
     week_info = YAML.load_file(Rails.root.join('config', 'week_info.yml'))
-    if week_info.key?(@current_week)
+    # raise
+    if weeks_until_birth.zero?
+      info = week_info['default']
+      @size = info['size']
+      @length = info['length']
+      @weight = info['weight']
+      @image = info['image']
+      @symptoms = info['symptoms']
+      @baby_info = info['baby_info']
+      @next_appointment = info['next_appointment']
+    elsif week_info.key?(@current_week)
       info = week_info[@current_week]
       @size = info['size']
       @length = info['length']
@@ -15,7 +25,6 @@ class UsersController < ApplicationController
       @symptoms = info['symptoms']
       @baby_info = info['baby_info']
       @next_appointment = info['next_appointment']
-    else
       # Week number not found in week_info hash
     end
     @articles = Article.all
