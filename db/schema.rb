@@ -145,8 +145,8 @@ ActiveRecord::Schema[7.0].define(version: 2023_08_19_065713) do
     t.datetime "updated_at", null: false
     t.string "username"
     t.date "due_date"
-    t.integer "status"
     t.string "avatar"
+    t.integer "status"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
