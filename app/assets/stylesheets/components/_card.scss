@@ -9,9 +9,9 @@
   margin: 15px;
   padding: 5px;
   background: $navbar-pink !important;
-  h4 {
-    color: #716893;
-  }
+  // h4 {
+    // color: #716893;
+  // }
 }
 
 .text-bg-purple {
@@ -32,13 +32,34 @@ img {
   width: 100%;
 }
 
-.hospital-description {
-  color: gray;
-  overflow: hidden;
-  height: 50px;
-  line-height: 16px;
-  position: relative;
-  word-wrap: break-word;
+.img-container {
+  width: 100%;
+  height: 20rem;
 }
 
-.hospital-description:after { content: "..."; background: darkgrey; color: black; position :absolute; right: 0; bottom: 2px;}
+.rating {
+  position: absolute;
+  top: 2.5rem;
+  left: 2rem;
+}
+
+.reply p{
+  font-size: x-large;
+  padding-left: 1rem;
+}
+// .hospital-description {
+//   overflow: hidden;
+//   height: 50px;
+//   line-height: 16px;
+//   position: relative;
+//   word-wrap: break-word;
+// }
+
+// .hospital-description:after { 
+//   content: "...";
+//   // background: darkgrey; 
+//   // color: black; 
+//   position :absolute;
+//   right: 0;
+//   bottom: 2px;
+// }
