@@ -5,7 +5,7 @@ class ConversationPolicy < ApplicationPolicy
     #   scope.all
     # end
     def resolve
-      scope.all
+      scope.where(user_to: user).or(scope.where(user_from: user))
     end
   end
 

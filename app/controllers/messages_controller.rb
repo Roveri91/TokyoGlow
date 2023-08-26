@@ -6,7 +6,7 @@ class MessagesController < ApplicationController
     @message.user = current_user
     authorize @message
     if @message.save
-      redirect_to user_conversation_messages_path(@conversation)
+      redirect_to conversation_messages_path(@conversation)
     end
   end
 

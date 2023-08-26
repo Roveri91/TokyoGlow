@@ -1,5 +1,11 @@
 <div class="">
-  <h1>#<%= @conversation.title %></h1>
+  <h1>Your conversation with
+    <% if current_user == @conversation.user_to %>
+      <%= @conversation.user_from.username %>
+      <% else %>
+      <%= @conversation.user_to.username %>
+      <% end %>
+  </h1>
 
   <div class="">
     <% @conversation.messages.each do |message| %>
@@ -15,9 +21,7 @@
 
   <div class= "my-4" >
     <div class= container>
-        <%= simple_form_for [current_user, @conversation, @message],
-        html: {class: ""} do |f|
-        %>
+        <%= simple_form_for [@conversation, @message], html: {class: ""} do |f| %>
           <%= f.input :content,
             label: false,
             placeholder: "Enter your message here",

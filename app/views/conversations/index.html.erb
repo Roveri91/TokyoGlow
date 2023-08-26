@@ -16,7 +16,7 @@
         <p><%= conversation.title %></p>
 
         <div class = "d-flex justify-content-center">
-        <%= link_to "See messages", user_conversation_path(current_user, conversation), class: "btn btn-primary" %>
+        <%= link_to "See messages", conversation_path(conversation), class: "btn btn-primary" %>
         </div>
       <hr/>
     <% end %>
