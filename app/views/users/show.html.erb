@@ -17,6 +17,14 @@
         <%= image_tag @image, class: "card rounded-circle shadow", height: 200, width: 200 %>
       </div>
     </div>
+    <% if !@next_appointment.nil? %>
+      <div class="container">
+        <div class="card align-items-center">
+          <center><h3>Around this time you should be booking:</h3></center>
+          <h4><%= @next_appointment %></h4>
+        </div>
+      </div>
+    <% end %>
     <div class="container">
       <div class="card align-items-center">
         <h3>A little more information!</h3>
@@ -33,25 +41,26 @@
       </div>
     </div>
   </div>
-  <div class="accordion mx-4" id="accordionExample">
+  <div class="accordion mx-4 card p-0" id="accordionExample">
     <div class="rounded-3 accordion-item">
       <h1 class="accordion-header" id="headingOne">
         <button class=" rounded-3 collapsed accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="false" aria-controls="collapseOne">
-        Recommende article for you
+        Recommended article for you
         </button>
       </h1>
-      <div id="collapseOne" class="accordion-collapse collapse " aria-labelledby="headingOne" data-bs-parent="#accordionExample">
+      <div id="collapseOne" class="accordion-collapse collapse" aria-labelledby="headingOne" data-bs-parent="#accordionExample">
         <div class="accordion-body">
           <div class="my-3">
-            <img id="article-img" class="rounded-3" src=<%= @article.image %> alt="Article Picture"> 
+            <img id="article-img" class="rounded-2" src=<%= @article.image %> alt="Article Picture"> 
           </div>
           <div class="px-3">
             <h3><%= @article.title %></h3>
+            <hr/>
             <p><%= @article.content %></p>
             <a target="_blank" href="<%= @article.link %>">Read more</a>
           </div>
         </div>
-      <%# </div> %>
+      </div>
     </div>
   </div>
 </div>
