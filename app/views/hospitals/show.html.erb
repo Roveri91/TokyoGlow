@@ -57,7 +57,30 @@
 
     </div>
   </div>
-  <% if !@hospital.reviews.empty? %>
+
+  <%# ---  Write Review --- %>
+
+  <div class="card rounded-3 p-3">
+    <h1>Leave your review</h1>
+    <%= simple_form_for [@hospital, @review], html: { novalidate: true }  do |f| %>
+      <div class="star-rating">
+        <% 5.times do |i| %>
+          <input type="radio" id="star<%= i + 1 %>" name="review[rating]" value="<%= i + 1 %>" <%= "checked" if i == 2 %> />
+        <% end %>
+        <%= f.input :title %>
+        <%= f.input :comment %>
+        <div class="d-flex justify-content-center py-3">
+          <%= button_to :submit, "Submit", class: "btn-main" %>
+        </div>
+      </div>
+    <% end %>
+  </div>
+
+  <%# -------- %>
+
+  <%# --- Reviews show --- %>
+
+  <% unless @hospital.reviews.empty? %>
     <div class="card rounded-3 p-3">
       <h1>Reviews</h1>
       <% @hospital.reviews.each do |review| %>
@@ -108,6 +131,10 @@
     </div>
   <% end %>
 
+<%# ------ %>
+
+<%# ---  Write Review --- %>
+
   <div class="card-container px-3">
     <div class="card rounded-3 p-3">
       <h1>Leave your review</h1>
@@ -125,4 +152,6 @@
       <% end %>
     </div>
   </div>
+
+  <%# -------- %>
 </div>
