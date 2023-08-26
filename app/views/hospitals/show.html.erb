@@ -42,14 +42,30 @@
         <h4>Description:</h4>
         <p><%= @hospital.description %></p>
       </div>
-      <div class="d-flex justify-content-start gap-3">
-        <h4>Phone number:</h4>
-        <p><%= @hospital.phone_number %></p>
+
+      <div class="">
+        <h4>Contacts:</h4>
+        <div class="d-flex justify-content-start gap-3 py-2">
+          <i class="fa-solid fa-phone fa-lg" style="color: #004444;"></i>
+          <p><%= @hospital.phone_number %></p>
+        </div>
+        <div class="d-flex justify-content-start gap-3">
+          <i class="fa-solid fa-display fa-lg" style="color: #004444;"></i>
+          <p><a target="_blank" href="<%=@hospital.webpage%>" class="website"><%= @hospital.webpage %></a></p>
+        </div>
       </div>
-      <div class="d-flex justify-content-start gap-3">
-        <h4>Website:</h4>
-        <p><%= @hospital.webpage %></p>
-      </div>
+      <%# <div class="d-flex justify-content-start gap-3">
+        <h4>Phone number:</h4> %>
+        <%# <p> %>
+        <%#= @hospital.phone_number %>
+        <%# </p> %>
+      <%# </div>
+      <div class="d-flex justify-content-start gap-3 flex-wrap">
+        <h4>Website:</h4> %>
+        <%# <p> %>
+        <%#= @hospital.webpage %>
+        <%# </p> %>
+      <%# </div> %>
     </div>
 
     <div class= "d-flex justify-content-center py-3">
@@ -61,19 +77,21 @@
   <%# ---  Write Review --- %>
 
   <div class="card rounded-3 p-3">
-    <h1>Leave your review</h1>
-    <%= simple_form_for [@hospital, @review], html: { novalidate: true }  do |f| %>
-      <div class="star-rating">
-        <% 5.times do |i| %>
-          <input type="radio" id="star<%= i + 1 %>" name="review[rating]" value="<%= i + 1 %>" <%= "checked" if i == 2 %> />
-        <% end %>
-        <%= f.input :title %>
-        <%= f.input :comment %>
-        <div class="d-flex justify-content-center py-3">
-          <%= button_to :submit, "Submit", class: "btn-main" %>
+    <h1 class="text-center mb-3">Leave your review</h1>
+    <div>
+      <%= simple_form_for [@hospital, @review], html: { novalidate: true }  do |f| %>
+        <div class="star-rating">
+          <% 5.times do |i| %>
+            <input type="radio" id="star<%= i + 1 %>" name="review[rating]" value="<%= i + 1 %>" <%= "checked" if i == 2 %> />
+          <% end %>
+          <%= f.input :title %>
+          <%= f.input :comment %>
+          <div class="d-flex justify-content-center py-3">
+            <%= button_to :submit, "Submit", class: "btn-main" %>
+          </div>
         </div>
-      </div>
-    <% end %>
+      <% end %>
+    </div>
   </div>
 
   <%# -------- %>
@@ -81,7 +99,7 @@
   <%# --- Reviews show --- %>
 
   <% unless @hospital.reviews.empty? %>
-    <div class="card rounded-3 p-3">
+    <div class="card rounded-3 p-3 review-card">
       <h1>Reviews</h1>
       <% @hospital.reviews.each do |review| %>
         <hr/>
@@ -133,25 +151,4 @@
 
 <%# ------ %>
 
-<%# ---  Write Review --- %>
-
-  <div class="card-container px-3">
-    <div class="card rounded-3 p-3">
-      <h1>Leave your review</h1>
-      <%= simple_form_for [@hospital, @review], html: { novalidate: true }  do |f| %>
-        <div class="star-rating">
-          <% 5.times do |i| %>
-            <input type="radio" id="star<%= i + 1 %>" name="review[rating]" value="<%= i + 1 %>" <%= "checked" if i == 2 %> />
-          <% end %>
-          <%= f.input :title %>
-          <%= f.input :comment %>
-          <div class="d-flex justify-content-center py-3">
-            <%= f.button :submit, "Submit your review", class: "btn-main" %>
-          </div>
-        </div>
-      <% end %>
-    </div>
-  </div>
-
-  <%# -------- %>
 </div>
