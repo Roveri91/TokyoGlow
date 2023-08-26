@@ -32,8 +32,10 @@
 
       <%# REPLIES %>
 
+       <%# .order(created_at: :desc) %>
+  
       <div class="mb-5">
-        <% @post.replies.order(created_at: :desc).each do |reply| %>
+        <% @post.replies.each do |reply| %>
           <div class="card rounded-3 p-3 review-card ">
             <div class="d-flex gap-3 position-relative">
               <% if reply.user.avatar_cl.attached? %>
