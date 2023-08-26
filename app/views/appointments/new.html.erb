@@ -5,13 +5,13 @@
   <div class="p-5">
     <%= simple_form_for [@hospital, @appointment] do |f| %>
       <%= f.input :title, label: 'Title' %>
-      <%= f.input :purpose, label: 'Purpose' %>
+      <%= f.input :purpose, collection: ["First visit", "Check up", "Ultrasound", "Blood Test", "Others"], selected: f.object.purpose || '1' %>
       <%= f.input :notes, label: 'Notes' %>
       <%= f.input :date, label:'Date', html5: true%>
       <%= f.input :time, label:'Time'%>
       <%# t.time %>
       <div class= "d-flex justify-content-center py-3">
-      <%= f.button :submit, class:"btn btn-hire" %>
+      <%= f.submit "Add Appointment", class:"btn-main" %>
       </div>
     <% end %>
   </div>
