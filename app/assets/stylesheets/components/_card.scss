@@ -43,9 +43,24 @@ img {
   left: 2rem;
 }
 
-.reply p{
+.post p {
   font-size: x-large;
   padding-left: 1rem;
+}
+
+.reply p {
+  font-size: large;
+  padding-left: 1rem;
+}
+
+.review-card {
+  background-color: $card-reply !important;
+}
+
+.post-reply-container {
+  height: 70vh;
+  overflow-y: scroll;
+  margin-bottom: 1rem;
 }
 // .hospital-description {
 //   overflow: hidden;

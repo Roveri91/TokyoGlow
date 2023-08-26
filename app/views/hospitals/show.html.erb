@@ -1,20 +1,29 @@
 <div class="card-container px-3">
-  <div class="text-center p-3">
-    <h1 style="margin-top: 5px"><%= @hospital.name %></h1>
-  </div>
+  <%# <div class="text-center p-3">
+    <h1 style="margin-top: 5px"> %>
+    <%#= @hospital.name %>
+    <%# </h1>
+  </div> %>
   <div class="card rounded-3 p-3">
+    <%# IMG %>
     <div>
-      <%= image_tag @hospital.default_image, class: "hospital-show-image rounded-3" %>
+      <%= image_tag @hospital.default_image, class: "hospital-show-image rounded-4" %>
     </div>
+    <%# NAME %>
+    <div class="mt-3">
+      <h1 style="margin-top: 5px"><%= @hospital.name %></h1>
+    </div>
+    <hr/>
+    <%# ADDRESS %>
     <div class="d-flex flex-column mb-3">
-      <div class="pt-2 d-flex gap-3">
-        <h3>Address:</h3>
-        <p class="fs-4"><%= @hospital.address %></p>
+      <div class="d-flex justify-content-start pt-1 gap-3">
+        <i class="fa-solid fa-location-dot fa-xl mt-2" style="color: #004444;"></i>
+        <h4><%= @hospital.address %></h4>  
       </div>
+      <%# RATING %>
       <div class="d-flex justify-content-start gap-3">
-        <h4>Rating:</h4>
+        <%# <h4>Rating:</h4> %>
         <div class="d-flex gap-2">
-          <h4><%= @hospital.average_rating %></h4>
           <p>
             <% for i in 1..5 do %>
               <% if @hospital.average_rating < i %>
@@ -42,66 +51,126 @@
         <h4>Description:</h4>
         <p><%= @hospital.description %></p>
       </div>
-      <div class="d-flex justify-content-start gap-3">
-        <h4>Phone number:</h4>
-        <p><%= @hospital.phone_number %></p>
+
+
+      <div class="">
+        <h4>Contacts:</h4>
+        <div class="d-flex justify-content-start gap-3 py-2">
+          <i class="fa-solid fa-phone fa-lg" style="color: #004444;"></i>
+          <p><%= @hospital.phone_number %></p>
+        </div>
+        <div class="d-flex justify-content-start gap-3">
+          <i class="fa-solid fa-display fa-lg" style="color: #004444;"></i>
+          <p><a target="_blank" href="<%=@hospital.webpage%>" class="website"><%= @hospital.webpage %></a></p>
+        </div>
       </div>
-      <div class="d-flex justify-content-start gap-3">
-        <h4>Website:</h4>
-        <p><%= @hospital.webpage %></p>
-      </div>
+      <%# <div class="d-flex justify-content-start gap-3">
+        <h4>Phone number:</h4> %>
+        <%# <p> %>
+        <%#= @hospital.phone_number %>
+        <%# </p> %>
+      <%# </div>
+      <div class="d-flex justify-content-start gap-3 flex-wrap">
+        <h4>Website:</h4> %>
+        <%# <p> %>
+        <%#= @hospital.webpage %>
+        <%# </p> %>
+      <%# </div> %>
     </div>
+
 
     <div class= "d-flex justify-content-center py-3">
       <%= link_to "Add Appointment",  new_hospital_appointment_path(@hospital), class: "btn-main" %>
+
+
     </div>
-  <div class="container px-3">
-    <h1>Leave your review</h1>
-
-    <% if @review.errors.any? %>
-      <% @review.errors.full_messages.each do |message|%>\
-      <h3><%= message %> </h3>
-      <% raise %>
-      <%end%>
-    <%end%>
-
-    <%= simple_form_for [@hospital, @review] do |f| %>
-    <%= f.input :title %>
-    <%= f.input :comment %>
-    <%= f.input :rating, as: :numeric, input_html: { min: '1', max: '5', step: '1' }, placeholder: "Enter a number from 1 to 5" %>
-      <div class= "d-flex justify-content-center py-3">
-        <%= f.submit "Submit your review", class: "btn-submit" %>
-      </div>
-    <% end %>
   </div>
 
-  <div class="px-3">
-    <h1>Reviews</h1>
-    <% reviews =  @hospital.reviews.order(created_at: :desc) %>
-    <% reviews.each do |review| %>
-    <div class="card-container">
-      <div class="card">
-        <div class= "d-flex py-2">
-        <% if review.user.avatar_cl.attached? %>
-          <%= cl_image_tag(review.user.avatar_cl.key, width: "50", height: "50", radius: "max", background: "#EAD6DE") %>
-          <% elsif review.user.avatar %>
-          <%= image_tag(review.user.avatar, width: "50", height: "50") %>
-          <% else %>
-          <%= image_tag("userF1.png", width: "50", height: "50") %>
+
+  <%# ---  Write Review --- %>
+
+
+  <div class="card rounded-3 p-3  review-card">
+    <h1 class="text-center mb-3">Leave your review</h1>
+    <div>
+      <%= simple_form_for [@hospital, @review], html: { novalidate: true }  do |f| %>
+        <div class="star-rating">
+          <% 5.times do |i| %>
+            <input type="radio" id="star<%= i + 1 %>" name="review[rating]" value="<%= i + 1 %>" <%= "checked" if i == 2 %> />
           <% end %>
-          <h3 class="p-2"><%= review.user.username %></h3>
-          <%=  render "conversations/new", user: review.user, conversation: @conversation %>
+          <%= f.input :title %>
+          <%= f.input :comment %>
+          <div class="d-flex justify-content-center py-3">
+            <%= f.submit "Submit", class: "btn-main" %>
+          </div>
         </div>
-        <div>
-        <h3><%= review.title %></h3>
-        </div>
-        <div>
-        <p>Rating: <%= review.rating.to_i %></p>
-        </div>
-        <div>
-        <p><%= review.comment %></p>
-        </div>
-      </div>
+      <% end %>
     </div>
   </div>
 
+
+  <%# -------- %>
+
+
+  <%# --- Reviews show --- %>
+
+
+  <% unless @hospital.reviews.empty? %>
+    <div class="card rounded-3 p-3 review-card">
+      <h1>Reviews</h1>
+      <% @hospital.reviews.each do |review| %>
+        <hr/>
+        <div class="container">
+
+
+          <div class= "d-flex py-2 gap-3 ">
+
+
+            <% if review.user.avatar_cl.attached? %>
+              <%= cl_image_tag(review.user.avatar_cl.key, width: "40", height: "40") %>
+            <% elsif review.user.avatar %>
+              <%= image_tag(review.user.avatar, width: "40", height: "40") %>
+            <% else %>
+              <%= image_tag("userF1.png", width: "40", height: "40") %>
+            <% end %>
+            <div class="d-flex flex-column justify-content-center">
+              <h3><strong><%= review.user == current_user ? "You" : review.user.username %></strong></h3>
+              <%=  render "conversations/new", user: review.user, conversation: @conversation %>
+              <p><i><%= review.created_at.strftime("%a %b %e at %l:%M %p") %></i></p>
+            </div>
+          </div>
+          <h3><%= review.title %></h3>
+          
+          <%# star rating %>
+          <div class="d-flex gap-2">
+            <p>
+              <% for i in 1..5 do %>
+                <% if (review.rating < i) %>
+                  <% if (review.rating.class == Float)  && (review.rating.round == i) %>
+                    <i class="fa-solid fa-star-half-stroke fa-xl" style="color: #a8a424;"></i>
+                  <% else %>
+                    <i class="fa-regular fa-star fa-xl" style="color: #a8a424;"></i>
+                  <% end %>
+                <% else %>
+                  <i class="fa-solid fa-star fa-xl" style="color: #a8a424;"></i>
+                <% end %>
+              <% end %>
+            </p>
+            
+          </div>
+          <%# star end %>
+
+
+          <div>
+            <p><%= review.comment %></p>
+          </div>
+        </div>
+      <% end %>
+    </div>
+  <% end %>
+
+
+<%# ------ %>
+
+
+</div>
