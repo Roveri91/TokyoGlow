@@ -34,6 +34,8 @@ class UsersController < ApplicationController
     @appointments = Appointment.where(user: current_user)
     @current_day_events = Event.where(user: current_user, date: date)
     @events = Event.where(user: current_user)
+    @attending = Event.joins(:attendants).where('attendants.user_id' => current_user.id, 'attendants.status' => 1)
+
     # year = Date.parse(date).year       WILL NEED THIS FOR EVENTS
     # month = Date.parse(date).month
   end

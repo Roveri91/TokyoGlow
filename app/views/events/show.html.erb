@@ -19,7 +19,22 @@
       </p>
     </div>
   </div>
-  <% if @event.user != current_user %>
+
+
+
+  <%# if @event.user != current_user %>
+    <%# <div class="d-flex flex-column align-items-center mt-3"> %>
+      <%# <h3>Status: <%= @is_attending ? 'Attending' : 'Not attending'</h3>  %>
+      <%# <% if @is_attending %>
+        <%#= link_to 'Decline', status_change_path({ event: @event, status: 2 }), method: "post", class: "btn btn-danger mt-2" %>
+      <%# else %>
+        <%#= link_to 'Accept', status_change_path({ event: @event, status: 1 }), method: "post", class: "btn btn-success mt-2" %>
+      <%# end %>
+    <%# </div> %>
+  <%# end %>
+
+
+ <% if @event.user != current_user %>
     <div class="d-flex flex-column align-items-center mt-3">
       <h3>Status: <%= @is_attending ? 'Attending' : 'Not attending' %></h3>
       <% if @is_attending %>
@@ -29,6 +44,11 @@
       <% end %>
     </div>
   <% end %>
+
+
+
+
+
   <% if policy(@event).destroy? %>
     <div class="d-flex justify-content-center mt-3">
       <%= link_to "Delete this event", event_path(@event), class: "btn btn-danger mt-2",
