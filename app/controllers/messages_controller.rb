@@ -6,7 +6,11 @@ class MessagesController < ApplicationController
     @message.user = current_user
     authorize @message
     if @message.save
-      redirect_to conversation_messages_path(@conversation)
+      ConversationChannel.broadcast_to(
+        @conversation,
+        render_to_string(partial: "message", locals: {message: @message})
+      )
+      head :ok
     end
   end
 

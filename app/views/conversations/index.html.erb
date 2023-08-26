@@ -1,5 +1,14 @@
-<div class="container">
-  <h1>Here you have your private conversations</h1>
+<div class="container my-3">
+  <h1>Private conversations</h1>
+
+  <ul class="nav nav-pills nav-fill">
+    <li class="nav-item">
+      <%= link_to "Public", posts_path, class:"nav-link", style:"color:#8064A2;"  %>
+    </li>
+    <li class="nav-item">
+      <%= link_to "Private", conversations_path, class:"nav-link active btn btn-primary", style:"background-color:;" %>
+    </li>
+  </ul>
 
   <div class="">
     <% @conversations.each do |conversation| %>

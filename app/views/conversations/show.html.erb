@@ -1,4 +1,7 @@
-<div class="">
+<div class="container conversation"
+  data-controller="conversation-subscription"
+  data-conversation-subscription-conversation-id-value="<%= @conversation.id %>">
+
   <h1>Your conversation with
     <% if current_user == @conversation.user_to %>
       <%= @conversation.user_from.username %>
@@ -7,21 +10,15 @@
       <% end %>
   </h1>
 
-  <div class="">
+  <div class="messages" data-conversation-subscription-target="messages" style=" height: 50vh; overflow: scroll;">
     <% @conversation.messages.each do |message| %>
-      <div id="message-<%= message.id %>">
-        <small>
-          <strong><%= message.user.username %></strong>
-          <i><%= message.created_at.strftime("%a %b %e at %l:%M %p") %></i>
-        </small>
-        <p><%= message.content %></p>
-      </div>
+        <%= render "messages/message", message: message %>
     <% end %>
   </div>
 
   <div class= "my-4" >
     <div class= container>
-        <%= simple_form_for [@conversation, @message], html: {class: ""} do |f| %>
+        <%= simple_form_for [@conversation, @message], html: {data: { action: "turbo:submit-end->conversation-subscription#resetForm" }, class: ""} do |f| %>
           <%= f.input :content,
             label: false,
             placeholder: "Enter your message here",
