@@ -11,9 +11,16 @@ class ReviewsController < ApplicationController
     @review.hospital = @hospital
     authorize @review
     if @review.save
+      # ---calculating average rating---
+      total = @hospital.reviews.sum {|r| r.rating }
+      @hospital.average_rating = (total / @hospital.reviews.count).round(1)
+      @hospital.save!
+      # ---
       redirect_to hospital_path(@hospital)
     else
-      render :new, status: :unprocessable_entity
+      # redirect_to hospital_path(@hospital)
+      render "hospitals/show", status: :unprocessable_entity
+
     end
   end
 

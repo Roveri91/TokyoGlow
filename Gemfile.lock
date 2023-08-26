@@ -217,6 +217,7 @@ GEM
       zeitwerk (~> 2.5)
     rake (13.0.6)
     redis (4.8.1)
+    ratyrate (1.2.2.alpha)
     regexp_parser (2.8.1)
     reline (0.3.7)
       io-console (~> 0.5)
@@ -306,7 +307,10 @@ DEPENDENCIES
   puma (~> 5.0)
   pundit
   rails (~> 7.0.6)
+  users-private-chat
   redis (~> 4.0)
+  ratyrate
+
   sassc-rails
   selenium-webdriver
   simple_calendar (~> 2.4)

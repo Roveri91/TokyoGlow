@@ -21,6 +21,8 @@ Rails.application.routes.draw do
   end
 
   resources :events, only: [:index, :show, :new, :create, :update, :destroy]
+  get '/events/:id/status_change', to: 'events#status_change', as: 'status_change'
+
   resources :hospitals, only: [:index, :show] do
     resources :reviews, only: [:create]
     resources :appointments, only: [:new, :create]

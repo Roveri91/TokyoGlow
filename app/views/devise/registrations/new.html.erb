@@ -1,34 +1,44 @@
-<h2>Sign up</h2>
+<div class="container px-5 pt-2">
+  <h2 class="text-center">Sign up</h2>
 
-<%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name), data: { turbo: :false }) do |f| %>
-  <%= f.error_notification %>
+  <%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name), data: { turbo: :false }) do |f| %>
+    <%= f.error_notification %>
 
-  <div class="form-inputs">
-    <%= f.input :email,
-                required: true,
-                autofocus: true,
-                input_html: { autocomplete: "email" }%>
-    <%= f.input :password,
-                required: true,
-                hint: ("#{@minimum_password_length} characters minimum" if @minimum_password_length),
-                input_html: { autocomplete: "new-password" } %>
-    <%= f.input :password_confirmation,
-                required: true,
-                input_html: { autocomplete: "new-password" } %>
-    <%= f.input :username,
-                required: true,
-                input_html: { autocomplete: "username" } %>
-    <%= f.input :avatar_cl, as: :file,
-                required: true,
-                input_html: { multiple: false } %>
-    <div class= "d-flex justify-content-center py-3">
-      <%= f.submit "Create profile", class: "btn-submit" %>
+    <div class="form-inputs">
+      <%= f.input :email,
+        required: true,
+        autofocus: true,
+        input_html: { autocomplete: "email" }%>
+      <%= f.input :password,
+        required: true,
+        hint: ("#{@minimum_password_length} characters minimum" if @minimum_password_length),
+        input_html: { autocomplete: "new-password" } %>
+      <%= f.input :password_confirmation,
+        required: true,
+        input_html: { autocomplete: "new-password" } %>
+      <%= f.input :username,
+        required: true,
+        input_html: { autocomplete: "username" } %>
+      <%= f.input :due_date,
+        required: true,
+        input_html: { autocomplete: "due_date" } %>
+      <%= f.input :avatar_cl, as: :file,
+        required: true,
+        input_html: { multiple: false } %>
+      <div class= "d-flex justify-content-center py-3">
+        <%= f.submit "Create profile", class: "btn-main" %>
+      </div>
     </div>
-  </div>
 
-  <div class="form-actions">
-    <%= f.button :submit, "Sign up" %>
-  </div>
-<% end %>
+    <div class="form-actions d-flex justify-content-evenly">
+      <div>
+        <%= f.button :submit, "Sign up" %>
+      </div>
+      <div>  
+        <%= render "devise/shared/links" %>
+      </div>
+    </div>
+  <% end %>
 
-<%= render "devise/shared/links" %>
+
+</div>

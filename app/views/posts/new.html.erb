@@ -1,15 +1,16 @@
 <div class="container my-5">
-    <div class = "d-flex justify-content-center">
-      <%= link_to "Back", posts_path, class: "btn btn-primary" %>
-    </div>
-  <div class="container">
+  
+  <div class="card p-3 rounded-3">
+    <h1 class="text-center">Write your Post</h1>
     <%= simple_form_for(@post) do |f| %>
     <%= f.input :title %>
     <%= f.input :content %>
     <%= f.input :category, collection: ["General", "Food and Nutrition", "First Child", "Medical", "Event", "Recommendations", "Playdates"] %>
-    <div class= "d-flex justify-content-center p-3">
-      <%= f.submit "Submit your post", class: "btn-submit" %>
+      <div class= "d-flex justify-content-center p-3">
+        <%= f.submit "Submit your post", class: "btn-main" %>
+      </div>
     <% end %>
     </div>
   </div>
+
 </div>
