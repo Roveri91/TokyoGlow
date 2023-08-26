@@ -1,54 +1,54 @@
 1:
-  length: tiny
-  weight: tiny
+  length: tiny!
+  weight: tiny!
   size: a tiny speck!
   image: default_baby.jpg
   symptoms: Nothing to show yet!
   next_appointment:
   baby_info: Too small to know!
 2:
-  length: tiny
-  weight: tiny
+  length: tiny!
+  weight: tiny!
   size: a tiny speck!
   image: default_baby.jpg
   symptoms: Nothing to show yet!
   next_appointment:
   baby_info: Too small to know!
 3:
-  length: tiny
-  weight: tiny
+  length: tiny!
+  weight: tiny!
   size: a tiny speck!
   image: default_baby.jpg
   symptoms: Nothing to show yet!
   next_appointment:
   baby_info: Too small to know!
 4:
-  length: tiny
-  weight: tiny
+  length: tiny!
+  weight: tiny!
   size: a Poppy Seed
   image: poppy_seed.jpg
   symptoms: [😫 fatigue, 🤢 nausea, 😥 bloating]
   next_appointment:
   baby_info: Officially an embryo!
 5:
-  length: tiny
-  weight: tiny
+  length: tiny!
+  weight: tiny!
   size: a Sesame Seed
   image: sesame_seed.jpg
   symptoms: [😫 fatigue, 🤕 headaches, 😋 cravings]
   next_appointment:
   baby_info: Starting to have a heart beat!
 6:
-  length: tiny
-  weight: tiny
+  length: tiny!
+  weight: tiny!
   size: a Lentil
   image: lentil.jpg
   symptoms: [🤕 headaches, 🫣 acne, 🫣 tender breasts]
   next_appointment:
   baby_info: Forming it's nose mouth and ears!
 7:
-  length: tiny
-  weight: tiny
+  length: tiny!
+  weight: tiny!
   size: a Blueberry
   image: blueberry.jpg
   symptoms: [😟 insomnia, 😥 bloating, 🫣 acne]

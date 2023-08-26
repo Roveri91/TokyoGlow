@@ -39,15 +39,23 @@
     <% end %>
     <div class="container">
       <div class="card align-items-center">
-        <h3>A little more information!</h3>
-        <h4>Baby's current length is <%= @length %></h4>
-        <h4>Baby's current weight is <%= @weight %></h4>
+        <% if @length.nil?%>
+          <center>
+            <h4>You just seek help whenever you need it</h4>
+            <h4>Try going on short walks or other non-strenuous activities</h4>
+            <h4>Eat healthy meals for you and you new baby!</h4>
+          </center>
+        <% else %>
+          <h3>A little more information!</h3>
+          <h4>Baby's current length is <%= @length %></h4>
+          <h4>Baby's current weight is <%= @weight %></h4>
+        <% end %>
         <% if !@symptoms.nil? %>
           <h4><span style="color:#000000;">This week you may feel:</span></h4>
           <div class="align-items-left">
             <ul>
               <% @symptoms.each do |symptom| %>
-                <li style="list-style-type: none;"><h4>❤️<%=symptom%></h4></li>
+                <li style="list-style-type: none;"><h4><%=symptom%></h4></li>
               <% end %>
             </ul>
           </div>
