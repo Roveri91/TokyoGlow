@@ -21,15 +21,19 @@ puts "Destroyed all the appointments"
 Review.delete_all
 puts "Destroyed all the reviews"
 
+
+Attendant.delete_all
+puts "Destroyed all the attendants"
+
 Event.delete_all
 puts "Destroyed all the events"
 
 Article.delete_all
 puts "Destroyed all the articles"
 
-puts "Destroying all the users"
 User.delete_all
 puts "Destroyed all the users"
+
 
 users = []
 puts "Creating new users"
