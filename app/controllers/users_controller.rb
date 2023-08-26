@@ -20,6 +20,8 @@ class UsersController < ApplicationController
     end
     @articles = Article.all
     @article = @articles.sample
+    @event = Event.all
+    @event = @event.sample
   end
 
   def calendar
