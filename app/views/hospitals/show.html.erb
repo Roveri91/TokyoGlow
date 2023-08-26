@@ -56,7 +56,7 @@
       </div>
     </div>
     <div class= "d-flex justify-content-center py-3">
-      <%= link_to "Add Appointment to your calendar",  new_hospital_appointment_path(@hospital), class: "btn-main" %>
+      <%= link_to "Add Appointment",  new_hospital_appointment_path(@hospital), class: "btn-main" %>
     </div>
   </div>
   
@@ -79,9 +79,24 @@
           </div>
         
           <h3><%= review.title %></h3>
-          <div>
-            <p>Rating: <%= review.rating.to_i %></p>
+          <%# star rating %>
+          <div class="d-flex gap-2">
+            <h4><%= @hospital.average_rating %></h4>
+            <p>
+              <% for i in 1..5 do %>
+                <% if (@hospital.average_rating < i) %>
+                  <% if (@hospital.average_rating.class == Float)  && (@hospital.average_rating.round == i) %>
+                    <i class="fa-solid fa-star-half-stroke fa-xl" style="color: #a8a424;"></i>
+                  <% else %>
+                    <i class="fa-regular fa-star fa-xl" style="color: #a8a424;"></i>
+                  <% end %>
+                <% else %>
+                  <i class="fa-solid fa-star fa-xl" style="color: #a8a424;"></i>
+                <% end %>
+              <% end %>
+            </p>
           </div>
+          <%# star end %>
           <div>
             <p><%= review.comment %></p>
           </div>
@@ -98,7 +113,7 @@
     <%= f.input :comment %>
     <%= f.input :rating, as: :numeric, input_html: { min: '1', max: '5', step: '1' }, placeholder: "Enter a number from 1 to 5" %>
       <div class= "d-flex justify-content-center py-3">
-        <%= f.submit "Submit your review", class: "btn-main" %>
+        <%= f.submit "Submit", class: "btn-main" %>
       </div>
     <% end %>
   </div>
