@@ -1,53 +1,53 @@
-<div class="d-flex justify-content-around gap-3">
+<div class="d-flex justify-content-around ">
   <% if user_signed_in? %>
     <%# event %>
     <%= link_to events_path do %>
-        <div class="icon-border p-4">
-          <i class="fa-solid fa-cake-candles fa-xl" style="color: #004444;"></i>
+        <div class="icon-flex">
+          <i class="fa-solid fa-cake-candles fa-xl icon-wrapper" style="color: #004444;"></i>
         </div>
     <% end %>
     <%# chat/posts %>
     <%= link_to posts_path do %>
-      <div class="icon-border p-4">
-        <i class="fa-solid fa-comment fa-xl" style="color: #004444;"></i>
+      <div class="icon-flex">
+        <i class="fa-solid fa-comment fa-xl icon-wrapper" style="color: #004444; item-allign:center;"></i>
       </div>
     <% end %>
     <%# Profile %>
     <%= link_to user_path(:id) do %>
-      <div class="icon-border p-4">
-        <i class="fa-solid fa-user fa-xl" style="color: #004444;"></i>
+      <div class="icon-flex">
+        <i class="fa-solid fa-user fa-xl icon-wrapper" style="color: #004444;"></i>
       </div>
     <% end %>
     <%# hospitals %>
     <%= link_to hospitals_path do %>
-      <div class="icon-border p-4">
-        <i class="fa-solid fa-hospital fa-lg" style="color: #004444;"></i>
+      <div class="icon-flex">
+        <i class="fa-solid fa-hospital fa-lg icon-wrapper" style="color: #004444;"></i>
       </div>
     <% end %>
     <%# calendar %>
     <%= link_to calendar_path(:id) do %>
-      <div class="icon-border p-4">
-        <i class="fa-solid fa-calendar-days fa-xl" style="color: #004444;"></i>
+      <div class="icon-flex">
+        <i class="fa-solid fa-calendar-days fa-xl icon-wrapper" style="color: #004444;"></i>
       </div>
     <% end %>
 
   <% else %>
     <%# chat/posts %>
     <%= link_to posts_path do %>
-      <div class="icon-border p-4">
-        <i class="fa-solid fa-comment fa-xl" style="color: #004444;"></i>
+      <div class="icon-flex">
+        <i class="fa-solid fa-comment fa-xl icon-wrapper" style="color: #004444;"></i>
       </div>
     <% end %>
     <%# home %>
     <%= link_to root_path do %>
-      <div class="icon-border p-4">
-        <i class="fa-solid fa-house fa-xl" style="color: #004444;"></i>
+      <div class="icon-flex">
+        <i class="fa-solid fa-house fa-xl icon-wrapper" style="color: #004444;"></i>
       </div>
     <% end %>
     <%# hospitals %>
     <%= link_to hospitals_path do %>
-      <div class="icon-border p-4">
-        <i class="fa-solid fa-hospital fa-lg" style="color: #004444;"></i>
+      <div class="icon-flex">
+        <i class="fa-solid fa-hospital fa-lg icon-wrapper" style="color: #004444;"></i>
       </div>
     <% end %>
 
