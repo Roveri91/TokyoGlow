@@ -32,20 +32,17 @@
 
   <%# try something  %>
  <hr/>
- <% if @event.user != current_user %>
+ <% unless @event.user == current_user %>
     <div class="d-flex flex-column align-items-center mt-3">
       <h3>Status: <%= @is_attending ? 'Attending' : 'Not attending' %></h3>
-      <% if @is_attending %>
-        <%= link_to 'Decline', status_change_path({ event: @event, status: 2 }), method: "post", class: "btn btn-danger mt-2" %>
-      <% else %>
-        <%= link_to 'Accept', status_change_path({ event: @event, status: 1 }), method: "post", class: "btn btn-success mt-2" %>
-      <% end %>
+      <%= link_to_unless @is_attending, 'Accept', status_change_path({ event: @event, status: 1 }), method: "post", class: "btn btn-success mt-2" %>
+      <%= link_to_unless !@is_attending, 'Decline', status_change_path({ event: @event, status: 2 }), method: "post", class: "btn btn-danger mt-2" %>
     </div>
   <% end %>
 
   <%# if @event.user != current_user %>
     <%# <div class="d-flex flex-column align-items-center mt-3"> %>
-      <%# <h3>Status:  %>
+      <%# <h3>Status:  
       <%#= @is_attending ? 'Attending' : 'Not attending' %>
       <%# </h3> %>
       <%# if @is_attending %>
