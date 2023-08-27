@@ -58,7 +58,7 @@ class EventsController < ApplicationController
     end
     authorize @event
     authorize @attendee unless @attendee.nil? # attending.nil?
-    redirect_to event_path(@event), notice: 'Your attendance has been updated.'
+    redirect_to event_path(@event)
   end
 
   def attending_users

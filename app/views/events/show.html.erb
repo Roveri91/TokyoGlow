@@ -1,4 +1,4 @@
-<div class="card p-3">
+<div class="card p-4">
   <div> 
     <div class="d-flex ">
       <%= cl_image_tag @event.photo.key, :crop => :fill, :object_fit => :cover, class: "img-container rounded-4" %>
@@ -9,7 +9,7 @@
       <h5><%= @event.content %></h5>
       <p><i class="fa-solid fa-location-dot"></i> <%= @event.location %></p>
       <p><i class="fa-regular fa-clock"></i> <%= @event.date.strftime('%B %d') %> at <%= @event.time.strftime('%H:%M') %> JST</p>
-      <p>Hosted by <%= @event.user.username %></p>
+      <p>Hosted by <%= @event.user == current_user ? "You" : @event.user.username %></p>
       <p>
         <i class="fa-solid fa-circle-check"></i>
         <% attending = @event.attendants %>
@@ -30,28 +30,36 @@
     <%# </div> %>
   <%# end %>
 
+  <hr/>
+  
   <%# try something  %>
- <hr/>
- <% unless @event.user == current_user %>
-    <div class="d-flex flex-column align-items-center mt-3">
-      <h3>Status: <%= @is_attending ? 'Attending' : 'Not attending' %></h3>
-      <%= link_to_unless @is_attending, 'Accept', status_change_path({ event: @event, status: 1 }), method: "post", class: "btn btn-success mt-2" %>
-      <%= link_to_unless !@is_attending, 'Decline', status_change_path({ event: @event, status: 2 }), method: "post", class: "btn btn-danger mt-2" %>
-    </div>
-  <% end %>
-
-  <%# if @event.user != current_user %>
-    <%# <div class="d-flex flex-column align-items-center mt-3"> %>
-      <%# <h3>Status:  
-      <%#= @is_attending ? 'Attending' : 'Not attending' %>
+  <%# unless @event.user == current_user %>
+    <%# <div class="d-flex gap-5 mt-3"> %>
+      <%# <h3>Status:    %>
+        <%#= @is_attending ? 'Attending' : 'Not attending' %>
       <%# </h3> %>
-      <%# if @is_attending %>
-        <%#= link_to 'Decline', status_change_path({ event: @event, status: 2 }), method: "post", class: "btn btn-danger mt-2" %>
-      <%# else %>
-        <%#= link_to 'Accept', status_change_path({ event: @event, status: 1 }), method: "post", class: "btn btn-success mt-2" %>
-      <%# end %>
+      <%# <div class=""> %>
+        <%# <button class="btn btn-success"> %>
+          <%#= link_to_unless @is_attending, 'Accept', status_change_path({ event: @event, status: 1 }), method: "post", class: "btn btn-success" %>
+        <%# </button> %>
+        <%# <button class="btn btn-danger">
+          <%#= link_to_unless !@is_attending, 'Decline', status_change_path({ event: @event, status: 2 }), method: "post", class: "btn btn-danger" %>
+        <%# </button>  %>
+      <%# </div> %>
     <%# </div> %>
   <%# end %>
+  <%# ------------ finish here %>
+
+  <% if @event.user != current_user %>
+    <div class="d-flex mt-3 justify-content-between">
+      <h3 class="mt-1">Status: <%= @is_attending ? 'Attending' : 'Not attending' %></h3>
+      <% if @is_attending %>
+        <%= link_to 'Decline', status_change_path({ event: @event, status: 2 }), method: "post", class: "btn btn-danger" %>
+      <% else %>
+        <%= link_to 'Accept', status_change_path({ event: @event, status: 1 }), method: "post", class: "btn btn-success" %>
+      <% end %>
+    </div>
+  <% end %>
 
   <% if policy(@event).destroy? %>
     <div class="d-flex justify-content-center mt-3">
