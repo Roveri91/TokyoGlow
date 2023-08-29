@@ -164,7 +164,7 @@ hospital = Hospital.create!(name: "Nagai Mother's Hospital", address:locations.s
 puts "created #{hospital.name}"
 
 hospital = Hospital.create!(name: "Kanto Rozai Hospital", address:locations.sample, price_range: price_range.sample, services: services.sample(4).join(", "), webpage: "https://tokyoh.johas.go.jp/en/",
-  description: "We encourage kangaroo care after birth and breastfeeding. English support may not be available – please enquire about availability in advance. We accept all major credit cards.", average_rating: 2.5, phone_number: "03-3456-9723", default_image: "kanto_hospital.jpg")
+  description: "We encourage kangaroo care after birth and breastfeeding. English support may not be available – please enquire about availability in advance. We accept all major credit cards.", average_rating: 0, phone_number: "03-3456-9723", default_image: "kanto_hospital.jpg")
 puts "created #{hospital.name}"
 
 hospitals = Hospital.all
