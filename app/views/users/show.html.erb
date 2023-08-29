@@ -8,6 +8,8 @@
     <div class="container ">
       <div class="card align-items-center bg-cards">
         <% if @weeks.zero?%>
+          <h4>Your baby will be arriving soon!</h4>
+        <% elsif @weeks < 0 %>
           <h4>Congratulations on your baby!</h4>
         <% else %>
           <h4>You are on week: <span style="color:#301934;"><%= @current_week %>!</span></h4>
@@ -32,8 +34,10 @@
     <% if !@next_appointment.nil? %>
       <div class="container">
         <div class="card align-items-center">
-          <center><h3>Around this time you should be booking:</h3></center>
-          <h4><%= @next_appointment %></h4>
+          <center>
+            <h3>Around this time you should be booking:</h3>
+            <h4><%= @next_appointment %></h4>
+          </center>
         </div>
       </div>
     <% end %>
@@ -41,18 +45,22 @@
       <div class="card align-items-center">
         <% if @length.nil?%>
           <center>
-            <h4>You just seek help whenever you need it</h4>
-            <h4>Try going on short walks or other non-strenuous activities</h4>
-            <h4>Eat healthy meals for you and you new baby!</h4>
+              <h4>You just seek help whenever you need it</h4>
+              <h4>Try going on short walks or other non-strenuous activities</h4>
+              <h4>Eat healthy meals for you and you new baby!</h4>
           </center>
         <% else %>
           <h3>A little more information!</h3>
-          <h4>Baby's current length is <%= @length %></h4>
-          <h4>Baby's current weight is <%= @weight %></h4>
+          <div>
+            <center>
+              <h4>Baby's current length is <%= @length %></h4>
+              <h4>Baby's current weight is <%= @weight %></h4>
+            </center>
+          </div>
         <% end %>
         <% if !@symptoms.nil? %>
-          <h4><span style="color:#000000;">This week you may feel:</span></h4>
-          <div class="align-items-left">
+          <h4>This week you may feel:</h4>
+          <div class="align-items-left" >
             <ul>
               <% @symptoms.each do |symptom| %>
                 <li style="list-style-type: none;"><h4><%=symptom%></h4></li>
@@ -64,7 +72,7 @@
     </div>
   </div>
   <!-- mx-4 card p-0   -->
-    
+
   <div class="container">
     <div class="accordion container" id="accordionExample">
       <div class="rounded shadow accordion-item">
@@ -106,6 +114,9 @@
               </p>
               <p>
                 <i class="fa-solid fa-circle-check"></i>
+                <% attending = @event.attendants %>
+                <% all = attending.count + 1 %>
+                <%= all %>
               </p>
               <p class = "d-flex justify-content-center">
                 <%= link_to "See more", event_path(id: @event.id), class: "btn btn-primary" %>
