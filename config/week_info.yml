@@ -1,57 +1,57 @@
 1:
-  length: tiny!
-  weight: tiny!
-  size: a tiny speck!
+  length: Tiny!
+  weight: Tiny!
+  size: A tiny speck!
   image: default_baby.jpg
   symptoms: Nothing to show yet!
   next_appointment:
   baby_info: Too small to know!
 2:
-  length: tiny!
-  weight: tiny!
-  size: a tiny speck!
+  length: Tiny!
+  weight: Tiny!
+  size: A tiny speck!
   image: default_baby.jpg
   symptoms: Nothing to show yet!
   next_appointment:
   baby_info: Too small to know!
 3:
-  length: tiny!
-  weight: tiny!
-  size: a tiny speck!
+  length: Tiny!
+  weight: Tiny!
+  size: A tiny speck!
   image: default_baby.jpg
   symptoms: Nothing to show yet!
   next_appointment:
   baby_info: Too small to know!
 4:
-  length: tiny!
-  weight: tiny!
+  length: Tiny!
+  weight: Tiny!
   size: a Poppy Seed
   image: poppy_seed.jpg
-  symptoms: [😫 fatigue, 🤢 nausea, 😥 bloating]
+  symptoms: [😫 Fatigue, 🤢 Nausea, 😥 Bloating]
   next_appointment:
   baby_info: Officially an embryo!
 5:
-  length: tiny!
-  weight: tiny!
+  length: Tiny!
+  weight: Tiny!
   size: a Sesame Seed
   image: sesame_seed.jpg
-  symptoms: [😫 fatigue, 🤕 headaches, 😋 cravings]
+  symptoms: [😫 Fatigue, 🤕 Headaches, 😋 Cravings]
   next_appointment:
-  baby_info: Starting to have a heart beat!
+  baby_info: Starting to have Aheart beat!
 6:
-  length: tiny!
-  weight: tiny!
+  length: Tiny!
+  weight: Tiny!
   size: a Lentil
   image: lentil.jpg
-  symptoms: [🤕 headaches, 🫣 acne, 🫣 tender breasts]
+  symptoms: [🤕 Headaches, 🫣 Acne, 🫣 Tender breasts]
   next_appointment:
   baby_info: Forming it's nose mouth and ears!
 7:
-  length: tiny!
-  weight: tiny!
+  length: Tiny!
+  weight: Tiny!
   size: a Blueberry
   image: blueberry.jpg
-  symptoms: [😟 insomnia, 😥 bloating, 🫣 acne]
+  symptoms: [😟 Insomnia, 😥 Bloating, 🫣 Acne]
   next_appointment: First Ultrasound and risk assessment
   baby_info: Doubling in size!
 8:
@@ -59,7 +59,7 @@
   weight: 20 grams
   size: a Kidney Bean
   image: kidney_bean.jpg
-  symptoms: [🤢 nausea, 😫 fatigue, 😋 cravings]
+  symptoms: [🤢 Nausea, 😫 Fatigue, 😋 Cravings]
   next_appointment: First Ultrasound and risk assessment
   baby_info: Starting to move around!
 9:
@@ -67,7 +67,7 @@
   weight: 27 grams
   size: a Grape
   image: grape.jpg
-  symptoms: [😤 mood swings, 🤢 nausea, 😟 insomnia]
+  symptoms: [😤 Mood swings, 🤢 Nausea, 😟 Insomnia]
   next_appointment: First Ultrasound and risk assessment
   baby_info: Developing their basic anatomy!
 10:
@@ -75,7 +75,7 @@
   weight: 35 grams
   size: a Kumquat
   image: kumquat.jpg
-  symptoms: [😋 cravings, 🤕 headaches, 😟 insomnia]
+  symptoms: [😋 Cravings, 🤕 Headaches, 😟 Insomnia]
   next_appointment: First Ultrasound and risk assessment
   baby_info: Starting to bend their limbs!
 11:
@@ -83,7 +83,7 @@
   weight: 45 grams
   size: a Fig
   image: fig.jpg
-  symptoms: [😥 bloating, 🤕 headaches, 🤢 nausea]
+  symptoms: [😥 Bloating, 🤕 Headaches, 🤢 Nausea]
   next_appointment:
   baby_info: Almost fully formed!
 12:
@@ -91,7 +91,7 @@
   weight: 58 grams
   size: a Lime
   image: fig.jpg
-  symptoms: [😫 fatigue, 🫣 tender breasts, 😥 bloating]
+  symptoms: [😫 Fatigue, 🫣 Tender breasts, 😥 Bloating]
   next_appointment:
   baby_info: Testing their reflexes!
 13:
@@ -99,7 +99,7 @@
   weight: 73 grams
   size: a Peapod
   image: peapod.jpg
-  symptoms: [🤢 nausea, 🤕 headache, 😥 bloating]
+  symptoms: [🤢 Nausea, 🤕 Headaches, 😥 Bloating]
   next_appointment:
   baby_info: Forming their fingerprints!
 14:
@@ -107,7 +107,7 @@
   weight: 93 grams
   size: a Lemon
   image: lemo.jpg
-  symptoms: [😡 irritated, 🤢 nausea, 😖 backache]
+  symptoms: [😡 Irritated, 🤢 Nausea, 😖 Backache]
   next_appointment: Your next prenatal visit!
   baby_info: Starting to use their facial muscles!
 15:
@@ -115,7 +115,7 @@
   weight: 785 grams
   size: an Apple
   image: apple.jpg
-  symptoms: [🤕 headache, 🫣 tender breasts, 🎚️ high sex drive]
+  symptoms: [🤕 Headaches, 🫣 Tender breasts, 🎚️ High sex drive]
   next_appointment:
   baby_info: Showing their gender from this week!
 16:
@@ -123,7 +123,7 @@
   weight: 146 grams
   size: an Avocado
   image: avocado.jpg
-  symptoms: [🤢 nausea, 😋 cravings, 😡 irritated]
+  symptoms: [🤢 Nausea, 😋 Cravings, 😡 Irritated]
   next_appointment: Your next screening exam!
   baby_info: Developing their head!
 17:
@@ -131,7 +131,7 @@
   weight: 181 grams
   size: a Turnip
   image: turnip.jpg
-  symptoms: [😊 calm, 😞 sad, 😖 backache]
+  symptoms: [😊 Calm, 😞 Sad, 😖 Backache]
   next_appointment:
   baby_info: Moving their joints!
 18:
@@ -139,7 +139,7 @@
   weight: 223 grams
   size: a Bell Pepper
   image: bell_pepper.jpg
-  symptoms: [😊 calm, 🤕 headaches, 🫣 tender breasts]
+  symptoms: [😊 Calm, 🤕 Headaches, 🫣 Tender breasts]
   next_appointment: Ultrasound checkup!
   baby_info: Moving so much you could feel it!
 19:
@@ -147,7 +147,7 @@
   weight: 273 grams
   size: a Heirloom Tomato
   image: heirloom_tomato.jpg
-  symptoms: [😖 backache, 😞 sad, 😊 calm]
+  symptoms: [😖 Backache, 😞 Sad, 😊 Calm]
   next_appointment: Ultrasound checkup if you haven't already!
   baby_info: Able to hear your voice!
 20:
@@ -155,7 +155,7 @@
   weight: 331 grams
   size: a Banana
   image: banana.jpg
-  symptoms: [😊 calm, 😖 backache, 🗲 energetic]
+  symptoms: [😊 Calm, 😖 Backache, 🗲 Energetic]
   next_appointment: Ultrasound checkup if you haven't already!
   baby_info: Learning how to swallow!
 21:
@@ -163,7 +163,7 @@
   weight: 399 grams
   size: a Carrot
   image: carrot.jpg
-  symptoms: [😊 calm, 😋 cravings, 🫣 tender breasts]
+  symptoms: [😊 Calm, 😋 Cravings, 🫣 Tender breasts]
   next_appointment: Ultrasound checkup if you haven't already!
   baby_info: Kicking a lot more from this week!
 22:
@@ -171,7 +171,7 @@
   weight: 478 grams
   size: a Spaghetti Squash
   image: spaghetti_squash.jpg
-  symptoms: [😞 sad, 😨 constipation, 🫣 tender breasts]
+  symptoms: [😞 Sad, 😨 Constipation, 🫣 Tender breasts]
   next_appointment: Ultrasound checkup if you haven't already!
   baby_info: Starting to look like a miniature newborn!
 23:
@@ -179,7 +179,7 @@
   weight: 568 grams
   size: a Mango
   image: mango.jpg
-  symptoms: [😊 calm, 🫣 tender breasts, 😨 happy]
+  symptoms: [😊 Calm, 🫣 Tender breasts, 😊 Happy]
   next_appointment:
   baby_info: Able to hear sounds more easily!
 24:
@@ -187,7 +187,7 @@
   weight: 670 grams
   size: a Corn
   image: corn.jpg
-  symptoms: [😞 sad, 😊 calm, 🫣 tender breasts]
+  symptoms: [😞 Sad, 😊 Calm, 🫣 Tender breasts]
   next_appointment: The glucose test!
   baby_info: Starting to develop baby fat!
 25:
@@ -195,15 +195,15 @@
   weight: 785 grams
   size: a Rutabaga
   image: rutabaga.jpg
-  symptoms: [😫 fatigue, 🤢 nausea, 😞 sad]
-  next_appointment: the glucose test if you haven't already!
+  symptoms: [😫 Fatigue, 🤢 Nausea, 😞 Sad]
+  next_appointment: The glucose test if you haven't already!
   baby_info: Starting to grow hair!
 26:
   length: 35.1cm
   weight: 913 grams
   size: a Scallion
   image: scallion.jpg
-  symptoms: [😫 fatigue, 🫣 tender breasts, 😞 sad]
+  symptoms: [😫 Fatigue, 🫣 Tender breasts, 😞 Sad]
   next_appointment: Your next prenatal visit!
   baby_info: Starting to inhale and exhale!
 27:
@@ -211,15 +211,15 @@
   weight: 1055 grams
   size: a Cauliflower
   image: cauliflower.jpg
-  symptoms: [😖 backache, 😨 constipation, 😡 irritated]
-  next_appointment: the glucose test if you haven't already!
+  symptoms: [😖 Backache, 😨 Constipation, 😡 Irritated]
+  next_appointment: The glucose test if you haven't already!
   baby_info: Developing a very active brain!
 28:
   length: 37.6cm
   weight: 1210 grams
   size: an Eggplant
   image: eggplant.jpg
-  symptoms: [😊 calm, 😖 backache, 🫣 acne]
+  symptoms: [😊 Calm, 😖 Backache, 🫣 Acne]
   next_appointment: A checkup every 2 weeks!
   baby_info: Developing their eyesight!
 29:
@@ -227,7 +227,7 @@
   weight: 1379 grams
   size: a Butternut Squash
   image: butternut_squash.jpg
-  symptoms: [😊 calm, 😨 constipation, 😡 irritated]
+  symptoms: [😊 Calm, 😨 Constipation, 😡 Irritated]
   next_appointment: A checkup every 2 weeks!
   baby_info: Developing their lungs and muscles!
 30:
@@ -235,7 +235,7 @@
   weight: 1559 grams
   size: a Cabbage
   image: cabbage.jpg
-  symptoms: [😫 fatigue, 🫣 tender breasts, 🗲 energetic]
+  symptoms: [😫 Fatigue, 🫣 Tender breasts, 🗲 Energetic]
   next_appointment: A checkup every 2 weeks!
   baby_info: Growing very quickly!
 31:
@@ -243,7 +243,7 @@
   weight: 1751 grams
   size: a Coconut
   image: coconut.jpg
-  symptoms: [😫 fatigue, 😖 backache, 😋 cravings]
+  symptoms: [😫 Fatigue, 😖 Backache, 😋 Cravings]
   next_appointment: A checkup every 2 weeks!
   baby_info: Turning their head side to side!
 32:
@@ -251,7 +251,7 @@
   weight: 1953 grams
   size: a Jicama
   image: jicama.jpg
-  symptoms: [😊 calm, 😖 backache, 🫣 tender breasts]
+  symptoms: [😊 Calm, 😖 Backache, 🫣 Tender breasts]
   next_appointment: A checkup every 2 weeks!
   baby_info: Gaining weight quickly!
 33:
@@ -259,7 +259,7 @@
   weight: 2162 grams
   size: a Pineapple
   image: pineapple.jpg
-  symptoms: [😊 calm, 🗲 energetic, 😫 fatigue]
+  symptoms: [😊 Calm, 🗲 Energetic, 😫 Fatigue]
   next_appointment: A checkup every 2 weeks!
   baby_info: Developing their skull!
 34:
@@ -267,7 +267,7 @@
   weight: 2377 grams
   size: a Cantaloupe
   image: cantaloupe.jpg
-  symptoms: [😫 fatigue, 😥 bloating, 😞 sad]
+  symptoms: [😫 Fatigue, 😥 Bloating, 😞 Sad]
   next_appointment: A checkup every 2 weeks!
   baby_info: Developing their central nervouse system!
 35:
@@ -275,7 +275,7 @@
   weight: 2595 grams
   size: a Honeydew Melon
   image: honeydew_melon.jpg
-  symptoms: [😊 calm, 😖 backache, 🫣 acne]
+  symptoms: [😊 Calm, 😖 Backache, 🫣 Acne]
   next_appointment: A checkup every 2 weeks!
   baby_info: Moving a lot more!
 36:
@@ -283,7 +283,7 @@
   weight: 2813 grams
   size: a Romaine Lettuce
   image: romaine_lettuce.jpg
-  symptoms: [😫 fatigue, 🤕 headaches, 🎚️ high sex drive]
+  symptoms: [😫 Fatigue, 🤕 Headaches, 🎚️ High sex drive]
   next_appointment: A checkup every 2 weeks!
   baby_info: Gaining an ounce a day!
 37:
@@ -291,7 +291,7 @@
   weight: 3028 grams
   size: a Swiss Chard
   image: swiss_chard.jpg
-  symptoms: [😊 calm, 🫣 acne, 🎚️ high sex drive]
+  symptoms: [😊 Calm, 🫣 Acne, 🎚️ High sex drive]
   next_appointment: A checkup every week!
   baby_info: Developing their lungs and brains!
 38:
@@ -299,7 +299,7 @@
   weight: 3236 grams
   size: a Leek
   image: leek.jpg
-  symptoms: [😊 calm, 😨 happy, 🗲 energetic]
+  symptoms: [😊 Calm, 😊 Happy, 🗲 Energetic]
   next_appointment: A checkup every week!
   baby_info: Growing quickly!
 39:
@@ -307,7 +307,7 @@
   weight: 3435 grams
   size: a Mini Watermelon
   image: watermelon.jpg
-  symptoms: [😊 calm, 😖 backache, 😡 irritated]
+  symptoms: [😊 Calm, 😖 Backache, 😡 Irritated]
   next_appointment: A checkup every week!
   baby_info: Considered full term!
 40:
@@ -315,7 +315,7 @@
   weight: 3619 grams
   size: a Small Pumpkin
   image: pumpkin.jpg
-  symptoms: [😫 fatigue, 😖 backache, 😨 constipation]
+  symptoms: [😫 Fatigue, 😖 Backache, 😨 Constipation]
   next_appointment: A checkup every week!
   baby_info: Considered fully developed!
 default:
