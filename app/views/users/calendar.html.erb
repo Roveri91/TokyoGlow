@@ -1,4 +1,4 @@
-<div class="my-5 py-5">
+<div class="my-2 py-3">
   <%= month_calendar do |date| %>
     <div type="button" class="myBtn" data-bs-toggle="modal" data-bs-target="#exampleModal<%=date%>">
       <%#= link_to calendar_path(current_user, date: date) do %>
@@ -14,8 +14,8 @@
                 <% @current_day_appointments = @appointments.where(date: date).to_a %>
                 <% @current_day_events = @events.where(date: date).to_a %>
                 <% @events_attending = @attending.where(date: date).to_a %>
-                <h2><%= date %>:</h2>
-                <% if @current_day_appointments.empty? && @current_day_events.empty? %>
+                <h2><%= date %></h2>
+                <% if @current_day_appointments.empty? && @current_day_events.empty? && @events_attending.empty? %>
                   <h4>No appointments or events to display!</h4>
                 <% else %>
                   <% unless @current_day_appointments.empty? %>
@@ -54,7 +54,7 @@
                       <% end %>
                     </div>
                   <% end %>
-                  <% unless @current_day_events.empty? %>
+                  <% unless @current_day_events.empty? && @events_attending.empty? %>
                     <div>
                       <h2>Events</h2>
                     </div>
