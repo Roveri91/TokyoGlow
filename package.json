@@ -6,7 +6,6 @@
     "@hotwired/stimulus-webpack-helpers": "^1.0.1",
     "@hotwired/turbo-rails": "^7.3.0",
 
-
     "@rails/actioncable": "^7.0.7-2",
     "star-rating.js": "^4.3.0",
 
