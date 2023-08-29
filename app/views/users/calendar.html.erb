@@ -15,11 +15,11 @@
                 <% @current_day_events = @events.where(date: date).to_a %>
                 <% @events_attending = @attending.where(date: date).to_a %>
 
-                <h2><%= date %>:</h2>
-                <% if @current_day_appointments.empty? && @current_day_events.empty? %>
+                <h2><%= date %></h2>
+                <% if @current_day_appointments.empty? && @current_day_events.empty? && @events_attending.empty? %>
                   <h4>No appointments or events to display!</h4>
                 <% else %>
-                  <% if !@current_day_appointments.empty? %>
+                  <% unless @current_day_appointments.empty? %>
                     <div>
                       <h2>Private Appointments: </h2>
                     </div>
@@ -48,7 +48,7 @@
                       <% end %>
                     </div>
                   <% end %>
-                  <% if !@current_day_events.empty? %>
+                  <% unless @current_day_events.empty? && @events_attending.empty? %>
                     <div>
                       <h2>Events:</h2>
                     </div>
