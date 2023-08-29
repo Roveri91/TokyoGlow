@@ -370,4 +370,23 @@ article = Article.create!( title: "Pregnant women living in walkable communities
 
 puts "create #{article.title}"
 
+article = Article.create!( title: "15 Natural Morning Sickness Remedies for the First Trimester and Beyond", content: "Nobody knows what causes morning sickness (or in some cases, all-frickin’-day sickness) and sadly there’s no one size fits all morning sickness remedy that works for everybody. Typically, this is when my grandmother would have chimed in to say “If men had this you know damn well they’d have it figured out by now.” ", image: "https://pregnantchicken.com/content/images/size/w2000/v2/2020/09/pregnancy-morningsickness.jpg", link:"https://pregnantchicken.com/15-morning-sickness-remedies/")
+
+puts "create #{article.title}"
+
+article = Article.create!( title: "17 Super Cute Fall Pregnancy Shirts You’ll Love | Mother Rising", content: "Sporting cute fall pregnancy shirts is a fun way to keep the challenges of pregnancy in check. Not everything needs to be so serious! Whether you’re looking for a halloween maternity shirt, fall pregnancy shirt, or a Thanksgiving maternity shirt, there’s one for you – or even your partner – shipped right to your front door.", image: "https://www.motherrisingbirth.com/wp-content/uploads/2021/08/fall-pregnancy-shirt-featured-2.jpg", link:"https://www.motherrisingbirth.com/2021/08/fall-pregnancy-shirts.html")
+
+puts "create #{article.title}"
+
+article = Article.create!( title: "Compression Socks During Pregnancy: Feel the Awesome!", content: "regnancy comes with all kinds of little treats: swelling and varicose veins are just a couple of them.
+Here’s the deal your heart has with your legs: your heart will pump blood down and your leg muscles and veins will pump it back up.", image: "https://pregnantchicken.com/content/images/size/w2000/v2/2016/02/compression-socks-during-pregnancy.jpg", link:"https://pregnantchicken.com/compression-socks-during-pregnancy-feel-the-awesome/")
+
+puts "create #{article.title}"
+
+article = Article.create!( title: "3 Relaxation Mistakes New Parents Quickly Make in Labor", content: "Did you know that there are three go-to spots to relax on the body that doulas and other birth professionals target for pain relief during childbirth? Why is relaxation during birth important? Does it really matter that much? And why is there a gif at the bottom of this page of Oprah?
+All these mysteries, and much more, will be revealed in due time. Let’s dig in.", image: "https://www.motherrisingbirth.com/wp-content/uploads/2020/09/3-spots-on-the-body-to-relax-during-birth-featured.jpg", link:"https://www.motherrisingbirth.com/2020/09/spots-to-relax.html")
+
+puts "create #{article.title}"
+
+
 puts "Done! Thank you for your patience."
