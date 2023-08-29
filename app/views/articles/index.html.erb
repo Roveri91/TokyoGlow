@@ -1,0 +1,29 @@
+<div class="container py-5 mb-5">
+  <div class="container ">
+    <div class="row justify-content-center">
+      <ul class="nav nav-pills nav-fill">
+        <li class="nav-item">
+          <%= link_to "Hospitals", hospitals_path, class:"nav-link", style:"color:#8064A2;" %>
+        </li>
+        <li class="nav-item">
+          <%= link_to "Articles", articles_index_path, class:"nav-link active btn btn-primary", style:"background-color:;" %>
+        </li>
+      </ul>
+    </div>
+
+    <% @articles.each do |article| %>
+      <div class= "card rounded-3 p-3">
+        <div class="">
+          <img id="article-img" class="rounded-3" src=<%= article.image %> alt="Article Picture">
+        </div>
+        <div class="p-3">
+          <h1><%= article.title %></h1>
+          <div class="card-border py-3">
+            <p><%= article.content %></p>
+            <a target="_blank" href="<%= article.link %>">Read more</a>
+          </div>
+        </div>
+      </div>
+    <% end %>
+  </div>
+</div>
