@@ -172,12 +172,12 @@ hospitals = Hospital.all
 # ------REVIEWS------
 
 7.times do
-  #  --- should avoid the same user write a review on the same hospital 
+  #  --- should avoid the same user write a review on the same hospital
   hospital = hospitals.sample
-  user = users.sample 
+  user = users.sample
   hospital_reviews = hospital.reviews.all
-    
-  while hospital_reviews.any? { |review| review.user === user } do 
+
+  while hospital_reviews.any? { |review| review.user === user } do
     user = users.sample
   end
   # ----
@@ -186,12 +186,12 @@ hospitals = Hospital.all
 end
 
 4.times do
-  #  --- should avoid the same user write a review on the same hospital 
+  #  --- should avoid the same user write a review on the same hospital
   hospital = hospitals.sample
-  user = users.sample 
+  user = users.sample
   hospital_reviews = hospital.reviews.all
-    
-  while hospital_reviews.any? { |review| review.user === user } do 
+
+  while hospital_reviews.any? { |review| review.user === user } do
     user = users.sample
   end
   # ----
@@ -200,12 +200,12 @@ end
 end
 
 7.times do
-  #  --- should avoid the same user write a review on the same hospital 
+  #  --- should avoid the same user write a review on the same hospital
   hospital = hospitals.sample
-  user = users.sample 
+  user = users.sample
   hospital_reviews = hospital.reviews.all
-    
-  while hospital_reviews.any? { |review| review.user === user } do 
+
+  while hospital_reviews.any? { |review| review.user === user } do
     user = users.sample
   end
   # ----
@@ -214,12 +214,12 @@ end
 end
 
 8.times do
-  #  --- should avoid the same user write a review on the same hospital 
+  #  --- should avoid the same user write a review on the same hospital
   hospital = hospitals.sample
-  user = users.sample 
+  user = users.sample
   hospital_reviews = hospital.reviews.all
-    
-  while hospital_reviews.any? { |review| review.user === user } do 
+
+  while hospital_reviews.any? { |review| review.user === user } do
     user = users.sample
   end
   # ----
@@ -228,12 +228,12 @@ end
 end
 
 5.times do
-  #  --- should avoid the same user write a review on the same hospital 
+  #  --- should avoid the same user write a review on the same hospital
   hospital = hospitals.sample
-  user = users.sample 
+  user = users.sample
   hospital_reviews = hospital.reviews.all
-    
-  while hospital_reviews.any? { |review| review.user === user } do 
+
+  while hospital_reviews.any? { |review| review.user === user } do
     user = users.sample
   end
   # ----
@@ -242,12 +242,12 @@ end
 end
 
 5.times do
-  #  --- should avoid the same user write a review on the same hospital 
+  #  --- should avoid the same user write a review on the same hospital
   hospital = hospitals.sample
-  user = users.sample 
+  user = users.sample
   hospital_reviews = hospital.reviews.all
-    
-  while hospital_reviews.any? { |review| review.user === user } do 
+
+  while hospital_reviews.any? { |review| review.user === user } do
     user = users.sample
   end
   # ----
@@ -258,7 +258,7 @@ end
 # ------ CALCULATING AVERAGE RATING ------
 
 hospitals.each do |hospital|
-  puts "calculating average rating for #{hospital.name}" 
+  puts "calculating average rating for #{hospital.name}"
   if hospital.reviews.count > 0
     total = hospital.reviews.sum {|r| r.rating }
     hospital.average_rating = (total / hospital.reviews.count).round(1)
@@ -279,24 +279,23 @@ end
 #   t.index ["user_id"], name: "index_reviews_on_user_id"
 # end
 
-# ice_cream_image = URI.open("https://res.cloudinary.com/dsfih62k7/image/upload/v1692098565/ice_cream_amdk0l.webp")
-
-# ice_cream = Event.new(status: 0, title: 'Free ice cream!', content: "grab a book", date: 'Tue, 15 Sept 2023', location: 'Yoyogi Park', time:'Sat, 01 Jan 2000 11:30:00.000000000 UTC +00:00', user: users.sample)
-
-# ice_cream.photo.attach(io: ice_cream_image, filename: "ice_cream.webp", content_type: "image/webp")
-# ice_cream.save!
-
 # ------EVENTS------
 
 yoga_image = Rails.root.join('app', 'assets', 'images', 'yoga.jpg')
 book_image = Rails.root.join('app', 'assets', 'images', 'book.jpg')
 diapers_image = Rails.root.join('app', 'assets', 'images', 'diapers.jpg')
-ice_cream_image = Rails.root.join('app', 'assets', 'images', 'ice_cream.jpg')
+support_image = Rails.root.join('app', 'assets', 'images', 'support.jpg')
+nutrition_image = Rails.root.join('app', 'assets', 'images', 'nutrition.jpg')
+parenting_image = Rails.root.join('app', 'assets', 'images', 'parenting.jpg')
+
 
 giulia = User.find_by(username: 'Giulia')
 jonny = User.find_by(username: 'Jonny')
 simone = User.find_by(username: 'Simone')
 tenny = User.find_by(username: 'Tenny')
+mario = User.find_by(username: 'Mario')
+clementine = User.find_by(username: 'Clementine')
+lola = User.find_by(username: 'Lola')
 
 yoga = Event.new(
   title: 'Come enjoy yoga together!',
@@ -334,21 +333,51 @@ diapers.save!
 diapers.photo.attach(io: File.open(diapers_image), filename: 'diapers.jpg', content_type: 'image/jpg')
 puts 'Created Diapers Event'
 
-ice_cream = Event.new(
-  title: 'Free ice cream!',
-  content: 'Celebrate the end of summer with an old-fashioned ice cream social in the beautiful Yoyogi Park of Tokyo.  Enjoy ice cream treats, popcorn, a face painter, a balloon twister, games for the kids, and activities provided by FLOTO!',
-  date: Date.today + (rand(1..10)),
+support = Event.new(
+  title: 'Prenancy Support Group',
+  content: 'Support groups can help perinatal women feel less alone',
+  date: Date.new(2023, 9, 3),
+# ice_cream = Event.new(
+#   title: 'Free ice cream!',
+#   content: 'Celebrate the end of summer with an old-fashioned ice cream social in the beautiful Yoyogi Park of Tokyo.  Enjoy ice cream treats, popcorn, a face painter, a balloon twister, games for the kids, and activities provided by FLOTO!',
+#   date: Date.today + (rand(1..10)),
   location: 'Yoyogi Park',
   time: rand(Time.parse('9 am')..Time.parse('9 pm')),
   user: tenny
 )
-ice_cream.save!
-ice_cream.photo.attach(io: File.open(ice_cream_image), filename: 'ice_cream.jpg', content_type: 'image/jpg')
+support.save!
+support.photo.attach(io: File.open(support_image), filename: 'support.jpg', content_type: 'image/jpg')
 
-puts 'Created Ice Cream Event'
+puts 'Created Support Group Event'
+
+nutrition = Event.new(
+  title: 'Nutrition classes',
+  content: 'Make healthy and nutritious meals for you and your family',
+  date: Date.new(2023, 9, 7),
+  location: '1010 Carrot St.',
+  time: Time.now,
+  user: lola
+)
+nutrition.save!
+nutrition.photo.attach(io: File.open(nutrition_image), filename: 'nutrition.jpg', content_type: 'image/jpg')
+
+puts 'Created Nutrition Event'
+
+parenting = Event.new(
+  title: 'Pregnancy classes',
+  content: 'Completely free',
+  date: Date.new(2023, 9, 10),
+  location: '456 Tokyo Building A',
+  time: Time.now,
+  user: clementine
+)
+parenting.save!
+parenting.photo.attach(io: File.open(parenting_image), filename: 'parenting.jpg', content_type: 'image/jpg')
+
+puts 'Created Pregnancy classes '
 
 puts 'Done! Thank you for your patience.'
-puts "created 4 events"
+puts "created 6 events"
 
 # ------ARTICLES------
 

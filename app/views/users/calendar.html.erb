@@ -14,7 +14,6 @@
                 <% @current_day_appointments = @appointments.where(date: date).to_a %>
                 <% @current_day_events = @events.where(date: date).to_a %>
                 <% @events_attending = @attending.where(date: date).to_a %>
-
                 <h2><%= date %>:</h2>
                 <% if @current_day_appointments.empty? && @current_day_events.empty? %>
                   <h4>No appointments or events to display!</h4>
@@ -124,10 +123,9 @@
             <i class="fa-solid fa-circle fa-2xs" style="color: #dd99ff;"></i>
           <% end %>
         <% end %>
-    </div>
+      </div>
     </div>
   <% end %>
-
   <% if @hospitals %>
     <div>
       <h4>Add new appointment:</h4>
