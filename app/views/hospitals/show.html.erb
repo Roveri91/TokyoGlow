@@ -18,7 +18,7 @@
     <div class="d-flex flex-column mb-3">
       <div class="d-flex justify-content-start pt-1 gap-3">
         <i class="fa-solid fa-location-dot fa-xl mt-2" style="color: #004444;"></i>
-        <h4><%= @hospital.address %></h4>  
+        <h4><%= @hospital.address %></h4>
       </div>
       <%# RATING %>
       <div class="d-flex justify-content-start gap-3">
@@ -135,7 +135,6 @@
             <% end %>
             <div class="d-flex flex-column justify-content-center">
               <h3><strong><%= review.user == current_user ? "You" : review.user.username %></strong></h3>
-              <%=  render "conversations/new", user: review.user, conversation: @conversation %>
               <p><i><%= review.created_at.strftime("%a %b %e at %l:%M %p") %></i></p>
             </div>
           </div>
@@ -164,6 +163,9 @@
           <div>
             <p><%= review.comment %></p>
           </div>
+          <% unless review.user == current_user %>
+            <%=  render "conversations/new", user: review.user, conversation: @conversation %>
+          <% end %>
         </div>
       <% end %>
     </div>
