@@ -9,7 +9,7 @@
     <div class="card text-center"> <!-- Center the card content -->
       <h3><%= @event.content %></h3>
       <p><i class="fa-solid fa-location-dot"></i> <%= @event.location %></p>
-      <p><i class="fa-regular fa-clock"></i> <%= @event.date.strftime('%B %d') %> at <%= @event.time.strftime('%H:%M') %> JST</p>
+      <p><i class="fa-regular fa-clock"></i> <%= @event.date.strftime('%B %d') %> at <%= @event.time.strftime('%H:%M') %></p>
       <p>Hosted by <%= @event.user.username %></p>
       <p>
         <i class="fa-solid fa-circle-check"></i>
@@ -19,19 +19,6 @@
       </p>
     </div>
   </div>
-
-
-
-  <%# if @event.user != current_user %>
-    <%# <div class="d-flex flex-column align-items-center mt-3"> %>
-      <%# <h3>Status: <%= @is_attending ? 'Attending' : 'Not attending'</h3>  %>
-      <%# <% if @is_attending %>
-        <%#= link_to 'Decline', status_change_path({ event: @event, status: 2 }), method: "post", class: "btn btn-danger mt-2" %>
-      <%# else %>
-        <%#= link_to 'Accept', status_change_path({ event: @event, status: 1 }), method: "post", class: "btn btn-success mt-2" %>
-      <%# end %>
-    <%# </div> %>
-  <%# end %>
 
 
  <% if @event.user != current_user %>

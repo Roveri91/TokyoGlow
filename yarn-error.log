@@ -1,8 +1,8 @@
 Arguments: 
-  /Users/tennyma/.nvm/versions/node/v16.15.1/bin/node /Users/tennyma/.nvm/versions/node/v16.15.1/bin/yarn install
+  /Users/tennyma/.nvm/versions/node/v16.15.1/bin/node /Users/tennyma/.nvm/versions/node/v16.15.1/bin/yarn build --watch
 
 PATH: 
-  ./bin:./node_modules/.bin:/Users/tennyma/.nvm/versions/node/v16.15.1/bin:/Users/tennyma/.rbenv/shims:/Users/tennyma/.rbenv/bin:/Users/tennyma/.pyenv/bin:/usr/local/bin:/System/Cryptexes/App/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin:/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/local/bin:/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/bin:/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/appleinternal/bin:/usr/local/sbin
+  ./bin:./node_modules/.bin:/Users/tennyma/.nvm/versions/node/v16.15.1/bin:/Users/tennyma/.rbenv/shims:/Users/tennyma/.rbenv/bin:/Users/tennyma/.pyenv/bin:/usr/local/bin:/System/Cryptexes/App/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin:/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/local/bin:/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/bin:/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/appleinternal/bin:./bin:./node_modules/.bin:/Users/tennyma/.nvm/versions/node/v16.15.1/bin:/Users/tennyma/.rbenv/shims:/Users/tennyma/.rbenv/bin:/Users/tennyma/.pyenv/bin:/usr/local/sbin:/usr/local/sbin
 
 Yarn version: 
   1.22.19
@@ -25,9 +25,6 @@ npm manifest:
   "@hotwired/stimulus": "^3.2.2",
       "@hotwired/stimulus-webpack-helpers": "^1.0.1",
       "@hotwired/turbo-rails": "^7.3.0",
-  
-      \\ here
-  
   
       "@rails/actioncable": "^7.0.7-2",
       "star-rating.js": "^4.3.0",
