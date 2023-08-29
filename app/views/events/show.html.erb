@@ -24,7 +24,7 @@
 
   <%# if @event.user != current_user %>
     <%# <div class="d-flex flex-column align-items-center mt-3"> %>
-      <%# <h3>Status: <%= @is_attending ? 'Attending' : 'Not attending'</h3>  %>
+      <%# <h3>Status: <%= @is_attending ? 'Attending' : 'Not attending' %></h3>
       <%# <% if @is_attending %>
         <%#= link_to 'Decline', status_change_path({ event: @event, status: 2 }), method: "post", class: "btn btn-danger mt-2" %>
       <%# else %>
@@ -39,6 +39,9 @@
       <h3>Status: <%= @is_attending ? 'Attending' : 'Not attending' %></h3>
       <% if @is_attending %>
         <%= link_to 'Decline', status_change_path({ event: @event, status: 2 }), method: "post", class: "btn btn-danger mt-2" %>
+        <h3>Status: Attending' : 'Not attending' %></h3>
+      <% elsif %>
+        <%= link_to 'Accept', status_change_path({ event: @event, status: 0 }), method: "post", class: "btn btn-success mt-2" %>
       <% else %>
         <%= link_to 'Accept', status_change_path({ event: @event, status: 1 }), method: "post", class: "btn btn-success mt-2" %>
       <% end %>

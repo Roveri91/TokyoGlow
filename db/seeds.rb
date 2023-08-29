@@ -21,6 +21,12 @@ puts "Destroyed all the appointments"
 Review.delete_all
 puts "Destroyed all the reviews"
 
+Attendant.delete_all
+puts "Destroyed all the attendants"
+
+Message.delete_all
+puts "Destroyed all the messages"
+
 Event.delete_all
 puts "Destroyed all the events"
 
@@ -166,12 +172,12 @@ hospitals = Hospital.all
 # ------REVIEWS------
 
 7.times do
-  #  --- should avoid the same user write a review on the same hospital 
+  #  --- should avoid the same user write a review on the same hospital
   hospital = hospitals.sample
-  user = users.sample 
+  user = users.sample
   hospital_reviews = hospital.reviews.all
-    
-  while hospital_reviews.any? { |review| review.user === user } do 
+
+  while hospital_reviews.any? { |review| review.user === user } do
     user = users.sample
   end
   # ----
@@ -180,12 +186,12 @@ hospitals = Hospital.all
 end
 
 4.times do
-  #  --- should avoid the same user write a review on the same hospital 
+  #  --- should avoid the same user write a review on the same hospital
   hospital = hospitals.sample
-  user = users.sample 
+  user = users.sample
   hospital_reviews = hospital.reviews.all
-    
-  while hospital_reviews.any? { |review| review.user === user } do 
+
+  while hospital_reviews.any? { |review| review.user === user } do
     user = users.sample
   end
   # ----
@@ -194,12 +200,12 @@ end
 end
 
 7.times do
-  #  --- should avoid the same user write a review on the same hospital 
+  #  --- should avoid the same user write a review on the same hospital
   hospital = hospitals.sample
-  user = users.sample 
+  user = users.sample
   hospital_reviews = hospital.reviews.all
-    
-  while hospital_reviews.any? { |review| review.user === user } do 
+
+  while hospital_reviews.any? { |review| review.user === user } do
     user = users.sample
   end
   # ----
@@ -208,12 +214,12 @@ end
 end
 
 8.times do
-  #  --- should avoid the same user write a review on the same hospital 
+  #  --- should avoid the same user write a review on the same hospital
   hospital = hospitals.sample
-  user = users.sample 
+  user = users.sample
   hospital_reviews = hospital.reviews.all
-    
-  while hospital_reviews.any? { |review| review.user === user } do 
+
+  while hospital_reviews.any? { |review| review.user === user } do
     user = users.sample
   end
   # ----
@@ -222,12 +228,12 @@ end
 end
 
 5.times do
-  #  --- should avoid the same user write a review on the same hospital 
+  #  --- should avoid the same user write a review on the same hospital
   hospital = hospitals.sample
-  user = users.sample 
+  user = users.sample
   hospital_reviews = hospital.reviews.all
-    
-  while hospital_reviews.any? { |review| review.user === user } do 
+
+  while hospital_reviews.any? { |review| review.user === user } do
     user = users.sample
   end
   # ----
@@ -236,12 +242,12 @@ end
 end
 
 5.times do
-  #  --- should avoid the same user write a review on the same hospital 
+  #  --- should avoid the same user write a review on the same hospital
   hospital = hospitals.sample
-  user = users.sample 
+  user = users.sample
   hospital_reviews = hospital.reviews.all
-    
-  while hospital_reviews.any? { |review| review.user === user } do 
+
+  while hospital_reviews.any? { |review| review.user === user } do
     user = users.sample
   end
   # ----
@@ -252,7 +258,7 @@ end
 # ------ CALCULATING AVERAGE RATING ------
 
 hospitals.each do |hospital|
-  puts "calculating average rating for #{hospital.name}" 
+  puts "calculating average rating for #{hospital.name}"
   if hospital.reviews.count > 0
     total = hospital.reviews.sum {|r| r.rating }
     hospital.average_rating = (total / hospital.reviews.count).round(1)
