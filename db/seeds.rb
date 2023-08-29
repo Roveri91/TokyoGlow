@@ -21,15 +21,21 @@ puts "Destroyed all the appointments"
 Review.delete_all
 puts "Destroyed all the reviews"
 
+Attendant.delete_all
+puts "Destroyed all the attendants"
+
+Message.delete_all
+puts "Destroyed all the messages"
+
 Event.delete_all
 puts "Destroyed all the events"
 
 Article.delete_all
 puts "Destroyed all the articles"
 
-puts "Destroying all the users"
 User.delete_all
 puts "Destroyed all the users"
+
 
 users = []
 puts "Creating new users"
@@ -294,10 +300,10 @@ tenny = User.find_by(username: 'Tenny')
 
 yoga = Event.new(
   title: 'Come enjoy yoga together!',
-  content: 'Yoga instructor of the day: Millie',
-  date: Date.today,
-  location: 'Yoyogi Park',
-  time: Time.now,
+  content: 'Learn breathing techniques, practise birthing poses and connect with your changing body. You’ll meet other mums and get plenty of practical tips – and you’ll feel more positive and relaxed about birth, too. ',
+  date: Date.today + (rand(1..10)),
+  location: 'Kinuta Park',
+  time: rand(Time.parse('9 am')..Time.parse('9 pm')),
   user: giulia
 )
 yoga.save!
@@ -306,10 +312,10 @@ puts 'Created Yoga Event'
 
 book = Event.new(
   title: "Free children's books!",
-  content: 'Grab a copy or two today',
-  date: Date.today,
+  content: ' The event to help immigrant and non-Japanese speaking families get access to books and educational activities while having fun in their neighborhoods.',
+  date: Date.today + (rand(1..10)),
   location: '123 Park St.',
-  time: Time.now,
+  time: rand(Time.parse('9 am')..Time.parse('9 pm')),
   user: jonny
 )
 book.save!
@@ -318,10 +324,10 @@ puts 'Created Book event'
 
 diapers = Event.new(
   title: 'Diapers Giveaway!',
-  content: 'All sizes available!',
-  date: Date.today,
+  content: 'FREE Diaper Giveaway: diapers for infants and toddlers. Connect with your neighbors and build a stronger sense of togetherness',
+  date: Date.today + (rand(1..10)),
   location: 'Yoyogi Park',
-  time: Time.now,
+  time: rand(Time.parse('9 am')..Time.parse('9 pm')),
   user: simone
 )
 diapers.save!
@@ -330,10 +336,10 @@ puts 'Created Diapers Event'
 
 ice_cream = Event.new(
   title: 'Free ice cream!',
-  content: 'Try 3 new flavors today: mango, cookies & cream, pistachio',
-  date: Date.today,
+  content: 'Celebrate the end of summer with an old-fashioned ice cream social in the beautiful Yoyogi Park of Tokyo.  Enjoy ice cream treats, popcorn, a face painter, a balloon twister, games for the kids, and activities provided by FLOTO!',
+  date: Date.today + (rand(1..10)),
   location: 'Yoyogi Park',
-  time: Time.now,
+  time: rand(Time.parse('9 am')..Time.parse('9 pm')),
   user: tenny
 )
 ice_cream.save!
