@@ -1,8 +1,8 @@
 
   <div class="container">
     <%= simple_form_for([user, conversation]) do |f| %>
-    <div class= "d-flex justify-content-center p-3">
-      <%= f.submit "Start a conversation", class: "btn-submit" %>
+      <button type="submit" class="send-icon"><i class="fa-solid fa-comments fa-lg" style="color: #004444;"></i></button>
+      <%#= f.submit "Start a conversation", class: "btn-submit" %>
+      <%# <i class="fa-solid fa-comments fa-xs" style="color: #004444;"></i> %>
     <% end %>
-    </div>
   </div>
