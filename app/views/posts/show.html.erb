@@ -1,9 +1,9 @@
 <div class="container ">
-  <div class= "">  
+  <div class= "">
     <div class="post-reply-container">
-    
+
       <%# POST %>
-      
+
       <div class="card p-3 ">
         <div class="d-flex gap-3 position-relative">
           <% if @post.user.avatar_cl.attached? %>
@@ -33,7 +33,7 @@
       <%# REPLIES %>
 
        <%# .order(created_at: :desc) %>
-  
+
       <div class="mb-5">
         <% @post.replies.each do |reply| %>
           <div class="card rounded-3 p-3 review-card ">
@@ -59,7 +59,7 @@
             <div class="reply">
               <p><%= reply.content %></p>
             </div>
-          </div>  
+          </div>
         <% end %>
       </div>
     </div>
@@ -73,9 +73,9 @@
          placeholder: "Reply to #{@post.user == current_user ? "your" : "#{@post.user.username}'s"} post",
           wrapper_html: {class: "flex-grow-1"}
        %>
-        <button type="submit" class="send-icon"><i class="fa-solid fa-paper-plane fa-2xl" style="color: #004444;"></i></button>            
+        <button type="submit" class="send-icon"><i class="fa-solid fa-paper-plane fa-2xl" style="color: #004444;"></i></button>
       <% end %>
     </div>
-    
+
   </div>
 </div>
