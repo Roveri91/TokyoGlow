@@ -8,13 +8,25 @@
       <hr/>
       <h5><%= @event.content %></h5>
       <p><i class="fa-solid fa-location-dot"></i> <%= @event.location %></p>
-<<<<<<< HEAD
-      <p><i class="fa-regular fa-clock"></i> <%= @event.date.strftime('%B %d') %> at <%= @event.time.strftime('%H:%M') %></p>
-      <p>Hosted by <%= @event.user.username %></p>
-=======
       <p><i class="fa-regular fa-clock"></i> <%= @event.date.strftime('%B %d') %> at <%= @event.time.strftime('%H:%M') %> JST</p>
-      <p>Hosted by <%= @event.user == current_user ? "You" : @event.user.username %></p>
->>>>>>> master
+      <%# old %>
+      <%# <p>Hosted by  %>
+        <%#= @event.user == current_user ? "You" : @event.user.username %>
+      <%# </p> %>
+      
+      <div class= "d-flex py-2 gap-2 ">
+        <p class="">Hosted by: </p>  
+        <% if @event.user.avatar_cl.attached? %>
+          <%= cl_image_tag(@event.user.avatar_cl.key, width: "20", height: "20") %>
+        <% elsif @event.user.avatar %>
+          <%= image_tag(@event.user.avatar, width: "20", height: "20") %>
+        <% else %>
+          <%= image_tag("userF1.png", width: "20", height: "20") %>
+        <% end %>
+        <div class="d-flex flex-column justify-content-center ">
+          <p><strong><%= @event.user == current_user ? "You" : @event.user.username %></strong></p>
+        </div>
+      </div>
       <p>
         <i class="fa-solid fa-circle-check"></i>
         <% attending = @event.attendants %>

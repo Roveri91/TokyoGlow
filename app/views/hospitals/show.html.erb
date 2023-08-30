@@ -106,7 +106,10 @@
       <h1>Reviews</h1>
       <% @hospital.reviews.each do |review| %>
         <hr/>
-        <div class="container">
+        <div class="container position-relative">
+          <%# testing--- %>
+          <%# x = Conversation.where(user_to: review.user, user_from: current_user).or(Conversation.where(user_to: current_user, user_from: review.user)).id %>
+          <%#= link_to conversation_path(x) do%>
           <div class= "d-flex py-2 gap-3 ">
             <% if review.user.avatar_cl.attached? %>
               <%= cl_image_tag(review.user.avatar_cl.key, width: "40", height: "40") %>
@@ -118,8 +121,14 @@
             <div class="d-flex flex-column justify-content-center">
               <h3><strong><%= review.user == current_user ? "You" : review.user.username %></strong></h3>
               <p><i><%= review.created_at.strftime("%a %b %e at %l:%M %p") %></i></p>
+              <% unless review.user == current_user %>
+                <%=  render "conversations/new", user: review.user, conversation: @conversation%>
+              <% end %>
             </div>
           </div>
+          <%# --- %>
+          <%# end %>
+
           <h3><%= review.title %></h3>
           <%# star rating %>
           <div class="d-flex gap-2">

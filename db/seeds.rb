@@ -337,10 +337,6 @@ support = Event.new(
   title: 'Prenancy Support Group',
   content: 'Support groups can help perinatal women feel less alone',
   date: Date.new(2023, 9, 3),
-# ice_cream = Event.new(
-#   title: 'Free ice cream!',
-#   content: 'Celebrate the end of summer with an old-fashioned ice cream social in the beautiful Yoyogi Park of Tokyo.  Enjoy ice cream treats, popcorn, a face painter, a balloon twister, games for the kids, and activities provided by FLOTO!',
-#   date: Date.today + (rand(1..10)),
   location: 'Yoyogi Park',
   time: rand(Time.parse('9 am')..Time.parse('9 pm')),
   user: tenny
@@ -355,7 +351,7 @@ nutrition = Event.new(
   content: 'Make healthy and nutritious meals for you and your family',
   date: Date.new(2023, 9, 7),
   location: '1010 Carrot St.',
-  time: Time.now,
+  time: rand(Time.parse('9 am')..Time.parse('9 pm')),
   user: lola
 )
 nutrition.save!
@@ -368,7 +364,7 @@ parenting = Event.new(
   content: 'Completely free',
   date: Date.new(2023, 9, 10),
   location: '456 Tokyo Building A',
-  time: Time.now,
+  time: rand(Time.parse('9 am')..Time.parse('9 pm')),
   user: clementine
 )
 parenting.save!
@@ -381,7 +377,7 @@ puts "created 6 events"
 
 # ------ARTICLES------
 
-puts "Creating 4 Articles"
+puts "Creating 8 Articles"
 
 article = Article.create!( title: "How to stay healthy during pregnancy", content: "A healthy pregnancy is one of the best ways to promote a healthy birth. Early and regular prenatal care can help prevent complications and educate women about things they can do to have a healthy pregnancy. Here are a few areas to consider:", image: "https://magazine.medlineplus.gov/images/uploads/main_images/healthy-pregnancy.jpg", link:"https://magazine.medlineplus.gov/article/how-to-stay-healthy-during-pregnancy/")
 
