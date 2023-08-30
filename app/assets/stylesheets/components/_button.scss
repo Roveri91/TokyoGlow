@@ -97,6 +97,20 @@ button:hover > a {
   transition: background-color 0.3s ease;
 }
 
+.btn-main-2 {
+  color: $navbar-pink;
+  text-shadow: 1px 1px 2px $silver-background;
+  padding: 4px 12px;
+  border-radius: 10px;
+  border: solid 3px $icon-blue-border;
+  background-color: $lettering-blue;
+  text-decoration: none;
+  font-family: 'Philosopher', sans-serif;
+  font-weight: 400;
+  font-size: small;
+  transition: background-color 0.3s ease;
+}
+
 .btn-main:active {
   background: $navbar-pink;
   color: $lettering-blue;
