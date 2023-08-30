@@ -8,13 +8,8 @@
       <hr/>
       <h5><%= @event.content %></h5>
       <p><i class="fa-solid fa-location-dot"></i> <%= @event.location %></p>
-<<<<<<< HEAD
-      <p><i class="fa-regular fa-clock"></i> <%= @event.date.strftime('%B %d') %> at <%= @event.time.strftime('%H:%M') %></p>
-      <p>Hosted by <%= @event.user.username %></p>
-=======
       <p><i class="fa-regular fa-clock"></i> <%= @event.date.strftime('%B %d') %> at <%= @event.time.strftime('%H:%M') %> JST</p>
       <p>Hosted by <%= @event.user == current_user ? "You" : @event.user.username %></p>
->>>>>>> master
       <p>
         <i class="fa-solid fa-circle-check"></i>
         <% attending = @event.attendants %>

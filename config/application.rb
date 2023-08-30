@@ -8,6 +8,10 @@ Bundler.require(*Rails.groups)
 
 module TokyoGlow2
   class Application < Rails::Application
+    
+    config.time_zone = 'Tokyo'
+    config.active_record.default_timezone = :local
+    
     config.generators do |generate|
       generate.assets false
       generate.helper false
