@@ -13,9 +13,9 @@
       <%# <p>Hosted by  %>
         <%#= @event.user == current_user ? "You" : @event.user.username %>
       <%# </p> %>
-      
+
       <div class= "d-flex py-2 gap-2 ">
-        <p class="">Hosted by: </p>  
+        <p class="">Hosted by: </p>
         <% if @event.user.avatar_cl.attached? %>
           <%= cl_image_tag(@event.user.avatar_cl.key, width: "20", height: "20") %>
         <% elsif @event.user.avatar %>
@@ -42,12 +42,12 @@
       <%# <h3>Status: <%= @is_attending ? 'Attending' : 'Not attending' %>
       <% if @is_attending %>
         <h3>Status: Attending </h3>
-        <%= link_to 'Decline', status_change_path({ event: @event, status: 2 }), method: "post", class: "btn btn-danger mt-2" %>
+        <%= link_to 'Cancel Attendance', status_change_path({ event: @event, status: 2 }), method: "post", class: "btn btn-danger mt-2" %>
       <% elsif @event.user.status = 0 %>
-        <%= link_to 'Accept', status_change_path({ event: @event, status: 1 }), method: "post", class: "btn btn-success mt-2" %>
+        <%= link_to 'Join', status_change_path({ event: @event, status: 1 }), method: "post", class: "btn btn-success mt-2" %>
       <% else %>
         <h3>Status: Not attending </h3>
-        <%= link_to 'Accept', status_change_path({ event: @event, status: 1 }), method: "post", class: "btn btn-success mt-2" %>
+        <%= link_to 'Join', status_change_path({ event: @event, status: 1 }), method: "post", class: "btn btn-success mt-2" %>
       <% end %>
     </div>
   <% end %>
