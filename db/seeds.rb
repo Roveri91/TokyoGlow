@@ -164,7 +164,7 @@ hospital = Hospital.create!(name: "Nagai Mother's Hospital", address:locations.s
 puts "created #{hospital.name}"
 
 hospital = Hospital.create!(name: "Kanto Rozai Hospital", address:locations.sample, price_range: price_range.sample, services: services.sample(4).join(", "), webpage: "https://tokyoh.johas.go.jp/en/",
-  description: "We encourage kangaroo care after birth and breastfeeding. English support may not be available – please enquire about availability in advance. We accept all major credit cards.", average_rating: 2.5, phone_number: "03-3456-9723", default_image: "kanto_hospital.jpg")
+  description: "We encourage kangaroo care after birth and breastfeeding. English support may not be available – please enquire about availability in advance. We accept all major credit cards.", average_rating: 0, phone_number: "03-3456-9723", default_image: "kanto_hospital.jpg")
 puts "created #{hospital.name}"
 
 hospitals = Hospital.all
@@ -172,12 +172,12 @@ hospitals = Hospital.all
 # ------REVIEWS------
 
 7.times do
-  #  --- should avoid the same user write a review on the same hospital 
+  #  --- should avoid the same user write a review on the same hospital
   hospital = hospitals.sample
-  user = users.sample 
+  user = users.sample
   hospital_reviews = hospital.reviews.all
-    
-  while hospital_reviews.any? { |review| review.user === user } do 
+
+  while hospital_reviews.any? { |review| review.user === user } do
     user = users.sample
   end
   # ----
@@ -186,12 +186,12 @@ hospitals = Hospital.all
 end
 
 4.times do
-  #  --- should avoid the same user write a review on the same hospital 
+  #  --- should avoid the same user write a review on the same hospital
   hospital = hospitals.sample
-  user = users.sample 
+  user = users.sample
   hospital_reviews = hospital.reviews.all
-    
-  while hospital_reviews.any? { |review| review.user === user } do 
+
+  while hospital_reviews.any? { |review| review.user === user } do
     user = users.sample
   end
   # ----
@@ -200,12 +200,12 @@ end
 end
 
 7.times do
-  #  --- should avoid the same user write a review on the same hospital 
+  #  --- should avoid the same user write a review on the same hospital
   hospital = hospitals.sample
-  user = users.sample 
+  user = users.sample
   hospital_reviews = hospital.reviews.all
-    
-  while hospital_reviews.any? { |review| review.user === user } do 
+
+  while hospital_reviews.any? { |review| review.user === user } do
     user = users.sample
   end
   # ----
@@ -214,12 +214,12 @@ end
 end
 
 8.times do
-  #  --- should avoid the same user write a review on the same hospital 
+  #  --- should avoid the same user write a review on the same hospital
   hospital = hospitals.sample
-  user = users.sample 
+  user = users.sample
   hospital_reviews = hospital.reviews.all
-    
-  while hospital_reviews.any? { |review| review.user === user } do 
+
+  while hospital_reviews.any? { |review| review.user === user } do
     user = users.sample
   end
   # ----
@@ -228,12 +228,12 @@ end
 end
 
 5.times do
-  #  --- should avoid the same user write a review on the same hospital 
+  #  --- should avoid the same user write a review on the same hospital
   hospital = hospitals.sample
-  user = users.sample 
+  user = users.sample
   hospital_reviews = hospital.reviews.all
-    
-  while hospital_reviews.any? { |review| review.user === user } do 
+
+  while hospital_reviews.any? { |review| review.user === user } do
     user = users.sample
   end
   # ----
@@ -242,12 +242,12 @@ end
 end
 
 5.times do
-  #  --- should avoid the same user write a review on the same hospital 
+  #  --- should avoid the same user write a review on the same hospital
   hospital = hospitals.sample
-  user = users.sample 
+  user = users.sample
   hospital_reviews = hospital.reviews.all
-    
-  while hospital_reviews.any? { |review| review.user === user } do 
+
+  while hospital_reviews.any? { |review| review.user === user } do
     user = users.sample
   end
   # ----
@@ -258,7 +258,7 @@ end
 # ------ CALCULATING AVERAGE RATING ------
 
 hospitals.each do |hospital|
-  puts "calculating average rating for #{hospital.name}" 
+  puts "calculating average rating for #{hospital.name}"
   if hospital.reviews.count > 0
     total = hospital.reviews.sum {|r| r.rating }
     hospital.average_rating = (total / hospital.reviews.count).round(1)
@@ -279,24 +279,23 @@ end
 #   t.index ["user_id"], name: "index_reviews_on_user_id"
 # end
 
-# ice_cream_image = URI.open("https://res.cloudinary.com/dsfih62k7/image/upload/v1692098565/ice_cream_amdk0l.webp")
-
-# ice_cream = Event.new(status: 0, title: 'Free ice cream!', content: "grab a book", date: 'Tue, 15 Sept 2023', location: 'Yoyogi Park', time:'Sat, 01 Jan 2000 11:30:00.000000000 UTC +00:00', user: users.sample)
-
-# ice_cream.photo.attach(io: ice_cream_image, filename: "ice_cream.webp", content_type: "image/webp")
-# ice_cream.save!
-
 # ------EVENTS------
 
 yoga_image = Rails.root.join('app', 'assets', 'images', 'yoga.jpg')
 book_image = Rails.root.join('app', 'assets', 'images', 'book.jpg')
 diapers_image = Rails.root.join('app', 'assets', 'images', 'diapers.jpg')
-ice_cream_image = Rails.root.join('app', 'assets', 'images', 'ice_cream.jpg')
+support_image = Rails.root.join('app', 'assets', 'images', 'support.jpg')
+nutrition_image = Rails.root.join('app', 'assets', 'images', 'nutrition.jpg')
+parenting_image = Rails.root.join('app', 'assets', 'images', 'parenting.jpg')
+
 
 giulia = User.find_by(username: 'Giulia')
 jonny = User.find_by(username: 'Jonny')
 simone = User.find_by(username: 'Simone')
 tenny = User.find_by(username: 'Tenny')
+mario = User.find_by(username: 'Mario')
+clementine = User.find_by(username: 'Clementine')
+lola = User.find_by(username: 'Lola')
 
 yoga = Event.new(
   title: 'Come enjoy yoga together!',
@@ -334,21 +333,51 @@ diapers.save!
 diapers.photo.attach(io: File.open(diapers_image), filename: 'diapers.jpg', content_type: 'image/jpg')
 puts 'Created Diapers Event'
 
-ice_cream = Event.new(
-  title: 'Free ice cream!',
-  content: 'Celebrate the end of summer with an old-fashioned ice cream social in the beautiful Yoyogi Park of Tokyo.  Enjoy ice cream treats, popcorn, a face painter, a balloon twister, games for the kids, and activities provided by FLOTO!',
-  date: Date.today + (rand(1..10)),
+support = Event.new(
+  title: 'Prenancy Support Group',
+  content: 'Support groups can help perinatal women feel less alone',
+  date: Date.new(2023, 9, 3),
+# ice_cream = Event.new(
+#   title: 'Free ice cream!',
+#   content: 'Celebrate the end of summer with an old-fashioned ice cream social in the beautiful Yoyogi Park of Tokyo.  Enjoy ice cream treats, popcorn, a face painter, a balloon twister, games for the kids, and activities provided by FLOTO!',
+#   date: Date.today + (rand(1..10)),
   location: 'Yoyogi Park',
   time: rand(Time.parse('9 am')..Time.parse('9 pm')),
   user: tenny
 )
-ice_cream.save!
-ice_cream.photo.attach(io: File.open(ice_cream_image), filename: 'ice_cream.jpg', content_type: 'image/jpg')
+support.save!
+support.photo.attach(io: File.open(support_image), filename: 'support.jpg', content_type: 'image/jpg')
 
-puts 'Created Ice Cream Event'
+puts 'Created Support Group Event'
+
+nutrition = Event.new(
+  title: 'Nutrition classes',
+  content: 'Make healthy and nutritious meals for you and your family',
+  date: Date.new(2023, 9, 7),
+  location: '1010 Carrot St.',
+  time: Time.now,
+  user: lola
+)
+nutrition.save!
+nutrition.photo.attach(io: File.open(nutrition_image), filename: 'nutrition.jpg', content_type: 'image/jpg')
+
+puts 'Created Nutrition Event'
+
+parenting = Event.new(
+  title: 'Pregnancy classes',
+  content: 'Completely free',
+  date: Date.new(2023, 9, 10),
+  location: '456 Tokyo Building A',
+  time: Time.now,
+  user: clementine
+)
+parenting.save!
+parenting.photo.attach(io: File.open(parenting_image), filename: 'parenting.jpg', content_type: 'image/jpg')
+
+puts 'Created Pregnancy classes '
 
 puts 'Done! Thank you for your patience.'
-puts "created 4 events"
+puts "created 6 events"
 
 # ------ARTICLES------
 
@@ -369,5 +398,24 @@ puts "create #{article.title}"
 article = Article.create!( title: "Pregnant women living in walkable communities more likely to experience favorable birth outcomes", content: "Pregnant women that live in walkable communities-;with more sidewalks, parks and walking paths-;not only engage in more physical activity but are also more likely to experience favorable birth outcomes, according to research from the University of New Hampshire.", image: "https://www.annandaleobgyn.com/wp-content/uploads/2019/11/shutterstock_290863655-768x512.jpg", link:"https://www.news-medical.net/news/20230817/Pregnant-women-living-in-walkable-communities-more-likely-to-experience-favorable-birth-outcomes.aspx")
 
 puts "create #{article.title}"
+
+article = Article.create!( title: "15 Natural Morning Sickness Remedies for the First Trimester and Beyond", content: "Nobody knows what causes morning sickness (or in some cases, all-frickin’-day sickness) and sadly there’s no one size fits all morning sickness remedy that works for everybody. Typically, this is when my grandmother would have chimed in to say “If men had this you know damn well they’d have it figured out by now.” ", image: "https://pregnantchicken.com/content/images/size/w2000/v2/2020/09/pregnancy-morningsickness.jpg", link:"https://pregnantchicken.com/15-morning-sickness-remedies/")
+
+puts "create #{article.title}"
+
+article = Article.create!( title: "17 Super Cute Fall Pregnancy Shirts You’ll Love | Mother Rising", content: "Sporting cute fall pregnancy shirts is a fun way to keep the challenges of pregnancy in check. Not everything needs to be so serious! Whether you’re looking for a halloween maternity shirt, fall pregnancy shirt, or a Thanksgiving maternity shirt, there’s one for you – or even your partner – shipped right to your front door.", image: "https://www.motherrisingbirth.com/wp-content/uploads/2021/08/fall-pregnancy-shirt-featured-2.jpg", link:"https://www.motherrisingbirth.com/2021/08/fall-pregnancy-shirts.html")
+
+puts "create #{article.title}"
+
+article = Article.create!( title: "Compression Socks During Pregnancy: Feel the Awesome!", content: "regnancy comes with all kinds of little treats: swelling and varicose veins are just a couple of them.
+Here’s the deal your heart has with your legs: your heart will pump blood down and your leg muscles and veins will pump it back up.", image: "https://pregnantchicken.com/content/images/size/w2000/v2/2016/02/compression-socks-during-pregnancy.jpg", link:"https://pregnantchicken.com/compression-socks-during-pregnancy-feel-the-awesome/")
+
+puts "create #{article.title}"
+
+article = Article.create!( title: "3 Relaxation Mistakes New Parents Quickly Make in Labor", content: "Did you know that there are three go-to spots to relax on the body that doulas and other birth professionals target for pain relief during childbirth? Why is relaxation during birth important? Does it really matter that much? And why is there a gif at the bottom of this page of Oprah?
+All these mysteries, and much more, will be revealed in due time. Let’s dig in.", image: "https://www.motherrisingbirth.com/wp-content/uploads/2020/09/3-spots-on-the-body-to-relax-during-birth-featured.jpg", link:"https://www.motherrisingbirth.com/2020/09/spots-to-relax.html")
+
+puts "create #{article.title}"
+
 
 puts "Done! Thank you for your patience."
