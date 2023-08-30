@@ -117,7 +117,6 @@
             <% end %>
             <div class="d-flex flex-column justify-content-center">
               <h3><strong><%= review.user == current_user ? "You" : review.user.username %></strong></h3>
-              <%=  render "conversations/new", user: review.user, conversation: @conversation %>
               <p><i><%= review.created_at.strftime("%a %b %e at %l:%M %p") %></i></p>
             </div>
           </div>
@@ -142,9 +141,11 @@
           <div>
             <p><%= review.comment %></p>
           </div>
+          <% unless review.user == current_user %>
+            <%=  render "conversations/new", user: review.user, conversation: @conversation %>
+          <% end %>
         </div>
       <% end %>
     </div>
   <% end %>
-  <%# ------ %>
 </div>

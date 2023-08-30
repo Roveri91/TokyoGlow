@@ -16,7 +16,7 @@ class ConversationsController < ApplicationController
   end
 
   def create
-    receiver =  User.find(params[:user_id])
+    receiver = User.find(params[:user_id])
     @conversation = Conversation.where(user_to: receiver, user_from: current_user).or(Conversation.where(user_to: current_user, user_from: receiver)).first
     @conversation = Conversation.create(user_to: receiver, user_from: current_user) if @conversation.nil?
     authorize @conversation
