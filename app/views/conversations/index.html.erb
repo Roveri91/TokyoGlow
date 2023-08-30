@@ -1,5 +1,4 @@
-<div class="container my-3">
-  <h1>Private conversations</h1>
+<div class="container py-5 mb-5">
 
   <ul class="nav nav-pills nav-fill">
     <li class="nav-item">
@@ -10,22 +9,29 @@
     </li>
   </ul>
 
-  <div class="">
+  <div class="py-3 mb-5">
     <% @conversations.each do |conversation| %>
         <small>
-          <strong>Your conversation with
+          <% if conversation.user_to.avatar_cl.attached? %>
+            <%= cl_image_tag(post.user_to.avatar_cl.key, width: "50", height: "50", radius: "max", background: "white") %>
+          <% elsif conversation.user_to.avatar %>
+            <%= image_tag(conversation.user_to.avatar, width: "50", height: "50") %>
+          <% else %>
+            <%= image_tag("userF1.png", width: "50", height: "50") %>
+          <% end %>
+          <strong>
           <% if current_user == conversation.user_to %>
           <%= conversation.user_from.username %>
           <% else %>
           <%= conversation.user_to.username %>
           <% end %>
           </strong>
-          <i><%= conversation.created_at.strftime("%a %b %e at %l:%M %p") %></i>
+          <i>Last message sent at: <%= conversation.messages.last.created_at.strftime("%a %b %e at %l:%M %p") %></i>
         </small>
         <p><%= conversation.title %></p>
 
         <div class = "d-flex justify-content-center">
-        <%= link_to "See messages", conversation_path(conversation), class: "btn btn-primary" %>
+        <%= link_to "See conversation", conversation_path(conversation), class: "btn btn-primary" %>
         </div>
       <hr/>
     <% end %>
