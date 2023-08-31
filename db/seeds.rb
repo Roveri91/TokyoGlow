@@ -284,6 +284,8 @@ end
 yoga_image = Rails.root.join('app', 'assets', 'images', 'yoga.jpg')
 book_image = Rails.root.join('app', 'assets', 'images', 'book.jpg')
 diapers_image = Rails.root.join('app', 'assets', 'images', 'diapers.jpg')
+ice_cream_image = Rails.root.join('app', 'assets', 'images', 'ice_cream.jpg')
+
 support_image = Rails.root.join('app', 'assets', 'images', 'support.jpg')
 nutrition_image = Rails.root.join('app', 'assets', 'images', 'nutrition.jpg')
 parenting_image = Rails.root.join('app', 'assets', 'images', 'parenting.jpg')
@@ -297,12 +299,20 @@ mario = User.find_by(username: 'Mario')
 clementine = User.find_by(username: 'Clementine')
 lola = User.find_by(username: 'Lola')
 
+def generate_random_time
+  hours = (9..21).to_a
+  random_hour = hours.sample
+  random_minute = (0..3).to_a.sample * 15
+
+  random_time = Time.new(2000, 1, 1, random_hour, random_minute)
+end
+
 yoga = Event.new(
   title: 'Come enjoy yoga together!',
   content: 'Learn breathing techniques, practise birthing poses and connect with your changing body. You’ll meet other mums and get plenty of practical tips – and you’ll feel more positive and relaxed about birth, too. ',
   date: Date.today + (rand(1..10)),
   location: 'Kinuta Park',
-  time: rand(Time.parse('9 am')..Time.parse('9 pm')),
+  time: generate_random_time,
   user: giulia
 )
 yoga.save!
@@ -314,7 +324,7 @@ book = Event.new(
   content: ' The event to help immigrant and non-Japanese speaking families get access to books and educational activities while having fun in their neighborhoods.',
   date: Date.today + (rand(1..10)),
   location: '123 Park St.',
-  time: rand(Time.parse('9 am')..Time.parse('9 pm')),
+  time: generate_random_time,
   user: jonny
 )
 book.save!
@@ -326,19 +336,32 @@ diapers = Event.new(
   content: 'FREE Diaper Giveaway: diapers for infants and toddlers. Connect with your neighbors and build a stronger sense of togetherness',
   date: Date.today + (rand(1..10)),
   location: 'Yoyogi Park',
-  time: rand(Time.parse('9 am')..Time.parse('9 pm')),
+  time: generate_random_time,
   user: simone
 )
 diapers.save!
 diapers.photo.attach(io: File.open(diapers_image), filename: 'diapers.jpg', content_type: 'image/jpg')
 puts 'Created Diapers Event'
 
+ice_cream = Event.new(
+  title: 'Free ice cream!',
+  content: 'Celebrate the end of summer with an old-fashioned ice cream social in the beautiful Yoyogi Park of Tokyo.  Enjoy ice cream treats, popcorn, a face painter, a balloon twister, games for the kids, and activities provided by FLOTO!',
+  date: generate_random_time,
+  location: 'Yoyogi Park',
+  time: generate_random_time,
+  user: jonny
+)
+ice_cream.save!
+ice_cream.photo.attach(io: File.open(ice_cream_image), filename: 'ice_cream.jpg', content_type: 'image/jpg')
+
+puts 'Created Ice Cream Event'
+
 support = Event.new(
-  title: 'Prenancy Support Group',
+  title: 'Pregnancy Support Group',
   content: 'Support groups can help perinatal women feel less alone',
   date: Date.new(2023, 9, 3),
   location: 'Yoyogi Park',
-  time: rand(Time.parse('9 am')..Time.parse('9 pm')),
+  time: generate_random_time,
   user: tenny
 )
 support.save!
@@ -351,7 +374,7 @@ nutrition = Event.new(
   content: 'Make healthy and nutritious meals for you and your family',
   date: Date.new(2023, 9, 7),
   location: '1010 Carrot St.',
-  time: rand(Time.parse('9 am')..Time.parse('9 pm')),
+  time: generate_random_time,
   user: lola
 )
 nutrition.save!
@@ -364,7 +387,7 @@ parenting = Event.new(
   content: 'Completely free',
   date: Date.new(2023, 9, 10),
   location: '456 Tokyo Building A',
-  time: rand(Time.parse('9 am')..Time.parse('9 pm')),
+  time: generate_random_time,
   user: clementine
 )
 parenting.save!
@@ -373,7 +396,7 @@ parenting.photo.attach(io: File.open(parenting_image), filename: 'parenting.jpg'
 puts 'Created Pregnancy classes '
 
 puts 'Done! Thank you for your patience.'
-puts "created 6 events"
+puts "created 7 events"
 
 # ------ARTICLES------
 

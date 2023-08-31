@@ -7,7 +7,7 @@
         <%= text_field_tag :query,
           params[:query],
           class: "form-control",
-          placeholder: "park, ice cream, yoga"
+          placeholder: "Search for parenting classes, support groups, resources"
         %>
         <%= submit_tag "Search", name: "", class: "btn btn-success" %>
       <% end %>
@@ -28,14 +28,14 @@
       <%= link_to event_path(id: event.id) do %>
         <div class="container">
           <div class="card rounded-3 p-3">
-            <%= cl_image_tag event.photo.key, :crop => :fill, :object_fit => :cover, class:"img-container rounded-4" %>
+            <%= cl_image_tag event.photo.key, :crop => :fill, :gravity => :auto, class:"img-container rounded-4" %>
             <div class="card-container p-3">
               <h3><%= event.title %></h3>
               <hr/>
               <p><i class="fa-solid fa-location-dot"></i> <%= event.location %></p>
               <p>
                 <i class="fa-solid fa-calendar-days"></i>
-                <%= event.date.strftime('%B %d') %> at <%= event.time.strftime('%H:%M') %> JST
+                <%= event.date.strftime('%B %d') %> at <%= event.time.strftime('%H:%M') %>
               </p>
               <p>Hosted by: <%= event.user == current_user ? "You" : event.user.username %></p>
               <p>

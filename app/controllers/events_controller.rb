@@ -19,6 +19,7 @@ class EventsController < ApplicationController
 
   def new
     @event = Event.new
+    @time_options = generate_time_options
     authorize @event
   end
 
@@ -78,5 +79,18 @@ class EventsController < ApplicationController
 
   def event_params
     params.require(:event).permit(:title, :content, :date, :location, :time, :photo)
+  end
+
+  def generate_time_options
+    time_options = []
+    start_time = Time.new(2000, 1, 1, 0, 0, 0)
+    end_time = Time.new(2000, 1, 1, 23, 45, 0)
+
+    while start_time <= end_time
+      time_options << [start_time.strftime('%H:%M'), start_time.strftime('%H:%M:%S')]
+      start_time += 15.minutes
+    end
+
+    time_options
   end
 end
