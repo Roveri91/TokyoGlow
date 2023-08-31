@@ -7,7 +7,7 @@
       <%= f.input :title, label: 'Title' %>
       <%= f.input :purpose, collection: ["First visit", "Check up", "Ultrasound", "Blood Test", "Others"], selected: f.object.purpose || '1' %>
       <%= f.input :notes, label: 'Notes' %>
-      <%= f.input :date, label:'Date', html5: true%>
+      <%= f.input :date, label:'Date', html5: true, input_html: {min: Date.tomorrow}%>
       <%#= f.input :time, as: :select, collection: @time_options, input_html: { prompt: "Select a time" } %>
       <%# t.time %>
       <%= f.input :time, as: :select, collection: @time_options %>

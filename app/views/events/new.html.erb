@@ -5,7 +5,7 @@
     <%= simple_form_for [@event] do |f| %>
       <%= f.input :title %>
       <%= f.input :content %>
-      <%= f.input :date, as: :date, html5: true %>
+      <%= f.input :date, as: :date, html5: true, input_html: {min: Date.tomorrow} %>
       <%= f.input :location %>
       <%= f.input :time, as: :select, collection: @time_options, input_html: { prompt: "Select a time" } %>
       <%= f.input :photo, as: :file, input_html: { multiple: false } %>

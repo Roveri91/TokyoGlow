@@ -16,6 +16,7 @@
     </div>
   <% else %>
     <div class="py-3 mb-5">
+      <hr/>
       <% @conversations.each do |conversation| %>
         <%= link_to conversation_path(conversation) do %>
           <div class= "d-flex gap-2">
