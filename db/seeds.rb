@@ -92,11 +92,15 @@ puts "created user #{user.username}"
 
 user = User.create!(email: "lola@gmail.com", password: "123456", username: "Lola", due_date: "2024-1-16", avatar: "userF6.png")
 
+puts "created user #{user.username}"
+
 user = User.create!(email: "peach@gmail.com", password: "123456", username: "Peach", due_date: "2024-1-16", avatar: "userF7.png")
 
 puts "created user #{user.username}"
 
-puts "created user #{user.username}"
+mama = User.create!(email: "mama@gmail.com", password: "123456", username: "BigMama", due_date: "2023-12-25", avatar: "bigmama-user.png")
+
+puts "created her: #{mama.username}"
 
 users = User.all
 # ------POSTS------

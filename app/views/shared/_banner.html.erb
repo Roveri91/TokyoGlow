@@ -33,7 +33,7 @@
           <% if current_user == @conversation.user_to %>
             <% if @conversation.user_from.avatar_cl.attached? %>
               <%= cl_image_tag(@conversation.user_from.avatar_cl.key, width: "40", height: "40", radius: "max", background: "white") %>
-            <% elsif @conversation.user_from.user.avatar %>
+            <% elsif @conversation.user_from.avatar %>
               <%= image_tag(@conversation.user_from.avatar, width: "40", height: "40") %>
             <% else %>
               <%= image_tag("userF1.png", width: "40", height: "40") %>
