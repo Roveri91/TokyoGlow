@@ -51,12 +51,14 @@
         <div>
           <% @event.attendants.each do |attendant| %>
             <% unless attendant.user == @event.user%>
-              <% if attendant.user.avatar_cl.attached? %>
-                <%= cl_image_tag(attendant.user.avatar_cl.key, width: "15", height: "15") %>
-              <% elsif attendant.user.avatar %>
-                <%= image_tag(attendant.user.avatar, width: "15", height: "15") %>
-              <% else %>
-                <%= image_tag("userF1.png", width: "15", height: "15") %>
+              <% if Attendant.where(user: attendant.user, event: @event, status: "attending").exists? %>
+                <% if attendant.user.avatar_cl.attached? %>
+                  <%= cl_image_tag(attendant.user.avatar_cl.key, width: "15", height: "15") %>
+                <% elsif attendant.user.avatar %>
+                  <%= image_tag(attendant.user.avatar, width: "15", height: "15") %>
+                <% else %>
+                  <%= image_tag("userF1.png", width: "15", height: "15") %>
+                <% end %>
               <% end %>
             <% end %>
           <% end %>
