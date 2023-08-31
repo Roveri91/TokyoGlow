@@ -38,12 +38,14 @@
                 <%= event.date.strftime('%B %d') %> at <%= event.time.strftime('%H:%M') %>
               </p>
               <p>Hosted by: <%= event.user == current_user ? "You" : event.user.username %></p>
-              <p>
+              <p class="going-container">
                 <i class="fa-solid fa-circle-check"></i>
-                <% attending = event.attendants %>
-                <% all = attending.count + 1 %>
-                <%= all %> going
+                <% attending_count = event.attendants.select { |response| response.attending? }.count %>
+                <%= attending_count + 1 %> going
+                <i class="fa-solid fa-ticket"></i></i> Free
+
               </p>
+
             </div>
           </div>
         </div>
