@@ -3,6 +3,7 @@ class AppointmentsController < ApplicationController
   
   def new
     @appointment = Appointment.new
+    @time_options = generate_time_options
     authorize @appointment
   end
 
@@ -15,7 +16,7 @@ class AppointmentsController < ApplicationController
     redirect_to calendar_path(:id)
   end
 
-   private
+  private
 
   def appointment_params
     params.require(:appointment).permit(:date, :time, :notes, :purpose, :title)
@@ -23,5 +24,18 @@ class AppointmentsController < ApplicationController
 
   def set_hospital
     @hospital = Hospital.find(params[:hospital_id])
+  end
+
+  def generate_time_options
+    time_options = []
+    start_time = Time.new(2000, 1, 1, 9, 0, 0).to_time
+    end_time = Time.new(2000, 1, 1, 19, 45, 0).to_time
+
+    while start_time <= end_time
+      time_options << [start_time.strftime('%H:%M'), start_time.strftime('%H:%M:%S')]
+      start_time += 15.minutes
+    end
+
+    time_options 
   end
 end
