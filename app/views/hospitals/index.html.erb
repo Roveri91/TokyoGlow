@@ -2,10 +2,9 @@
   <%= render "shared/banner"%>
 <%# </div> %>
 <div class="container py-5 mb-5">
-  <div class="row justify-content-center">
+  <div class="justify-content-center">
     <div class="col-sm-8 mx-2">
-
-      <ul class="nav nav-pills nav-fill">
+      <ul class="nav nav-pills nav-fill toogle-bar">
         <li class="nav-item">
           <%= link_to "Hospitals", hospitals_path, class:"nav-link active btn btn-primary", style:"background-color:;" %>
         </li>
@@ -14,7 +13,7 @@
         </li>
       </ul>
 
-      <div class="col-sm-8 my-3">
+      <div class="col-sm-8 my-5">
         <%= form_with url: hospitals_path, method: :get, class: "d-flex my-3" do %>
           <%= text_field_tag :query,
             params[:query],

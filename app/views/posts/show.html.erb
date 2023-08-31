@@ -17,6 +17,9 @@
             <h3><strong><%= @post.user == current_user ? "You" : @post.user.username %></strong></h3>
             <p><i><%= @post.created_at.strftime("%a %b %e at %l:%M %p") %></i></p>
           </div>
+          <% unless @post.user == current_user %>
+            <%=  render "conversations/new", user: @post.user, conversation: @conversation, size: "lg"%>
+          <% end %>
           <% if policy(@post).destroy? %>
             <%= button_to @post, form: { data: { turbo_confirm: 'Are you sure?' } } , method: :delete, class: "delete-icon" do %>
               <i class="fa-solid fa-trash fa-xl" style="color: #004444;"></i>
@@ -49,6 +52,9 @@
                 <h4><strong><%= reply.user == current_user ? "You" : reply.user.username %></strong></h4>
                 <p><%= reply.created_at.strftime("%a %b %e at %l:%M %p") %></p>
               </div>
+              <% unless reply.user == current_user %>
+                <%=  render "conversations/new", user: reply.user, conversation: @conversation, size: "sm"%>
+              <% end %>
               <% if policy(reply).destroy? %>
                 <%= button_to reply, form: { data: { turbo_confirm: 'Are you sure?' } } , method: :delete, class: "delete-icon" do %>
                   <i class="fa-solid fa-trash fa-lg" style="color: #004444;"></i>
