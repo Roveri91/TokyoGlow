@@ -26,11 +26,12 @@
           <p><strong><%= @event.user == current_user ? "You" : @event.user.username %></strong></p>
         </div>
       </div>
-      <p>
+      <p class="going-container">
         <i class="fa-solid fa-circle-check"></i>
         <% all_responses = @event.attendants %>
         <% attending_count = all_responses.select { |response| response.attending? }.count %>
         <%= attending_count + 1 %> going
+        <i class="fa-solid fa-ticket"></i></i> Free
       </p>
     </div>
   </div>

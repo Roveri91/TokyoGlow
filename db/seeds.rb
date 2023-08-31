@@ -384,7 +384,7 @@ puts 'Created Nutrition Event'
 
 parenting = Event.new(
   title: 'Pregnancy classes',
-  content: 'Completely free',
+  content: 'Educational programs designed to provide expecting parents with information, skills, and support to navigate the journey of pregnancy, childbirth, and early parenthood.',
   date: Date.new(2023, 9, 10),
   location: '456 Tokyo Building A',
   time: generate_random_time,
