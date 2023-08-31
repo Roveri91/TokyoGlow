@@ -23,9 +23,13 @@
         <% else %>
           <%= image_tag("userF1.png", width: "20", height: "20") %>
         <% end %>
-        <div class="d-flex flex-column justify-content-center ">
-          <p><strong><%= @event.user == current_user ? "You" : @event.user.username %></strong></p>
+        <div class="d-flex flex-column justify-content-center position-relative">
+          <p class=""><strong><%= @event.user == current_user ? "You" : @event.user.username %></strong></p>
+          <% unless @event.user == current_user %>
+            <%=  render "conversations/newsmall", user: @event.user, conversation: @conversation, size: "2xs"%>
+          <% end %>
         </div>
+        
       </div>
       <p>
         <i class="fa-solid fa-circle-check"></i>

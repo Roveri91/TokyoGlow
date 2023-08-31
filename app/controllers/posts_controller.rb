@@ -12,6 +12,7 @@ class PostsController < ApplicationController
     @post = Post.find(params[:id])
     authorize @post
     @reply = Reply.new
+    @conversation = Conversation.new
   end
 
   def new

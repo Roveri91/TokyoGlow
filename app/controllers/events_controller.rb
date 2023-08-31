@@ -15,6 +15,7 @@ class EventsController < ApplicationController
     authorize @event
     @attendants = @event.attendants
     @is_attending = @attendants.where(status: 1).exists?(user_id: current_user.id)
+    @conversation = Conversation.new
   end
 
   def new
