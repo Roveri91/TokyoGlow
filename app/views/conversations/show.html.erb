@@ -12,11 +12,12 @@
       <%# </center> %>
   <%# </h1> %>
   <%# </div> %>
-
-  <div class="messages" data-conversation-subscription-target="messages" style=" height: 50vh; overflow: scroll;">
-    <% @conversation.messages.each do |message| %>
+  <div class="my-3">
+    <div class="messages" data-conversation-subscription-target="messages" style=" height: 50vh; overflow: scroll;">
+      <% @conversation.messages.each do |message| %>
         <%= render "messages/message", message: message %>
-    <% end %>
+      <% end %>
+    </div>
   </div>
 
   <div class= "p-1 my-4" >
