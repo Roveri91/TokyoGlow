@@ -20,29 +20,42 @@
       <% @conversations.each do |conversation| %>
         <%= link_to conversation_path(conversation) do %>
           <div class= "d-flex gap-2">
-            <div>
-              <% if conversation.user_to.avatar_cl.attached? %>
-                <%= cl_image_tag(post.user_to.avatar_cl.key, width: "50", height: "50", radius: "max", background: "white") %>
-              <% elsif conversation.user_to.avatar %>
-                <%= image_tag(conversation.user_to.avatar, width: "50", height: "50") %>
-              <% else %>
-                <%= image_tag("userF1.png", width: "50", height: "50") %>
-              <% end %>
-            </div>
-            <div class ="mx-2">
-              <small>
-                <strong>
-                  <% if current_user == conversation.user_to %>
-                    <h3><%= conversation.user_from.username %></h3>
-                  <% else %>
-                    <h3><%= conversation.user_to.username %></h3>
-                  <% end %>
-                </strong>
+            <% if current_user == conversation.user_to %>    
+              <div>
+                <% if conversation.user_from.avatar_cl.attached? %>
+                  <%= cl_image_tag(conversation.user_from.avatar_cl.key, width: "50", height: "50", radius: "max", background: "white") %>
+                <% elsif conversation.user_from.avatar %>
+                  <%= image_tag(conversation.user_from.avatar, width: "50", height: "50") %>
+                <% else %>
+                  <%= image_tag("userF1.png", width: "50", height: "50") %>
+                <% end %>
+              </div>
+              <div>
+                <h3><%= conversation.user_from.username %></h3>
                 <% if conversation.messages.exists? %>
                   <p><i>Last message sent at: <%= conversation.messages.last.created_at.strftime("%a %b %e at %l:%M %p") %></i></p>
+                <% end %>    
+              </div>
+            
+            <% else %>
+      
+              <div>
+                <% if conversation.user_to.avatar_cl.attached? %>
+                  <%= cl_image_tag(conversation.user_to.avatar_cl.key, width: "50", height: "50", radius: "max", background: "white") %>
+                <% elsif conversation.user_to.avatar %>
+                  <%= image_tag(conversation.user_to.avatar, width: "50", height: "50") %>
+                <% else %>
+                  <%= image_tag("userF1.png", width: "50", height: "50") %>
                 <% end %>
-              </small>
-            </div>
+              </div>
+
+              <div>
+                <h3><%= conversation.user_to.username %></h3>
+                <% if conversation.messages.exists? %>
+                  <p><i>Last message sent at: <%= conversation.messages.last.created_at.strftime("%a %b %e at %l:%M %p") %></i></p>
+                <% end %>    
+              </div>
+            <% end %>
           </div>
           <hr/>
         <% end %>
