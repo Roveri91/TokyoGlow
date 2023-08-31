@@ -29,7 +29,7 @@
       <% elsif request.path.include? "user" %> 
         <h1>Profile</h1>
       <% elsif request.path.include? "conversations/" %>
-        <h1>
+        <div class="d-flex gap-3">
           <% if current_user == @conversation.user_to %>
             <% if @conversation.user_from.avatar_cl.attached? %>
               <%= cl_image_tag(@conversation.user_from.avatar_cl.key, width: "30", height: "30", radius: "max", background: "white") %>
@@ -38,7 +38,7 @@
             <% else %>
               <%= image_tag("userF1.png", width: "30", height: "30") %>
             <% end %>
-              <%= @conversation.user_from.username %>
+              <h1><%= @conversation.user_from.username %></h1>
           <% else %>
             <% if @conversation.user_to.avatar_cl.attached? %>
               <%= cl_image_tag(@conversation.user_to.avatar_cl.key, width: "30", height: "30", radius: "max", background: "white") %>
@@ -47,9 +47,9 @@
             <% else %>
               <%= image_tag("userF1.png", width: "30", height: "30") %>
             <% end %>
-            <%= @conversation.user_to.username %>
+            <h1><%= @conversation.user_to.username %></h1>
           <% end %>
-        </h1>
+        </div>
       <% else %>
         <h1><%= request.path.split(/\W+/)[1].to_s.capitalize %></h1>
       <% end %>
