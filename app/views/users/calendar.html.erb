@@ -40,7 +40,7 @@
                               <h5>Purpose: <%= appointment.purpose %></h5>
                             </div>
                             <div>
-                              <p>Date: <%= appointment.date %> Time: <%= appointment.time.strftime("%k:%M") %></p>
+                              <p> <%= appointment.date.strftime('%B %d') %> at <%= appointment.time.strftime('%H:%M') %> </p>
                             </div>
                             <% if appointment.notes != "" %>
                               <div>
@@ -69,10 +69,10 @@
                               <h5>Description: <%= event.content %></h5>
                             </div>
                             <div>
-                              <p>Location: <%= event.location %></p>
+                              <i class="fa-solid fa-location-dot"></i> <%= event.location %>
                             </div>
                             <div>
-                              <p>Date: <%= event.date %> Time: <%= event.time.strftime("%k:%M") %></p>
+                             <p> <%= event.date.strftime('%B %d') %> at <%= event.time.strftime('%H:%M') %> </p>
                             </div>
                           </div>
                         </div>
@@ -91,10 +91,10 @@
                           <h5>Description: <%= attend.content %></h5>
                         </div>
                         <div>
-                          <p>Location: <%= attend.location %></p>
+                          <i class="fa-solid fa-location-dot"></i> <%= attend.location %>
                         </div>
                         <div>
-                          <p>Date: <%= attend.date %> Time: <%= attend.time.strftime("%k:%M") %></p>
+                          <p> <%= attend.date.strftime('%B %d') %> at <%= attend.time.strftime('%H:%M') %> </p>
                         </div>
                       </div>
                     </div>
@@ -127,7 +127,7 @@
     </div>
   <% end %>
   <% if @hospitals %>
-    <div>
+    <div class="new_appt">
       <h4>Add new appointment:</h4>
       <div class="btn-group">
         <button type="button" class="btn btn-primary dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
