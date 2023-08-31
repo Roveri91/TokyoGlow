@@ -6,9 +6,9 @@
   <h1><center>Your conversation with
     <% if current_user == @conversation.user_to %>
       <%= @conversation.user_from.username %>
-      <% else %>
+    <% else %>
       <%= @conversation.user_to.username %>
-      <% end %>
+    <% end %>
       </center>
   </h1>
   </div>
