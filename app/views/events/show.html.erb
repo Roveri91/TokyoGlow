@@ -11,9 +11,8 @@
       <p><i class="fa-regular fa-clock"></i> <%= @event.date.strftime('%B %d') %> at <%= @event.time.strftime('%H:%M') %></p>
       <%# old %>
       <%# <p>Hosted by  %>
-        <%#= @event.user == current_user ? "You" : @event.user.username %>
+      <%#= @event.user == current_user ? "You" : @event.user.username %>
       <%# </p> %>
-
       <div class= "d-flex py-2 gap-2 ">
         <p class="">Hosted by: </p>
         <% if @event.user.avatar_cl.attached? %>
@@ -29,15 +28,13 @@
       </div>
       <p>
         <i class="fa-solid fa-circle-check"></i>
-        <% attending = @event.attendants %>
-        <% all = attending.count + 1 %>
-        <%= all %> going
+        <% all_responses = @event.attendants %>
+        <% attending_count = all_responses.select { |response| response.attending? }.count %>
+        <%= attending_count + 1 %> going
       </p>
     </div>
   </div>
-
-
- <% if @event.user != current_user %>
+  <% if @event.user != current_user %>
     <div class="d-flex flex-column align-items-center mt-3">
       <%# <h3>Status: <%= @is_attending ? 'Attending' : 'Not attending' %>
       <% if @is_attending %>
@@ -51,7 +48,6 @@
       <% end %>
     </div>
   <% end %>
-
   <% if policy(@event).destroy? %>
     <div class="d-flex justify-content-center mt-3">
       <%= link_to "Delete this event", event_path(@event), class: "btn btn-danger mt-2",
