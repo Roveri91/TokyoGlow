@@ -25,7 +25,7 @@
         <div class="d-flex flex-column justify-content-center position-relative">
           <p class=""><strong><%= @event.user == current_user ? "You" : @event.user.username %></strong></p>
           <% unless @event.user == current_user %>
-            <%=  render "conversations/newsmall", user: @event.user, conversation: @conversation, size: "2xs"%>
+            <%=  render "conversations/newsmall", user: @event.user, conversation: @conversation%>
           <% end %>
         </div> 
       </div>

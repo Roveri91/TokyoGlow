@@ -146,7 +146,7 @@
             <p><%= review.comment %></p>
           </div>
           <% unless review.user == current_user %>
-            <%=  render "conversations/new", user: review.user, conversation: @conversation, size: "lg"%>
+            <%=  render "conversations/new", user: review.user, conversation: @conversation %>
           <% end %>
         </div>
       <% end %>

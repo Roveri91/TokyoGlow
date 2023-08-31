@@ -134,12 +134,33 @@ button:hover > a {
   background-color: inherit;
 }
 
+.chat-icon-wrapper {
+  border-radius: 50%;
+  overflow: hidden;
+  border: 2px solid $icon-blue-border;
+  width: 40px;
+  height: 40px;
+  box-shadow: 1px 1px 1px 1px;
+}
+
+.chat-icon {
+  position: absolute;
+  top: 0.2rem;
+  right: 1.5rem;
+  background-color: inherit;
+}
+
 .small-chat-icon {
   border: none;
   position: absolute;
-  top: -0.2rem;
+  top: -0.3rem;
   right: -3rem;
   background-color: inherit;
+  width: 25px;
+  height: 25px;
+  border: 2px solid $icon-blue-border;
+  border-radius: 50%;
+  box-shadow: 1px 1px 1px 1px;
 }
 
 .logout-icon{
