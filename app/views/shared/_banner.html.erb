@@ -32,20 +32,20 @@
         <div class="d-flex gap-3">
           <% if current_user == @conversation.user_to %>
             <% if @conversation.user_from.avatar_cl.attached? %>
-              <%= cl_image_tag(@conversation.user_from.avatar_cl.key, width: "30", height: "30", radius: "max", background: "white") %>
+              <%= cl_image_tag(@conversation.user_from.avatar_cl.key, width: "40", height: "40", radius: "max", background: "white") %>
             <% elsif @conversation.user_from.user.avatar %>
-              <%= image_tag(@conversation.user_from.avatar, width: "30", height: "30") %>
+              <%= image_tag(@conversation.user_from.avatar, width: "40", height: "40") %>
             <% else %>
-              <%= image_tag("userF1.png", width: "30", height: "30") %>
+              <%= image_tag("userF1.png", width: "40", height: "40") %>
             <% end %>
               <h1><%= @conversation.user_from.username %></h1>
           <% else %>
             <% if @conversation.user_to.avatar_cl.attached? %>
-              <%= cl_image_tag(@conversation.user_to.avatar_cl.key, width: "30", height: "30", radius: "max", background: "white") %>
+              <%= cl_image_tag(@conversation.user_to.avatar_cl.key, width: "40", height: "40", radius: "max", background: "white") %>
             <% elsif @conversation.user_to.avatar %>
-              <%= image_tag(@conversation.user_to.avatar, width: "30", height: "30") %>
+              <%= image_tag(@conversation.user_to.avatar, width: "40", height: "40") %>
             <% else %>
-              <%= image_tag("userF1.png", width: "30", height: "30") %>
+              <%= image_tag("userF1.png", width: "40", height: "40") %>
             <% end %>
             <h1><%= @conversation.user_to.username %></h1>
           <% end %>
