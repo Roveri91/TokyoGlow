@@ -84,8 +84,8 @@ class EventsController < ApplicationController
 
   def generate_time_options
     time_options = []
-    start_time = Time.new(2000, 1, 1, 0, 0, 0)
-    end_time = Time.new(2000, 1, 1, 23, 45, 0)
+    start_time = Time.new(2000, 1, 1, 9, 0, 0)
+    end_time = Time.new(2000, 1, 1, 22, 30, 0)
 
     while start_time <= end_time
       time_options << [start_time.strftime('%H:%M'), start_time.strftime('%H:%M:%S')]

@@ -14,14 +14,14 @@
         <%#= @event.user == current_user ? "You" : @event.user.username %>
       <%# </p> %>
 
-      <div class= "d-flex py-2 gap-2 ">
-        <p class="">Hosted by: </p>
+      <p class="">Hosted by: </p>
+      <div class= "d-flex gap-2">
         <% if @event.user.avatar_cl.attached? %>
-          <%= cl_image_tag(@event.user.avatar_cl.key, width: "20", height: "20") %>
+          <%= cl_image_tag(@event.user.avatar_cl.key, width: "25", height: "25") %>
         <% elsif @event.user.avatar %>
-          <%= image_tag(@event.user.avatar, width: "20", height: "20") %>
+          <%= image_tag(@event.user.avatar, width: "25", height: "25") %>
         <% else %>
-          <%= image_tag("userF1.png", width: "20", height: "20") %>
+          <%= image_tag("userF1.png", width: "25", height: "25") %>
         <% end %>
         <div class="d-flex flex-column justify-content-center position-relative">
           <p class=""><strong><%= @event.user == current_user ? "You" : @event.user.username %></strong></p>
@@ -31,12 +31,14 @@
         </div>
         
       </div>
-      <p>
-        <i class="fa-solid fa-circle-check"></i>
-        <% attending = @event.attendants %>
-        <% all = attending.count + 1 %>
-        <%= all %> going
-      </p>
+      <div class="my-2">
+        <p>
+          <i class="fa-solid fa-circle-check my-2"></i>
+          <% attending = @event.attendants %>
+          <% all = attending.count + 1 %>
+          <%= all %> going
+        </p>
+      </div>
     </div>
   </div>
 

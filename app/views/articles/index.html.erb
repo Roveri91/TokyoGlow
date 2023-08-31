@@ -1,7 +1,7 @@
 <div class="container py-5 mb-5">
   <div class="container ">
-    <div class="row justify-content-center">
-      <ul class="nav nav-pills nav-fill">
+    <div class="justify-content-center">
+      <ul class="nav nav-pills nav-fill toogle-bar">
         <li class="nav-item">
           <%= link_to "Hospitals", hospitals_path, class:"nav-link", style:"color:#8064A2;" %>
         </li>
@@ -11,19 +11,21 @@
       </ul>
     </div>
 
-    <% @articles.each do |article| %>
-      <div class= "card rounded-3 p-3">
-        <div class="">
-          <img id="article-img" class="rounded-3" src=<%= article.image %> alt="Article Picture">
-        </div>
-        <div class="p-3">
-          <h1><%= article.title %></h1>
-          <div class="card-border py-3">
-            <p><%= article.content %></p>
-            <a target="_blank" href="<%= article.link %>">Read more</a>
+    <div class="container mt-5">
+      <% @articles.each do |article| %>
+        <div class= "card rounded-3 p-3">
+          <div class="">
+            <img id="article-img" class="rounded-3" src=<%= article.image %> alt="Article Picture">
+          </div>
+          <div class="p-3">
+            <h1><%= article.title %></h1>
+            <div class="card-border py-3">
+              <p><%= article.content %></p>
+              <a target="_blank" href="<%= article.link %>">Read more</a>
+            </div>
           </div>
         </div>
-      </div>
-    <% end %>
+      <% end %>
+    </div>
   </div>
 </div>
