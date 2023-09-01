@@ -13,6 +13,26 @@
     <div class="container text-center my-5">
       <h1>Seem like you did not start any conversation yet</h1>
       <p>Time to make some connection!</p>
+      <div class="row p-2">
+      <% 4.times do %>
+        <% random_users = [] %>
+        <% random_user = User.all.sample %>
+        <% while (random_user == current_user) || (random_users.include? random_user)%>
+          <% random_user = User.all.sample %>
+        <% end %>
+        <div class="col-5 d-flex gap-4 position-relative random-user-container">
+          <% if random_user.avatar_cl.attached? %>
+            <%= cl_image_tag(random_user.avatar_cl.key, width: "30", height: "30") %>
+          <% elsif random_user.avatar %>
+            <%= image_tag(random_user.avatar, width: "30", height: "30") %>
+          <% else %>
+            <%= image_tag("userF1.png", width: "30", height: "30") %>
+          <% end %>
+          <h4><strong><%= random_user.username %></strong></h4>
+        </div>
+        <% random_users << random_user %>
+      <% end %>
+      </div>
     </div>
   <% else %>
     <div class="py-3 mb-5">
