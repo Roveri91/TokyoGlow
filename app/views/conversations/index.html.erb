@@ -1,5 +1,5 @@
 <div class="container py-5 mb-5">
-  
+
   <ul class="nav nav-pills nav-fill toogle-bar">
     <li class="nav-item">
       <%= link_to "Public", posts_path, class:"nav-link", style:"color:#8064A2;"  %>
@@ -11,8 +11,8 @@
 
   <% if @conversations.empty? %>
     <div class="container text-center my-5">
-      <h1>Seem like you did not start any conversation yet</h1>
-      <p>Time to make some connection!</p>
+      <h1>Seems like you did not start any conversation yet</h1>
+      <p>Time to make some connections!</p>
       <div class="mt-5">
       <h3>People you might want to connect with</h3>
         <div class="row p-2">
@@ -36,7 +36,7 @@
       <% @conversations.each do |conversation| %>
         <%= link_to conversation_path(conversation) do %>
           <div class= "d-flex gap-2">
-            <% if current_user == conversation.user_to %>    
+            <% if current_user == conversation.user_to %>
               <div>
                 <% if conversation.user_from.avatar_cl.attached? %>
                   <%= cl_image_tag(conversation.user_from.avatar_cl.key, width: "50", height: "50", radius: "max", background: "white") %>
@@ -50,11 +50,11 @@
                 <h3><%= conversation.user_from.username %></h3>
                 <% if conversation.messages.exists? %>
                   <p><i>Last message sent at: <%= conversation.messages.last.created_at.strftime("%a %b %e at %l:%M %p") %></i></p>
-                <% end %>    
+                <% end %>
               </div>
-            
+
             <% else %>
-      
+
               <div>
                 <% if conversation.user_to.avatar_cl.attached? %>
                   <%= cl_image_tag(conversation.user_to.avatar_cl.key, width: "50", height: "50", radius: "max", background: "white") %>
@@ -69,7 +69,7 @@
                 <h3><%= conversation.user_to.username %></h3>
                 <% if conversation.messages.exists? %>
                   <p><i>Last message sent at: <%= conversation.messages.last.created_at.strftime("%a %b %e at %l:%M %p") %></i></p>
-                <% end %>    
+                <% end %>
               </div>
             <% end %>
           </div>
