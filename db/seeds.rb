@@ -92,11 +92,15 @@ puts "created user #{user.username}"
 
 user = User.create!(email: "lola@gmail.com", password: "123456", username: "Lola", due_date: "2024-1-16", avatar: "userF6.png")
 
+puts "created user #{user.username}"
+
 user = User.create!(email: "peach@gmail.com", password: "123456", username: "Peach", due_date: "2024-1-16", avatar: "userF7.png")
 
 puts "created user #{user.username}"
 
-puts "created user #{user.username}"
+mama = User.create!(email: "mama@gmail.com", password: "123456", username: "BigMama", due_date: "2023-12-25", avatar: "bigmama-user.png")
+
+puts "created her: #{mama.username}"
 
 users = User.all
 # ------POSTS------
@@ -227,7 +231,7 @@ end
   puts "create review for #{review.hospital.name} by #{review.user.username}"
 end
 
-5.times do
+7.times do
   #  --- should avoid the same user write a review on the same hospital
   hospital = hospitals.sample
   user = users.sample
@@ -241,7 +245,7 @@ end
   puts "create review for #{review.hospital.name} by #{review.user.username}"
 end
 
-5.times do
+6.times do
   #  --- should avoid the same user write a review on the same hospital
   hospital = hospitals.sample
   user = users.sample
@@ -314,9 +318,12 @@ yoga = Event.new(
   time: generate_random_time,
   user: giulia
 )
+
 yoga.save!
 yoga.photo.attach(io: File.open(yoga_image), filename: 'yoga.jpg', content_type: 'image/jpg')
 puts 'Created Yoga Event'
+  
+Attendant.create!( user: giulia, event: yoga, status: "attending")
 
 book = Event.new(
   title: "Free children's books!",
@@ -326,9 +333,12 @@ book = Event.new(
   time: generate_random_time,
   user: jonny
 )
+
 book.save!
 book.photo.attach(io: File.open(book_image), filename: 'book.jpg', content_type: 'image/jpg')
 puts 'Created Book event'
+  
+Attendant.create!( user: jonny, event: book, status: "attending")
 
 diapers = Event.new(
   title: 'Diapers Giveaway!',
@@ -338,9 +348,12 @@ diapers = Event.new(
   time: generate_random_time,
   user: simone
 )
+
 diapers.save!
 diapers.photo.attach(io: File.open(diapers_image), filename: 'diapers.jpg', content_type: 'image/jpg')
 puts 'Created Diapers Event'
+
+Attendant.create!( user: simone, event: diapers, status: "attending")
 
 ice_cream = Event.new(
   title: 'Free ice cream!',
@@ -352,8 +365,9 @@ ice_cream = Event.new(
 )
 ice_cream.save!
 ice_cream.photo.attach(io: File.open(ice_cream_image), filename: 'ice_cream.jpg', content_type: 'image/jpg')
-
 puts 'Created Ice Cream Event'
+
+Attendant.create!( user: jonny, event: ice_cream, status: "attending")
 
 support = Event.new(
   title: 'Pregnancy Support Group',
@@ -365,8 +379,9 @@ support = Event.new(
 )
 support.save!
 support.photo.attach(io: File.open(support_image), filename: 'support.jpg', content_type: 'image/jpg')
-
 puts 'Created Support Group Event'
+
+Attendant.create!( user: tenny, event: support, status: "attending")
 
 nutrition = Event.new(
   title: 'Nutrition classes',
@@ -381,6 +396,8 @@ nutrition.photo.attach(io: File.open(nutrition_image), filename: 'nutrition.jpg'
 
 puts 'Created Nutrition Event'
 
+Attendant.create!( user: lola, event: nutrition, status: "attending")
+
 parenting = Event.new(
   title: 'Pregnancy classes',
   content: 'Educational programs designed to provide expecting parents with information, skills, and support to navigate the journey of pregnancy, childbirth, and early parenthood.',
@@ -394,8 +411,26 @@ parenting.photo.attach(io: File.open(parenting_image), filename: 'parenting.jpg'
 
 puts 'Created Pregnancy classes '
 
+Attendant.create!( user: clementine, event: parenting, status: "attending")
+
 puts 'Done! Thank you for your patience.'
-puts "created 7 events"
+puts "created 7 events "
+
+# ------Attendants-------
+
+puts "creating 20 random attendants"
+30.times {
+  guest = User.all.sample
+  place = Event.all.sample
+  while Attendant.where(user: guest, event: place, status: "attending").exists? do
+    guest = User.all.sample
+    place = Event.all.sample
+  end
+  attendant = Attendant.create!( user: User.all.sample, event: Event.all.sample, status: "attending")
+  puts "#{attendant.user.username} is joining #{attendant.event.title}"
+}
+
+puts "created 30 attendants"
 
 # ------ARTICLES------
 

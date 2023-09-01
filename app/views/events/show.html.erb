@@ -7,44 +7,72 @@
       <h1 class="pt-4"><%= @event.title %></h1>
       <hr/>
       <h5><%= @event.content %></h5>
+
+      <%# <p class="">Hosted by: </p> %>
+      <div class="py-2 d-flex gap-2">
+        <% if @event.user.avatar_cl.attached? %>
+          <%= cl_image_tag(@event.user.avatar_cl.key, width: "30", height: "30") %>
+        <% elsif @event.user.avatar %>
+          <%= image_tag(@event.user.avatar, width: "30", height: "30") %>
+        <% else %>
+          <%= image_tag("userF1.png", width: "30", height: "30") %>
+        <% end %>
+        <div class="d-flex flex-column justify-content-center position-relative">
+          <p class="mt-2"><strong><%= @event.user == current_user ? "You" : @event.user.username %></strong></p>
+          <% unless @event.user == current_user %>
+            <%=  render "conversations/newsmall", user: @event.user, conversation: @conversation%>
+          <% end %>
+        </div> 
+      </div>
       <p><i class="fa-solid fa-location-dot"></i> <%= @event.location %></p>
       <p><i class="fa-regular fa-clock"></i> <%= @event.date.strftime('%B %d') %> at <%= @event.time.strftime('%H:%M') %></p>
       <%# old %>
       <%# <p>Hosted by  %>
       <%#= @event.user == current_user ? "You" : @event.user.username %>
       <%# </p> %>
-      <p class="">Hosted by: </p>
-      <div class= "d-flex gap-2">
-        <% if @event.user.avatar_cl.attached? %>
-          <%= cl_image_tag(@event.user.avatar_cl.key, width: "25", height: "25") %>
-        <% elsif @event.user.avatar %>
-          <%= image_tag(@event.user.avatar, width: "25", height: "25") %>
-        <% else %>
-          <%= image_tag("userF1.png", width: "25", height: "25") %>
-        <% end %>
-        <div class="d-flex flex-column justify-content-center position-relative">
-          <p class=""><strong><%= @event.user == current_user ? "You" : @event.user.username %></strong></p>
-          <% unless @event.user == current_user %>
-            <%=  render "conversations/newsmall", user: @event.user, conversation: @conversation%>
-          <% end %>
-        </div> 
-      </div>
+
       <div class="my-2">
-        <p class="going-container">
-          <i class="fa-solid fa-circle-check"></i>
-          <% all_responses = @event.attendants %>
-          <% attending_count = all_responses.select { |response| response.attending? }.count %>
-          <%= attending_count + 1 %> going
-          <i class="fa-solid fa-ticket"></i></i> Free
-        </p>
+        <p><i class="fa-solid fa-ticket"></i> Free</p>
       </div>
+      <%# ---- old --- %>
+      <%# <div class="my-2"> %>
+        <%# <p><i class="fa-solid fa-ticket"></i> Free</p> %>
+        <%# <p class="going-container"> %>
+          <%# <i class="fa-solid fa-circle-check"></i> %>
+          <%# all_responses = @event.attendants %>
+          <%# attending_count = all_responses.select { |response| response.attending? }.count %>
+          <%#= attending_count %> 
+          <%# going %>
+        <%# </p> %>
+      <%# </div> %>
+      <%# -----NEW ---- %>
+      <div class="d-flex gap-3">
+        <p>Partecipants:</p>
+        <div class="d-flex gap-1">
+          <% @event.attendants.first(5).each do |attendant| %>
+              <% if Attendant.where(user: attendant.user, event: @event, status: "attending").exists? %>
+                <% if attendant.user.avatar_cl.attached? %>
+                  <%= cl_image_tag(attendant.user.avatar_cl.key, width: "15", height: "15") %>
+                <% elsif attendant.user.avatar %>
+                  <%= image_tag(attendant.user.avatar, width: "15", height: "15") %>
+                <% else %>
+                  <%= image_tag("userF1.png", width: "15", height: "15") %>
+                <% end %>
+              <% end %>
+          <% end %>
+          <% if @event.attendants.where( status: "attending").count > 5 %>
+            <p> and <%= @event.attendants.where( status: "attending").count - 5  %> more</p>
+          <% end %>
+        </div>
+      </div>
+
     </div>
   </div>
   <% if @event.user != current_user %>
     <div class="d-flex flex-column align-items-center mt-3">
       <%# <h3>Status: <%= @is_attending ? 'Attending' : 'Not attending' %>
       <% if @is_attending %>
-        <h3>Status: Attending </h3>
+        <h3>You are attending this event! </h3>
         <%= link_to 'Cancel Attendance', status_change_path({ event: @event, status: 2 }), method: "post", class: "btn btn-danger mt-2" %>
       <% elsif @event.user.status = 0 %>
         <%= link_to 'Join', status_change_path({ event: @event, status: 1 }), method: "post", class: "btn btn-success mt-2" %>

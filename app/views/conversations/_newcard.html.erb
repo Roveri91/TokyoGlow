@@ -1,0 +1,13 @@
+<%= simple_form_for([user, conversation]) do |f| %>
+  <button type="submit" class="random-user-container col-12"> 
+  <div class="d-flex gap-3">
+  <% if user.avatar_cl.attached? %>
+    <%= cl_image_tag(user.avatar_cl.key, width: "30", height: "30") %>
+  <% elsif user.avatar %>
+    <%= image_tag(user.avatar, width: "30", height: "30") %>
+  <% else %>
+    <%= image_tag("userF1.png", width: "30", height: "30") %>
+  <% end %>
+  <h4><strong><%= user.username %></strong></h4>
+  </div>
+<% end %>

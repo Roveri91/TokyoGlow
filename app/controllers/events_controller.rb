@@ -29,7 +29,9 @@ class EventsController < ApplicationController
     @event.user = current_user
     authorize @event
 
+    
     if @event.save
+      Attendant.create!(user: current_user, event: @event, status: "attending")
       redirect_to event_path(@event), notice: 'Event was successfully created.'
     # else
     #   render :new

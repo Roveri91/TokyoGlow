@@ -32,19 +32,25 @@
             <div class="card-container p-3">
               <h3><%= event.title %></h3>
               <hr/>
-              <p><i class="fa-solid fa-location-dot"></i> <%= event.location %></p>
-              <p>
-                <i class="fa-solid fa-calendar-days"></i>
-                <%= event.date.strftime('%B %d') %> at <%= event.time.strftime('%H:%M') %>
-              </p>
-              <p>Hosted by: <%= event.user == current_user ? "You" : event.user.username %></p>
+              <div class="d-flex gap-3">
+                <p><i class="fa-solid fa-location-dot"></i></p>
+                <p><%= event.location %></p>
+              </div>
+              <div class="d-flex gap-3">
+                <p><i class="fa-solid fa-calendar-days"></i></p>
+                <p><%= event.date.strftime('%B %d') %> at <%= event.time.strftime('%H:%M') %></p>
+              </div>
+              <div class="d-flex gap-3">
+                <p>Hosted by:</p>
+                <p><%= event.user == current_user ? "You" : event.user.username %></p>
+              </div>
+              <p> <i class="fa-solid fa-ticket"></i> Free </p>
               <div class="going-container">
                 <p class="goingnumber">
                   <i class="fa-solid fa-circle-check"></i>
                   <% attending_count = event.attendants.select { |response| response.attending? }.count %>
-                  <%= attending_count + 1 %> going
+                  <%= attending_count %> going
                 </p>
-                  <p> <i class="fa-solid fa-ticket"></i> Free </p>
               </div>
 
             </div>

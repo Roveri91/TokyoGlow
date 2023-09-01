@@ -119,7 +119,7 @@
               <h3><strong><%= review.user == current_user ? "You" : review.user.username %></strong></h3>
               <p><i><%= review.created_at.strftime("%a %b %e at %l:%M %p") %></i></p>
               <% unless review.user == current_user %>
-                <%=  render "conversations/new", user: review.user, conversation: @conversation, size: "lg"%>
+                <%=  render "conversations/new", user: review.user, conversation: @conversation%>
               <% end %>
             </div>
           </div>
