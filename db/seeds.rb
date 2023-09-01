@@ -50,7 +50,7 @@ user = User.create!(email: "tennyma@gmail.com", password: "123456", username: "T
 
 puts "created user #{user.username}"
 
-user = User.create!(email: "jonnysmith@gmail.com", password: "123456", username: "Jonny", due_date: "2023-12-03", avatar: "userM1.png")
+user = User.create!(email: "jonnysmith@gmail.com", password: "123456", username: "Jonny", due_date: "2024-02-02", avatar: "userM1.png")
 
 puts "created user #{user.username}"
 
@@ -322,14 +322,14 @@ yoga = Event.new(
 yoga.save!
 yoga.photo.attach(io: File.open(yoga_image), filename: 'yoga.jpg', content_type: 'image/jpg')
 puts 'Created Yoga Event'
-  
+
 Attendant.create!( user: giulia, event: yoga, status: "attending")
 
 book = Event.new(
   title: "Free children's books!",
   content: ' The event to help immigrant and non-Japanese speaking families get access to books and educational activities while having fun in their neighborhoods.',
   date: Date.today + (rand(1..10)),
-  location: '123 Park St.',
+  location: '1-42-3 Ueno Station Takana Building',
   time: generate_random_time,
   user: jonny
 )
@@ -337,7 +337,7 @@ book = Event.new(
 book.save!
 book.photo.attach(io: File.open(book_image), filename: 'book.jpg', content_type: 'image/jpg')
 puts 'Created Book event'
-  
+
 Attendant.create!( user: jonny, event: book, status: "attending")
 
 diapers = Event.new(
@@ -359,7 +359,7 @@ ice_cream = Event.new(
   title: 'Free ice cream!',
   content: 'Celebrate the end of summer with an old-fashioned ice cream social in the beautiful Yoyogi Park of Tokyo.  Enjoy ice cream treats, popcorn, a face painter, a balloon twister, games for the kids, and activities provided by FLOTO!',
   date: generate_random_time,
-  location: 'Yoyogi Park',
+  location: 'Hanegi Park',
   time: generate_random_time,
   user: jonny
 )
@@ -373,7 +373,7 @@ support = Event.new(
   title: 'Pregnancy Support Group',
   content: 'Support groups can help perinatal women feel less alone',
   date: Date.new(2023, 9, 3),
-  location: 'Yoyogi Park',
+  location: 'Meiji Jingu Park',
   time: generate_random_time,
   user: tenny
 )
@@ -387,8 +387,8 @@ nutrition = Event.new(
   title: 'Nutrition classes',
   content: 'Make healthy and nutritious meals for you and your family',
   date: Date.new(2023, 9, 7),
-  location: '1010 Carrot St.',
-  time: generate_random_time,
+  location: '26-8 Naze Saiwai-cho',
+  time: '20:00',
   user: lola
 )
 nutrition.save!
