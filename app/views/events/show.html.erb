@@ -48,9 +48,8 @@
       <%# -----NEW ---- %>
       <div class="d-flex gap-3">
         <p>Partecipants:</p>
-        <div>
-          <% @event.attendants.each do |attendant| %>
-            <% unless attendant.user == @event.user%>
+        <div class="d-flex gap-1">
+          <% @event.attendants.first(5).each do |attendant| %>
               <% if Attendant.where(user: attendant.user, event: @event, status: "attending").exists? %>
                 <% if attendant.user.avatar_cl.attached? %>
                   <%= cl_image_tag(attendant.user.avatar_cl.key, width: "15", height: "15") %>
@@ -60,7 +59,9 @@
                   <%= image_tag("userF1.png", width: "15", height: "15") %>
                 <% end %>
               <% end %>
-            <% end %>
+          <% end %>
+          <% if @event.attendants.where( status: "attending").count > 5 %>
+            <p> and <%= @event.attendants.where( status: "attending").count - 5  %> more</p>
           <% end %>
         </div>
       </div>

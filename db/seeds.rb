@@ -419,7 +419,7 @@ puts "created 7 events "
 # ------Attendants-------
 
 puts "creating 20 random attendants"
-20.times {
+30.times {
   guest = User.all.sample
   place = Event.all.sample
   while Attendant.where(user: guest, event: place, status: "attending").exists? do
@@ -430,7 +430,7 @@ puts "creating 20 random attendants"
   puts "#{attendant.user.username} is joining #{attendant.event.title}"
 }
 
-puts "created 20 attendants"
+puts "created 30 attendants"
 
 # ------ARTICLES------
 
