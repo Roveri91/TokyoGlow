@@ -1,4 +1,5 @@
 <div class="my-2 py-3">
+  <%= @events_attending %>
   <%= month_calendar do |date| %>
     <div type="button" class="myBtn" data-bs-toggle="modal" data-bs-target="#exampleModal<%=date%>">
       <%#= link_to calendar_path(current_user, date: date) do %>
@@ -14,6 +15,8 @@
                 <% @current_day_appointments = @appointments.where(date: date).to_a %>
                 <% @current_day_events = @events.where(date: date).to_a %>
                 <% @events_attending = @attending.where(date: date).to_a %>
+                <%# @events_attending = @events.where(date: date, user: !current_user).to_a %>
+
                 <h2><%= date %></h2>
                 <% if @current_day_appointments.empty? && @current_day_events.empty? && @events_attending.empty? %>
                   <h4>No appointments or events to display!</h4>
@@ -118,14 +121,17 @@
             <i class="fa-solid fa-circle fa-2xs" style="color: #33BBC5;"></i>
           <% end %>
         <% end %>
-        <% @attending.each do |attend| %>
-          <% if attend.date == date %>
-            <i class="fa-solid fa-circle fa-2xs" style="color: #dd99ff;"></i>
+        <% if @events_attending.any? %>
+          <% @events_attending_not_created.each do |attend| %>
+            <% if ((attend.event.date == date) && (attend.status == "attending")) %>
+              <i class="fa-solid fa-circle fa-2xs" style="color: #dd99ff;"></i>
+            <% end %>
           <% end %>
         <% end %>
       </div>
     </div>
   <% end %>
+  <%= @events_attending_not_created %>
   <% if @hospitals %>
     <div class="new_appt">
       <h4>Add new appointment:</h4>
