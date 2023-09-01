@@ -47,7 +47,8 @@ class UsersController < ApplicationController
     @events = Event.where(user: current_user)
     @attending = Event.joins(:attendants).where('attendants.user_id' => current_user.id, 'attendants.status' => 1)
     # @attending = Attendant.where(current_user.attendants.status == "attending", event != current_user) 
-    @events_attending_not_created = current_user.attendants.select { |a| a.event.user != current_user }
+    @events_attending_not_created = current_user.attendants.select { |a| a.event.user != current_user && a.status == "attending" }
+    # @events_attending_not_created_today =  @events_attending_not_created.select { |a| a.event.date == date}
     # year = Date.parse(date).year       WILL NEED THIS FOR EVENTS
     # month = Date.parse(date).month
     unless current_user.appointments.empty?

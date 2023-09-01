@@ -358,7 +358,7 @@ Attendant.create!( user: simone, event: diapers, status: "attending")
 ice_cream = Event.new(
   title: 'Free ice cream!',
   content: 'Celebrate the end of summer with an old-fashioned ice cream social in the beautiful Yoyogi Park of Tokyo.  Enjoy ice cream treats, popcorn, a face painter, a balloon twister, games for the kids, and activities provided by FLOTO!',
-  date: generate_random_time,
+  date: Date.today + (rand(1..10)),
   location: 'Yoyogi Park',
   time: generate_random_time,
   user: jonny

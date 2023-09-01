@@ -11,12 +11,12 @@
                 <h1 class="modal-title fs-5" id="exampleModalLabel">Appointments and Events</h1>
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
               </div>
+        
               <div class="modal-body">
                 <% @current_day_appointments = @appointments.where(date: date).to_a %>
                 <% @current_day_events = @events.where(date: date).to_a %>
                 <% @events_attending = @attending.where(date: date).to_a %>
-                <%# @events_attending = @events.where(date: date, user: !current_user).to_a %>
-
+                <% @events_attending_not_created_today =  @events_attending_not_created.select { |a| a.event.date == date} %>
                 <h2><%= date %></h2>
                 <% if @current_day_appointments.empty? && @current_day_events.empty? && @events_attending.empty? %>
                   <h4>No appointments or events to display!</h4>
@@ -82,26 +82,27 @@
                       <% end %>
                     </div>
                   <% end %>
-                <% end %>
-                <% if @events_attending %>
-                  <% @events_attending.each do |attend| %>
+                <% @events_attending_not_created_today =  @events_attending_not_created.select { |a| a.event.date == date} %>
+                <% if @events_attending_not_created_today.any? %>
+                  <% @events_attending_not_created_today.each do |attend| %>
                     <div class="card-container">
                       <div class="card">
                         <div>
-                          <h3> <%= attend.title %> </h3>
+                          <h3> <%= attend.event.title %> </h3>
                         </div>
                         <div>
-                          <h5>Description: <%= attend.content %></h5>
+                          <h5>Description: <%= attend.event.content %></h5>
                         </div>
                         <div>
-                          <p><i class="fa-solid fa-location-dot"></i> <%= attend.location %></p>
+                          <p><i class="fa-solid fa-location-dot"></i> <%= attend.event.location %></p>
                         </div>
                         <div>
-                          <p> <%= attend.date.strftime('%B %d') %> at <%= attend.time.strftime('%H:%M') %> </p>
+                          <p> <%= attend.event.date.strftime('%B %d') %> at <%= attend.event.time.strftime('%H:%M') %> </p>
                         </div>
                       </div>
                     </div>
                   <% end %>
+                <% end %>
                 <% end %>
               </div>
               <%# <div class="modal-footer">
@@ -121,9 +122,9 @@
             <i class="fa-solid fa-circle fa-2xs" style="color: #33BBC5;"></i>
           <% end %>
         <% end %>
-        <% if @events_attending.any? %>
-          <% @events_attending_not_created.each do |attend| %>
-            <% if ((attend.event.date == date) && (attend.status == "attending")) %>
+        <% if @events_attending_not_created.any? %>
+          <% @events_attending_not_created_today.each do |attend| %>
+            <% if attend.event.date == date %>
               <i class="fa-solid fa-circle fa-2xs" style="color: #dd99ff;"></i>
             <% end %>
           <% end %>
