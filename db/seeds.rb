@@ -304,7 +304,7 @@ clementine = User.find_by(username: 'Clementine')
 lola = User.find_by(username: 'Lola')
 
 def generate_random_time
-  hours = (9..21).to_a
+  hours = (9..18).to_a
   random_hour = hours.sample
   random_minute = (0..3).to_a.sample * 15
   random_time = Time.new(2000, 1, 1, random_hour, random_minute)
