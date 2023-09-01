@@ -11,11 +11,11 @@
 
   <% if @conversations.empty? %>
     <div class="container text-center my-5">
-      <h1>Seems like you did not start any conversation yet</h1>
+      <h1>Seems like you did not start any conversations yet</h1>
       <p>Time to make some connections!</p>
       <div class="mt-5">
       <h3>People you might want to connect with</h3>
-        <div class="row p-2">
+        <div class="p-0">
           <% random_users = [] %>
           <% 4.times do %>
             <% random_user = User.all.sample %>
@@ -23,7 +23,7 @@
               <% random_user = User.all.sample %>
             <% end %>
             <% random_users << random_user %>
-            <div class="col-6">
+            <div class="">
               <%=  render "conversations/newcard", user: random_user, conversation: @new_conversation%>
             </div>
           <% end %>
