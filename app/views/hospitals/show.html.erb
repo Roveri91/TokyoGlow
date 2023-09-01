@@ -83,7 +83,7 @@
   <div class="card rounded-3 p-3  review-card">
     <h1 class="text-center">Leave your review</h1>
     <div>
-      <%= simple_form_for [@hospital, @review],data: { controller: "submit" }, html: { novalidate: true }  do |f| %>
+      <%= simple_form_for [@hospital, @review],data: { controller: "submit" }, html: { novalidate: true, autocomplete: "off" }  do |f| %>
         <div class="star-rating" >
           <% 5.times do |i| %>
             <input type="radio" name="review[rating]" value="<%= i + 1 %>" <%= "checked" if i == 2 %> />
@@ -104,7 +104,7 @@
   <% unless @hospital.reviews.empty? %>
     <div class="card rounded-3 p-3 review-card">
       <h1>Reviews</h1>
-      <% @hospital.reviews.each do |review| %>
+      <% @hospital.reviews.order(created_at: :desc).each do |review| %>
         <hr/>
         <div class="container position-relative">
           <div class= "d-flex py-2 gap-3 ">

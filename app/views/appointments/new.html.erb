@@ -3,7 +3,7 @@
   <h1 class="text-center">Add to <%= current_user.username %>`s calendar</h1>
 
   <div class="p-5">
-    <%= simple_form_for [@hospital, @appointment] do |f| %>
+    <%= simple_form_for [@hospital, @appointment], html: { autocomplete: "off" }  do |f| %>
       <%= f.input :title, label: 'Title' %>
       <%= f.input :purpose, collection: ["First visit", "Check up", "Ultrasound", "Blood Test", "Others"], selected: f.object.purpose || '1' %>
       <%= f.input :notes, label: 'Notes' %>

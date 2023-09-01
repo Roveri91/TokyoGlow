@@ -2,7 +2,7 @@
 
 <div class="d-flex flex-row justify-content-center">
   <div class="p-3 ">
-    <%= simple_form_for [@event] do |f| %>
+    <%= simple_form_for [@event], html: { autocomplete: "off" } do |f| %>
       <%= f.input :title %>
       <%= f.input :content %>
       <%= f.input :date, as: :date, html5: true, input_html: {min: Date.tomorrow} %>
