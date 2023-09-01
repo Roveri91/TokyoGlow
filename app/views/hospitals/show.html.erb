@@ -104,7 +104,7 @@
   <% unless @hospital.reviews.empty? %>
     <div class="card rounded-3 p-3 review-card">
       <h1>Reviews</h1>
-      <% @hospital.reviews.each do |review| %>
+      <% @hospital.reviews.order(created_at: :desc).each do |review| %>
         <hr/>
         <div class="container position-relative">
           <div class= "d-flex py-2 gap-3 ">

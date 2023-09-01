@@ -386,7 +386,7 @@ Attendant.create!( user: tenny, event: support, status: "attending")
 nutrition = Event.new(
   title: 'Nutrition classes',
   content: 'Make healthy and nutritious meals for you and your family',
-  date: Date.new(2023, 9, 7),
+  date: Date.new(2023, 9, 1),
   location: '26-8 Naze Saiwai-cho',
   time: '20:00',
   user: lola
