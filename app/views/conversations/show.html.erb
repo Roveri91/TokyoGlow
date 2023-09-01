@@ -2,16 +2,6 @@
   data-controller="conversation-subscription"
   data-conversation-subscription-conversation-id-value="<%= @conversation.id %>">
 
-  <%# <div class = "container"> %>
-  <%# <h1><center>Your conversation with %>
-    <%# if current_user == @conversation.user_to %>
-      <%#= @conversation.user_from.username %>
-    <%# else %>
-      <%#= @conversation.user_to.username %>
-    <%# end %>
-      <%# </center> %>
-  <%# </h1> %>
-  <%# </div> %>
   <div class="my-3">
     <div class="messages" data-conversation-subscription-target="messages" style=" height: 50vh; overflow: scroll;">
       <% @conversation.messages.each do |message| %>
@@ -21,15 +11,15 @@
   </div>
 
   <div class= "p-1 my-4" >
-    <div class= "container position-relative">
-        <%= simple_form_for [@conversation, @message], html: {data: { action: "turbo:submit-end->conversation-subscription#resetForm" }, class: ""} do |f| %>
-          <%= f.input :content,
-            label: false,
-            placeholder: "Enter your message here",
-            wrapper_html: {class: "flex-grow-1"}
-          %>
-            <button type="submit" class="send-icon"><i class="fa-solid fa-paper-plane fa-xl" style="color: #004444;"></i></button>
-        <% end %>
+    <div class= "container p-1 my-4 position-relative">
+      <%= simple_form_for [@conversation, @message], html: {data: { action: "turbo:submit-end->conversation-subscription#resetForm" }, class: ""} do |f| %>
+        <%= f.input :content,
+          label: false,
+          placeholder: "Enter your message here",
+          wrapper_html: {class: "flex-grow-1"}
+        %>
+        <button type="submit" class="send-icon"><i class="fa-solid fa-paper-plane fa-xl" style="color: #004444;"></i></button>
+      <% end %>
     </div>
   </div>
 </div>

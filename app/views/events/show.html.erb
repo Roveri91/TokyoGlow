@@ -47,7 +47,7 @@
       <%# </div> %>
       <%# -----NEW ---- %>
       <div class="d-flex gap-3">
-        <p>Partecipants:</p>
+        <p>Participants:</p>
         <div class="d-flex gap-1">
           <% @event.attendants.first(5).each do |attendant| %>
               <% if Attendant.where(user: attendant.user, event: @event, status: "attending").exists? %>
