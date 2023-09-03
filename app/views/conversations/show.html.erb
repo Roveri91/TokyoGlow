@@ -2,18 +2,8 @@
   data-controller="conversation-subscription"
   data-conversation-subscription-conversation-id-value="<%= @conversation.id %>"  style=" height: 65vh;">
 
-  <%# <div class = "container"> %>
-  <%# <h1><center>Your conversation with %>
-    <%# if current_user == @conversation.user_to %>
-      <%#= @conversation.user_from.username %>
-    <%# else %>
-      <%#= @conversation.user_to.username %>
-    <%# end %>
-      <%# </center> %>
-  <%# </h1> %>
-  <%# </div> %>
   <div class="my-3">
-    <div class="messages" data-conversation-subscription-target="messages" style=" height: 65vh; overflow: scroll;">
+    <div id ="chatbox" class="messages" data-conversation-subscription-target="messages" style=" height: 65vh; overflow: scroll;">
       <% @conversation.messages.each do |message| %>
         <%= render "messages/message", message: message %>
       <% end %>
@@ -33,3 +23,13 @@
     </div>
   </div>
 </div>
+
+<script>
+  var objDiv = document.getElementById("chatbox");
+    if ( window.history.replaceState ) {
+      objDiv.scrollTop = objDiv.scrollHeight;
+
+      window.history.replaceState( null, null, 
+      window.location.href );
+    }
+</script>
