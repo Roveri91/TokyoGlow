@@ -1,6 +1,6 @@
-<div class="container conversation py-3 mb-5"
+<div class="conversation"
   data-controller="conversation-subscription"
-  data-conversation-subscription-conversation-id-value="<%= @conversation.id %>">
+  data-conversation-subscription-conversation-id-value="<%= @conversation.id %>"  style=" height: 65vh;">
 
   <%# <div class = "container"> %>
   <%# <h1><center>Your conversation with %>
@@ -13,7 +13,7 @@
   <%# </h1> %>
   <%# </div> %>
   <div class="my-3">
-    <div class="messages" data-conversation-subscription-target="messages" style=" height: 50vh; overflow: scroll;">
+    <div class="messages" data-conversation-subscription-target="messages" style=" height: 65vh; overflow: scroll;">
       <% @conversation.messages.each do |message| %>
         <%= render "messages/message", message: message %>
       <% end %>

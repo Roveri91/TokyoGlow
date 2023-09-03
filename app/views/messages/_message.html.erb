@@ -1,19 +1,14 @@
 <div id="message">
-  <div class= "d-flex">
-    <div>
-      <% if message.user.avatar_cl.attached? %>
-         <%= cl_image_tag(post.user.avatar_cl.key, width: "30", height: "30", radius: "max", background: "white") %>
-      <% elsif message.user.avatar %>
-          <%= image_tag(message.user.avatar, width: "30", height: "30") %>
-      <% else %>
-          <%= image_tag("userF1.png", width: "30", height: "30") %>
-      <% end %>
-    </div>
-    <div class ="mx-2">
-      <small><strong><%= message.user.username %></strong>
-        <i><%= message.created_at.strftime("%a %b %e at %l:%M %p") %></i>
-      </small>
+  <div class= "mx-2">
+    <div class="message-row d-flex <%= message.sender?(current_user) ?  'justify-content-end' : 'justify-content-start' %>">
+      <div class="<%= message.sender?(current_user) ? 'sender-style' : 'receiver-style'%>">
+        <div class ="">
+          <small><strong><%= message.user.username %></strong>
+            <i><%= message.created_at.strftime("%a %b %e at %l:%M %p") %></i>
+          </small>
+        </div>
+        <p class ="py-1"><%= message.content %></p>
+      </div> 
     </div>
   </div>
-  <p class ="py-1"><%= message.content %></p>
 </div>
