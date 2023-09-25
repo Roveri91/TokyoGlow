@@ -10,7 +10,7 @@ DROP SCREENSHOT HERE
 
 App home: http://www.tokyoglow.site/
 
-Getting Starteds
+Getting Started
 Setup
 Install gems
 
