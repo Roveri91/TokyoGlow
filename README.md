@@ -49,7 +49,7 @@ PW: 123456
 + [Figma](https://www.figma.com/ja/) — Prototyping
 
 
-🗿 ### Team Members
+🗿 Team Members
 ---
 * [Simone Roveri](https://www.linkedin.com/in/simone-roveri/),
 * [Johnny Smith](https://www.linkedin.com/in/jonathan-smith-046007138/),
@@ -57,6 +57,6 @@ PW: 123456
 * [Tenny Ma](https://www.linkedin.com/in/tennyma/).
 
 
-💅 ### Contributing
+💅 Contributing
 ---
 Pull requests are welcome. For major changes, please open an issue first to discuss what you would like to change.
