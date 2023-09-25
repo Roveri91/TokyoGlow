@@ -9,10 +9,16 @@ Our team has developed a mobile app designed to assist future parents in finding
 
 DROP SCREENSHOT HERE
 
+📕 Usage
+
 App home: http://www.tokyoglow.site/
 
+User: peach@gmail.com
+PW: 123456
+
+
 Getting Started
-Setup
+⚙️ Setup
 Install gems
 
 bundle install
