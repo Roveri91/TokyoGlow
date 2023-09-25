@@ -15,7 +15,8 @@ DROP SCREENSHOT HERE
 ---
 Install gems
 
-```bundle install```
+``` bundle install ```
+
 **ENV Variables**
 Create `.env` file
 
