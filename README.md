@@ -12,7 +12,6 @@ Our team has developed a mobile app designed to assist future parents in finding
 ---
 
 ![Screenshot 2023-09-25 215612](https://github.com/Roveri91/TokyoGlow/assets/105217392/3f4b10cc-8570-4930-8d3b-555c35284ec3)
----
 ![Screenshot 2023-09-25 215553](https://github.com/Roveri91/TokyoGlow/assets/105217392/b2f88160-c0cd-47cc-b52b-c6b8f89a7a15)
 ![Screenshot 2023-09-25 215521](https://github.com/Roveri91/TokyoGlow/assets/105217392/f2eef614-c95c-450c-96f5-2d39d5ba3a24)
 ![Screenshot 2023-09-25 215418](https://github.com/Roveri91/TokyoGlow/assets/105217392/a38f605e-3da8-481f-823b-5188cb93b7ab)
