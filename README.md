@@ -11,7 +11,7 @@ Our team has developed a mobile app designed to assist future parents in finding
 DROP SCREENSHOT HERE
 
 
-⚙️ ## Setup
+⚙️ Setup
 ---
 Install gems
 
@@ -39,17 +39,17 @@ App home: http://www.tokyoglow.site/
 User: peach@gmail.com
 PW: 123456
 
-Built With
+🔨 Built With
 ---
-Rails 7 - Backend / Front-end
-Stimulus JS - Front-end JS
-Heroku - Deployment
-PostgreSQL - Database
-Bootstrap — Styling
-Figma — Prototyping
++ [Rails 7](https://guides.rubyonrails.org/) - Backend / Front-end
++ [Stimulus JS](https://stimulus.hotwired.dev/) - Front-end JS
++ [Heroku](https://www.heroku.com/) - Deployment
++ [PostgreSQL](https://www.postgresql.org/) - Database
++ [Bootstrap](https://getbootstrap.com/) — Styling
++ [Figma](https://www.figma.com/ja/) — Prototyping
 
 
-### Team Members
+🗿 ### Team Members
 ---
 * [Simone Roveri](https://www.linkedin.com/in/simone-roveri/),
 * [Johnny Smith](https://www.linkedin.com/in/jonathan-smith-046007138/),
@@ -57,6 +57,6 @@ Figma — Prototyping
 * [Tenny Ma](https://www.linkedin.com/in/tennyma/).
 
 
-### Contributing
+💅 ### Contributing
 ---
 Pull requests are welcome. For major changes, please open an issue first to discuss what you would like to change.
