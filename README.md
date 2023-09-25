@@ -35,13 +35,9 @@ Heroku - Deployment
 PostgreSQL - Database
 Bootstrap — Styling
 Figma — Prototyping
-Acknowledgements
-Inspired by Jane Mount's Bibliophile and a story my father once told me: "Why do we keep books? ... We keep books because they remind us of the new perspectives and lessons we learned".
+
 
 Team Members
-Douglas Berkley
+Simone Roveri, Johnny Smith, Giulia Menin, Tenny Ma
 Contributing
 Pull requests are welcome. For major changes, please open an issue first to discuss what you would like to change.
-
-License
-This project is licensed under the MIT License
