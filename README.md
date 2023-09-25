@@ -10,11 +10,10 @@ Our team has developed a mobile app designed to assist future parents in finding
 
 DROP SCREENSHOT HERE
 
-![Screenshot 2023-09-25 214645](https://github.com/Roveri91/TokyoGlow/assets/105217392/00ceb78c-09f7-4209-9899-4d412eada770)
-![Screenshot 2023-09-25 214613](https://github.com/Roveri91/TokyoGlow/assets/105217392/1273f064-1f26-44dc-8292-af02a8452241)
-![Screenshot 2023-09-25 214430](https://github.com/Roveri91/TokyoGlow/assets/105217392/df36ba32-a17c-43a3-8098-379f7c528017)
-![Screenshot 2023-09-25 214410](https://github.com/Roveri91/TokyoGlow/assets/105217392/06a32c45-2452-467f-8a17-6cf99b02050f)
-![Screenshot 2023-09-25 214343](https://github.com/Roveri91/TokyoGlow/assets/105217392/c9787094-4db9-406d-a190-c7612871e711)
+![Screenshot 2023-09-25 215612](https://github.com/Roveri91/TokyoGlow/assets/105217392/3f4b10cc-8570-4930-8d3b-555c35284ec3)
+![Screenshot 2023-09-25 215553](https://github.com/Roveri91/TokyoGlow/assets/105217392/b2f88160-c0cd-47cc-b52b-c6b8f89a7a15)
+![Screenshot 2023-09-25 215521](https://github.com/Roveri91/TokyoGlow/assets/105217392/f2eef614-c95c-450c-96f5-2d39d5ba3a24)
+![Screenshot 2023-09-25 215418](https://github.com/Roveri91/TokyoGlow/assets/105217392/a38f605e-3da8-481f-823b-5188cb93b7ab)
 
 
 ⚙️ Setup
