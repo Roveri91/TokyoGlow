@@ -15,25 +15,21 @@ DROP SCREENSHOT HERE
 ---
 Install gems
 
-```
-function test() {
-  console.log("bundle install");
-}
-```
+```bundle install```
 **ENV Variables**
 Create `.env` file
 
-`touch .env`
+```touch .env```
 Inside `.env`, set these variables. For any APIs, see group Slack channel.
 
-`CLOUDINARY_URL=your_own_cloudinary_url_key`
+```CLOUDINARY_URL=your_own_cloudinary_url_key```
 
 DB Setup
-//rails db:create
-//rails db:migrate
-//rails db:seed
+```rails db:create```
+```rails db:migrate```
+```rails db:seed```
 Run a server
-//rails s
+```rails s```
 
 📕 Usage
 ---
