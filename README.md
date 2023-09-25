@@ -15,7 +15,11 @@ DROP SCREENSHOT HERE
 ---
 Install gems
 
-`bundle install`
+```
+function test() {
+  console.log("bundle install");
+}
+```
 **ENV Variables**
 Create `.env` file
 
