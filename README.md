@@ -10,17 +10,6 @@ Our team has developed a mobile app designed to assist future parents in finding
 
 DROP SCREENSHOT HERE
 
-📕 Usage
----
-
-App home: http://www.tokyoglow.site/
-
-User: peach@gmail.com
-PW: 123456
-
-
-### Getting Started
----
 
 ⚙️ ## Setup
 ---
@@ -41,7 +30,17 @@ DB Setup
 `rails db:seed`
 Run a server
 `rails s`
+
+📕 Usage
+---
+
+App home: http://www.tokyoglow.site/
+
+User: peach@gmail.com
+PW: 123456
+
 Built With
+---
 Rails 7 - Backend / Front-end
 Stimulus JS - Front-end JS
 Heroku - Deployment
